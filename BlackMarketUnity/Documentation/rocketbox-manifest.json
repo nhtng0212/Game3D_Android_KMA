@@ -1,0 +1,112 @@
+[
+  {
+    "path": "Assets/Avatars/Adults/Male_Adult_07/Export/Male_Adult_07.fbx",
+    "sha256": "acad3095ae886a583ec5f30878123b933f2cd5f24030c4bcddc000113a75c0cb",
+    "bytes": 516064
+  },
+  {
+    "path": "Assets/Avatars/Adults/Male_Adult_07/Textures/m013_body_color.tga",
+    "sha256": "60aa05b5c4bca75696619faba64e9601eb8ad13911b0ae5c541ef420a830f268",
+    "bytes": 12582956
+  },
+  {
+    "path": "Assets/Avatars/Adults/Male_Adult_07/Textures/m013_body_normal.tga",
+    "sha256": "546063ddc69ae30707f241df15986220d03458508266df41c87df30e1831b8a5",
+    "bytes": 12582956
+  },
+  {
+    "path": "Assets/Avatars/Adults/Male_Adult_07/Textures/m013_body_specular.tga",
+    "sha256": "d792d7878417ea9b6bb9e31593902fea48c59b4e24e3472948cf3ef3587005c1",
+    "bytes": 12582956
+  },
+  {
+    "path": "Assets/Avatars/Adults/Male_Adult_07/Textures/m013_head_color.tga",
+    "sha256": "a3db4a4013f39b2e38f307588b5353398e08b6fa017f5e2554287be19f454789",
+    "bytes": 12582956
+  },
+  {
+    "path": "Assets/Avatars/Adults/Male_Adult_07/Textures/m013_head_normal.tga",
+    "sha256": "6ad892bd8b044b53a0ab94cdb11a0afcfdacacba08003e7425c185347ea7dd2a",
+    "bytes": 12582956
+  },
+  {
+    "path": "Assets/Avatars/Adults/Male_Adult_07/Textures/m013_head_specular.tga",
+    "sha256": "5fbb4a790f041c8a05257774be153ebc3e445b903c99eb7b4038919b360f221d",
+    "bytes": 12582956
+  },
+  {
+    "path": "Assets/Avatars/Adults/Male_Adult_07/Textures/m013_opacity_color.tga",
+    "sha256": "d5b075decc3904150c0af6afabae65bd66ceb8a5c6b192e93557e094f9af605d",
+    "bytes": 16777260
+  },
+  {
+    "path": "Assets/Avatars/Professions/Security_Male_01/Export/Security_Male_01.fbx",
+    "sha256": "e9fe24aef03e3e154166ee14b19059c19f911ba13f4b4ddee3978e169bfd8912",
+    "bytes": 592928
+  },
+  {
+    "path": "Assets/Avatars/Professions/Security_Male_01/Textures/m171_body_color.tga",
+    "sha256": "aeaef5cf2f9a6ee27d7738cc822b4f366d1764c24640a819288263777af3e72d",
+    "bytes": 12582956
+  },
+  {
+    "path": "Assets/Avatars/Professions/Security_Male_01/Textures/m171_body_normal.tga",
+    "sha256": "17f394661146cd6ef8511988fdf9ab8d974ce2a3ef1d5ffa383eed7f6bd9b95a",
+    "bytes": 12582956
+  },
+  {
+    "path": "Assets/Avatars/Professions/Security_Male_01/Textures/m171_body_specular.tga",
+    "sha256": "364a05d66862d51a56d3e163bd02181658db96990f8a4b8eeff4463590590f83",
+    "bytes": 12582956
+  },
+  {
+    "path": "Assets/Avatars/Professions/Security_Male_01/Textures/m171_equipment_color.tga",
+    "sha256": "069c323e20382a405b17884ea187997a52e4711df856d9a21c019955848d885e",
+    "bytes": 6291500
+  },
+  {
+    "path": "Assets/Avatars/Professions/Security_Male_01/Textures/m171_equipment_normal.tga",
+    "sha256": "dadd3fbd75741fe9f7f035955fc19f14f6a8bc294211ddf07f419a0b2e879e0b",
+    "bytes": 6291500
+  },
+  {
+    "path": "Assets/Avatars/Professions/Security_Male_01/Textures/m171_equipment_specular.tga",
+    "sha256": "e305b622f417a6261bc2486f60a7be09312b4f10206c2ab2db88170c6ef4bf45",
+    "bytes": 6291500
+  },
+  {
+    "path": "Assets/Avatars/Professions/Security_Male_01/Textures/m171_head_color.tga",
+    "sha256": "f1e2485d58b14302d3a7bb9fd0587e8d0d2301458a6ca569c99a89c0426802e0",
+    "bytes": 12582956
+  },
+  {
+    "path": "Assets/Avatars/Professions/Security_Male_01/Textures/m171_head_normal.tga",
+    "sha256": "ec86b68bc2bff9d845356933c09a446ce5a61fb85a555d3306e38638fd2a244a",
+    "bytes": 12582956
+  },
+  {
+    "path": "Assets/Avatars/Professions/Security_Male_01/Textures/m171_head_specular.tga",
+    "sha256": "986c135b930d8a9748c0c91bf5c1000d398b47b71bce8f501a003cf73c002ae0",
+    "bytes": 12582956
+  },
+  {
+    "path": "Assets/Animations/all_animations_max_motextr_static/m_idle_neutral_01.max.fbx",
+    "sha256": "818cc185af21390575f7fbfdeb3012ba2ce5969fbcb220ea725a2617b339a6e2",
+    "bytes": 2418544
+  },
+  {
+    "path": "Assets/Animations/all_animations_max_motextr_xy/m_run_neutral_01.max.fbx",
+    "sha256": "5a22052ea750805ea7e097310f36cd448c838e7c88bc842a78632d9606869fa8",
+    "bytes": 868752
+  },
+  {
+    "path": "Assets/Animations/all_animations_max_motextr_xy/m_walk_neutral_01.max.fbx",
+    "sha256": "e6805ae6b6b49fe10f06c1b17b14ddde90d09b9fea689ac34793df252f44dcd0",
+    "bytes": 994336
+  },
+  {
+    "path": "LICENSE.md",
+    "sha256": "17474e386e0b9e1a700cc3d06b2b0882a2c376d9c6b49c7f8274409b8f8d2352",
+    "bytes": 1066
+  }
+]

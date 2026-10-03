@@ -1,0 +1,58 @@
+using System;
+using System.IO;
+using System.Linq;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.SceneManagement;
+using UnityEngine.Rendering;
+using UnityEditor;
+using UnityEditor.SceneManagement;
+using Unity.AI.Navigation;
+namespace BlackMarket.Editor {
+    public static class NorthPointValidation {
+        [MenuItem("BLACK MARKET/5 - Validate and render environment previews")]
+        public static void Run(){
+            if(Application.isBatchMode && string.IsNullOrEmpty(SceneManager.GetActiveScene().path))EditorSceneManager.SaveScene(SceneManager.GetActiveScene(),"Assets/BlackMarket/Scenes/EditorWorkspace.unity");
+            var previous=SceneManager.GetActiveScene();var results=new List<string>();Directory.CreateDirectory("Documentation/Previews");
+            foreach(var actor in new[]{"Alex","Operator"}){
+                var instance=UnityEngine.Object.Instantiate(Resources.Load<GameObject>("Actors/"+actor));
+                try{var animation=instance.GetComponentInChildren<Animation>();foreach(var clip in new[]{"idle","walk","run"})if(!animation || animation[clip]==null)throw new Exception("Missing animation "+actor+"/"+clip);foreach(var r in instance.GetComponentsInChildren<Renderer>())foreach(var m in r.sharedMaterials)if(!m || !m.mainTexture)throw new Exception("Missing actor texture "+actor);results.Add("PASS "+actor+": textured model and serialized idle/walk/run clips.");}catch(Exception e){results.Add("FAIL "+e.Message);}finally{UnityEngine.Object.DestroyImmediate(instance);}
+            }
+            foreach(var id in new[]{"NorthPointShop","NorthPointBunker","ControlRoom"}){
+                var scene=EditorSceneManager.NewScene(NewSceneSetup.EmptyScene,NewSceneMode.Additive);SceneManager.SetActiveScene(scene);
+                try {
+                    var prefab=Resources.Load<GameObject>("Worlds/"+id);if(!prefab)throw new Exception("Missing prefab "+id);
+                    var world=UnityEngine.Object.Instantiate(prefab);var markers=world.GetComponentsInChildren<WorldMarker>();
+                    if(markers.Length<7)throw new Exception("Missing serialized markers: "+id);
+                    foreach(var r in world.GetComponentsInChildren<Renderer>())foreach(var m in r.sharedMaterials)if(!m || m.shader.name.Contains("Error"))throw new Exception("Missing/invalid material: "+r.name);
+                    foreach(Transform child in world.transform){var visual=child.Find("Visual");var collider=child.GetComponent<BoxCollider>();if(!visual || !collider)continue;var renderers=visual.GetComponentsInChildren<Renderer>();var bound=renderers[0].bounds;foreach(var r in renderers)bound.Encapsulate(r.bounds);if(Vector3.Distance(bound.center,collider.bounds.center)>.1f || Vector3.Distance(bound.size,collider.bounds.size)>.1f)throw new Exception("Imported mesh/collider size mismatch: "+child.name);}
+                    var start=markers.First(x=>x.id=="spawn").transform.position;
+                    if(!NavMesh.SamplePosition(start,out var s,2,NavMesh.AllAreas))throw new Exception("Spawn outside navigation "+id);
+                    foreach(var point in world.GetComponentsInChildren<Interaction>()){
+                        if(!NavMesh.SamplePosition(point.transform.position,out var end,2.5f,NavMesh.AllAreas))throw new Exception("No navigation near "+point.id);
+                        var path=new NavMeshPath();if(!NavMesh.CalculatePath(s.position,end.position,NavMesh.AllAreas,path) || path.status!=NavMeshPathStatus.PathComplete)throw new Exception("Unreachable interaction "+point.id);
+                    }
+                    results.Add("PASS "+id+": materials, serialized markers, connected navigation to every interaction.");
+                    var cam=new GameObject("QA camera").AddComponent<Camera>();cam.nearClipPlane=.08f;cam.farClipPlane=150;cam.fieldOfView=67;cam.clearFlags=CameraClearFlags.SolidColor;cam.backgroundColor=new Color(.035f,.055f,.07f);
+                    var light=new GameObject("QA moon").AddComponent<Light>();light.type=LightType.Directional;light.intensity=.65f;light.color=new Color(.65f,.75f,.88f);light.transform.rotation=Quaternion.Euler(50,-30,0);light.shadows=LightShadows.Soft;
+                    RenderSettings.ambientMode=AmbientMode.Trilight;RenderSettings.ambientSkyColor=new Color(.25f,.32f,.4f);RenderSettings.ambientEquatorColor=new Color(.16f,.18f,.2f);RenderSettings.ambientGroundColor=new Color(.05f,.06f,.07f);RenderSettings.fog=false;
+                    if(id=="NorthPointShop"){
+                        Capture(cam,new Vector3(-8,2.3f,-13),new Vector3(1,2.2f,2),"shop-exterior");
+                        Capture(cam,new Vector3(-1,1.7f,1),new Vector3(-4,1.3f,9),"shop-interior");
+                        Capture(cam,new Vector3(-2.6f,1.8f,13.5f),new Vector3(-6,1.05f,17),"marcus-office");
+                        Capture(cam,new Vector3(1,1.75f,23),new Vector3(0,1.5f,31),"door-06");
+                    }else Capture(cam,new Vector3(1,1.8f,3),new Vector3(0,1.5f,22),id);
+                }catch(Exception e){results.Add("FAIL "+id+": "+e.Message);Debug.LogException(e);}
+                finally{SceneManager.SetActiveScene(previous);EditorSceneManager.CloseScene(scene,true);}
+            }
+            File.WriteAllLines("Documentation/validation.txt",results);Debug.Log(string.Join("\n",results));
+        }
+        public static void ValidateAndBuild(){Run();NorthPointBuilder.BuildLinux();}
+        static void Capture(Camera cam,Vector3 position,Vector3 target,string name){
+            cam.transform.position=position;cam.transform.LookAt(target);var rt=new RenderTexture(1600,900,24);cam.targetTexture=rt;cam.Render();
+            var old=RenderTexture.active;RenderTexture.active=rt;var tex=new Texture2D(1600,900,TextureFormat.RGB24,false);tex.ReadPixels(new Rect(0,0,1600,900),0,0);tex.Apply();File.WriteAllBytes("Documentation/Previews/"+name+".png",tex.EncodeToPNG());
+            RenderTexture.active=old;cam.targetTexture=null;rt.Release();UnityEngine.Object.DestroyImmediate(rt);UnityEngine.Object.DestroyImmediate(tex);
+        }
+    }
+}

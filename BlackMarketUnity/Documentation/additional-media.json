@@ -1,0 +1,35 @@
+[
+  {
+    "page": "https://opengameart.org/content/character3d-lowpoly",
+    "url": "https://opengameart.org/sites/default/files/character3d_fbx.zip",
+    "sha256": "ac8957d82b242fef9f54bcbb88eb846cabffae62c10da1a747a14b51f608bf95",
+    "license": "CC0"
+  },
+  {
+    "page": "https://opengameart.org/content/gun-reload-sounds",
+    "url": "https://opengameart.org/sites/default/files/gunreload1.wav",
+    "sha256": "685cac6a184e3cc3ec09a25b6ddb1d6feffd86d469778f339aa423d384035c50",
+    "license": "CC0"
+  },
+  {
+    "page": "https://opengameart.org/content/rain-loopable",
+    "url": "https://opengameart.org/sites/default/files/Rain%20OGG.zip",
+    "sha256": "e68f3e1c77493cf43bec84cebff5043bff6be9ce16d59b24caa988cd460aa75b",
+    "license": "CC0"
+  },
+  {
+    "page": "https://opengameart.org/content/pistol-5",
+    "url": "https://opengameart.org/sites/default/files/pistolfbxgltftexturesblend_1.zip",
+    "license": "CC0",
+    "author": "loafbrr_1",
+    "sha256": "3aa9970b4b601fc37a6e6034bfe53f1ebc00fd56cc0a2abb6542abf34e7754f0"
+  },
+  {
+    "page": "https://opengameart.org/content/gunshots",
+    "url": "https://opengameart.org/sites/default/files/22%20Pistol.wav",
+    "author": "kurt",
+    "license": "CC0",
+    "sha256": "32f12645134c1d8716f84ea984677ba0ae2cceab5fbc7db736c7754c3a9f4ebb",
+    "edit": "One shot cropped, normalized and tail faded"
+  }
+]

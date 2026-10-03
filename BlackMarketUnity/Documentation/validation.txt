@@ -1,0 +1,3 @@
+PASS NorthPointShop: materials, serialized markers, connected navigation to every interaction.
+PASS NorthPointBunker: materials, serialized markers, connected navigation to every interaction.
+PASS ControlRoom: materials, serialized markers, connected navigation to every interaction.
