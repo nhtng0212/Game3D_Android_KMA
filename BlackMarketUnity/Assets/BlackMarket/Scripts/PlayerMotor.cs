@@ -19,7 +19,7 @@ namespace BlackMarket {
             body=gameObject.AddComponent<CharacterController>();body.height=1.8f;body.radius=.3f;body.center=new Vector3(0,.9f,0);body.stepOffset=.25f;
             var model=Resources.Load<GameObject>("Actors/Alex");
             visual=Instantiate(model,transform).transform;visual.name="Alex visual (replaceable prefab)";
-            animationPlayer=visual.GetComponentInChildren<Animation>();
+            animationPlayer=visual.GetComponentInChildren<Animation>();visual.gameObject.AddComponent<CrouchPose>().player=this;
             weapon=Instantiate(Resources.Load<GameObject>("Actors/Pistol"),visual);weapon.name="Pistol";weapon.SetActive(campaign.state.armed);
             weapon.transform.localPosition=new Vector3(.28f,1.15f,.4f);
             foreach(var child in GetComponentsInChildren<Transform>())child.gameObject.layer=2;
@@ -52,10 +52,11 @@ namespace BlackMarket {
             if(body.isGrounded && vertical<0)vertical=-2;vertical-=22*Time.deltaTime;
             body.Move((direction*speed+Vector3.up*vertical)*Time.deltaTime);
             if(direction.sqrMagnitude>.01f || aiming)visual.rotation=Quaternion.Slerp(visual.rotation,aiming?Quaternion.Euler(0,yaw,0):Quaternion.LookRotation(direction),Time.deltaTime*12);
-            visual.localPosition=Vector3.down*(crouch? .25f:0);
+            if(!crouch && body.height<1.7f && Physics.CheckCapsule(transform.position+Vector3.up*.32f,transform.position+Vector3.up*1.48f,.29f,~(1<<2),QueryTriggerInteraction.Ignore))crouch=true;
+            body.height=crouch?1.25f:1.8f;body.center=Vector3.up*body.height*.5f;visual.localPosition=Vector3.zero;
             weapon.SetActive(campaign.state.armed);
             if(animationPlayer){string clip=direction.sqrMagnitude>.01f?(speed>4?"run":"walk"):"idle";if(!animationPlayer.IsPlaying(clip))animationPlayer.CrossFade(clip,.2f);}
-            if(direction.sqrMagnitude>.1f && Time.time>stepTime){stepTime=Time.time+(speed>4? .33f:.52f);campaign.sound.Play("step",crouch? .06f:.17f,transform.position);if(speed>4)campaign.Noise(transform.position,5);}
+            if(direction.sqrMagnitude>.1f && Time.time>stepTime){stepTime=Time.time+(speed>4? .33f:.52f);campaign.sound.Play(speed>4?"run":"step",crouch? .045f:speed>4?.27f:.14f,transform.position);if(speed>4)campaign.Noise(transform.position,5);}
             if(reloadTime>0){reloadTime-=Time.deltaTime;if(reloadTime<=0){int n=Mathf.Min(8-campaign.state.ammo,campaign.state.reserve);campaign.state.ammo+=n;campaign.state.reserve-=n;}}
             if(campaign.state.armed && (touchFire || (mouse!=null && mouse.leftButton.isPressed && Cursor.lockState==CursorLockMode.Locked)))Fire();
             FindTarget();

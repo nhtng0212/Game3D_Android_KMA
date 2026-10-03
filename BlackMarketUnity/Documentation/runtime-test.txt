@@ -1,0 +1,71 @@
+PASS campaign starts
+PASS menu on boot
+PASS prologue
+PASS chapter 1 starts
+PASS navigation parking to Marcus office
+PASS collision traversal parking to Marcus office
+PASS interaction exists door06
+PASS Door 06 gate
+PASS interaction exists keycard
+PASS keycard
+PASS interaction exists computer
+PASS interaction exists door06
+PASS unarmed stealth
+PASS patrol uses flashlight and holsters gun
+PASS player in flashlight cone visible
+PASS wall blocks flashlight detection
+PASS standing head exposed above low cover
+PASS crouching behind crate breaks visibility
+PASS crouch pose head height=1.022 (must be below 1.35 m)
+PASS brief exposure builds suspicion before drawing
+PASS confirmed detection draws gun
+PASS draw delay prevents instant shot
+PASS guard fires after detection and draw delay
+PASS lost sight enters search
+PASS search remembers last sighting without tracking through wall
+PASS wall blocks incoming shots
+PASS search timeout returns to flashlight patrol
+PASS sound prompts flashlight investigation without instant combat
+PASS interaction exists door06
+PASS radio gate
+PASS interaction exists radio
+PASS interaction exists door06
+PASS biometric descent
+PASS interaction exists pistol
+PASS pistol unlock
+PASS reload transfer
+PASS hitscan damages visible target and consumes one round
+PASS navigation bunker room B reachable
+PASS collision traversal bunker room B reachable
+PASS interaction exists order
+PASS interaction exists recording
+PASS tablet unlock
+PASS security tutorial
+PASS physical shutter closes
+PASS interaction exists exit
+PASS storage chapter
+PASS darkness
+PASS interaction exists exit
+PASS evidence chapter
+PASS interaction exists upload
+PASS bounded purge encounter
+PASS interaction exists exit
+PASS upload exit gated
+PASS interaction exists exit
+PASS Victor chapter
+PASS Victor phase 2 revokes security
+PASS Victor immune before override
+PASS interaction exists override
+PASS local override
+PASS Victor phase 3
+PASS EMP
+PASS interaction exists final
+PASS final choice
+PASS destroy ending
+PASS accept ending
+PASS retry restores full encounter
+PASS death
+PASS retry after death
+PASS pause
+PASS resume
+RESULT: PASS / 0 failures

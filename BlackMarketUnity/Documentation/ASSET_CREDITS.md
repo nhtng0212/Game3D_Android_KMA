@@ -52,3 +52,7 @@ https://github.com/microsoft/Microsoft-Rocketbox
 - Poly Haven bổ sung: https://polyhaven.com/a/desk_lamp_arm_01 và https://polyhaven.com/a/street_lamp_01.
 
 `additional-media.json` ghi URL tải và SHA256. Character3D của NephthysGameDev đã tải để đánh giá nhưng không được chọn sử dụng; không phải nhân vật trong game.
+
+## Bổ sung cửa hàng / stealth
+
+Poly Haven, CC0: https://polyhaven.com/a/Television_01 , https://polyhaven.com/a/television_02 , https://polyhaven.com/a/cardboard_box_01 . File tải/MD5/tác giả nằm trong media-manifest.json. Kệ mở, bố cục phòng, chi tiết dụng cụ nhỏ và đèn pin được tạo trong dự án.

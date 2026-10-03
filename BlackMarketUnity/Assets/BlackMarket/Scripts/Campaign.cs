@@ -97,7 +97,7 @@ namespace BlackMarket {
         public EnemyController Spawn(string id,bool scout=false,bool boss=false) {
             var go=new GameObject(boss?"Victor Hale":scout?"Scout":"Purge Operator");go.transform.SetParent(level.transform);go.transform.position=Marker(id).position;
             var e=go.AddComponent<EnemyController>();e.campaign=this;e.boss=boss;e.hp=boss?300:scout?50:100;e.damage=boss?15:scout?10:15;e.speed=scout?4.5f:3;
-            e.Setup();enemies.Add(e);return e;
+            e.routeId=id;e.Setup();enemies.Add(e);return e;
         }
         public void Objective(string id,string text) {objectiveId=id;objective=text;}
         public bool Available(string id) {
@@ -162,8 +162,9 @@ namespace BlackMarket {
             if(!Running)return;state.elapsed+=Time.deltaTime;
             if(upload>0){upload-=Time.deltaTime;if(upload<=0){flags.Add("uploaded");Objective("exit","Bằng chứng đã truyền. Đến Control Room đối mặt Victor.");}}
         }
-        void OnApplicationFocus(bool focus){if(!focus && Running)Pause();}
-        void OnApplicationPause(bool value){if(value && Running)Pause();}
+        bool IsSelfTest => Debug.isDebugBuild && Array.IndexOf(Environment.GetCommandLineArgs(),"--self-test")>=0;
+        void OnApplicationFocus(bool focus){if(!focus && Running && !IsSelfTest)Pause();}
+        void OnApplicationPause(bool value){if(value && Running && !IsSelfTest)Pause();}
         void OnDestroy(){Time.timeScale=1;Cursor.lockState=CursorLockMode.None;if(Instance==this)Instance=null;}
     }
 }

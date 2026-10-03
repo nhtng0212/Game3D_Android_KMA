@@ -6,7 +6,7 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 DEST = ROOT / 'Assets/BlackMarket/Resources/Media'
 HEAD = {'User-Agent': 'BlackMarketUnity/0.2 (local educational game asset download)'}
 MODELS = ['metal_office_desk', 'vintage_radio_transceiver', 'metal_tool_chest',
-          'rollershutter_door', 'wooden_crate_01', 'metal_stool_01', 'Shelf_01', 'desk_lamp_arm_01', 'street_lamp_01']
+          'rollershutter_door', 'wooden_crate_01', 'metal_stool_01', 'Shelf_01', 'desk_lamp_arm_01', 'street_lamp_01', 'Television_01', 'television_02', 'cardboard_box_01']
 SURFACES = ['painted_plaster_wall', 'concrete_floor_02', 'asphalt_02', 'brick_wall_001', 'metal_plate']
 
 def get(url):

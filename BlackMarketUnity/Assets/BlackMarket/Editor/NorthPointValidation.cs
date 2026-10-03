@@ -33,20 +33,24 @@ namespace BlackMarket.Editor {
                         if(!NavMesh.SamplePosition(point.transform.position,out var end,2.5f,NavMesh.AllAreas))throw new Exception("No navigation near "+point.id);
                         var path=new NavMeshPath();if(!NavMesh.CalculatePath(s.position,end.position,NavMesh.AllAreas,path) || path.status!=NavMeshPathStatus.PathComplete)throw new Exception("Unreachable interaction "+point.id);
                     }
-                    results.Add("PASS "+id+": materials, serialized markers, connected navigation to every interaction.");
+                    foreach(var marker in markers.Where(m=>m.id.StartsWith("patrol_"))){if(!NavMesh.SamplePosition(marker.transform.position,out var endpoint,1,NavMesh.AllAreas))throw new Exception("Patrol point outside navmesh "+marker.id);var route=new NavMeshPath();if(!NavMesh.CalculatePath(s.position,endpoint.position,NavMesh.AllAreas,route) || route.status!=NavMeshPathStatus.PathComplete)throw new Exception("Patrol point unreachable "+marker.id);}
+                    results.Add("PASS "+id+": materials, model/collider bounds, interactions and patrol routes reachable.");
                     var cam=new GameObject("QA camera").AddComponent<Camera>();cam.nearClipPlane=.08f;cam.farClipPlane=150;cam.fieldOfView=67;cam.clearFlags=CameraClearFlags.SolidColor;cam.backgroundColor=new Color(.035f,.055f,.07f);
                     var light=new GameObject("QA moon").AddComponent<Light>();light.type=LightType.Directional;light.intensity=.65f;light.color=new Color(.65f,.75f,.88f);light.transform.rotation=Quaternion.Euler(50,-30,0);light.shadows=LightShadows.Soft;
                     RenderSettings.ambientMode=AmbientMode.Trilight;RenderSettings.ambientSkyColor=new Color(.25f,.32f,.4f);RenderSettings.ambientEquatorColor=new Color(.16f,.18f,.2f);RenderSettings.ambientGroundColor=new Color(.05f,.06f,.07f);RenderSettings.fog=false;
                     if(id=="NorthPointShop"){
                         Capture(cam,new Vector3(-8,2.3f,-13),new Vector3(1,2.2f,2),"shop-exterior");
                         Capture(cam,new Vector3(-1,1.7f,1),new Vector3(-4,1.3f,9),"shop-interior");
-                        Capture(cam,new Vector3(-2.6f,1.8f,13.5f),new Vector3(-6,1.05f,17),"marcus-office");
-                        Capture(cam,new Vector3(1,1.75f,23),new Vector3(0,1.5f,31),"door-06");
+                        Capture(cam,new Vector3(-5,1.8f,13.5f),new Vector3(-10,1.05f,17),"marcus-office");
+                        Capture(cam,new Vector3(-7,1.75f,32),new Vector3(0,1.5f,35),"door-06");
+                        Capture(cam,new Vector3(4,1.7f,13),new Vector3(11,1.1f,17),"repair-intake");Capture(cam,new Vector3(5,1.7f,20),new Vector3(11,1.1f,23),"workshop-radio");Capture(cam,new Vector3(2,1.7f,26),new Vector3(-9,1.1f,29),"warehouse-cover");
+                        foreach(var r in world.GetComponentsInChildren<Renderer>())if(r.gameObject.name=="Ceiling" || r.gameObject.name=="Structural beam" || r.gameObject.name=="Door lintel")r.enabled=false;
+                        cam.orthographic=true;cam.orthographicSize=22;Capture(cam,new Vector3(0,44,17.99f),new Vector3(0,0,18),"shop-floorplan");
                     }else Capture(cam,new Vector3(1,1.8f,3),new Vector3(0,1.5f,22),id);
                 }catch(Exception e){results.Add("FAIL "+id+": "+e.Message);Debug.LogException(e);}
                 finally{SceneManager.SetActiveScene(previous);EditorSceneManager.CloseScene(scene,true);}
             }
-            File.WriteAllLines("Documentation/validation.txt",results);Debug.Log(string.Join("\n",results));
+            File.WriteAllLines("Documentation/validation.txt",results);Debug.Log(string.Join("\n",results));if(results.Any(x=>x.StartsWith("FAIL")))throw new Exception("Asset validation failed. See Documentation/validation.txt");
         }
         public static void ValidateAndBuild(){Run();NorthPointBuilder.BuildLinux();}
         static void Capture(Camera cam,Vector3 position,Vector3 target,string name){

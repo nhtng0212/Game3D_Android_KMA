@@ -8,7 +8,7 @@ namespace BlackMarket {
         public void Toggle(){if(opened){Close();return;}if(!game.Running)return;if(!game.state.tablet){game.ui.Toast("Tablet mở sau bản ghi FOR_ALEX.");return;}if(revoked){game.ui.Toast("ACCESS REVOKED / Tìm terminal khôi phục.");return;}opened=true;game.player.ResetTouch();game.LockCursor(false);View(0);}
         public void View(int index){selected=index;var p=game.Marker("camera_"+index);game.view.transform.SetPositionAndRotation(p.position,p.rotation);game.flags.Add("camera_used");CheckObjective();}
         public void Close(){if(!opened)return;opened=false;if(game && game.player)game.player.ResetTouch();if(game)game.LockCursor(game.Running);}
-        public void SetDark(bool value){dark=value;foreach(var light in game.level.GetComponentsInChildren<Light>())if(!light.name.StartsWith("Emergency"))light.enabled=!value;RenderSettings.ambientIntensity=value? .2f:.8f;}
+        public void SetDark(bool value){dark=value;foreach(var light in game.level.GetComponentsInChildren<Light>())if(!light.name.StartsWith("Emergency") && !light.GetComponentInParent<EnemyController>())light.enabled=!value;RenderSettings.ambientIntensity=value? .2f:.8f;}
         public void Light(){if(!opened || revoked)return;SetDark(!dark);game.flags.Add("lights_used");CheckObjective();game.sound.Play("door",.2f);if(game.state.stage==6 && empCooldown<=0){empCooldown=12;foreach(var e in game.enemies)if(e && e.hp>0)e.stun=5;game.ui.Toast("XUNG EMP / Vô hiệu hóa địch 5 giây");}}
         public void Door(){
             if(!opened || revoked)return;

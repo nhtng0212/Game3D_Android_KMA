@@ -11,11 +11,11 @@ using UnityEditor;
 using UnityEditor.SceneManagement;
 using Unity.AI.Navigation;
 namespace BlackMarket.Editor {
-    public static class NorthPointBuilder {
+    public static partial class NorthPointBuilder {
         const string Root="Assets/BlackMarket/Resources/";
         static Transform parent;static Font signFont;
         static Dictionary<string,Material> mats=new Dictionary<string,Material>();
-        static string[] modelIds={"metal_office_desk","vintage_radio_transceiver","metal_tool_chest","rollershutter_door","wooden_crate_01","metal_stool_01","Shelf_01","desk_lamp_arm_01","street_lamp_01"};
+        static string[] modelIds={"metal_office_desk","vintage_radio_transceiver","metal_tool_chest","rollershutter_door","wooden_crate_01","metal_stool_01","Shelf_01","desk_lamp_arm_01","street_lamp_01","Television_01","television_02","cardboard_box_01"};
         [MenuItem("BLACK MARKET/1 - Prepare North Point project")]
         public static void Prepare(){
             Directory.CreateDirectory(Root+"Materials");Directory.CreateDirectory(Root+"Worlds");Directory.CreateDirectory(Root+"Actors");Directory.CreateDirectory("Assets/BlackMarket/Scenes");Directory.CreateDirectory("Documentation");
@@ -54,6 +54,7 @@ namespace BlackMarket.Editor {
             var rain=new Material(Shader.Find("Universal Render Pipeline/Particles/Unlit"));rain.SetFloat("_Surface",1);rain.SetFloat("_SrcBlend",5);rain.SetFloat("_DstBlend",10);rain.SetFloat("_ZWrite",0);rain.EnableKeyword("_SURFACE_TYPE_TRANSPARENT");rain.renderQueue=3000;SaveMat("Rain",rain);
             mats.Clear();foreach(var id in modelIds)Pbr(id);Pbr("vintage_radio_transceiver","accessories_");
             foreach(var id in new[]{"painted_plaster_wall","concrete_floor_02","asphalt_02","brick_wall_001","metal_plate"})Pbr(id);
+            Plain("Cardboard",new Color(.48f,.29f,.13f),0,.1f);Plain("PackingTape",new Color(.5f,.36f,.19f),0,.2f);Plain("ShippingLabel",new Color(.75f,.73f,.66f),0,.05f);
             Plain("Steel",new Color(.12f,.145f,.15f),.8f,.42f);Plain("Black",new Color(.018f,.024f,.029f),.2f,.4f);
             Plain("Glass",new Color(.035f,.075f,.09f),.75f,.95f);Plain("Paper",new Color(.76f,.73f,.63f));
             Plain("Amber",new Color(.9f,.4f,.1f),.2f,.3f,2);Plain("WhiteLight",new Color(.7f,.84f,.88f),0,.4f,3);
@@ -90,7 +91,7 @@ namespace BlackMarket.Editor {
         }
         static void MakeWeapon(){
             var root=new GameObject("Pistol");var model=UnityEngine.Object.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>(Root+"Weapons/Frame.fbx"),root.transform);
-            var rs=model.GetComponentsInChildren<Renderer>();if(rs.Length==0)throw new Exception("Weapon mesh missing");var b=rs[0].bounds;foreach(var r in rs)b.Encapsulate(r.bounds);float scale=.25f/Mathf.Max(b.size.x,b.size.y,b.size.z);model.transform.localScale*=scale;model.transform.localPosition=(model.transform.localPosition-b.center)*scale;model.transform.localRotation=Quaternion.Euler(0,90,0);
+            var rs=model.GetComponentsInChildren<Renderer>();if(rs.Length==0)throw new Exception("Weapon mesh missing");var b=rs[0].bounds;foreach(var r in rs)b.Encapsulate(r.bounds);float scale=.25f/Mathf.Max(b.size.x,b.size.y,b.size.z);model.transform.localScale*=scale;model.transform.localPosition=(model.transform.localPosition-b.center)*scale;model.transform.localPosition=Quaternion.Euler(0,90,0)*model.transform.localPosition;model.transform.localRotation=Quaternion.Euler(0,90,0)*model.transform.localRotation;
             var m=new Material(Shader.Find("Universal Render Pipeline/Lit"));m.SetTexture("_BaseMap",AssetDatabase.LoadAssetAtPath<Texture2D>(Root+"Weapons/Pistol_1_Albedo.png"));m.SetFloat("_Metallic",.7f);m.SetFloat("_Smoothness",.5f);m=SaveMat("Pistol",m);foreach(var r in rs)r.sharedMaterial=m;
             PrefabUtility.SaveAsPrefabAsset(root,Root+"Actors/Pistol.prefab");UnityEngine.Object.DestroyImmediate(root);
         }
@@ -104,7 +105,7 @@ namespace BlackMarket.Editor {
         static GameObject Model(string id,Vector3 p,float width,float yaw=0,bool solid=true){
             var source=AssetDatabase.LoadAssetAtPath<GameObject>(Root+"Media/"+id+"/"+id+".fbx");var root=new GameObject(id);root.transform.SetParent(parent);root.transform.position=Vector3.zero;
             var g=UnityEngine.Object.Instantiate(source,root.transform);g.name="Visual";var renderers=g.GetComponentsInChildren<Renderer>();var b=renderers[0].bounds;foreach(var r in renderers)b.Encapsulate(r.bounds);
-            float scale=width/Mathf.Max(.01f,b.size.x);g.transform.localScale*=scale;g.transform.localPosition=(g.transform.localPosition-new Vector3(b.center.x,b.min.y,b.center.z))*scale;
+            float height=id=="metal_office_desk"?.85f:id=="metal_stool_01"?.6f:id=="Shelf_01"?2.4f:0;float scale=height>0?height/Mathf.Max(.01f,b.size.y):width/Mathf.Max(.01f,b.size.x);g.transform.localScale*=scale;g.transform.localPosition=(g.transform.localPosition-new Vector3(b.center.x,b.min.y,b.center.z))*scale;
             foreach(var r in renderers){r.sharedMaterials=Enumerable.Repeat(mats[id],Mathf.Max(1,r.sharedMaterials.Length)).ToArray();r.gameObject.isStatic=true;}
             if(solid){var c=root.AddComponent<BoxCollider>();c.center=new Vector3(0,b.size.y*scale/2,0);c.size=b.size*scale;}
             root.transform.position=p;root.transform.localRotation=Quaternion.Euler(0,yaw+(id=="metal_office_desk"?180:0),0);root.isStatic=true;return root;
@@ -120,6 +121,7 @@ namespace BlackMarket.Editor {
             foreach(float x in new[]{-opening/2,opening/2})Box("Door jamb",new Vector3(x,1.4f,z),new Vector3(.09f,2.8f,.32f),"Steel");
         }
         static void Monitor(Vector3 p,string caption,float yaw=0){
+            if(p.y<1.6f)p.y=1.24f;Box("Monitor neck",p-new Vector3(0,.28f,0),new Vector3(.09f,.16f,.06f),"Steel",false);
             Box("Monitor stand",p-new Vector3(0,.35f,0),new Vector3(.36f,.08f,.3f),"Steel",false);Box("Terminal",p,new Vector3(.8f,.48f,.09f),"Black",false);Box("CRT display",p-new Vector3(0,0,.053f),new Vector3(.71f,.38f,.015f),"Screen",false);Sign(caption,p-new Vector3(0,0,.065f),.025f,new Color(.5f,.9f,.68f),yaw);
         }
         static void Supply(Vector3 p,string id){Box("Medical supply",p+Vector3.up*.25f,new Vector3(.65f,.5f,.45f),"Steel");Box("Medical stripe",p+new Vector3(0,.32f,-.23f),new Vector3(.42f,.08f,.02f),"Paper",false);Box("Medical cross",p+new Vector3(0,.32f,-.245f),new Vector3(.08f,.25f,.02f),"Paper",false);Item(id,"TIẾP TẾ / MEDICAL",p+Vector3.forward*-.65f);}
@@ -134,36 +136,6 @@ namespace BlackMarket.Editor {
             scene.name=name;EditorSceneManager.SaveScene(scene,"Assets/BlackMarket/Scenes/"+name+"_Environment.unity");
             SceneManager.SetActiveScene(previous);EditorSceneManager.CloseScene(scene,true);
         }
-        static void Shop(){
-            Floor(24,24,-24,"asphalt_02");Floor(20,32,0,"concrete_floor_02");
-            Box("West brick wall",new Vector3(-10,1.9f,16),new Vector3(.35f,3.8f,32),"brick_wall_001");Box("East brick wall",new Vector3(10,1.9f,16),new Vector3(.35f,3.8f,32),"brick_wall_001");Box("Rear wall",new Vector3(0,1.9f,32),new Vector3(20,3.8f,.3f),"painted_plaster_wall");
-            Box("Ceiling",new Vector3(0,3.9f,16),new Vector3(20,.2f,32),"painted_plaster_wall");
-            CrossWall(0,20,3.8f,"brick_wall_001");CrossWall(11,20);CrossWall(21,20);
-            foreach(float x in new[]{-6f,6f}){Box("Storefront glass",new Vector3(x,1.75f,-.2f),new Vector3(6.5f,2.3f,.035f),"Glass",false);for(int i=-1;i<=1;i++)Box("Window mullion",new Vector3(x+i*2.8f,1.75f,-.24f),new Vector3(.065f,2.4f,.07f),"Steel",false);Sign(x<0?"ELECTRONICS / PARTS":"REPAIRS / SERVICE",new Vector3(x,1.8f,-.3f),.074f);}
-            Box("Sign fascia",new Vector3(0,4.35f,-.1f),new Vector3(20,1.15f,.35f),"Steel");Sign("NORTH POINT",new Vector3(-1,4.45f,-.31f),.26f);Sign("SUPPLY",new Vector3(7.1f,4.4f,-.32f),.125f,new Color(.9f,.62f,.31f));
-            Sign("ELECTRONICS  •  REPAIR  •  EST. 1998",new Vector3(0,3.96f,-.32f),.07f,new Color(.65f,.73f,.75f));
-            Light("Emergency facade",new Vector3(0,5,-2),new Color(.77f,.83f,1),4,14,LightType.Spot);
-            for(int i=-2;i<=2;i++)Box("Parking stripe",new Vector3(i*4,.015f,-10),new Vector3(.09f,.02f,6),"Paper",false);
-            foreach(float x in new[]{-11f,11f}){Model("street_lamp_01",new Vector3(x,0,-9),1.2f);Box("Bollard",new Vector3(x,.55f,-2),new Vector3(.15f,1.1f,.15f),"Steel");Light("Emergency street",new Vector3(x,5,-9),new Color(1,.62f,.28f),3,15);}
-            for(int i=0;i<4;i++){float x=i%2==0?-6:6;float z=3+i/2*4;Model("Shelf_01",new Vector3(x,0,z),2.8f,90);for(int j=0;j<3;j++){var pos=new Vector3(x-.6f+j*.6f,1.25f,z-.1f);Box("Electronics packaging",pos,new Vector3(.4f,.45f,.35f),"Paper",false);Sign("NP\nCOMPONENTS",pos-Vector3.forward*.18f,.017f,Color.black);}}
-            Model("metal_office_desk",new Vector3(-5,0,8),2.9f);Monitor(new Vector3(-5,1.35f,8),"NORTH POINT\nSERVICE DESK");Item("note","GHI CHÚ MARCUS",new Vector3(-4.3f,.95f,7.3f));
-            // Side rooms remain connected to the central service corridor.
-            foreach(float x in new[]{-2f,2f}){Box("Office partition",new Vector3(x,1.8f,12.5f),new Vector3(.2f,3.6f,3),"painted_plaster_wall");Box("Office partition",new Vector3(x,1.8f,19),new Vector3(.2f,3.6f,4),"painted_plaster_wall");}
-            Sign("M. CARTER / OFFICE",new Vector3(-5.5f,2.7f,10.85f),.085f);Sign("WORKSHOP",new Vector3(5.5f,2.7f,10.85f),.085f);
-            Model("metal_office_desk",new Vector3(-6,0,16.7f),2.4f);Monitor(new Vector3(-6,1.28f,16.7f),"M. CARTER\nORDER #071");Model("metal_stool_01",new Vector3(-6,0,18),.55f);Model("desk_lamp_arm_01",new Vector3(-6.8f,.88f,16.7f),.4f,180,false);Light("Marcus desk lamp",new Vector3(-6.6f,1.5f,16.3f),new Color(1,.7f,.4f),.7f,3);
-            Box("Marcus keycard",new Vector3(-6.75f,.86f,16.3f),new Vector3(.16f,.008f,.1f),"Paper",false);Item("keycard","THẺ MARCUS",new Vector3(-6.75f,.9f,16.05f));Item("computer","TERMINAL MARCUS",new Vector3(-5.5f,1.1f,16.1f));
-            Model("metal_tool_chest",new Vector3(6,0,18),2.5f);Model("metal_office_desk",new Vector3(6,0,15),2.6f);Model("vintage_radio_transceiver",new Vector3(6,.85f,15),.65f,0,false);Item("radio","RADIO / BẬT",new Vector3(6,1,14.35f));
-            for(int i=0;i<4;i++){Model("wooden_crate_01",new Vector3(-6+i%2*2.5f,0,24+i/2*3),1.6f);Model("Shelf_01",new Vector3(6,0,24+i*1.8f),2.3f,90);}
-            Sign("WAREHOUSE / AUTHORIZED PERSONNEL",new Vector3(-5,2.8f,20.8f),.075f);
-            Model("rollershutter_door",new Vector3(0,0,31.65f),2.7f);Sign("06",new Vector3(0,2.2f,31.3f),.23f,new Color(.8f,.59f,.32f));Sign("BIOMETRIC ACCESS",new Vector3(0,.95f,31.25f),.043f);Item("door06","DOOR 06 / SCANNER",new Vector3(0,1.1f,30.5f));
-            Box("Biometric panel",new Vector3(1.65f,1.3f,31.2f),new Vector3(.22f,.4f,.15f),"Screen",false);
-            foreach(var z in new[]{4f,8f,15f,25f,29f})Fixture(new Vector3(0,3.65f,z));Fixture(new Vector3(-6,3.65f,16),true);Fixture(new Vector3(6,3.65f,16));
-            // Structural beams and exposed utilities give the service building a believable scale.
-            for(int z=2;z<32;z+=4){Box("Ceiling beam",new Vector3(0,3.7f,z),new Vector3(20,.25f,.15f),"Steel",false);Box("Vent duct",new Vector3(8.8f,3.25f,z),new Vector3(.6f,.4f,4),"metal_plate",false);}
-            for(int i=0;i<6;i++){var p=new Vector3(-35+i*14,4,51);Box("Industrial neighbour",p,new Vector3(10,8+i%3*2,12),"brick_wall_001");}
-            Mark("spawn",new Vector3(0,.1f,-9));Mark("enemy_a",new Vector3(-3,.1f,25),180);Mark("enemy_b",new Vector3(4,.1f,28),180);
-            Mark("shutter",new Vector3(0,0,21));Mark("alarm",new Vector3(6,1,15));for(int i=0;i<3;i++){var c=Mark("camera_"+i,new Vector3(-8,3,5+i*11));c.LookAt(new Vector3(0,1,9+i*9));}
-        }
         static void Bunker(bool final){
             float width=24,depth=44;Floor(width,depth,0,"concrete_floor_02");
             Box("West retaining wall",new Vector3(-12,1.9f,22),new Vector3(.4f,3.8f,44),"painted_plaster_wall");Box("East retaining wall",new Vector3(12,1.9f,22),new Vector3(.4f,3.8f,44),"painted_plaster_wall");
@@ -176,7 +148,7 @@ namespace BlackMarket.Editor {
             Sign(final?"THE MARKET":"SERVER / FOR_ALEX",new Vector3(0,2.8f,43.7f),.16f);
             for(int i=0;i<4;i++){Model("wooden_crate_01",new Vector3(-6,0,5+i*9),1.9f);Model("metal_tool_chest",new Vector3(7,0,7+i*8),2);}
             for(int i=0;i<4;i++)Rack(new Vector3(-10,0,30+i*3));
-            Model("metal_office_desk",new Vector3(-7,0,10),2.8f);var pistol=UnityEngine.Object.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>(Root+"Actors/Pistol.prefab"),parent);pistol.transform.position=new Vector3(-7,.95f,10);pistol.transform.rotation=Quaternion.Euler(0,0,90);Item("pistol","PISTOL / ARMORY",new Vector3(-7,1,9.2f));
+            Model("metal_office_desk",new Vector3(-7,0,10),2.8f);var pistol=UnityEngine.Object.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>(Root+"Actors/Pistol.prefab"),parent);pistol.transform.position=new Vector3(-7,.9f,10);pistol.transform.rotation=Quaternion.Euler(0,0,90);Item("pistol","PISTOL / ARMORY",new Vector3(-7,1,9.2f));
             Model("metal_tool_chest",new Vector3(6,0,22),2);Sign("071",new Vector3(6,1.5f,21.5f),.12f);Item("order","LOCKER 071",new Vector3(6,1,21));
             Model("metal_office_desk",new Vector3(-5,0,39),2.6f);Monitor(new Vector3(-5,1.25f,39),"FOR_ALEX\nENCRYPTED");Item("recording","FOR_ALEX / DATA DRIVE",new Vector3(-5,1,38.2f));
             Model("metal_office_desk",new Vector3(5,0,19),2.3f);Monitor(new Vector3(5,1.25f,19),final?"LOCAL OVERRIDE":"ORDER #071\nUPLINK READY");Item(final?"override":"upload",final?"KHÔI PHỤC KEEPER":"UPLINK / ORDER 071",new Vector3(5,1,18.2f));

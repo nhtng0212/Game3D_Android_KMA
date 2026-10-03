@@ -31,7 +31,7 @@ Các scene `*_Environment.unity` là bản dựng để xem và chỉnh tham kh�
 
 ## Mức hoàn thiện cần hiểu đúng
 
-Lượt nâng cấp này dùng nhân vật Rocketbox có quần áo/texture và idle/walk/run, súng FBX có texture, 14 asset Poly Haven (đạo cụ/vật liệu), tiếng mưa và nạp đạn thu thật, foley bước chân biến thiên. Đã sửa vị trí model nhập, UV theo kích thước thật, biển chữ có depth test, thêm chỉ dẫn khoảng cách tới mục tiêu và mưa ngoài cửa hàng.
+Lượt nâng cấp này dùng nhân vật Rocketbox có quần áo/texture và idle/walk/run, súng FBX có texture, 17 asset Poly Haven (đạo cụ/vật liệu), tiếng mưa và nạp đạn thu thật, foley bước chân biến thiên. Đã sửa vị trí model nhập, UV theo kích thước thật, biển chữ có depth test, thêm chỉ dẫn khoảng cách tới mục tiêu, thanh chỉnh độ sáng và mưa ngoài cửa hàng. Bàn làm việc cao 0,85 m, kệ cao 2,4 m; kích thước mesh được đối chiếu với collider.
 
 Các giới hạn còn lại: cử động ngắm là tư thế tay điều chỉnh bằng code, chưa có mocap chiến đấu/nạp đạn chuyên dụng; Victor dùng chung model an ninh; cutscene là chữ và chưa có lồng tiếng. Tiếng tín hiệu/radio/nền bunker còn một phần audio tổng hợp. Các khu ngầm vẫn dùng chung cấu trúc module. Đây chưa phải đồ họa AAA hay bản nghiệm thu mỹ thuật cuối cùng.
 
@@ -53,3 +53,7 @@ Từ thư mục `BlackMarketUnity`, chạy `./play-linux.sh`. Script mở bản 
 WASD di chuyển, chuột xoay camera, Shift chạy, C khom, E tương tác; chuột phải ngắm, chuột trái bắn, R nạp; Tab Tablet khi đã mở khóa, Esc tạm dừng. Menu có nút Thoát game.
 
 Biểu tượng ◇ và số mét chỉ vị trí mục tiêu hiện tại. Checkpoint được lưu ở đầu mỗi chương; thử lại từ menu khi chết.
+
+## Cửa hàng mới và NPC đèn pin
+
+Xem [SHOP_STEALTH_VI.md](SHOP_STEALTH_VI.md) để biết bố cục phòng/đường vòng, vật che, tuần tra đèn pin và âm thanh. Chọn BẮT ĐẦU CHIẾN DỊCH để khám phá cửa hàng; NPC xuất hiện khi mất điện ở chương 2.

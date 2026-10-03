@@ -1,3 +1,5 @@
-PASS NorthPointShop: materials, serialized markers, connected navigation to every interaction.
-PASS NorthPointBunker: materials, serialized markers, connected navigation to every interaction.
-PASS ControlRoom: materials, serialized markers, connected navigation to every interaction.
+PASS Alex: textured model and serialized idle/walk/run clips.
+PASS Operator: textured model and serialized idle/walk/run clips.
+PASS NorthPointShop: materials, model/collider bounds, interactions and patrol routes reachable.
+PASS NorthPointBunker: materials, model/collider bounds, interactions and patrol routes reachable.
+PASS ControlRoom: materials, model/collider bounds, interactions and patrol routes reachable.

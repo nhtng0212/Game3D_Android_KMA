@@ -625,6 +625,177 @@
     }
   },
   {
+    "id": "Television_01",
+    "source": "https://polyhaven.com/a/Television_01",
+    "license": "CC0-1.0",
+    "authors": {
+      "Gabriel Radi\u0107": "All"
+    },
+    "files": {
+      "Television_01.fbx": {
+        "include": {
+          "textures/Television_01_metallic_1k.exr": {
+            "size": 166176,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/Television_01/Television_01_metallic_1k.exr",
+            "md5": "431c36e43ccca19611204eeba757e691"
+          },
+          "textures/Television_01_diff_1k.jpg": {
+            "size": 102231,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/Television_01/Television_01_diff_1k.jpg",
+            "md5": "bf1b3d0563c279557acfed2402c421b1"
+          },
+          "textures/Television_01_roughness_1k.jpg": {
+            "size": 207596,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/Television_01/Television_01_roughness_1k.jpg",
+            "md5": "a48cd146481eadd564c75a5ebb067ac6"
+          },
+          "textures/Television_01_nor_gl_1k.exr": {
+            "size": 919355,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/Television_01/Television_01_nor_gl_1k.exr",
+            "md5": "249402994145210273800cf3164a72f4"
+          }
+        },
+        "size": 79228,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/fbx/1k/Television_01/Television_01_1k.fbx",
+        "md5": "3abf6b33cc956c0c42c6e7f88e30bdb2"
+      },
+      "diffuse.jpg": {
+        "size": 102231,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/Television_01/Television_01_diff_1k.jpg",
+        "md5": "bf1b3d0563c279557acfed2402c421b1"
+      },
+      "nor_gl.jpg": {
+        "size": 144808,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/Television_01/Television_01_nor_gl_1k.jpg",
+        "md5": "3adb4f6549cc69edf82ccd8daa8e13cd"
+      },
+      "metal.jpg": {
+        "size": 53583,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/Television_01/Television_01_metallic_1k.jpg",
+        "md5": "a13d96690dc325e9ecba8cba8c438755"
+      },
+      "rough.jpg": {
+        "size": 207596,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/Television_01/Television_01_roughness_1k.jpg",
+        "md5": "a48cd146481eadd564c75a5ebb067ac6"
+      }
+    }
+  },
+  {
+    "id": "television_02",
+    "source": "https://polyhaven.com/a/television_02",
+    "license": "CC0-1.0",
+    "authors": {
+      "Benny Weimer": "All"
+    },
+    "files": {
+      "television_02.fbx": {
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/fbx/1k/television_02/television_02_1k.fbx",
+        "md5": "335385f93b238b430ce55cec9e90527a",
+        "size": 85116,
+        "include": {
+          "textures/television_02_diff_1k.jpg": {
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/television_02/television_02_diff_1k.jpg",
+            "md5": "a80b482e7aa0b57c93978c11cc0d0a1b",
+            "size": 391490
+          },
+          "textures/television_02_metal_1k.exr": {
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/television_02/television_02_metal_1k.exr",
+            "md5": "440f3e807e85e841e4b8cc2c6fa45ef4",
+            "size": 91158
+          },
+          "textures/television_02_nor_gl_1k.exr": {
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/television_02/television_02_nor_gl_1k.exr",
+            "md5": "8d460ecabe9cf35a85dffb79bb072ed5",
+            "size": 566668
+          },
+          "textures/television_02_rough_1k.exr": {
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/television_02/television_02_rough_1k.exr",
+            "md5": "0a583a45222ddcd1561b7da6a9d8e98c",
+            "size": 363501
+          }
+        }
+      },
+      "ao.jpg": {
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/television_02/television_02_ao_1k.jpg",
+        "md5": "2aaa47ae7225d6c2fbc28af84ff7a6c8",
+        "size": 223054
+      },
+      "diffuse.jpg": {
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/television_02/television_02_diff_1k.jpg",
+        "md5": "a80b482e7aa0b57c93978c11cc0d0a1b",
+        "size": 391490
+      },
+      "metal.jpg": {
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/television_02/television_02_metal_1k.jpg",
+        "md5": "01c62c12a297de4b21545df392a0872a",
+        "size": 66412
+      },
+      "nor_gl.jpg": {
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/television_02/television_02_nor_gl_1k.jpg",
+        "md5": "f7f3e0ea914c0fa01e3be02fc4146b3e",
+        "size": 292847
+      },
+      "rough.jpg": {
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/television_02/television_02_rough_1k.jpg",
+        "md5": "3489cb337af2cb5e3a81f78402e0b2f6",
+        "size": 296888
+      }
+    }
+  },
+  {
+    "id": "cardboard_box_01",
+    "source": "https://polyhaven.com/a/cardboard_box_01",
+    "license": "CC0-1.0",
+    "authors": {
+      "Rahul Chaudhary": "All"
+    },
+    "files": {
+      "cardboard_box_01.fbx": {
+        "include": {
+          "textures/cardboard_box_01_rough_1k.exr": {
+            "size": 669411,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/cardboard_box_01/cardboard_box_01_rough_1k.exr",
+            "md5": "f0afa732547682a239b7de8e30b8ecb6"
+          },
+          "textures/cardboard_box_01_diff_1k.jpg": {
+            "size": 567741,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/cardboard_box_01/cardboard_box_01_diff_1k.jpg",
+            "md5": "a306e586325d1759ba3225d2b6ad5121"
+          },
+          "textures/cardboard_box_01_nor_gl_1k.exr": {
+            "size": 1804042,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/cardboard_box_01/cardboard_box_01_nor_gl_1k.exr",
+            "md5": "9f66ac980dc8c755ef093f829b8f289c"
+          }
+        },
+        "size": 546524,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/fbx/1k/cardboard_box_01/cardboard_box_01_1k.fbx",
+        "md5": "de7813a2652c0cbfc4e35293addbce7f"
+      },
+      "diffuse.jpg": {
+        "size": 567741,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/cardboard_box_01/cardboard_box_01_diff_1k.jpg",
+        "md5": "a306e586325d1759ba3225d2b6ad5121"
+      },
+      "nor_gl.jpg": {
+        "size": 817424,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/cardboard_box_01/cardboard_box_01_nor_gl_1k.jpg",
+        "md5": "24768abd73f71cfdd7f5be92b18634a7"
+      },
+      "ao.jpg": {
+        "size": 147909,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/cardboard_box_01/cardboard_box_01_ao_1k.jpg",
+        "md5": "3c66876307486a3628001cd9df5238ef"
+      },
+      "rough.jpg": {
+        "size": 332710,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/cardboard_box_01/cardboard_box_01_rough_1k.jpg",
+        "md5": "db576c53f28407e08e9a7dc0aa0dda43"
+      }
+    }
+  },
+  {
     "id": "painted_plaster_wall",
     "source": "https://polyhaven.com/a/painted_plaster_wall",
     "license": "CC0-1.0",
