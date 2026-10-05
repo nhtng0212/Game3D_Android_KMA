@@ -1,9 +1,24 @@
 PASS campaign starts
+PASS separate three-variant pistol and AK sound banks
 PASS menu on boot
 PASS prologue
 PASS chapter 1 starts
-PASS navigation parking to Marcus office
-PASS collision traversal parking to Marcus office
+PASS spawn inside locked storefront
+PASS objective explains its purpose
+PASS journal pauses and exposes context
+PASS shop corner supported (12.80, 0.10, 26.00)
+PASS shop corner supported (12.80, 0.10, 30.00)
+PASS shop corner supported (12.80, 0.10, 34.00)
+PASS shop corner supported (5.00, 0.10, 32.00)
+PASS shop corner supported (-13.00, 0.10, 35.00)
+PASS closed room door reachable with E
+PASS closed door blocks sight and shots
+PASS room door opens
+PASS open doorway clears sightline
+PASS door refuses to close on player
+PASS room door closes again
+PASS navigation storefront to Marcus office
+PASS collision traversal storefront to Marcus office
 PASS interaction exists door06
 PASS Door 06 gate
 PASS interaction exists keycard
@@ -11,8 +26,40 @@ PASS keycard
 PASS interaction exists computer
 PASS interaction exists door06
 PASS unarmed stealth
+PASS unique authored floor 1 / UtilityBasement
+PASS arrival on elevated stair landing 1
+PASS encounter population floor 1
+PASS distinct character prefabs within floor 1
+PASS first shot costs 50 HP floor 1 assist=False
+PASS second shot kills floor 1 assist=False
+PASS first shot costs 50 HP floor 1 assist=True
+PASS second shot kills floor 1 assist=True
+PASS emergency lighting survives blackout floor 1
+PASS NPC flashlights survive blackout floor 1
+PASS navigation descend staircase 1
+PASS collision traversal descend staircase 1
+PASS stairs reach floor 1
+PASS navigation floor 1 to radio
+PASS collision traversal floor 1 to radio
+PASS fall recovery restores safe landing
+PASS navigation descend after fall recovery
+PASS collision traversal descend after fall recovery
+PASS live crouch traversal (4.30, 0.00, 3.00) / actual=(4.13, 0.08, 3.00) hp=100
+PASS live crouch traversal (4.30, 0.00, 5.50) / actual=(4.29, 0.08, 5.33) hp=100
+PASS live crouch traversal (11.70, 0.00, 5.50) / actual=(11.55, 0.08, 5.50) hp=100
+PASS live crouch traversal (11.70, 0.00, 17.00) / actual=(11.70, 0.08, 16.83) hp=100
+PASS live patrol service approach avoids detection
+PASS live patrol reaches visible 9-second opportunity
+PASS live patrol gap reaches radio interaction
+PASS radio approach unseen with all four NPCs active
+PASS live patrol allows mission action
+PASS live crouch traversal (11.70, 0.00, 21.50) / actual=(11.55, 0.08, 21.50) hp=100
+PASS live crouch traversal (11.70, 0.00, 29.80) / actual=(11.70, 0.08, 29.63) hp=100
+PASS live crouch traversal (0.00, 0.00, 30.00) / actual=(0.17, 0.08, 30.00) hp=100
+PASS live radio distraction permits escape to scanner
 PASS patrol uses flashlight and holsters gun
 PASS player in flashlight cone visible
+PASS bright flashlight with visible cone
 PASS wall blocks flashlight detection
 PASS standing head exposed above low cover
 PASS crouching behind crate breaks visibility
@@ -31,28 +78,128 @@ PASS radio gate
 PASS interaction exists radio
 PASS interaction exists door06
 PASS biometric descent
+PASS unique authored floor 2 / ArmoryArchive
+PASS arrival on elevated stair landing 2
+PASS encounter population floor 2
+PASS distinct character prefabs within floor 2
+PASS first shot costs 50 HP floor 2 assist=False
+PASS second shot kills floor 2 assist=False
+PASS first shot costs 50 HP floor 2 assist=True
+PASS second shot kills floor 2 assist=True
+PASS emergency lighting survives blackout floor 2
+PASS NPC flashlights survive blackout floor 2
+PASS navigation descend staircase 2
+PASS collision traversal descend staircase 2
+PASS stairs reach floor 2
+PASS navigation floor 2 to pistol
+PASS collision traversal floor 2 to pistol
 PASS interaction exists pistol
 PASS pistol unlock
 PASS reload transfer
 PASS hitscan damages visible target and consumes one round
-PASS navigation bunker room B reachable
-PASS collision traversal bunker room B reachable
+PASS firing raises gun
+PASS idle lowers gun after firing
+PASS aim raises gun smoothly
+PASS navigation B2 evidence locker reachable
+PASS collision traversal B2 evidence locker reachable
 PASS interaction exists order
 PASS interaction exists recording
+PASS recording unlocks tablet without teleporting floors
+PASS interaction exists exit
+PASS unique authored floor 3 / SecurityHub
+PASS arrival on elevated stair landing 3
+PASS encounter population floor 3
+PASS distinct character prefabs within floor 3
+PASS first shot costs 50 HP floor 3 assist=False
+PASS second shot kills floor 3 assist=False
+PASS first shot costs 50 HP floor 3 assist=True
+PASS second shot kills floor 3 assist=True
+PASS emergency lighting survives blackout floor 3
+PASS NPC flashlights survive blackout floor 3
+PASS navigation descend staircase 3
+PASS collision traversal descend staircase 3
+PASS stairs reach floor 3
+PASS navigation floor 3 to exit
+PASS collision traversal floor 3 to exit
+PASS live NPC corridor opportunity floor 3 / longest=8.5s (minimum 4s)
 PASS tablet unlock
 PASS security tutorial
 PASS physical shutter closes
 PASS interaction exists exit
 PASS storage chapter
+PASS unique authored floor 4 / MedicalStorage
+PASS arrival on elevated stair landing 4
+PASS encounter population floor 4
+PASS distinct character prefabs within floor 4
+PASS first shot costs 50 HP floor 4 assist=False
+PASS second shot kills floor 4 assist=False
+PASS first shot costs 50 HP floor 4 assist=True
+PASS second shot kills floor 4 assist=True
+PASS emergency lighting survives blackout floor 4
+PASS NPC flashlights survive blackout floor 4
+PASS navigation descend staircase 4
+PASS collision traversal descend staircase 4
+PASS stairs reach floor 4
+PASS navigation floor 4 to exit
+PASS collision traversal floor 4 to exit
+PASS live NPC corridor opportunity floor 4 / longest=5.8s (minimum 4s)
 PASS darkness
 PASS interaction exists exit
 PASS evidence chapter
+PASS unique authored floor 5 / ServerUplink
+PASS arrival on elevated stair landing 5
+PASS encounter population floor 5
+PASS distinct character prefabs within floor 5
+PASS first shot costs 50 HP floor 5 assist=False
+PASS second shot kills floor 5 assist=False
+PASS first shot costs 50 HP floor 5 assist=True
+PASS second shot kills floor 5 assist=True
+PASS emergency lighting survives blackout floor 5
+PASS NPC flashlights survive blackout floor 5
+PASS navigation descend staircase 5
+PASS collision traversal descend staircase 5
+PASS stairs reach floor 5
+PASS navigation floor 5 to upload
+PASS collision traversal floor 5 to upload
 PASS interaction exists upload
-PASS bounded purge encounter
+PASS doubled purge encounter
+PASS six distinct character models at Uplink
 PASS interaction exists exit
 PASS upload exit gated
 PASS interaction exists exit
 PASS Victor chapter
+PASS unique authored floor 6 / ControlRoom
+PASS arrival on elevated stair landing 6
+PASS encounter population floor 6
+PASS distinct character prefabs within floor 6
+PASS emergency lighting survives blackout floor 6
+PASS NPC flashlights survive blackout floor 6
+PASS navigation descend staircase 6
+PASS collision traversal descend staircase 6
+PASS stairs reach floor 6
+PASS navigation floor 6 to override
+PASS collision traversal floor 6 to override
+PASS equipment starts uncollected at boss checkpoint
+PASS navigation enter AK supply room
+PASS collision traversal enter AK supply room
+PASS AK reachable through normal interaction
+PASS interaction exists ak
+PASS AK pickup equips separate ammunition
+PASS AK hitscan deals 22 damage
+PASS AK consumes ammo and enforces fire interval
+PASS AK supports automatic cadence
+PASS AK reload transfers separate reserve
+PASS switching cancels reload without mixing ammo
+PASS switch preserves AK magazine
+PASS navigation enter night vision optics room
+PASS collision traversal enter night vision optics room
+PASS NVG reachable through normal interaction
+PASS interaction exists nightvision
+PASS night vision pickup activates view
+PASS night vision can switch off
+PASS equipment inventory survives save roundtrip
+PASS collected equipment stays hidden after reload
+PASS single Victor with exclusive character model
 PASS Victor phase 2 revokes security
 PASS Victor immune before override
 PASS interaction exists override

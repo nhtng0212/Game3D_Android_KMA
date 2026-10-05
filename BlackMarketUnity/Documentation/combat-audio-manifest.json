@@ -1,0 +1,98 @@
+{
+  "page": "https://opengameart.org/node/21826",
+  "url": "https://opengameart.org/sites/default/files/Prepared%20SFX%20Library.7z",
+  "archive_sha256": "cc1ab5a99a0a365105c7c5dd783f4b0b1fe90938114d3ceec53856bfe005f7d6",
+  "license": "CC0",
+  "authors": [
+    "Ben Jaszczak",
+    "Brian Nelson",
+    "Kevin Heras",
+    "Matthew Nanney"
+  ],
+  "processing": "Mono, 44.1 kHz PCM, rumble removal, early room reflections, fade, peak -1.5 dBFS; original firearm impulses retained",
+  "clips": [
+    {
+      "file": "Assets/BlackMarket/Resources/FieldAudio/rifle_0.wav",
+      "source": {
+        "member": "Prepared SFX Library/AK-47/C_28P.wav",
+        "sha256": "e0934c1d79192d2216db62fdf6ab57bf9d5d585267af367a1cfb21f0972a537d",
+        "onset_seconds": 0.611
+      },
+      "seconds": 1.25,
+      "peak": 0.84,
+      "rms": 0.03759926736091377,
+      "sha256": "a77552f370a698f7adb7801e30711e91ef4c6aa2387fc3955fd241cf63a906b5"
+    },
+    {
+      "file": "Assets/BlackMarket/Resources/FieldAudio/rifle_1.wav",
+      "source": {
+        "member": "Prepared SFX Library/AK-47/C_28P.wav",
+        "sha256": "e0934c1d79192d2216db62fdf6ab57bf9d5d585267af367a1cfb21f0972a537d",
+        "onset_seconds": 3.257
+      },
+      "seconds": 1.25,
+      "peak": 0.84,
+      "rms": 0.03086466685615208,
+      "sha256": "6e391d2ee2122e0436e219347e4a9637820b9839fdae07140d80c7cd3dbced70"
+    },
+    {
+      "file": "Assets/BlackMarket/Resources/FieldAudio/rifle_2.wav",
+      "source": {
+        "member": "Prepared SFX Library/AK-47/C_28P.wav",
+        "sha256": "e0934c1d79192d2216db62fdf6ab57bf9d5d585267af367a1cfb21f0972a537d",
+        "onset_seconds": 6.021
+      },
+      "seconds": 1.25,
+      "peak": 0.84,
+      "rms": 0.03078437973687274,
+      "sha256": "0ef9bea1759b733971d3c85bb821cfdb2c37d06514be473a8ef4936c3fda3dc0"
+    },
+    {
+      "file": "Assets/BlackMarket/Resources/FieldAudio/pistol_0.wav",
+      "source": {
+        "member": "Prepared SFX Library/Walther PPQ/X_39P.wav",
+        "sha256": "d679a3cd87eae2898d984159f83544392932e6b77526045b672e3aaa9c2dda9f",
+        "onset_seconds": 1.407
+      },
+      "seconds": 1.25,
+      "peak": 0.84,
+      "rms": 0.032957070160311214,
+      "sha256": "5393d8f0f79720028b5597f346e546cacaad2da1cd03aacd0c69d320dc276c61"
+    },
+    {
+      "file": "Assets/BlackMarket/Resources/FieldAudio/pistol_1.wav",
+      "source": {
+        "member": "Prepared SFX Library/Walther PPQ/X_39P.wav",
+        "sha256": "d679a3cd87eae2898d984159f83544392932e6b77526045b672e3aaa9c2dda9f",
+        "onset_seconds": 6.444
+      },
+      "seconds": 1.25,
+      "peak": 0.84,
+      "rms": 0.02834429500105652,
+      "sha256": "4dac6a13026c03e4cd29186e00ed7396b675d85dea9f3b2c2afedd230695a05a"
+    },
+    {
+      "file": "Assets/BlackMarket/Resources/FieldAudio/pistol_2.wav",
+      "source": {
+        "member": "Prepared SFX Library/Walther PPQ/X_39P.wav",
+        "sha256": "d679a3cd87eae2898d984159f83544392932e6b77526045b672e3aaa9c2dda9f",
+        "onset_seconds": 10.66
+      },
+      "seconds": 1.25,
+      "peak": 0.84,
+      "rms": 0.026348229356738733,
+      "sha256": "4e53bd324b151e330593510e025888db09645cb7d6971eb4c53ba738e1d45f76"
+    },
+    {
+      "file": "Assets/BlackMarket/Resources/FieldAudio/door_move.wav",
+      "source": {
+        "foley": "Kenney impactMetal_light_000.ogg",
+        "motor": "Original synthesized motor"
+      },
+      "seconds": 0.75,
+      "peak": 0.84,
+      "rms": 0.16629414855277458,
+      "sha256": "5869abc3abb61b5da380bed83036e3df365898536937d043207d0a1630f1fc3d"
+    }
+  ]
+}

@@ -18,6 +18,9 @@ namespace BlackMarket {
         public Soundscape sound;
         public bool active;
         public string objective, objectiveId;
+        public string ObjectivePurpose => StoryData.Purpose(objectiveId,state.stage);
+        public string ApproachHint => StealthGuidance.Current(this);
+        public readonly List<string> journal = new List<string>();
         public float upload = -1;
         public bool paused => ui != null && ui.modal != "";
         public bool Running => active && !paused && state.hp > 0;
@@ -29,6 +32,7 @@ namespace BlackMarket {
         void Awake() {
             Instance=this; Application.targetFrameRate=60;
             sound=gameObject.AddComponent<Soundscape>();
+            gameObject.AddComponent<TensionScore>();
             ui=gameObject.AddComponent<GameInterface>();
             security=gameObject.AddComponent<SecurityConsole>();
             LoadWorld(0); active=false; ui.modal="menu"; LockCursor(false);
@@ -48,6 +52,7 @@ namespace BlackMarket {
                 var s=JsonUtility.FromJson<CampaignSave>(File.ReadAllText(SavePath));
                 if(s==null || s.version!=1 || s.stage<0 || s.stage>6 || !float.IsFinite(s.hp) || !float.IsFinite(s.elapsed)) return null;
                 s.hp=Mathf.Clamp(s.hp,1,100); s.ammo=Mathf.Clamp(s.ammo,0,8); s.reserve=Mathf.Clamp(s.reserve,0,32);
+                s.rifleAmmo=Mathf.Clamp(s.rifleAmmo,0,30);s.rifleReserve=Mathf.Clamp(s.rifleReserve,0,90);s.selectedWeapon=s.hasAK && s.selectedWeapon==1?1:0;
                 return s;
             } catch { return null; }
         }
@@ -62,46 +67,51 @@ namespace BlackMarket {
             Save(); LoadWorld(state.stage); ui.Toast("CHECKPOINT / "+StoryData.Chapters[state.stage]);
         }
         public void LoadWorld(int stage) {
-            Time.timeScale=1; flags.Clear(); enemies.Clear(); upload=-1;
+            Time.timeScale=1; flags.Clear(); enemies.Clear(); journal.Clear(); upload=-1;
             security.Close();
             if(level) {level.SetActive(false);Destroy(level);}
             if(player) {player.gameObject.SetActive(false);Destroy(player.gameObject);}
             state.stage=stage;
-            var prefab=Resources.Load<GameObject>(stage<2 ? "Worlds/NorthPointShop" : stage==6 ? "Worlds/ControlRoom" : "Worlds/NorthPointBunker");
+            var prefab=Resources.Load<GameObject>("Worlds/"+StoryData.Worlds[stage]);
             if(!prefab) {Debug.LogError("Build North Point scenes using BLACK MARKET / Prepare project.");return;}
-            level=Instantiate(prefab); level.name=prefab.name;if(stage<2)level.AddComponent<ExteriorRain>();
+            level=Instantiate(prefab); level.name=prefab.name;if(stage==0)level.AddComponent<ExteriorRain>();
             foreach(var lamp in level.GetComponentsInChildren<Light>()) lamp.enabled=true;
             var go=new GameObject("Alex Carter");go.transform.SetPositionAndRotation(Marker("spawn").position,Marker("spawn").rotation);
             player=go.AddComponent<PlayerMotor>();player.campaign=this;
             player.Setup();view=player.camera;
             security.Setup();ui.modal="";active=true;LockCursor(true);
+
             if(stage==0) Objective("keycard","Tìm thẻ Marcus trong văn phòng phía sau cửa hàng.");
             if(stage==1) {
                 Objective("radio","Chưa có vũ khí. Bật radio ở Workshop để đánh lạc hướng lính.");
-                Spawn("enemy_a",true);Spawn("enemy_b",true);
+                SpawnGuards(4,true);
                 ui.Subtitle("INTERCOM","Collection seventy-one. Không để nhân chứng rời khỏi North Point.");
                 security.SetDark(true);
             }
-            if(stage==2) Objective("pistol","Khám phá tầng −03. Nhận Pistol tại Armory.");
-            if(stage==3) {Objective("security","Mở Tablet: quan sát camera, bật báo động và điều khiển cửa B.");Spawn("enemy_a");Spawn("enemy_b",true);}
-            if(stage==4) {Objective("security","Qua Storage và Medical. Dùng đèn và cửa để chia cắt đối thủ.");Spawn("enemy_a");Spawn("enemy_b");Spawn("enemy_c");}
+            if(stage==2) Objective("pistol","Xuống cầu thang. Nhận súng trong phòng Armory bên trái.");
+            if(stage==3) {Objective("security","Mở Tablet: quan sát camera, bật báo động và điều khiển cửa B.");SpawnGuards(4);}
+            if(stage==4) {Objective("security","Qua Storage và Medical. Dùng đèn và cửa để chia cắt đối thủ.");SpawnGuards(6);}
             if(stage==5) Objective("upload","Đến Uplink. Phát tán bằng chứng ORDER 071.");
-            if(stage==6) {Objective("boss","Đối mặt Victor Hale trong Control Room.");Spawn("boss",false,true);}
+            if(stage==6) {Objective("boss","Chuẩn bị trong hai phòng trang bị, rồi đối mặt Victor.");Spawn("boss",false,true);Spawn("enemy_a");}
             foreach(var p in level.GetComponentsInChildren<Interaction>()) {
                 bool hide=(p.id=="pistol" || p.id=="order" || p.id=="recording") && stage!=2;
                 hide|=p.id=="upload" && stage!=5;
-                hide|=p.id=="exit" && (stage<3 || stage>5);
+                hide|=(p.id=="ak" && state.hasAK) || (p.id=="nightvision" && state.hasNightVision);
+                hide|=p.id=="exit" && (stage<2 || stage>5);
                 p.gameObject.SetActive(!hide);
             }
         }
+        public void SpawnGuards(int count,bool scout=false){for(int i=0;i<count;i++)Spawn("enemy_"+(char)('a'+i),scout || i%3==2);}
         public EnemyController Spawn(string id,bool scout=false,bool boss=false) {
             var go=new GameObject(boss?"Victor Hale":scout?"Scout":"Purge Operator");go.transform.SetParent(level.transform);go.transform.position=Marker(id).position;
             var e=go.AddComponent<EnemyController>();e.campaign=this;e.boss=boss;e.hp=boss?300:scout?50:100;e.damage=boss?15:scout?10:15;e.speed=scout?4.5f:3;
-            e.routeId=id;e.Setup();enemies.Add(e);return e;
+            e.actorPrefab=boss?"Victor":EncounterData.Guard(state.stage,enemies.FindAll(x=>x && !x.boss).Count);e.routeId=id;e.Setup();enemies.Add(e);return e;
         }
-        public void Objective(string id,string text) {objectiveId=id;objective=text;}
+        public void Objective(string id,string text) {objectiveId=id;objective=text;journal.Add(text+"\n→ "+ObjectivePurpose);}
         public bool Available(string id) {
             switch(id) {
+                case "ak":return state.stage==6 && !state.hasAK;
+                case "nightvision":return state.stage==6 && !state.hasNightVision;
                 case "keycard":return state.stage==0 && !state.keycard;
                 case "computer":return state.stage==0 && state.keycard && !flags.Contains("computer");
                 case "radio":return state.stage==1;
@@ -118,38 +128,43 @@ namespace BlackMarket {
             if(!Running || !p.Available)return;
             sound.Play("beep",.2f);
             switch(p.id) {
+                case "ak":state.hasAK=true;state.rifleAmmo=30;state.rifleReserve=90;player.SwitchWeapon(1);p.consumed=true;p.gameObject.SetActive(false);ui.Toast("AK / 30 + 90 viên. [Q] đổi súng, giữ BẮN để bắn tự động.");journal.Add("Đã lấy AK ở phòng quân nhu: bắn tự động, nạp 2,2 giây; vẫn cần terminal để gỡ lá chắn Victor.");break;
+                case "nightvision":state.hasNightVision=true;p.consumed=true;p.gameObject.SetActive(false);player.nightVision.Toggle();ui.Toast("KÍNH ĐÊM / [N] bật tắt. Dùng Tablet tắt đèn để tận dụng lợi thế.");journal.Add("Đã nhặt kính đêm ở phòng quang học. Kính khuếch đại hình ảnh, không soi xuyên tường và không vô hiệu hóa đèn pin NPC.");break;
+                case "frontdoor":ui.Toast("Cửa trước đã khóa. Manh mối Marcus để lại nằm sâu trong cửa hàng; hãy làm theo mục tiêu hiện tại.");break;
                 case "note":ui.Story("MARCUS / GHI CHÚ","Alex, thẻ của chú ở trên bàn trong văn phòng. Đừng ở lại sau 23 giờ. Và dù chuyện gì xảy ra… đừng mở Door 06.",null);break;
-                case "keycard":state.keycard=true;p.consumed=true;Objective("computer","Đọc terminal trên bàn Marcus — ORDER #071.");ui.Subtitle("ALEX","Thẻ của chú… Sao lại có quyền truy cập tầng −03?");break;
-                case "computer":flags.Add("computer");Objective("door06","Kiểm tra Door 06 ở cuối Warehouse.");ui.Story("ORDER #071","COLLECTION 23:00\nKEEPER: MARCUS CARTER\nSTATUS: DECEASED\n\nĐây không phải một đơn hàng. Tên của chú nằm trong hồ sơ bị xóa.",null);break;
+                case "keycard":state.keycard=true;p.consumed=true;Objective("computer","Đọc terminal trên bàn Marcus — ORDER #071.");ui.Subtitle("ALEX","Thẻ của chú… Sao thẻ cửa hàng lại có quyền xuống sáu tầng hầm?");break;
+                case "computer":flags.Add("computer");Objective("door06","Kiểm tra Door 06 ở cuối Warehouse.");ui.Story("ORDER #071","COLLECTION 23:00\nKEEPER: MARCUS CARTER\nSTATUS: DECEASED\n\nĐây không phải một đơn hàng. Tên của chú nằm trong hồ sơ bị xóa.\n\nBẢN SAO: LOCKER 071 / B2. LỐI VÀO: DOOR 06.\nAlex cần xuống kho hồ sơ để tìm bằng chứng về cái chết của Marcus.",null);break;
                 case "door06":
                     if(state.stage==0) {
                         if(!flags.Contains("computer")){ui.Toast("ACCESS DENIED / Kiểm tra terminal Marcus trước.");break;}
-                        ui.Story("22:58 / VISITORS ARRIVE","Một chiếc SUV dừng trước cửa.\n\n“Collection seventy-one.”\n\n23:00. Nguồn điện bị cắt. Liên lạc bên ngoài bị gây nhiễu. Tiếng giày vang lên trong kho. Alex chưa có vũ khí.",Advance);
+                        ui.Story("22:58 / VISITORS ARRIVE","Một chiếc SUV dừng trước cửa.\n\n“Collection seventy-one.”\n\n23:00. Nguồn điện bị cắt. Liên lạc bên ngoài bị gây nhiễu. SUV chặn cửa trước.\n\nThẻ Marcus mở Door 06, để lộ cầu thang nhân viên. Alex lách vào tầng B1 trước khi lính tràn vào cửa hàng.\n\nB1 có radio trong xưởng. Bật nó để kéo đội lục soát khỏi lối xuống B2; đừng đối đầu khi chưa có vũ khí.",Advance);
                     } else {
-                        if(!flags.Contains("radio")){ui.Toast("Dùng radio để kéo lính khỏi Door 06.");break;}
-                        ui.Story("EMERGENCY SUCCESSION","KEYCARD REJECTED\nCARTER DNA: MATCH\n\nMột tiếng khóa nặng nề. Door 06 mở ra, để lộ thang máy xuống tầng −03. Marcus đã chuẩn bị cho ngày này.",Advance);
+                        if(!flags.Contains("radio")){ui.Toast("Bật radio trong xưởng để kéo lính khỏi cầu thang xuống B2.");break;}
+                        ui.Story("EMERGENCY SUCCESSION","KEYCARD REJECTED\nCARTER DNA: MATCH\n\nMáy quét ở cuối tầng B1 nhận diện DNA Carter. Cửa cầu thang xuống B2 mở ra. Marcus đã chuẩn bị cho ngày này.\n\nB2: lấy súng tự vệ tại Armory, tìm Locker 071 rồi mở bản ghi FOR_ALEX. Đây là nơi Marcus giấu sự thật.",Advance);
                     }break;
-                case "radio":flags.Add("radio");Noise(p.transform.position,12);sound.Play("ring",.5f,p.transform.position);Objective("door06","Đi khom và lẻn đến máy quét Door 06.");break;
+                case "radio":flags.Add("radio");Noise(p.transform.position,12);sound.Play("ring",.5f,p.transform.position);Objective("door06","Đi khom tới máy quét Carter ở cầu thang cuối tầng B1.");break;
                 case "pistol":state.armed=true;p.consumed=true;Objective("order","Tìm Locker 071. Dùng thẻ Marcus và sinh trắc Carter.");ui.Subtitle("ARMORY","Pistol / 8 viên. Chuột phải ngắm, chuột trái bắn, R nạp đạn.");break;
-                case "order":state.drive=true;p.consumed=true;Objective("recording","Đưa Data Drive tới terminal FOR_ALEX trong Server Room.");break;
-                case "recording":state.tablet=true;ui.Story("FOR_ALEX / MARCUS CARTER",StoryData.Recording,Advance);break;
+                case "order":state.drive=true;p.consumed=true;Objective("recording","Đưa Data Drive tới terminal FOR_ALEX ở phòng lưu trữ giữa tầng.");break;
+                case "recording":state.tablet=true;p.consumed=true;Objective("exit","Mở cửa cầu thang cuối cánh phải để xuống B3 / An ninh.");ui.Story("FOR_ALEX / MARCUS CARTER",StoryData.Recording+"\n\nBƯỚC TIẾP THEO: Mang Tablet xuống B3. Dùng an ninh để vượt đội thanh trừng và đưa ORDER 071 tới Uplink tại B5.",null);break;
                 case "exit":
-                    if(state.stage<5 && !flags.Contains("security_done")){ui.Toast("Hoàn thành mục tiêu an ninh trước khi chuyển khu.");break;}
+                    if(state.stage==2 && !state.tablet){ui.Toast("Đọc FOR_ALEX để nhận Tablet và hiểu bằng chứng trước.");break;}
+                    if(state.stage>=3 && state.stage<5 && !flags.Contains("security_done")){ui.Toast("Hoàn thành mục tiêu an ninh trước khi chuyển khu.");break;}
                     if(state.stage==5 && !flags.Contains("uploaded")){ui.Toast("Chờ Uplink truyền xong bằng chứng.");break;}
-                    Advance();break;
-                case "upload":upload=35;Spawn("enemy_a");Spawn("enemy_b");Spawn("enemy_c",true);Noise(player.transform.position,40);Objective("survive","Bảo vệ Uplink trong 35 giây. Tận dụng cửa và vật che chắn.");break;
+                    ui.Story("CẦU THANG / "+StoryData.Locations[state.stage+1],StoryData.Briefings[state.stage+1],Advance);break;
+                case "upload":upload=35;SpawnGuards(6);Noise(player.transform.position,40);Objective("survive","Bảo vệ Uplink trong 35 giây. Tận dụng cửa và vật che chắn.");break;
                 case "override":security.revoked=false;foreach(var e in enemies)if(e.boss){e.shielded=false;e.stun=4;}Objective("boss","Quyền Keeper đã khôi phục. Dùng EMP và đánh bại Victor.");break;
                 case "final":ui.modal="choice";LockCursor(false);break;
                 default:
                     if(p.id.StartsWith("supply")) {
-                        if(state.hp>=100 && state.reserve>=32){ui.Toast("Máu và đạn đã đầy.");break;}
-                        state.hp=Mathf.Min(100,state.hp+45);state.reserve=Mathf.Min(32,state.reserve+16);p.consumed=true;ui.Toast("+45 HP / +16 ĐẠN");
+                        if(state.hp>=100 && state.reserve>=32 && (!state.hasAK || state.rifleReserve>=90)){ui.Toast("Máu và đạn đã đầy.");break;}
+                        state.hp=Mathf.Min(100,state.hp+45);state.reserve=Mathf.Min(32,state.reserve+16);if(state.hasAK)state.rifleReserve=Mathf.Min(90,state.rifleReserve+30);p.consumed=true;ui.Toast(state.hasAK?"+45 HP / ĐẠN PISTOL & AK":"+45 HP / +16 ĐẠN");
                     }break;
             }
         }
         public void Noise(Vector3 p,float radius) {foreach(var e in enemies)if(e)e.Hear(p,radius);}
+        public void EnemyShot(float normalDamage){Damage(state.stage<6?50:normalDamage);}
         public void Damage(float amount) {
-            if(!Running)return;state.hp=Mathf.Max(0,state.hp-amount*(ui.assist? .65f:1));ui.hurt=1;sound.Play("hit",.35f);
+            if(!Running)return;state.hp=Mathf.Max(0,state.hp-amount);ui.hurt=1;sound.Play("hit",.35f);
             if(state.hp<=0){security.Close();ui.modal="death";LockCursor(false);}
         }
         public void Pause(){if(!active || paused)return;security.Close();ui.modal="pause";player.ResetTouch();LockCursor(false);}
@@ -159,6 +174,7 @@ namespace BlackMarket {
             if(Keyboard.current!=null && Keyboard.current.escapeKey.wasPressedThisFrame && active) {if(security.opened)security.Close();else if(ui.modal=="pause")Resume();else Pause();}
             Time.timeScale=paused?0:1;
             if(Running && Keyboard.current!=null && Keyboard.current.tabKey.wasPressedThisFrame)security.Toggle();
+            if(active && Keyboard.current!=null && Keyboard.current.jKey.wasPressedThisFrame){if(ui.modal=="journal")Resume();else if(Running)ui.OpenJournal();}
             if(!Running)return;state.elapsed+=Time.deltaTime;
             if(upload>0){upload-=Time.deltaTime;if(upload<=0){flags.Add("uploaded");Objective("exit","Bằng chứng đã truyền. Đến Control Room đối mặt Victor.");}}
         }

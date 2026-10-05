@@ -1,0 +1,22 @@
+{
+  "source": "Previous authored CommandFloor: 8 desks, 6 crates, 4 pillars, 3 tool chests, 3 server cabinets (top-level cover objects; child meshes excluded)",
+  "coverGroups": {
+    "metal_office_desk": 8,
+    "Stock / sealed carton": 4,
+    "cardboard_box_01": 2,
+    "Command support pillar": 4,
+    "metal_tool_chest": 3,
+    "Server cabinet": 3
+  },
+  "totalCoverGroups": 24,
+  "functionalAreas": 4,
+  "npcCounts": [
+    0,
+    2,
+    0,
+    2,
+    3,
+    3,
+    1
+  ]
+}

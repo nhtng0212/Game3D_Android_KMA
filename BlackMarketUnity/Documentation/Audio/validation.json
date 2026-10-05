@@ -1,0 +1,56 @@
+[
+  {
+    "clip": "pistol_0",
+    "rate": 44100,
+    "channels": 1,
+    "seconds": 1.25,
+    "peak": 0.84,
+    "attack_ms": 7.44,
+    "clipped_samples": 0
+  },
+  {
+    "clip": "pistol_1",
+    "rate": 44100,
+    "channels": 1,
+    "seconds": 1.25,
+    "peak": 0.84,
+    "attack_ms": 7.73,
+    "clipped_samples": 0
+  },
+  {
+    "clip": "pistol_2",
+    "rate": 44100,
+    "channels": 1,
+    "seconds": 1.25,
+    "peak": 0.84,
+    "attack_ms": 7.51,
+    "clipped_samples": 0
+  },
+  {
+    "clip": "rifle_0",
+    "rate": 44100,
+    "channels": 1,
+    "seconds": 1.25,
+    "peak": 0.84,
+    "attack_ms": 13.24,
+    "clipped_samples": 0
+  },
+  {
+    "clip": "rifle_1",
+    "rate": 44100,
+    "channels": 1,
+    "seconds": 1.25,
+    "peak": 0.84,
+    "attack_ms": 13.31,
+    "clipped_samples": 0
+  },
+  {
+    "clip": "rifle_2",
+    "rate": 44100,
+    "channels": 1,
+    "seconds": 1.25,
+    "peak": 0.84,
+    "attack_ms": 12.7,
+    "clipped_samples": 0
+  }
+]

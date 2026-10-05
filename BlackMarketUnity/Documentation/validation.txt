@@ -1,5 +1,18 @@
+PASS audio: six separate mono firearm recordings imported, with full attack and tail.
 PASS Alex: textured model and serialized idle/walk/run clips.
 PASS Operator: textured model and serialized idle/walk/run clips.
+PASS MilitaryHelmet: textured model and serialized idle/walk/run clips.
+PASS MilitaryCap: textured model and serialized idle/walk/run clips.
+PASS RedBeret: textured model and serialized idle/walk/run clips.
+PASS Tactical: textured model and serialized idle/walk/run clips.
+PASS Plainclothes: textured model and serialized idle/walk/run clips.
+PASS Victor: textured model and serialized idle/walk/run clips.
+PASS shop: complete floor coverage at 3905 grid samples, including rear right corner.
 PASS NorthPointShop: materials, model/collider bounds, interactions and patrol routes reachable.
-PASS NorthPointBunker: materials, model/collider bounds, interactions and patrol routes reachable.
+PASS UtilityBasement: materials, model/collider bounds, interactions and patrol routes reachable.
+PASS ArmoryArchive: materials, model/collider bounds, interactions and patrol routes reachable.
+PASS SecurityHub: materials, model/collider bounds, interactions and patrol routes reachable.
+PASS MedicalStorage: materials, model/collider bounds, interactions and patrol routes reachable.
+PASS ServerUplink: materials, model/collider bounds, interactions and patrol routes reachable.
+PASS Victor: 8 functional rooms, 51 cover objects (baseline 4 / 24).
 PASS ControlRoom: materials, model/collider bounds, interactions and patrol routes reachable.

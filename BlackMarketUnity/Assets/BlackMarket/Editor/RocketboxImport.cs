@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEditor;
 namespace BlackMarket.Editor {
-    // Import only the two selected MIT Rocketbox avatars and their native animation rigs.
+    // Import the selected MIT Rocketbox avatars and their native animation rigs.
     public class RocketboxImport : AssetPostprocessor {
         bool IsRocket=>assetPath.Contains("/Rocketbox/");
         void OnPreprocessModel(){if(!IsRocket)return;var i=(ModelImporter)assetImporter;i.animationType=ModelImporterAnimationType.Legacy;i.importAnimation=true;i.materialImportMode=ModelImporterMaterialImportMode.ImportStandard;i.isReadable=true;}

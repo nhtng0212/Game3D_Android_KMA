@@ -22,7 +22,7 @@ namespace BlackMarket.Editor {
             AssetDatabase.Refresh();
             if(Application.isBatchMode && string.IsNullOrEmpty(SceneManager.GetActiveScene().path))EditorSceneManager.SaveScene(SceneManager.GetActiveScene(),"Assets/BlackMarket/Scenes/EditorWorkspace.unity");
             ImportSettings();MakeMaterials();MakeActors();
-            BuildWorld("NorthPointShop",0);BuildWorld("NorthPointBunker",1);BuildWorld("ControlRoom",2);BuildEntry();
+            for(int stage=0;stage<StoryData.Worlds.Length;stage++)BuildWorld(StoryData.Worlds[stage],stage);BuildEntry();
             PlayerSettings.companyName="KMA";PlayerSettings.productName="BLACK MARKET — North Point";
             PlayerSettings.SetApplicationIdentifier(UnityEditor.Build.NamedBuildTarget.Android,"vn.kma.blackmarket.unity");
             PlayerSettings.defaultInterfaceOrientation=UIOrientation.LandscapeLeft;PlayerSettings.Android.minSdkVersion=AndroidSdkVersions.AndroidApiLevel26;
@@ -52,7 +52,7 @@ namespace BlackMarket.Editor {
         }
         static void MakeMaterials(){
             var rain=new Material(Shader.Find("Universal Render Pipeline/Particles/Unlit"));rain.SetFloat("_Surface",1);rain.SetFloat("_SrcBlend",5);rain.SetFloat("_DstBlend",10);rain.SetFloat("_ZWrite",0);rain.EnableKeyword("_SURFACE_TYPE_TRANSPARENT");rain.renderQueue=3000;SaveMat("Rain",rain);
-            mats.Clear();foreach(var id in modelIds)Pbr(id);Pbr("vintage_radio_transceiver","accessories_");
+            mats.Clear();SaveMat("FlashlightBeam",new Material(Shader.Find("BlackMarket/FlashlightBeam")));foreach(var id in modelIds)Pbr(id);Pbr("vintage_radio_transceiver","accessories_");
             foreach(var id in new[]{"painted_plaster_wall","concrete_floor_02","asphalt_02","brick_wall_001","metal_plate"})Pbr(id);
             Plain("Cardboard",new Color(.48f,.29f,.13f),0,.1f);Plain("PackingTape",new Color(.5f,.36f,.19f),0,.2f);Plain("ShippingLabel",new Color(.75f,.73f,.66f),0,.05f);
             Plain("Steel",new Color(.12f,.145f,.15f),.8f,.42f);Plain("Black",new Color(.018f,.024f,.029f),.2f,.4f);
@@ -63,11 +63,11 @@ namespace BlackMarket.Editor {
             Plain("OperatorSkin",Color.white);mats["OperatorSkin"].SetTexture("_BaseMap",Resources.Load<Texture2D>("LegacyCharacters/operator"));
         }
         static void MakeActors(){
-            foreach(var name in new[]{"Alex","Operator"}){
-                string id=name=="Alex"?"Male_Adult_07":"Security_Male_01";
+            for(int actorIndex=0;actorIndex<EncounterData.Actors.Length;actorIndex++){
+                string name=EncounterData.Actors[actorIndex],id=EncounterData.Models[actorIndex];
                 var root=new GameObject(name);var source=AssetDatabase.LoadAssetAtPath<GameObject>(Root+"Rocketbox/"+id+".fbx");var model=UnityEngine.Object.Instantiate(source,root.transform);model.name="Rig";
                 var renderers=model.GetComponentsInChildren<Renderer>();var b=renderers[0].bounds;foreach(var r in renderers)b.Encapsulate(r.bounds);
-                float scale=1.78f/b.size.y;model.transform.localScale*=scale;model.transform.localPosition=(model.transform.localPosition-new Vector3(b.center.x,b.min.y,b.center.z))*scale;
+                float scale=(name=="Victor"?1.92f:1.78f)/b.size.y;model.transform.localScale*=scale;model.transform.localPosition=(model.transform.localPosition-new Vector3(b.center.x,b.min.y,b.center.z))*scale;
                 foreach(var r in renderers){var materials=r.sharedMaterials;for(int i=0;i<materials.Length;i++){
                     var src=materials[i];string key=id+"_"+(src?src.name:"body");
                     var mat=new Material(Shader.Find("Universal Render Pipeline/Lit"));mat.SetColor("_BaseColor",Color.white);mat.SetFloat("_Smoothness",.23f);
@@ -85,9 +85,10 @@ namespace BlackMarket.Editor {
                     string cp=Root+"Actors/"+pair[0]+".anim";var saved=AssetDatabase.LoadAssetAtPath<AnimationClip>(cp);if(!saved){AssetDatabase.CreateAsset(copy,cp);saved=copy;}else{EditorUtility.CopySerialized(copy,saved);UnityEngine.Object.DestroyImmediate(copy);}
                     anim.AddClip(saved,pair[0]);anim[pair[0]].wrapMode=WrapMode.Loop;if(pair[0]=="idle")anim.clip=saved;
                 }
+                if(name=="Victor")VictorInsignia(root,anim);
                 anim.playAutomatically=true;PrefabUtility.SaveAsPrefabAsset(root,Root+"Actors/"+name+".prefab");UnityEngine.Object.DestroyImmediate(root);
             }
-            MakeWeapon();
+            MakeWeapon();MakeEquipment();
         }
         static void MakeWeapon(){
             var root=new GameObject("Pistol");var model=UnityEngine.Object.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>(Root+"Weapons/Frame.fbx"),root.transform);
@@ -95,7 +96,7 @@ namespace BlackMarket.Editor {
             var m=new Material(Shader.Find("Universal Render Pipeline/Lit"));m.SetTexture("_BaseMap",AssetDatabase.LoadAssetAtPath<Texture2D>(Root+"Weapons/Pistol_1_Albedo.png"));m.SetFloat("_Metallic",.7f);m.SetFloat("_Smoothness",.5f);m=SaveMat("Pistol",m);foreach(var r in rs)r.sharedMaterial=m;
             PrefabUtility.SaveAsPrefabAsset(root,Root+"Actors/Pistol.prefab");UnityEngine.Object.DestroyImmediate(root);
         }
-        static GameObject Box(string name,Vector3 p,Vector3 size,string mat,bool solid=true){var g=GameObject.CreatePrimitive(PrimitiveType.Cube);g.name=name;g.transform.SetParent(parent);g.transform.localPosition=p;g.transform.localScale=size;g.GetComponent<Renderer>().sharedMaterial=mats[mat];if(new[]{"painted_plaster_wall","brick_wall_001","concrete_floor_02","asphalt_02","metal_plate"}.Contains(mat))MetricUV(g,size);if(!solid)UnityEngine.Object.DestroyImmediate(g.GetComponent<Collider>());g.isStatic=true;return g;}
+        static GameObject Box(string name,Vector3 p,Vector3 size,string mat,bool solid=true){var g=GameObject.CreatePrimitive(PrimitiveType.Cube);g.name=name;g.transform.SetParent(parent);g.transform.localPosition=p;g.transform.localScale=size;g.GetComponent<Renderer>().sharedMaterial=mats[mat];if(new[]{"painted_plaster_wall","brick_wall_001","concrete_floor_02","asphalt_02","metal_plate"}.Contains(mat) || mat.StartsWith("FloorSurface") || mat.StartsWith("WallSurface"))MetricUV(g,size);if(!solid)UnityEngine.Object.DestroyImmediate(g.GetComponent<Collider>());g.isStatic=true;return g;}
         static void MetricUV(GameObject g,Vector3 dimensions){
             Directory.CreateDirectory(Root+"Meshes");
             string key=dimensions.x.ToString("F3",System.Globalization.CultureInfo.InvariantCulture)+"_"+dimensions.y.ToString("F3",System.Globalization.CultureInfo.InvariantCulture)+"_"+dimensions.z.ToString("F3",System.Globalization.CultureInfo.InvariantCulture);
@@ -129,7 +130,7 @@ namespace BlackMarket.Editor {
         static void BuildWorld(string name,int type){
             var previous=SceneManager.GetActiveScene();var scene=EditorSceneManager.NewScene(NewSceneSetup.EmptyScene,NewSceneMode.Additive);SceneManager.SetActiveScene(scene);
             var root=new GameObject(name);parent=root.transform;signFont=Resources.Load<Font>("Fonts/Bold");
-            if(type==0)Shop();else Bunker(type==2);
+            CampaignFloor(type);
             var nav=root.AddComponent<NavMeshSurface>();nav.collectObjects=CollectObjects.Children;nav.useGeometry=NavMeshCollectGeometry.PhysicsColliders;nav.layerMask=~(1<<2);nav.BuildNavMesh();
             string navPath=Root+"Worlds/"+name+"Nav.asset";var old=AssetDatabase.LoadAssetAtPath<NavMeshData>(navPath);if(old){EditorUtility.CopySerialized(nav.navMeshData,old);nav.RemoveData();nav.navMeshData=old;nav.AddData();}else AssetDatabase.CreateAsset(nav.navMeshData,navPath);
             PrefabUtility.SaveAsPrefabAsset(root,Root+"Worlds/"+name+".prefab");

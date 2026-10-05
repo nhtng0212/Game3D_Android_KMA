@@ -4,6 +4,6 @@ namespace BlackMarket {
         public string id, title;
         public bool consumed;
         public bool Available => !consumed && Campaign.Instance && Campaign.Instance.Available(id);
-        public void Use() { if (Available) Campaign.Instance.Interact(this); }
+        public void Use() { if (!Available) return; var door=GetComponent<RoomDoor>(); if(door)door.Toggle();else Campaign.Instance.Interact(this); }
     }
 }

@@ -37,7 +37,7 @@ Unity metallic/smoothness masks được chuyển từ bản đồ metallic/roug
 https://github.com/microsoft/Microsoft-Rocketbox
 
 - Alex: Male_Adult_07 (áo khoác thường phục).
-- Nhân viên an ninh/Victor: Security_Male_01.
+- Nhân viên an ninh ban đầu: Security_Male_01. Victor hiện dùng Police_Male_02, xem mục đội NPC bên dưới.
 - Animation gốc: m_idle_neutral_01, m_walk_neutral_01, m_run_neutral_01.
 - Giữ thông báo bản quyền đầy đủ trong `Resources/Rocketbox/LICENSE.md`.
 - Shader chuyển sang URP, texture giới hạn 1K, chỉ bật mesh hipoly của mỗi nhân vật, bỏ displacement ở root animation để CharacterController/NavMesh quản lý di chuyển. Tư thế tay cầm súng bổ sung bằng code, chưa phải mocap chiến đấu.
@@ -56,3 +56,21 @@ https://github.com/microsoft/Microsoft-Rocketbox
 ## Bổ sung cửa hàng / stealth
 
 Poly Haven, CC0: https://polyhaven.com/a/Television_01 , https://polyhaven.com/a/television_02 , https://polyhaven.com/a/cardboard_box_01 . File tải/MD5/tác giả nằm trong media-manifest.json. Kệ mở, bố cục phòng, chi tiết dụng cụ nhỏ và đèn pin được tạo trong dự án.
+
+## Bảy tầng / nhạc căng thẳng
+
+Bố cục các tầng, cầu thang, WC, giường y tế, tủ điện, mesh chùm đèn pin và shader do dự án tạo. Đồ đạc nhập tiếp tục dùng các nguồn được ghi phía trên; không thêm asset tải ngoài trong lượt này.
+
+`TensionScore.cs` tạo nhạc nền drone/pulse bằng tổng hợp sóng, nội dung gốc của dự án. Không sử dụng bản thu nhạc bên thứ ba.
+
+## Đội NPC và Victor — 04/10/2026
+
+Bổ sung từ [Microsoft Rocketbox](https://github.com/microsoft/Microsoft-Rocketbox), MIT: Military_Male_01, Military_Male_05, Police_Male_04, Police_Male_06, Male_Adult_04 và Police_Male_02 (Victor). Bản cố định `0943055db6ec570bcef9f2c8b41c9e5467c808f9`; URL, kích thước và SHA256 từng file trong `roster-manifest.json`. Giữ nguyên thông báo MIT tại Resources/Rocketbox/LICENSE.md.
+
+Model AK, kính nhìn đêm, bàn họp, ghế có lưng, tủ cá nhân và phù hiệu Victor được tạo bằng hình học/code trong dự án, không thêm giấy phép asset bên thứ ba. Nhạc tiếp tục dùng nội dung đã ghi ở trên. Âm thanh AK/pistol đã được thay bằng bộ bản thu riêng ở mục bên dưới.
+
+## Âm thanh súng mới — 04/10/2026
+
+[The Free Firearm Sound Library](https://opengameart.org/node/21826), CC0, bản thu của Ben Jaszczak, Brian Nelson, Kevin Heras và Matthew Nanney. Pistol dùng ba phát riêng từ Walther PPQ `X_39P.wav`; AK dùng ba phát riêng từ AK-47 `C_28P.wav`. Mono 44,1 kHz PCM, lọc tiếng ù tần số thấp, thêm phản xạ phòng nhẹ và fade đuôi; không tăng cao độ tiếng pistol để giả làm AK. URL/SHA256 nguồn và từng clip ở `combat-audio-manifest.json`; script tái tạo: `Tools/prepare_combat_audio.py`.
+
+Tiếng cửa trượt kết hợp texture từ Kenney `impactMetal_light_000.ogg` đã có trong dự án (CC0) với tiếng motor tổng hợp gốc. Tiếng chốt và va chạm tiếp tục dùng Foley Kenney. Không thêm nhạc có bản quyền.

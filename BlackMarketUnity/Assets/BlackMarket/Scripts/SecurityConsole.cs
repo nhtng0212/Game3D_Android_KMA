@@ -16,7 +16,20 @@ namespace BlackMarket {
             locked=!locked;shutter.position=locked?doorClosed:doorOpen;game.flags.Add("door_used");CheckObjective();game.sound.Play("door",.5f,shutter.position);
         }
         public void Alarm(){if(!opened || revoked || alarmCooldown>0)return;alarmCooldown=8;var p=game.Marker("alarm").position;game.Noise(p,30);game.sound.Play("alarm",.5f,p);game.flags.Add("alarm_used");CheckObjective();}
-        void CheckObjective(){if(game.state.stage==3 && game.flags.Contains("camera_used") && game.flags.Contains("alarm_used") && game.flags.Contains("door_used") || game.state.stage==4 && game.flags.Contains("lights_used") && game.flags.Contains("door_used")){game.flags.Add("security_done");game.Objective("exit","Đến cửa chuyển khu. Bạn có thể lẻn qua đối thủ.");}}
+        void CheckObjective(){
+            string next=null;
+            if(game.state.stage==3){
+                if(!game.flags.Contains("camera_used"))next="Mở Tablet [Tab] và quan sát camera để tìm đường qua B3.";
+                else if(!game.flags.Contains("alarm_used"))next="Tablet: bật BÁO ĐỘNG KHU C để kéo lính khỏi tuyến cầu thang.";
+                else if(!game.flags.Contains("door_used"))next="Tablet: điều khiển CỬA B để học cách chia cắt đội thanh trừng.";
+            }else if(game.state.stage==4){
+                if(!game.flags.Contains("lights_used"))next="Tablet: tắt đèn kho; quan sát đèn pin để chọn lúc đi qua.";
+                else if(!game.flags.Contains("door_used"))next="Tablet: điều khiển CỬA B để chia cắt lính trước khi xuống Uplink.";
+            }else return;
+            if(next!=null){if(game.objective!=next)game.Objective("security",next);return;}
+            game.flags.Add("security_done");string exit="Tới cửa CẦU THANG xuống "+(game.state.stage==3?"B4 / Y tế & kho.":"B5 / Uplink.");
+            if(game.objective!=exit)game.Objective("exit",exit);
+        }
         void Update(){if(game && game.Running){alarmCooldown=Mathf.Max(0,alarmCooldown-Time.deltaTime);empCooldown=Mathf.Max(0,empCooldown-Time.deltaTime);}}
     }
 }

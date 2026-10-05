@@ -1,0 +1,19 @@
+PASS campaign starts
+PASS separate three-variant pistol and AK sound banks
+PASS menu on boot
+PASS prologue
+PASS chapter 1 starts
+PASS live crouch traversal (4.30, 0.00, 3.00) / actual=(4.13, 0.08, 3.00) hp=100
+PASS live crouch traversal (4.30, 0.00, 5.50) / actual=(4.29, 0.08, 5.33) hp=100
+PASS live crouch traversal (11.70, 0.00, 5.50) / actual=(11.55, 0.08, 5.50) hp=100
+PASS live crouch traversal (11.70, 0.00, 17.00) / actual=(11.70, 0.08, 16.83) hp=100
+PASS live patrol service approach avoids detection
+PASS live patrol reaches visible 9-second opportunity
+PASS live patrol gap reaches radio interaction
+PASS radio approach unseen with all four NPCs active
+PASS live patrol allows mission action
+PASS live crouch traversal (11.70, 0.00, 21.50) / actual=(11.55, 0.08, 21.50) hp=100
+PASS live crouch traversal (11.70, 0.00, 29.80) / actual=(11.70, 0.08, 29.63) hp=100
+PASS live crouch traversal (0.00, 0.00, 30.00) / actual=(0.17, 0.08, 30.00) hp=100
+PASS live radio distraction permits escape to scanner
+RESULT: PASS / 0 failures

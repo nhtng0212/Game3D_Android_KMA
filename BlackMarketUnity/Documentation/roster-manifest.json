@@ -1,0 +1,397 @@
+{
+  "revision": "0943055db6ec570bcef9f2c8b41c9e5467c808f9",
+  "files": [
+    {
+      "path": "Assets/Avatars/Professions/Military_Male_01/Export/Military_Male_01.fbx",
+      "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Professions/Military_Male_01/Export/Military_Male_01.fbx",
+      "local": "Assets/BlackMarket/Resources/Rocketbox/Military_Male_01.fbx",
+      "license": "MIT",
+      "sha256": "b041e9a605a9bead434a9d1ec51fec42e4118f1a991f373de945d69c87de0c59",
+      "bytes": 908640
+    },
+    {
+      "path": "Assets/Avatars/Professions/Military_Male_01/Textures/sm002_body_color_acu.tga",
+      "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Professions/Military_Male_01/Textures/sm002_body_color_acu.tga",
+      "local": "Assets/BlackMarket/Resources/Rocketbox/sm002_body_color_acu.tga",
+      "license": "MIT",
+      "sha256": "40a1afc4dfac8bebf1c61c36819a17fbe3bda0a3132da0b3a1aca3792e79d32d",
+      "bytes": 12582956
+    },
+    {
+      "path": "Assets/Avatars/Professions/Military_Male_01/Textures/sm002_body_normal.tga",
+      "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Professions/Military_Male_01/Textures/sm002_body_normal.tga",
+      "local": "Assets/BlackMarket/Resources/Rocketbox/sm002_body_normal.tga",
+      "license": "MIT",
+      "sha256": "74aca26d86b22aad0c7caa2264e61739f3ec134a86113746a2cd6b7312ac2862",
+      "bytes": 12582956
+    },
+    {
+      "path": "Assets/Avatars/Professions/Military_Male_01/Textures/sm002_combat_knife_color.tga",
+      "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Professions/Military_Male_01/Textures/sm002_combat_knife_color.tga",
+      "local": "Assets/BlackMarket/Resources/Rocketbox/sm002_combat_knife_color.tga",
+      "license": "MIT",
+      "sha256": "d5c5859086d45d11e499716722378675b2e8d9af2171c891258e5db1f9e5abd6",
+      "bytes": 3145772
+    },
+    {
+      "path": "Assets/Avatars/Professions/Military_Male_01/Textures/sm002_combat_knife_normal.tga",
+      "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Professions/Military_Male_01/Textures/sm002_combat_knife_normal.tga",
+      "local": "Assets/BlackMarket/Resources/Rocketbox/sm002_combat_knife_normal.tga",
+      "license": "MIT",
+      "sha256": "8ec2e0cec48e0bef52dfd0107bdbbe2810ada80a81035d7ed8c6cfbbe79be64c",
+      "bytes": 3145772
+    },
+    {
+      "path": "Assets/Avatars/Professions/Military_Male_01/Textures/sm002_equipment_color_acu.tga",
+      "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Professions/Military_Male_01/Textures/sm002_equipment_color_acu.tga",
+      "local": "Assets/BlackMarket/Resources/Rocketbox/sm002_equipment_color_acu.tga",
+      "license": "MIT",
+      "sha256": "e90b760549eda17b25b79cbfc2a831212a2791dd738bcea08f3e8941f0b0cfe3",
+      "bytes": 6291500
+    },
+    {
+      "path": "Assets/Avatars/Professions/Military_Male_01/Textures/sm002_equipment_normal.tga",
+      "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Professions/Military_Male_01/Textures/sm002_equipment_normal.tga",
+      "local": "Assets/BlackMarket/Resources/Rocketbox/sm002_equipment_normal.tga",
+      "license": "MIT",
+      "sha256": "89b0eed4f6359e0710fb14ac1df923bce1e433436dbe4449a20d72f06b9b037e",
+      "bytes": 6291500
+    },
+    {
+      "path": "Assets/Avatars/Professions/Military_Male_01/Textures/sm002_head_color.tga",
+      "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Professions/Military_Male_01/Textures/sm002_head_color.tga",
+      "local": "Assets/BlackMarket/Resources/Rocketbox/sm002_head_color.tga",
+      "license": "MIT",
+      "sha256": "b936215716e3caeed3f6a1d2462bef885022e11593659f4ddf531a138ed5ddcd",
+      "bytes": 12582956
+    },
+    {
+      "path": "Assets/Avatars/Professions/Military_Male_01/Textures/sm002_head_normal.tga",
+      "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Professions/Military_Male_01/Textures/sm002_head_normal.tga",
+      "local": "Assets/BlackMarket/Resources/Rocketbox/sm002_head_normal.tga",
+      "license": "MIT",
+      "sha256": "df10a68a22b65681c75cd2cf127496a9f031380d098f652701bc2e0bc9be7669",
+      "bytes": 12582956
+    },
+    {
+      "path": "Assets/Avatars/Professions/Military_Male_01/Textures/sm002_helmet_color_acu.tga",
+      "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Professions/Military_Male_01/Textures/sm002_helmet_color_acu.tga",
+      "local": "Assets/BlackMarket/Resources/Rocketbox/sm002_helmet_color_acu.tga",
+      "license": "MIT",
+      "sha256": "a36cd586d57d01a6febfd3ade796437a4507196595b93e65285d73a1d3eeb414",
+      "bytes": 12582956
+    },
+    {
+      "path": "Assets/Avatars/Professions/Military_Male_01/Textures/sm002_helmet_normal.tga",
+      "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Professions/Military_Male_01/Textures/sm002_helmet_normal.tga",
+      "local": "Assets/BlackMarket/Resources/Rocketbox/sm002_helmet_normal.tga",
+      "license": "MIT",
+      "sha256": "21cf5391c1c1c6278197d5d0f4610a3fc27e4f26972aadbe04f2ded9f42bf70d",
+      "bytes": 12582956
+    },
+    {
+      "path": "Assets/Avatars/Professions/Military_Male_05/Export/Military_Male_05.fbx",
+      "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Professions/Military_Male_05/Export/Military_Male_05.fbx",
+      "local": "Assets/BlackMarket/Resources/Rocketbox/Military_Male_05.fbx",
+      "license": "MIT",
+      "sha256": "3359ca2820da8a85e06417f63dbaca21ddc5607b2194f857f07a1b640d2e45c3",
+      "bytes": 524624
+    },
+    {
+      "path": "Assets/Avatars/Professions/Military_Male_05/Textures/sm022_body_color_acu.tga",
+      "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Professions/Military_Male_05/Textures/sm022_body_color_acu.tga",
+      "local": "Assets/BlackMarket/Resources/Rocketbox/sm022_body_color_acu.tga",
+      "license": "MIT",
+      "sha256": "df682268c7684cdc506644ead2b055a7389a50545642361ca2b29bebb25b43ff",
+      "bytes": 12582956
+    },
+    {
+      "path": "Assets/Avatars/Professions/Military_Male_05/Textures/sm022_body_normal.tga",
+      "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Professions/Military_Male_05/Textures/sm022_body_normal.tga",
+      "local": "Assets/BlackMarket/Resources/Rocketbox/sm022_body_normal.tga",
+      "license": "MIT",
+      "sha256": "b682aefdd4a9b9bbb895b0a5967b2eb65b0550f53cf7ef2f5ed5be982fb9a0ed",
+      "bytes": 12582956
+    },
+    {
+      "path": "Assets/Avatars/Professions/Military_Male_05/Textures/sm022_head_color_acu.tga",
+      "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Professions/Military_Male_05/Textures/sm022_head_color_acu.tga",
+      "local": "Assets/BlackMarket/Resources/Rocketbox/sm022_head_color_acu.tga",
+      "license": "MIT",
+      "sha256": "7f2512dfaaa56b9044c109805a7c5dbf479aec7ad4ea7eca198a9ea99184d42e",
+      "bytes": 12582956
+    },
+    {
+      "path": "Assets/Avatars/Professions/Military_Male_05/Textures/sm022_head_normal.tga",
+      "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Professions/Military_Male_05/Textures/sm022_head_normal.tga",
+      "local": "Assets/BlackMarket/Resources/Rocketbox/sm022_head_normal.tga",
+      "license": "MIT",
+      "sha256": "d17bcbf4ff52ef732ff83eaa2a14c1e9b76d15ebb074c9baa394164ced745649",
+      "bytes": 12582956
+    },
+    {
+      "path": "Assets/Avatars/Professions/Police_Male_04/Export/Police_Male_04.fbx",
+      "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Professions/Police_Male_04/Export/Police_Male_04.fbx",
+      "local": "Assets/BlackMarket/Resources/Rocketbox/Police_Male_04.fbx",
+      "license": "MIT",
+      "sha256": "f215e18328a317df7915c2cd01f0f2fdce36602412c450744a090010156ec58d",
+      "bytes": 790128
+    },
+    {
+      "path": "Assets/Avatars/Professions/Police_Male_04/Textures/m173_body_color.tga",
+      "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Professions/Police_Male_04/Textures/m173_body_color.tga",
+      "local": "Assets/BlackMarket/Resources/Rocketbox/m173_body_color.tga",
+      "license": "MIT",
+      "sha256": "383d6bfb22008868dbb8db9f793ac02e7846a7a1d78a234faae4dab37ec2ba28",
+      "bytes": 12582956
+    },
+    {
+      "path": "Assets/Avatars/Professions/Police_Male_04/Textures/m173_body_normal.tga",
+      "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Professions/Police_Male_04/Textures/m173_body_normal.tga",
+      "local": "Assets/BlackMarket/Resources/Rocketbox/m173_body_normal.tga",
+      "license": "MIT",
+      "sha256": "3bc28bc818564df7664f255e5dd9b95b71afffc8a97e0a0e27b05e58e8644eb0",
+      "bytes": 12582956
+    },
+    {
+      "path": "Assets/Avatars/Professions/Police_Male_04/Textures/m173_equipment_color.tga",
+      "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Professions/Police_Male_04/Textures/m173_equipment_color.tga",
+      "local": "Assets/BlackMarket/Resources/Rocketbox/m173_equipment_color.tga",
+      "license": "MIT",
+      "sha256": "eb3a5bb8d7fb685a0927ca14daded969c155d4ac66c7d42a42d44c6d04a03345",
+      "bytes": 12582956
+    },
+    {
+      "path": "Assets/Avatars/Professions/Police_Male_04/Textures/m173_equipment_normal.tga",
+      "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Professions/Police_Male_04/Textures/m173_equipment_normal.tga",
+      "local": "Assets/BlackMarket/Resources/Rocketbox/m173_equipment_normal.tga",
+      "license": "MIT",
+      "sha256": "67a0b90a25c402bd3f5312cc476bd28103e559e85365b0182c4a5e90efbec9e4",
+      "bytes": 12582956
+    },
+    {
+      "path": "Assets/Avatars/Professions/Police_Male_04/Textures/m173_head_color.tga",
+      "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Professions/Police_Male_04/Textures/m173_head_color.tga",
+      "local": "Assets/BlackMarket/Resources/Rocketbox/m173_head_color.tga",
+      "license": "MIT",
+      "sha256": "0a9f5665dc1509f71e5c2a97ce5fe10bbf7e01e8fa8e49511cce08f1ff8a9504",
+      "bytes": 12582956
+    },
+    {
+      "path": "Assets/Avatars/Professions/Police_Male_04/Textures/m173_head_normal.tga",
+      "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Professions/Police_Male_04/Textures/m173_head_normal.tga",
+      "local": "Assets/BlackMarket/Resources/Rocketbox/m173_head_normal.tga",
+      "license": "MIT",
+      "sha256": "54b972fdd4e92db44ab241ebc5648d1edd057139c4da009d08458b784fafd865",
+      "bytes": 12582956
+    },
+    {
+      "path": "Assets/Avatars/Professions/Police_Male_04/Textures/m173_pistol_color.tga",
+      "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Professions/Police_Male_04/Textures/m173_pistol_color.tga",
+      "local": "Assets/BlackMarket/Resources/Rocketbox/m173_pistol_color.tga",
+      "license": "MIT",
+      "sha256": "9f5cab3e52648dde83fff3ca85befcd79b4a1dfa1bfe776498a3fa4e07819b20",
+      "bytes": 3145772
+    },
+    {
+      "path": "Assets/Avatars/Professions/Police_Male_04/Textures/m173_pistol_normal.tga",
+      "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Professions/Police_Male_04/Textures/m173_pistol_normal.tga",
+      "local": "Assets/BlackMarket/Resources/Rocketbox/m173_pistol_normal.tga",
+      "license": "MIT",
+      "sha256": "a53761c27365f6880c881377c555c7a43b797b664c1a6b06cc44892009256ba8",
+      "bytes": 3145772
+    },
+    {
+      "path": "Assets/Avatars/Professions/Police_Male_06/Export/Police_Male_06.fbx",
+      "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Professions/Police_Male_06/Export/Police_Male_06.fbx",
+      "local": "Assets/BlackMarket/Resources/Rocketbox/Police_Male_06.fbx",
+      "license": "MIT",
+      "sha256": "837625355da7ba11479f54ace81877443c7c214358004c5a9f5679ee8491eb63",
+      "bytes": 512080
+    },
+    {
+      "path": "Assets/Avatars/Professions/Police_Male_06/Textures/m175_body_color.tga",
+      "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Professions/Police_Male_06/Textures/m175_body_color.tga",
+      "local": "Assets/BlackMarket/Resources/Rocketbox/m175_body_color.tga",
+      "license": "MIT",
+      "sha256": "68d926f5f6914b781dca86de09a95bedbb87fb07531adaca6a84a8b30f55ab7a",
+      "bytes": 12582956
+    },
+    {
+      "path": "Assets/Avatars/Professions/Police_Male_06/Textures/m175_body_normal.tga",
+      "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Professions/Police_Male_06/Textures/m175_body_normal.tga",
+      "local": "Assets/BlackMarket/Resources/Rocketbox/m175_body_normal.tga",
+      "license": "MIT",
+      "sha256": "c296995e21a1e6b286f273400b175f0cef560948443eb4111f47ae6debb3ac35",
+      "bytes": 12582956
+    },
+    {
+      "path": "Assets/Avatars/Professions/Police_Male_06/Textures/m175_head_color.tga",
+      "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Professions/Police_Male_06/Textures/m175_head_color.tga",
+      "local": "Assets/BlackMarket/Resources/Rocketbox/m175_head_color.tga",
+      "license": "MIT",
+      "sha256": "9f03f3f9ff63b0f315634061d35d92dd2d984a770da69e128cdcadf7db3d0dc4",
+      "bytes": 12582956
+    },
+    {
+      "path": "Assets/Avatars/Professions/Police_Male_06/Textures/m175_head_normal.tga",
+      "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Professions/Police_Male_06/Textures/m175_head_normal.tga",
+      "local": "Assets/BlackMarket/Resources/Rocketbox/m175_head_normal.tga",
+      "license": "MIT",
+      "sha256": "b2a01a0cf45057e7396213acf34a534c9a6974133873aa7235e81d3e32fcab7a",
+      "bytes": 12582956
+    },
+    {
+      "path": "Assets/Avatars/Adults/Male_Adult_04/Export/Male_Adult_04.fbx",
+      "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Adults/Male_Adult_04/Export/Male_Adult_04.fbx",
+      "local": "Assets/BlackMarket/Resources/Rocketbox/Male_Adult_04.fbx",
+      "license": "MIT",
+      "sha256": "fe0d026bc59e7d7ea8f4049edf77ee8040e050224b44a10fb4727b9b3d6efba0",
+      "bytes": 571296
+    },
+    {
+      "path": "Assets/Avatars/Adults/Male_Adult_04/Textures/m006_body_color.tga",
+      "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Adults/Male_Adult_04/Textures/m006_body_color.tga",
+      "local": "Assets/BlackMarket/Resources/Rocketbox/m006_body_color.tga",
+      "license": "MIT",
+      "sha256": "8dd7a0a1de383bd295f9f6f42b4ab484b2afa4ab920521a161bd18b18c3aae0f",
+      "bytes": 12582956
+    },
+    {
+      "path": "Assets/Avatars/Adults/Male_Adult_04/Textures/m006_body_normal.tga",
+      "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Adults/Male_Adult_04/Textures/m006_body_normal.tga",
+      "local": "Assets/BlackMarket/Resources/Rocketbox/m006_body_normal.tga",
+      "license": "MIT",
+      "sha256": "1d5062e2c5012bca62c2090cf064c8e2d335daafb0ab62b431e47c628ad781a7",
+      "bytes": 12582956
+    },
+    {
+      "path": "Assets/Avatars/Adults/Male_Adult_04/Textures/m006_head_color.tga",
+      "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Adults/Male_Adult_04/Textures/m006_head_color.tga",
+      "local": "Assets/BlackMarket/Resources/Rocketbox/m006_head_color.tga",
+      "license": "MIT",
+      "sha256": "e889edd96192a396efec0bf0baed370fdff4a8d3b2efdc3809722eb19cd21941",
+      "bytes": 12582956
+    },
+    {
+      "path": "Assets/Avatars/Adults/Male_Adult_04/Textures/m006_head_normal.tga",
+      "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Adults/Male_Adult_04/Textures/m006_head_normal.tga",
+      "local": "Assets/BlackMarket/Resources/Rocketbox/m006_head_normal.tga",
+      "license": "MIT",
+      "sha256": "ca51b8fd271751dd5b58493038c0ac4496c3c51a986d69541723a680ccbcf91b",
+      "bytes": 12582956
+    },
+    {
+      "path": "Assets/Avatars/Adults/Male_Adult_04/Textures/m006_opacity_color.tga",
+      "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Adults/Male_Adult_04/Textures/m006_opacity_color.tga",
+      "local": "Assets/BlackMarket/Resources/Rocketbox/m006_opacity_color.tga",
+      "license": "MIT",
+      "sha256": "3c5656dbad4872676c9469f6da09690c0e891148394165dda11b265cb2b014c0",
+      "bytes": 16777260
+    },
+    {
+      "path": "Assets/Avatars/Professions/Police_Male_02/Export/Police_Male_02.fbx",
+      "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Professions/Police_Male_02/Export/Police_Male_02.fbx",
+      "local": "Assets/BlackMarket/Resources/Rocketbox/Police_Male_02.fbx",
+      "license": "MIT",
+      "sha256": "4eaef4f8a4043cc72f20c68e0515fb1616ec07a6ef11cd74916b9b7d7eb6cdf4",
+      "bytes": 695888
+    },
+    {
+      "path": "Assets/Avatars/Professions/Police_Male_02/Textures/m158_body_color.tga",
+      "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Professions/Police_Male_02/Textures/m158_body_color.tga",
+      "local": "Assets/BlackMarket/Resources/Rocketbox/m158_body_color.tga",
+      "license": "MIT",
+      "sha256": "3b1ef3bc24d4a44accfae161b0b7b8e68131e4692396cc1ef774c9f99d870c9e",
+      "bytes": 12582956
+    },
+    {
+      "path": "Assets/Avatars/Professions/Police_Male_02/Textures/m158_body_normal.tga",
+      "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Professions/Police_Male_02/Textures/m158_body_normal.tga",
+      "local": "Assets/BlackMarket/Resources/Rocketbox/m158_body_normal.tga",
+      "license": "MIT",
+      "sha256": "9bb4bd6de3a695a7ca47ca87cdfd537465ecf5f707bf9dd90767c4da0b5a91db",
+      "bytes": 12582956
+    },
+    {
+      "path": "Assets/Avatars/Professions/Police_Male_02/Textures/m158_equipment_color.tga",
+      "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Professions/Police_Male_02/Textures/m158_equipment_color.tga",
+      "local": "Assets/BlackMarket/Resources/Rocketbox/m158_equipment_color.tga",
+      "license": "MIT",
+      "sha256": "b63c7e532a29314f827b02667634837f0d26103879015c51bc015dfd40a318ac",
+      "bytes": 3145772
+    },
+    {
+      "path": "Assets/Avatars/Professions/Police_Male_02/Textures/m158_equipment_normal.tga",
+      "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Professions/Police_Male_02/Textures/m158_equipment_normal.tga",
+      "local": "Assets/BlackMarket/Resources/Rocketbox/m158_equipment_normal.tga",
+      "license": "MIT",
+      "sha256": "9af91947f97a28d14124a648a18b5bc388cd08fd1fe8d397967165e0ce896da3",
+      "bytes": 3145772
+    },
+    {
+      "path": "Assets/Avatars/Professions/Police_Male_02/Textures/m158_head_color.tga",
+      "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Professions/Police_Male_02/Textures/m158_head_color.tga",
+      "local": "Assets/BlackMarket/Resources/Rocketbox/m158_head_color.tga",
+      "license": "MIT",
+      "sha256": "6b1633e569402f7dc92c6ce42491dc58dc29276814eb4a2509df651246875f97",
+      "bytes": 12582956
+    },
+    {
+      "path": "Assets/Avatars/Professions/Police_Male_02/Textures/m158_head_normal.tga",
+      "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Professions/Police_Male_02/Textures/m158_head_normal.tga",
+      "local": "Assets/BlackMarket/Resources/Rocketbox/m158_head_normal.tga",
+      "license": "MIT",
+      "sha256": "22b8a4e897b071eb8bb54837de15ee6f18c532353b5666b20187bfefe1f6700d",
+      "bytes": 12582956
+    },
+    {
+      "path": "Assets/Avatars/Professions/Police_Male_02/Textures/m158_helmet_color.tga",
+      "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Professions/Police_Male_02/Textures/m158_helmet_color.tga",
+      "local": "Assets/BlackMarket/Resources/Rocketbox/m158_helmet_color.tga",
+      "license": "MIT",
+      "sha256": "274e150387baf7454ca31464e06dc9a095b6149b5448b576ce510e1fa27c4cca",
+      "bytes": 12582956
+    },
+    {
+      "path": "Assets/Avatars/Professions/Police_Male_02/Textures/m158_helmet_normal.tga",
+      "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Professions/Police_Male_02/Textures/m158_helmet_normal.tga",
+      "local": "Assets/BlackMarket/Resources/Rocketbox/m158_helmet_normal.tga",
+      "license": "MIT",
+      "sha256": "9369fee3d55c2138dada064dee828d24b9d09ca4530e9dea2f4edce62aba675d",
+      "bytes": 12582956
+    },
+    {
+      "path": "Assets/Avatars/Professions/Police_Male_02/Textures/m158_opacity_color.tga",
+      "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Professions/Police_Male_02/Textures/m158_opacity_color.tga",
+      "local": "Assets/BlackMarket/Resources/Rocketbox/m158_opacity_color.tga",
+      "license": "MIT",
+      "sha256": "f449a0249ba230d58f39a1c6ecf6880824b3d67d9df16f67b5c7d33cc7b8d18b",
+      "bytes": 1048620
+    },
+    {
+      "path": "Assets/Avatars/Professions/Police_Male_02/Textures/m158_opacity_normal.tga",
+      "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Professions/Police_Male_02/Textures/m158_opacity_normal.tga",
+      "local": "Assets/BlackMarket/Resources/Rocketbox/m158_opacity_normal.tga",
+      "license": "MIT",
+      "sha256": "b4ffc4f759ceccd03043e45ae0f05577e3ca4c10440d33d778941f04f37e1e6a",
+      "bytes": 786476
+    },
+    {
+      "path": "Assets/Avatars/Professions/Police_Male_02/Textures/m158_pistol_color.tga",
+      "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Professions/Police_Male_02/Textures/m158_pistol_color.tga",
+      "local": "Assets/BlackMarket/Resources/Rocketbox/m158_pistol_color.tga",
+      "license": "MIT",
+      "sha256": "2e0b09d0c0fda8d43a7993de1f25ab42d4c4e028d69f47fa8f08e235d0386f3e",
+      "bytes": 3145772
+    },
+    {
+      "path": "Assets/Avatars/Professions/Police_Male_02/Textures/m158_pistol_normal.tga",
+      "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/0943055db6ec570bcef9f2c8b41c9e5467c808f9/Assets/Avatars/Professions/Police_Male_02/Textures/m158_pistol_normal.tga",
+      "local": "Assets/BlackMarket/Resources/Rocketbox/m158_pistol_normal.tga",
+      "license": "MIT",
+      "sha256": "c769ff99b4000dfcdac37be088d6c3f5d322ab001e89d3ff055dc1b53f6d88e0",
+      "bytes": 3145772
+    }
+  ]
+}
