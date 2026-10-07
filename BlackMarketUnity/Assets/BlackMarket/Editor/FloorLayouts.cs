@@ -6,7 +6,7 @@ namespace BlackMarket.Editor {
         // Seven authored floors. Coordinates are metres; each entrance stair is playable geometry.
         static void CampaignFloor(int stage) {
             cartonNumber=0;
-            if(stage==0){Shop();ShopUpgrade();DenseDressing(0);RoomExpansion(0);return;}
+            if(stage==0){RetailShopBuilder.Populate(parent);return;}
             float width=stage==1?26:stage==2?30:stage==3?34:stage==4?30:stage==5?28:36;
             float depth=stage==1?32:stage==2?30:stage==3?30:stage==4?40:stage==5?38:32;
             Shell(width,depth,stage);

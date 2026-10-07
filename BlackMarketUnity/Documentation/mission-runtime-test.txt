@@ -1,0 +1,39 @@
+PASS first prologue gated
+PASS initial objective searches drawers
+PASS computer rejects missing card
+PASS outer door locked
+PASS inner door rejects premature scan
+PASS four drawers with exactly one card
+PASS hidden card unavailable
+PASS drawer selectable by normal interaction 0
+PASS drawer selectable by normal interaction 1
+PASS drawer selectable by normal interaction 2
+PASS revealed card selectable
+PASS drawer selectable by normal interaction 3
+PASS all drawers open and card collected separately
+PASS desktop does not auto-read file
+PASS outside click does not open file
+PASS Order 71 icon opens via pointer
+PASS first document cannot skip
+PASS reading starts arrival
+PASS four suited pursuers arrive
+PASS navigation route (0.00, 1.00, 34.70)
+PASS physical passage (0.00, 1.00, 34.70)
+PASS escape through warehouse survives
+PASS outer animation completes: (0.00, 4.20, 0.00) running=True modal=
+PASS card opens outer gate without finishing floor
+PASS scan requires entering vestibule
+PASS navigation route (0.00, 0.00, 37.70)
+PASS physical passage (0.00, 0.00, 37.70)
+PASS face scanner selectable inside vestibule
+PASS scan locks player control
+PASS pause freezes scan
+PASS scan alone does not finish floor
+PASS outer sealed and inner opened
+PASS navigation route (0.00, 0.00, 40.20)
+PASS passing inner gate ends floor one
+PASS replay prologue skippable
+PASS reset closes drawers and gates
+PASS read document skippable on replay
+PASS replay skip preserves pursuers
+RESULT 0 failures

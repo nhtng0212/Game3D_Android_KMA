@@ -1,0 +1,41 @@
+PASS reachable Interact - note
+PASS reachable Door - VĂN PHÒNG MARCUS
+PASS reachable Interact - computer
+PASS reachable Door - WC NAM / MEN
+PASS reachable Door - WC NU / WOMEN
+PASS reachable Door - KHO HÀNG
+PASS reachable Interact - door06
+PASS reachable Interact - frontdoor
+PASS reachable QUÉT KHUÔN MẶT
+PASS reachable MỞ NGĂN KÉO 1
+PASS reachable MỞ NGĂN KÉO 2
+PASS reachable MỞ NGĂN KÉO 3
+PASS reachable MỞ NGĂN KÉO 4
+PASS reachable MỞ NGĂN KÉO 1
+PASS reachable MỞ NGĂN KÉO 2
+PASS reachable MỞ NGĂN KÉO 3
+PASS reachable MỞ NGĂN KÉO 4
+PASS reachable MỞ NGĂN KÉO 1
+PASS reachable MỞ NGĂN KÉO 2
+PASS reachable MỞ NGĂN KÉO 3
+PASS reachable MỞ NGĂN KÉO 4
+PASS reachable MỞ NGĂN KÉO 1
+PASS reachable MỞ NGĂN KÉO 2
+PASS reachable MỞ NGĂN KÉO 3
+PASS reachable MỞ NGĂN KÉO 4
+PASS reachable MỞ NGĂN KÉO 1
+PASS reachable MỞ NGĂN KÉO 2
+PASS reachable MỞ NGĂN KÉO 3
+PASS reachable MỞ NGĂN KÉO 4
+PASS reachable MỞ NGĂN KÉO 1
+PASS reachable MỞ NGĂN KÉO 2
+PASS reachable MỞ NGĂN KÉO 3
+PASS reachable MỞ NGĂN KÉO 4
+PASS reachable @office_visit
+PASS reachable @wc_men
+PASS reachable @wc_women
+PASS reachable @warehouse_visit
+PASS 3905 floor support samples
+PASS material references
+PASS 13 downloaded model variants and reusable shop prefabs
+OBJECTS 4348

@@ -4609,9 +4609,9 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 527171025568988413}
-  m_Text: RADIO / WORKSHOP
+  m_Text: "\u0110\xC0I PH\xC1T THANH / X\u01AF\u1EDENG K\u1EF8 THU\u1EACT"
   m_OffsetZ: 0
-  m_CharacterSize: 0.028599998
+  m_CharacterSize: 0.016587999
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
@@ -4858,9 +4858,9 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 532558579656683447}
-  m_Text: SERVICE / RADIO
+  m_Text: "L\u1ED0I K\u1EF8 THU\u1EACT / \u0110\xC0I PH\xC1T THANH"
   m_OffsetZ: 0
-  m_CharacterSize: 0.028599998
+  m_CharacterSize: 0.016587999
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
@@ -30512,7 +30512,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlackMarket.Interaction
   id: radio
-  title: "RADIO / T\u1EA0O TI\u1EBENG \u0110\u1ED8NG"
+  title: "\u0110\xC0I PH\xC1T THANH / T\u1EA0O TI\u1EBENG \u0110\u1ED8NG"
   consumed: 0
 --- !u!1 &3106460783197632024
 GameObject:
@@ -39970,7 +39970,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlackMarket.Interaction
   id: supply_entry
-  title: "TI\u1EBEP T\u1EBE / MEDICAL"
+  title: "TI\u1EBEP T\u1EBE / Y T\u1EBE"
   consumed: 0
 --- !u!1 &4029116213360443966
 GameObject:
@@ -49318,7 +49318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlackMarket.Interaction
   id: door06
-  title: "B2 / CARTER SCANNER / M\u1EDE C\u1EECA C\u1EA6U THANG"
+  title: "B2 / M\xC1Y QU\xC9T CARTER / M\u1EDE C\u1EECA C\u1EA6U THANG"
   consumed: 0
 --- !u!1 &4913300997353742137
 GameObject:
@@ -51284,9 +51284,9 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5074216692591337759}
-  m_Text: "CH\u1EDC \u0110\xC8N PIN QUAY \u0110I \u2192 RADIO"
+  m_Text: "CH\u1EDC \u0110\xC8N PIN QUAY \u0110I \u2192 \u0110\xC0I PH\xC1T THANH"
   m_OffsetZ: 0
-  m_CharacterSize: 0.01768
+  m_CharacterSize: 0.01326
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
@@ -52813,9 +52813,9 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5206908509156899288}
-  m_Text: WC / LOCKERS
+  m_Text: "NH\xC0 V\u1EC6 SINH / T\u1EE6 \u0110\u1ED2"
   m_OffsetZ: 0
-  m_CharacterSize: 0.028599998
+  m_CharacterSize: 0.018063156
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
@@ -53938,7 +53938,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5367244821941543735}
-  m_Text: B1 / MAINTENANCE
+  m_Text: "B1 / B\u1EA2O TR\xCC"
   m_OffsetZ: 0
   m_CharacterSize: 0.028599998
   m_LineSpacing: 1
@@ -54620,11 +54620,9 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5477307256322709126}
-  m_Text: 'B2 / CARTER SCANNER
-
-    STAIRS  /  DOWN'
+  m_Text: "B2 / M\xC1Y QU\xC9T CARTER\nC\u1EA6U THANG / \u0110I XU\u1ED0NG"
   m_OffsetZ: 0
-  m_CharacterSize: 0.028599998
+  m_CharacterSize: 0.027169997
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
@@ -70376,9 +70374,9 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7189039380738676000}
-  m_Text: GENERATOR
+  m_Text: "M\xC1Y PH\xC1T \u0110I\u1EC6N"
   m_OffsetZ: 0
-  m_CharacterSize: 0.028599998
+  m_CharacterSize: 0.0198
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
@@ -79778,9 +79776,9 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8142237990313711909}
-  m_Text: STAFF BREAK ROOM
+  m_Text: "PH\xD2NG NGH\u1EC8 NH\xC2N VI\xCAN"
   m_OffsetZ: 0
-  m_CharacterSize: 0.028599998
+  m_CharacterSize: 0.02288
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1

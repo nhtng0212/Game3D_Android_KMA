@@ -1,6 +1,10 @@
+Xem [hướng dẫn mở đầu mới: thẻ → máy tính → chạy xuống hầm](OPENING_VI.md).
+
 # BLACK MARKET — Unity
 
 Unity 6000.3.25f1 / URP. Mở `Assets/BlackMarket/Scenes/NorthPoint.unity` rồi Play, hoặc chạy `./play-linux.sh` để mở bản Linux đã build.
+
+**Tầng 1 đã thay bằng cửa hàng điện tử mới ngày 07/10/2026.** Mở menu `BLACK MARKET → Shop → 2` để chỉnh prefab, `Shop → 3` để mở thư viện kéo thả. Có kệ hai mặt, quầy thu ngân, phòng Marcus, kho và hai WC Nam/Nữ. Xem [SHOP_REBUILD_VI.md](SHOP_REBUILD_VI.md). Bản Linux có sẵn chưa chứa map mới; dùng Play trong Editor.
 
 ## Bản đồ và tuyến chơi
 
@@ -18,9 +22,9 @@ NPC, trang bị và cân bằng mới: [ENCOUNTERS_VI.md](ENCOUNTERS_VI.md). Cá
 
 ## Điều khiển
 
-WASD di chuyển; chuột xoay camera; Shift chạy; C khom; E tương tác; chuột phải ngắm; chuột trái bắn; R nạp; Q đổi súng; N kính đêm; Tab Tablet; **J nhật ký/mục đích**; Esc tạm dừng. Android có các nút cảm ứng tương ứng và vuốt bên phải để nhìn.
+WASD di chuyển; chuột xoay camera; Shift chạy; C khom; E tương tác; chuột phải ngắm; chuột trái bắn; R nạp; Q đổi súng; N kính đêm; Tab Tablet; **J nhật ký/mục đích**; Esc tạm dừng. Android có joystick trái, vuốt bên phải để nhìn; giữ NGẮM/BẮN/CHẠY, chạm KHOM để bật/tắt. Chi tiết sửa điều khiển, dáng khom và âm thanh: [ANDROID_CONTROLS_VI.md](ANDROID_CONTROLS_VI.md).
 
-HUD giải thích cả hành động và lý do. Nhật ký giúp đọc lại bối cảnh. Tablet không tạm dừng thời gian: nấp trước khi sử dụng. Súng hạ khi không ngắm/bắn; đèn pin NPC có chùm sáng rõ hơn. Nhạc nền tăng độ căng thẳng theo nguy hiểm.
+HUD giải thích cả hành động và lý do. Nhật ký giúp đọc lại bối cảnh. Tablet không tạm dừng thời gian: nấp trước khi sử dụng. Súng hạ khi không ngắm/bắn; đèn pin NPC có chùm sáng rõ hơn. Nhạc nền có giai điệu tăng độ căng thẳng theo nguy hiểm; chuông dồn dập bật khi địch xác nhận và truy đuổi.
 
 Checkpoint lưu đầu mỗi chương, riêng trong `Application.persistentDataPath`. Chọn **BẮT ĐẦU CHIẾN DỊCH** để xem bản đồ mới từ đầu; tiếp tục checkpoint sẽ tới tầng tương ứng.
 
@@ -46,4 +50,4 @@ Game Unity và Godot ở thư mục cha độc lập; không dùng chung source 
 
 Pose súng/crouch điều chỉnh bằng code trên animation idle/walk/run; chưa có mocap chiến đấu chuyên dụng. Victor dùng model chiến thuật đen riêng. Kể chuyện bằng chữ, chưa có lồng tiếng. Nhạc căng thẳng là nhạc tổng hợp gốc; chùm đèn pin là mesh trong suốt có kiểm tra vật cản. Chưa đo FPS, nhiệt, cảm ứng hay thời lượng 20–30 phút trên Android thật.
 
-Nguồn asset: [ASSET_CREDITS.md](ASSET_CREDITS.md). Kết quả kiểm thử: [TEST_REPORT_VI.md](TEST_REPORT_VI.md).
+Nguồn asset: [ASSET_CREDITS.md](ASSET_CREDITS.md). Kết quả sửa điều khiển/khom/nhạc: [REVIEW_2026_10_06_VI.md](REVIEW_2026_10_06_VI.md). Báo cáo bản đồ trước đó: [TEST_REPORT_VI.md](TEST_REPORT_VI.md).

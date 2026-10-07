@@ -1,0 +1,4 @@
+PASS rendered desktop icon handles pointer click
+PASS outer animation completes: (0.00, 4.20, 0.00) running=True modal=
+PASS face scan visual sequence completes
+RESULT 0 failures

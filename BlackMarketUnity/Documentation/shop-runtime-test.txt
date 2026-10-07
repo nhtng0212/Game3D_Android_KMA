@@ -1,0 +1,50 @@
+PASS campaign boot
+PASS new game loads replacement shop
+PASS player starts inside locked frontage
+PASS office, warehouse and two separate WC doors
+PASS closed door blocks sight: VĂN PHÒNG MARCUS
+PASS open door clears opening: VĂN PHÒNG MARCUS
+PASS closed door blocks sight: WC NAM / MEN
+PASS open door clears opening: WC NAM / MEN
+PASS closed door blocks sight: WC NU / WOMEN
+PASS open door clears opening: WC NU / WOMEN
+PASS closed door blocks sight: KHO HÀNG
+PASS open door clears opening: KHO HÀNG
+PASS navigation: wc_men
+PASS CharacterController traversal: wc_men
+PASS floor supports player: wc_men
+PASS navigation: wc_women
+PASS CharacterController traversal: wc_women
+PASS floor supports player: wc_women
+PASS navigation: warehouse_visit
+PASS CharacterController traversal: warehouse_visit
+PASS floor supports player: warehouse_visit
+PASS navigation: office_visit
+PASS CharacterController traversal: office_visit
+PASS floor supports player: office_visit
+PASS navigation: return to entrance
+PASS CharacterController traversal: return to entrance
+PASS floor supports player: return to entrance
+PASS navigation: checkout note
+PASS CharacterController traversal: checkout note
+PASS floor supports player: checkout note
+PASS checkout note reachable by normal E interaction
+PASS checkout note opens story
+PASS Door 06 remains gated before terminal
+PASS navigation: Marcus keycard
+PASS CharacterController traversal: Marcus keycard
+PASS floor supports player: Marcus keycard
+PASS keycard selectable by proximity and line of sight
+PASS keycard collected
+PASS navigation: Marcus terminal
+PASS CharacterController traversal: Marcus terminal
+PASS floor supports player: Marcus terminal
+PASS terminal selectable by normal E interaction
+PASS ORDER 071 progression
+PASS navigation: warehouse Door 06
+PASS CharacterController traversal: warehouse Door 06
+PASS floor supports player: warehouse Door 06
+PASS Door 06 selectable at warehouse rear
+PASS Door 06 story gate
+PASS shop advances to existing B1 encounter
+RESULT: PASS / 0 failures

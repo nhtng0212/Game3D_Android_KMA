@@ -1,0 +1,1321 @@
+[
+  {
+    "id": "Camera_01",
+    "source": "https://polyhaven.com/a/Camera_01",
+    "license": "CC0-1.0",
+    "authors": {
+      "Rajil Jose Macatangay": "All"
+    },
+    "downloads": {
+      "https://dl.polyhaven.org/file/ph-assets/Models/fbx/1k/Camera_01/Camera_01_1k.fbx": {
+        "include": {
+          "textures/Camera_01_body_metallic_1k.png": {
+            "size": 169863,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/Camera_01/Camera_01_body_metallic_1k.png",
+            "md5": "d4e8ecf322227fc836ff571a720077d6"
+          },
+          "textures/Camera_01_body_nor_gl_1k.png": {
+            "size": 1523231,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/Camera_01/Camera_01_body_nor_gl_1k.png",
+            "md5": "ca3053325dbbb4b75fd891fb86096b06"
+          },
+          "textures/Camera_01_body_roughness_1k.png": {
+            "size": 599889,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/Camera_01/Camera_01_body_roughness_1k.png",
+            "md5": "ff3acedbdac6f7af68846c1c829365bf"
+          },
+          "textures/Camera_01_strap_diff_1k.png": {
+            "size": 961334,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/Camera_01/Camera_01_strap_diff_1k.png",
+            "md5": "0f5eecbef30a82b5dc95e05e3745e7b7"
+          },
+          "textures/Camera_01_strap_nor_gl_1k.png": {
+            "size": 1496358,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/Camera_01/Camera_01_strap_nor_gl_1k.png",
+            "md5": "9587580484a221d20017830efae9a099"
+          },
+          "textures/Camera_01_strap_roughness_1k.png": {
+            "size": 560269,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/Camera_01/Camera_01_strap_roughness_1k.png",
+            "md5": "a02e7cbcf34cd111809b8a2065a9b94d"
+          },
+          "textures/Camera_01_lens_body_metallic_1k.png": {
+            "size": 51703,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/Camera_01/Camera_01_lens_body_metallic_1k.png",
+            "md5": "70da55f978a04d8976666f307b647053"
+          },
+          "textures/Camera_01_lens_body_roughness_1k.png": {
+            "size": 453181,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/Camera_01/Camera_01_lens_body_roughness_1k.png",
+            "md5": "a768ec226fcd22053858653237b2a3cf"
+          },
+          "textures/Camera_01_lens_body_nor_gl_1k.png": {
+            "size": 932666,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/Camera_01/Camera_01_lens_body_nor_gl_1k.png",
+            "md5": "86156f97f4d3f2e6bfa38e703e27746b"
+          },
+          "textures/Camera_01_body_diff_1k.png": {
+            "size": 962295,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/Camera_01/Camera_01_body_diff_1k.png",
+            "md5": "a127468f944552cab3aef47376047c4d"
+          },
+          "textures/Camera_01_strap_metallic_1k.png": {
+            "size": 15942,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/Camera_01/Camera_01_strap_metallic_1k.png",
+            "md5": "e06f233b925ce9ff7bfb7dc830da6478"
+          },
+          "textures/Camera_01_lens_body_diff_1k.png": {
+            "size": 530880,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/Camera_01/Camera_01_lens_body_diff_1k.png",
+            "md5": "f2bbb88096e089028bf72cdb5040bb66"
+          }
+        },
+        "size": 966796,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/fbx/1k/Camera_01/Camera_01_1k.fbx",
+        "md5": "c5bfb88a9ea96a823c7bdec90999bc5d"
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/Camera_01/Camera_01_strap_metallic_1k.png": {
+        "size": 15942,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/Camera_01/Camera_01_strap_metallic_1k.png",
+        "md5": "e06f233b925ce9ff7bfb7dc830da6478"
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/Camera_01/Camera_01_body_roughness_1k.png": {
+        "size": 599889,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/Camera_01/Camera_01_body_roughness_1k.png",
+        "md5": "ff3acedbdac6f7af68846c1c829365bf"
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/Camera_01/Camera_01_body_diff_1k.png": {
+        "size": 962295,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/Camera_01/Camera_01_body_diff_1k.png",
+        "md5": "a127468f944552cab3aef47376047c4d"
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/Camera_01/Camera_01_body_metallic_1k.png": {
+        "size": 169863,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/Camera_01/Camera_01_body_metallic_1k.png",
+        "md5": "d4e8ecf322227fc836ff571a720077d6"
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/Camera_01/Camera_01_lens_body_roughness_1k.png": {
+        "size": 453181,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/Camera_01/Camera_01_lens_body_roughness_1k.png",
+        "md5": "a768ec226fcd22053858653237b2a3cf"
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/Camera_01/Camera_01_strap_diff_1k.png": {
+        "size": 961334,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/Camera_01/Camera_01_strap_diff_1k.png",
+        "md5": "0f5eecbef30a82b5dc95e05e3745e7b7"
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/Camera_01/Camera_01_body_nor_gl_1k.png": {
+        "size": 1523231,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/Camera_01/Camera_01_body_nor_gl_1k.png",
+        "md5": "ca3053325dbbb4b75fd891fb86096b06"
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/Camera_01/Camera_01_lens_body_metallic_1k.png": {
+        "size": 51703,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/Camera_01/Camera_01_lens_body_metallic_1k.png",
+        "md5": "70da55f978a04d8976666f307b647053"
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/Camera_01/Camera_01_strap_nor_gl_1k.png": {
+        "size": 1496358,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/Camera_01/Camera_01_strap_nor_gl_1k.png",
+        "md5": "9587580484a221d20017830efae9a099"
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/Camera_01/Camera_01_lens_body_nor_gl_1k.png": {
+        "size": 932666,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/Camera_01/Camera_01_lens_body_nor_gl_1k.png",
+        "md5": "86156f97f4d3f2e6bfa38e703e27746b"
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/Camera_01/Camera_01_lens_body_diff_1k.png": {
+        "size": 530880,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/Camera_01/Camera_01_lens_body_diff_1k.png",
+        "md5": "f2bbb88096e089028bf72cdb5040bb66"
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/Camera_01/Camera_01_strap_roughness_1k.png": {
+        "size": 560269,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/Camera_01/Camera_01_strap_roughness_1k.png",
+        "md5": "a02e7cbcf34cd111809b8a2065a9b94d"
+      }
+    },
+    "files": [
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/Camera_01/Camera_01.fbx",
+        "sha256": "84733292eff701f03a1c51816e2b56c3eeedb1353653f1549c4c49a889f1cde8"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/Camera_01/body_diff.png",
+        "sha256": "5d29f2a24f2199ca2cb06a6df47becbec0706983ee141fff02b505e969331899"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/Camera_01/body_metallic.png",
+        "sha256": "b8dbfb2a0140b8c0cd61647a01e2d8fe2627efd3db457b5efc78e333681f51be"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/Camera_01/body_nor_gl.png",
+        "sha256": "8d6a662b6378296edce928cf6ba2e9618a915542800ec6d97887412399c4c762"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/Camera_01/body_roughness.png",
+        "sha256": "057624b655bd38bf9fd926abc55925ae0cfdcdbdb1a95ef83cc6b0467be38736"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/Camera_01/body_unity_mask.png",
+        "sha256": "66e7f05fbf031f3a16f31cbbf2cf8c2f9700ee616331872a23f9d518bb819a7f"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/Camera_01/lens_body_diff.png",
+        "sha256": "ab957c124e554dd5caee08bfdef0b2a4edd4d1538be2a792eab21700c51761c8"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/Camera_01/lens_body_metallic.png",
+        "sha256": "6c8a49009bb91e31428dab50fb19cabb89a7587cd01c621d5684c8f37fcf20bb"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/Camera_01/lens_body_nor_gl.png",
+        "sha256": "a0498789b28c5e4f6b85ed0e49d387c3d6a4cb6e474d7bf8bb05db266e26f87f"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/Camera_01/lens_body_roughness.png",
+        "sha256": "0341ff16932a0524b3603dd5d3f22764623a8d5d648de8c70781e6ed2b8ca642"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/Camera_01/lens_body_unity_mask.png",
+        "sha256": "c973994f486bc16a0743f6a12e6b5183be937232b45033211d68000240b1e7b3"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/Camera_01/strap_diff.png",
+        "sha256": "e9309f6d1b48f95c77737fb9fa9fdd65e355b1e3e5986bf2bcf02443333ef233"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/Camera_01/strap_metallic.png",
+        "sha256": "55199715450bec226ab7076552cce3455e3fe485d0127a6c4495d4c3629accb1"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/Camera_01/strap_nor_gl.png",
+        "sha256": "8d84009145fce867c96990d67ac84ecac6d70b26496c20a3938a420605612d4d"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/Camera_01/strap_roughness.png",
+        "sha256": "e061eff6638f94265438a30fa2abc4e9ba8f4f6acb6fa6a7193ebf36ce78b527"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/Camera_01/strap_unity_mask.png",
+        "sha256": "12046f180956bfed4807cbcc0cf8f90ea0a4d95904e1327e671b490e8ef861f6"
+      }
+    ]
+  },
+  {
+    "id": "CashRegister_01",
+    "source": "https://polyhaven.com/a/CashRegister_01",
+    "license": "CC0-1.0",
+    "authors": {
+      "Joe Seabuhr": "All"
+    },
+    "downloads": {
+      "https://dl.polyhaven.org/file/ph-assets/Models/fbx/1k/CashRegister_01/CashRegister_01_1k.fbx": {
+        "include": {
+          "textures/CashRegister_01_diff_1k.jpg": {
+            "size": 133109,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/CashRegister_01/CashRegister_01_diff_1k.jpg",
+            "md5": "bfa598c754195bfd8e639f169c58a379"
+          },
+          "textures/CashRegister_01_glass_roughness_1k.png": {
+            "size": 144801,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/CashRegister_01/CashRegister_01_glass_roughness_1k.png",
+            "md5": "764840d1e2b2ac56b7bc6fe626392fe8"
+          },
+          "textures/CashRegister_01_nor_gl_1k.exr": {
+            "size": 908852,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/CashRegister_01/CashRegister_01_nor_gl_1k.exr",
+            "md5": "1807f06507e8267e94c169f662c40dcf"
+          },
+          "textures/CashRegister_01_glass_metallic_1k.png": {
+            "size": 1139,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/CashRegister_01/CashRegister_01_glass_metallic_1k.png",
+            "md5": "14c604b27ea726bc5b38e48671f77ce0"
+          },
+          "textures/CashRegister_01_glass_diff_1k.png": {
+            "size": 651378,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/CashRegister_01/CashRegister_01_glass_diff_1k.png",
+            "md5": "d66a450eb5573325db686d9e6c7d2ff8"
+          },
+          "textures/CashRegister_01_metallic_1k.exr": {
+            "size": 349722,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/CashRegister_01/CashRegister_01_metallic_1k.exr",
+            "md5": "01062afe4bbd05b71486fcba06d52e9f"
+          },
+          "textures/CashRegister_01_glass_opacity_1k.png": {
+            "size": 196144,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/CashRegister_01/CashRegister_01_glass_opacity_1k.png",
+            "md5": "e79d5d89f44c31b04ee18ec269238ecc"
+          },
+          "textures/CashRegister_01_glass_nor_gl_1k.png": {
+            "size": 5377,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/CashRegister_01/CashRegister_01_glass_nor_gl_1k.png",
+            "md5": "a824b4f1ae03e13ec56c9b2dc2a33d20"
+          },
+          "textures/CashRegister_01_roughness_1k.jpg": {
+            "size": 155480,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/CashRegister_01/CashRegister_01_roughness_1k.jpg",
+            "md5": "99cadf40ceafedf2099473e3344b4fbb"
+          }
+        },
+        "size": 393100,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/fbx/1k/CashRegister_01/CashRegister_01_1k.fbx",
+        "md5": "5837b972368eb10faef9faf3467b10dc"
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/CashRegister_01/CashRegister_01_diff_1k.png": {
+        "size": 855974,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/CashRegister_01/CashRegister_01_diff_1k.png",
+        "md5": "06da664d1752cb08f97508a88b457375"
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/CashRegister_01/CashRegister_01_glass_metallic_1k.png": {
+        "size": 1139,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/CashRegister_01/CashRegister_01_glass_metallic_1k.png",
+        "md5": "14c604b27ea726bc5b38e48671f77ce0"
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/CashRegister_01/CashRegister_01_glass_roughness_1k.png": {
+        "size": 144801,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/CashRegister_01/CashRegister_01_glass_roughness_1k.png",
+        "md5": "764840d1e2b2ac56b7bc6fe626392fe8"
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/CashRegister_01/CashRegister_01_metallic_1k.png": {
+        "size": 176987,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/CashRegister_01/CashRegister_01_metallic_1k.png",
+        "md5": "0ba8de82e3d576612f54598f1e2f4b4d"
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/CashRegister_01/CashRegister_01_roughness_1k.png": {
+        "size": 482645,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/CashRegister_01/CashRegister_01_roughness_1k.png",
+        "md5": "84463072d012f779761c6717a9380787"
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/CashRegister_01/CashRegister_01_glass_nor_gl_1k.png": {
+        "size": 5377,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/CashRegister_01/CashRegister_01_glass_nor_gl_1k.png",
+        "md5": "a824b4f1ae03e13ec56c9b2dc2a33d20"
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/CashRegister_01/CashRegister_01_nor_gl_1k.png": {
+        "size": 713867,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/CashRegister_01/CashRegister_01_nor_gl_1k.png",
+        "md5": "e10b351de51d5a005dcefeca250c3061"
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/CashRegister_01/CashRegister_01_glass_diff_1k.png": {
+        "size": 651378,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/CashRegister_01/CashRegister_01_glass_diff_1k.png",
+        "md5": "d66a450eb5573325db686d9e6c7d2ff8"
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/CashRegister_01/CashRegister_01_glass_opacity_1k.png": {
+        "size": 196144,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/CashRegister_01/CashRegister_01_glass_opacity_1k.png",
+        "md5": "e79d5d89f44c31b04ee18ec269238ecc"
+      }
+    },
+    "files": [
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/CashRegister_01/CashRegister_01.fbx",
+        "sha256": "c26a5710d584768173b0492cbf09ba779277c089bd1a37d57a5570dd5eb80492"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/CashRegister_01/diffuse.png",
+        "sha256": "c870f2704d4bb4c356c117659f4b895ed99bdca12d61bc937130cb3999ba77ec"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/CashRegister_01/glass_diff.png",
+        "sha256": "ca5bae6a571bb926eeeb2d7ad496548ae790ba130665535fc74dd98b76008e8b"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/CashRegister_01/glass_metallic.png",
+        "sha256": "f70df063f10fe18dfbcd2dc37fcb162bce203218bca713c1f33588803b3b02ac"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/CashRegister_01/glass_nor_gl.png",
+        "sha256": "ddc6cd383951b613a2f1edb59ba15938408a2ce4de12e9fb425befe5a0262e19"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/CashRegister_01/glass_opacity.png",
+        "sha256": "0f7ba402d0ddf36f47449f18467d86f31f46ad34fcb5b52bc863a7e6b6f9fd4b"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/CashRegister_01/glass_roughness.png",
+        "sha256": "cbc164fb8c670322b43f520d93bd7e22b783774e6e480b5e8abd1571205c2c78"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/CashRegister_01/glass_unity_mask.png",
+        "sha256": "37fde57aaf6b50040d4c557da56dd0de45514e316439d2b4d3491e5ac531b3e9"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/CashRegister_01/metal.png",
+        "sha256": "65bc8d784552f5cbc7698a5e93d38f7c01b79ad468ed1fbd69e4e10c04ceb7fc"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/CashRegister_01/nor_gl.png",
+        "sha256": "aa53940addf1fcb1036dea4cabf9f3e80804ab0aa9f61fff1c5516179b935def"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/CashRegister_01/rough.png",
+        "sha256": "905e420bde578505b3896f22b0c9c6b307018bfcda4b0eb53e3a3462420181f2"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/CashRegister_01/unity_mask.png",
+        "sha256": "d64f4db648e51df350e23d85150864832a4392b41d1a050f0beb612fd36f644d"
+      }
+    ]
+  },
+  {
+    "id": "boombox",
+    "source": "https://polyhaven.com/a/boombox",
+    "license": "CC0-1.0",
+    "authors": {
+      "Thomas Paul Mouilleron": "All"
+    },
+    "downloads": {
+      "https://dl.polyhaven.org/file/ph-assets/Models/fbx/1k/boombox/boombox_1k.fbx": {
+        "include": {
+          "textures/boombox_nor_gl_1k.exr": {
+            "size": 1045419,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/boombox/boombox_nor_gl_1k.exr",
+            "md5": "c2bd5b96cf0dd814e6e92891658a53bb"
+          },
+          "textures/boombox_speakers_diff_1k.png": {
+            "size": 1011572,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/boombox/boombox_speakers_diff_1k.png",
+            "md5": "217061bade158e498f979efa6fc8507c"
+          },
+          "textures/boombox_diff_1k.jpg": {
+            "size": 471435,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/boombox/boombox_diff_1k.jpg",
+            "md5": "9f1c66463f38afd0c6bbd2df200133c4"
+          },
+          "textures/boombox_speakers_metal_1k.png": {
+            "size": 116294,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/boombox/boombox_speakers_metal_1k.png",
+            "md5": "9d16d30aa1f8563665109929649c3d22"
+          },
+          "textures/boombox_rough_1k.exr": {
+            "size": 716387,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/boombox/boombox_rough_1k.exr",
+            "md5": "d97c4363206def7ba1f065ec9393d305"
+          },
+          "textures/boombox_speakers_rough_1k.png": {
+            "size": 596155,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/boombox/boombox_speakers_rough_1k.png",
+            "md5": "17fe669efe3fa991d871e1336790b64f"
+          },
+          "textures/boombox_metal_1k.exr": {
+            "size": 22056,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/boombox/boombox_metal_1k.exr",
+            "md5": "3bcebf62b1701f181c61c0379d3cb86f"
+          }
+        },
+        "size": 368796,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/fbx/1k/boombox/boombox_1k.fbx",
+        "md5": "e66726f60aba814d9de1c40b21ac69d7"
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/boombox/boombox_diff_1k.png": {
+        "size": 2126001,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/boombox/boombox_diff_1k.png",
+        "md5": "a9b9a106571ab05ce1e825436d4d0e10"
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/boombox/boombox_speakers_rough_1k.png": {
+        "size": 596155,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/boombox/boombox_speakers_rough_1k.png",
+        "md5": "17fe669efe3fa991d871e1336790b64f"
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/boombox/boombox_metal_1k.png": {
+        "size": 19733,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/boombox/boombox_metal_1k.png",
+        "md5": "f66116cbdc7a3ede8b87280447d3f649"
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/boombox/boombox_rough_1k.png": {
+        "size": 975670,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/boombox/boombox_rough_1k.png",
+        "md5": "2bfc4c54c579ec952093f7359f295fef"
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/boombox/boombox_speakers_diff_1k.png": {
+        "size": 1011572,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/boombox/boombox_speakers_diff_1k.png",
+        "md5": "217061bade158e498f979efa6fc8507c"
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/boombox/boombox_nor_gl_1k.png": {
+        "size": 4000038,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/boombox/boombox_nor_gl_1k.png",
+        "md5": "818971ccf387715c5ae0c85cc89a936d"
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/boombox/boombox_speakers_metal_1k.png": {
+        "size": 116294,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/boombox/boombox_speakers_metal_1k.png",
+        "md5": "9d16d30aa1f8563665109929649c3d22"
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/boombox/boombox_speakers_nor_gl_1k.png": {
+        "size": 850026,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/boombox/boombox_speakers_nor_gl_1k.png",
+        "md5": "303198b66ee737638b5756be45a076f9"
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/boombox/boombox_speakers_opacity_1k.png": {
+        "size": 116753,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/boombox/boombox_speakers_opacity_1k.png",
+        "md5": "c21aba45b8079ba6a8875f8dc1748d60"
+      }
+    },
+    "files": [
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/boombox/boombox.fbx",
+        "sha256": "cd379b3640934fe80f8ca6e0c71cad779af85a5bf7ace47b736d55e880e74a2b"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/boombox/diffuse.png",
+        "sha256": "b97ca50a9664514369d3270200e1c80fdc852ca9e56555c622d603f7fa76fb41"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/boombox/metal.png",
+        "sha256": "a918e87063c415628c10464bd4f62ca3f7bc71cf19c83d64dd774bf1ccdd4502"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/boombox/nor_gl.png",
+        "sha256": "5db81eec02d3d39148760be27ac321a9d9149f45e96e0aaf273e5b2d7802eead"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/boombox/rough.png",
+        "sha256": "b9005d57dbc3cc289fc2ecabc4abcfb565a976916a5afca5f75449ec90599073"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/boombox/speakers_diff.png",
+        "sha256": "576011c40583291bf46481646edd34bfdd3c99dc3a332e83e9897629805779b8"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/boombox/speakers_metal.png",
+        "sha256": "6c67611489393d0bab78d0c8da602682a66b1a485559744a6ac3f23544108a10"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/boombox/speakers_nor_gl.png",
+        "sha256": "eb4d34c66a455ec48f9c211c47e4d4c7c011f7292b4d26cf55faebcca8846e4b"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/boombox/speakers_opacity.png",
+        "sha256": "7710f4b35c038653c569b7264aaa672ddcc65cf4839c1c3e36378366b8b8f819"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/boombox/speakers_rough.png",
+        "sha256": "7f11b01060983186eda029c0d5463d2c6f949f9ec077bfaa003779b6af8ede51"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/boombox/speakers_unity_mask.png",
+        "sha256": "7852a430ff1fd5acb274dd991ad09b75a8704e9486502aaf8a1be6d5f2e4eea5"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/boombox/unity_mask.png",
+        "sha256": "f79a721ad926319aa36c107cce300ef401bd5a1141f19687ecbf90cdcd67095c"
+      }
+    ]
+  },
+  {
+    "id": "classic_laptop",
+    "source": "https://polyhaven.com/a/classic_laptop",
+    "license": "CC0-1.0",
+    "authors": {
+      "Arrangemonk": "All"
+    },
+    "downloads": {
+      "https://dl.polyhaven.org/file/ph-assets/Models/fbx/1k/classic_laptop/classic_laptop_1k.fbx": {
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/fbx/1k/classic_laptop/classic_laptop_1k.fbx",
+        "md5": "52aa4ccefab48d9ea82ba76aad25cc54",
+        "size": 487372,
+        "include": {
+          "textures/classic_laptop_diff_1k.jpg": {
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/classic_laptop/classic_laptop_diff_1k.jpg",
+            "md5": "b16478b0bfdaf836180867d26054435a",
+            "size": 524918
+          },
+          "textures/classic_laptop_metal_1k.exr": {
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/classic_laptop/classic_laptop_metal_1k.exr",
+            "md5": "8e394c89f67e230c09a7c3dffd2b4cee",
+            "size": 688778
+          },
+          "textures/classic_laptop_nor_gl_1k.exr": {
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/classic_laptop/classic_laptop_nor_gl_1k.exr",
+            "md5": "5be168668e927b2602039a68c8ab5459",
+            "size": 892239
+          },
+          "textures/classic_laptop_rough_1k.exr": {
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/classic_laptop/classic_laptop_rough_1k.exr",
+            "md5": "57ff1527262855cf6a9c0e84be3e8bcd",
+            "size": 577635
+          }
+        }
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/classic_laptop/classic_laptop_diff_1k.png": {
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/classic_laptop/classic_laptop_diff_1k.png",
+        "md5": "6134d64258774f2ec7ca709f682150b0",
+        "size": 989112
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/classic_laptop/classic_laptop_metal_1k.png": {
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/classic_laptop/classic_laptop_metal_1k.png",
+        "md5": "7de9de9d03c11ddbdb6d0e54ebd4cac6",
+        "size": 504462
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/classic_laptop/classic_laptop_nor_gl_1k.png": {
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/classic_laptop/classic_laptop_nor_gl_1k.png",
+        "md5": "907c6f624b957c0f98ee509584f78fc8",
+        "size": 2362888
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/classic_laptop/classic_laptop_rough_1k.png": {
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/classic_laptop/classic_laptop_rough_1k.png",
+        "md5": "e7fb5eb3e873737e4d4184f1a79bd4c9",
+        "size": 404696
+      }
+    },
+    "files": [
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/classic_laptop/classic_laptop.fbx",
+        "sha256": "df72a9795e91e20a1451a67c0ae686caa1f7861087700b94beb3b200071f28d7"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/classic_laptop/diffuse.png",
+        "sha256": "53991b241d2401d104766e85876a209e86775c6aba8649fd58b8141f981eeb28"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/classic_laptop/metal.png",
+        "sha256": "eef3ced33321f020662c08336a02a6ec817640fc6c8dd09b72b72c836daaf901"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/classic_laptop/nor_gl.png",
+        "sha256": "eb97649c81e29aeb08b1275d3197f0fb1b31df7db5323eab99bdeaae65d8919c"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/classic_laptop/rough.png",
+        "sha256": "99af2c280dcb1585f475d807088a01fdde92888d996483846f9c0f5958a2c4d8"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/classic_laptop/unity_mask.png",
+        "sha256": "75d59c13ae9615f6fd2b186fadf84181a8f1375ef25b5dd66812561bea3528d2"
+      }
+    ]
+  },
+  {
+    "id": "plastic_monobloc_chair_01",
+    "source": "https://polyhaven.com/a/plastic_monobloc_chair_01",
+    "license": "CC0-1.0",
+    "authors": {
+      "Kuutti Siitonen": "All"
+    },
+    "downloads": {
+      "https://dl.polyhaven.org/file/ph-assets/Models/fbx/1k/plastic_monobloc_chair_01/plastic_monobloc_chair_01_1k.fbx": {
+        "include": {
+          "textures/plastic_monobloc_chair_01_nor_gl_1k.exr": {
+            "size": 1373517,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/plastic_monobloc_chair_01/plastic_monobloc_chair_01_nor_gl_1k.exr",
+            "md5": "b59c4907991fa069f9ac390eafada50b"
+          },
+          "textures/plastic_monobloc_chair_01_diff_1k.jpg": {
+            "size": 560823,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/plastic_monobloc_chair_01/plastic_monobloc_chair_01_diff_1k.jpg",
+            "md5": "c36dfe0f38d6ca1632ba426c598e6764"
+          },
+          "textures/plastic_monobloc_chair_01_metal_1k.exr": {
+            "size": 4784,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/plastic_monobloc_chair_01/plastic_monobloc_chair_01_metal_1k.exr",
+            "md5": "5c16307e8e3e0799ba07afbdc15e6d60"
+          },
+          "textures/plastic_monobloc_chair_01_rough_1k.exr": {
+            "size": 1065064,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/plastic_monobloc_chair_01/plastic_monobloc_chair_01_rough_1k.exr",
+            "md5": "c90cb5f41f8ae8abaaa14245a8ea9740"
+          }
+        },
+        "size": 152892,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/fbx/1k/plastic_monobloc_chair_01/plastic_monobloc_chair_01_1k.fbx",
+        "md5": "45518f40c92a03672a5ea5a90654bd66"
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/plastic_monobloc_chair_01/plastic_monobloc_chair_01_diff_1k.png": {
+        "size": 4714474,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/plastic_monobloc_chair_01/plastic_monobloc_chair_01_diff_1k.png",
+        "md5": "444c82ebc357334bfb97ba0d93b34035"
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/plastic_monobloc_chair_01/plastic_monobloc_chair_01_nor_gl_1k.png": {
+        "size": 4854821,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/plastic_monobloc_chair_01/plastic_monobloc_chair_01_nor_gl_1k.png",
+        "md5": "13ff4a62524e610eea1c01255d622d48"
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/plastic_monobloc_chair_01/plastic_monobloc_chair_01_metal_1k.png": {
+        "size": 2155,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/plastic_monobloc_chair_01/plastic_monobloc_chair_01_metal_1k.png",
+        "md5": "3984ebd3e0aff11d149c2c40985d22f3"
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/plastic_monobloc_chair_01/plastic_monobloc_chair_01_rough_1k.png": {
+        "size": 1535707,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/plastic_monobloc_chair_01/plastic_monobloc_chair_01_rough_1k.png",
+        "md5": "214da435209a53bc749ab86f28154b74"
+      }
+    },
+    "files": [
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/plastic_monobloc_chair_01/diffuse.png",
+        "sha256": "4f91ada8330cd7d1e358f37cdb6a76ca97764cff88c362fdca99d021217423b3"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/plastic_monobloc_chair_01/metal.png",
+        "sha256": "fb96b44c55677e850c09ed442e2aeb07c21bf013a3912b477b4baae21d1ffeb8"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/plastic_monobloc_chair_01/nor_gl.png",
+        "sha256": "5322895ac6652c5cc5ad1d13bc5c895171f1fe4e74a3803d7da7373891fd56b4"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/plastic_monobloc_chair_01/plastic_monobloc_chair_01.fbx",
+        "sha256": "cb47578bffb24aba941bb6c984f87cf29eb7c56c4885e38ea073b83348adb90e"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/plastic_monobloc_chair_01/rough.png",
+        "sha256": "2da2a03c41853abece5450ed459828e5c4a77bc82ed652384147dae5222d59e6"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/plastic_monobloc_chair_01/unity_mask.png",
+        "sha256": "59141e9a74fea7b8e5ccee9078846a0efaaab2e3628f0fd0f6c472b4c1ca8322"
+      }
+    ]
+  },
+  {
+    "id": "security_camera_01",
+    "source": "https://polyhaven.com/a/security_camera_01",
+    "license": "CC0-1.0",
+    "authors": {
+      "Alexander Otterbeck": "Modeling & Texturing",
+      "Yann Kervran": "Rigging"
+    },
+    "downloads": {
+      "https://dl.polyhaven.org/file/ph-assets/Models/fbx/1k/security_camera_01/security_camera_01_1k.fbx": {
+        "include": {
+          "textures/security_camera_01_opacity_1k.png": {
+            "size": 19154,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/security_camera_01/security_camera_01_opacity_1k.png",
+            "md5": "916cbbb87db0d160c7ea8805b7695405"
+          },
+          "textures/security_camera_01_rough_1k.exr": {
+            "size": 918891,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/security_camera_01/security_camera_01_rough_1k.exr",
+            "md5": "ff1eb260c46b111484c4e49b70c91e43"
+          },
+          "textures/security_camera_01_nor_gl_1k.exr": {
+            "size": 621479,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/security_camera_01/security_camera_01_nor_gl_1k.exr",
+            "md5": "4cbdf39c20161020517b9a363fbd240c"
+          },
+          "textures/security_camera_01_diff_1k.jpg": {
+            "size": 521174,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/security_camera_01/security_camera_01_diff_1k.jpg",
+            "md5": "a88344425885875615f1b276fc6f312e"
+          },
+          "textures/security_camera_01_metal_1k.exr": {
+            "size": 54831,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/security_camera_01/security_camera_01_metal_1k.exr",
+            "md5": "9d138b4419c535ea84b1f482c789fde5"
+          }
+        },
+        "size": 459724,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/fbx/1k/security_camera_01/security_camera_01_1k.fbx",
+        "md5": "293ce37bd6ccaa2ad9eab7f08aaea5c1"
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/security_camera_01/security_camera_01_diff_1k.png": {
+        "size": 4839321,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/security_camera_01/security_camera_01_diff_1k.png",
+        "md5": "524a8576a9ffb21ec8d19dc73028273e"
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/security_camera_01/security_camera_01_nor_gl_1k.png": {
+        "size": 3208412,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/security_camera_01/security_camera_01_nor_gl_1k.png",
+        "md5": "e9a1dedff9cdc3c51b1b533ee22256e0"
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/security_camera_01/security_camera_01_metal_1k.png": {
+        "size": 45567,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/security_camera_01/security_camera_01_metal_1k.png",
+        "md5": "ec1aecc6e8e1aa46a0c0813b820ead14"
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/security_camera_01/security_camera_01_opacity_1k.png": {
+        "size": 19154,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/security_camera_01/security_camera_01_opacity_1k.png",
+        "md5": "916cbbb87db0d160c7ea8805b7695405"
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/security_camera_01/security_camera_01_rough_1k.png": {
+        "size": 1377369,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/security_camera_01/security_camera_01_rough_1k.png",
+        "md5": "df1be2e598d0ba75a2371749f3a15c0e"
+      }
+    },
+    "files": [
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/security_camera_01/diffuse.png",
+        "sha256": "bb98bfc82c6e328e7587fa499659af0b7a19ac46b1b65ba3d6c55dcff09ccaff"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/security_camera_01/metal.png",
+        "sha256": "151237a3774657f238b1643c912f15b33f0727cdd0c0ae343b0e740acdc5de4c"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/security_camera_01/nor_gl.png",
+        "sha256": "0bb58e09d010c306151eb9504b6fd70be387a8bc067d2bff8bff58f0629dd361"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/security_camera_01/opacity.png",
+        "sha256": "73c4d3b58671d35144c9b88cbac50a38481e4f25e7754743877b5a8d5c92a21c"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/security_camera_01/rough.png",
+        "sha256": "82349da89509a03831abbad4a2514501ef5fe588c2baef3bbd7cb24f4761b9c9"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/security_camera_01/security_camera_01.fbx",
+        "sha256": "aea3f3d1a2a0e6e695cd6068b294a08c5ed79206033b4f4cb757a96b4a7652a4"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/security_camera_01/unity_mask.png",
+        "sha256": "33cb8b828ec31ea6abd448c312f11856f86ed1013985185e8b94eaef675ebfc2"
+      }
+    ]
+  },
+  {
+    "id": "steel_frame_shelves_02",
+    "source": "https://polyhaven.com/a/steel_frame_shelves_02",
+    "license": "CC0-1.0",
+    "authors": {
+      "James Ray Cock": "All"
+    },
+    "downloads": {
+      "https://dl.polyhaven.org/file/ph-assets/Models/fbx/1k/steel_frame_shelves_02/steel_frame_shelves_02_1k.fbx": {
+        "include": {
+          "textures/steel_frame_shelves_02_rough_1k.jpg": {
+            "size": 180463,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/steel_frame_shelves_02/steel_frame_shelves_02_rough_1k.jpg",
+            "md5": "297a11bdbb74276b02f0ea8da90f9e72"
+          },
+          "textures/steel_frame_shelves_02_metal_1k.exr": {
+            "size": 159265,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/steel_frame_shelves_02/steel_frame_shelves_02_metal_1k.exr",
+            "md5": "a053ca7528c9cfcfcc7d40238b94720a"
+          },
+          "textures/steel_frame_shelves_02_diff_1k.jpg": {
+            "size": 144386,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/steel_frame_shelves_02/steel_frame_shelves_02_diff_1k.jpg",
+            "md5": "03a852fa7c2e62512ba74a6b4bf8ef67"
+          },
+          "textures/steel_frame_shelves_02_nor_gl_1k.exr": {
+            "size": 714981,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/steel_frame_shelves_02/steel_frame_shelves_02_nor_gl_1k.exr",
+            "md5": "58c50cfd8d5d5a8f9ebf4fba84673e18"
+          }
+        },
+        "size": 147180,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/fbx/1k/steel_frame_shelves_02/steel_frame_shelves_02_1k.fbx",
+        "md5": "6e3992cb661f190b9e4d215f55112720"
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/steel_frame_shelves_02/steel_frame_shelves_02_diff_1k.png": {
+        "size": 925122,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/steel_frame_shelves_02/steel_frame_shelves_02_diff_1k.png",
+        "md5": "d4fa9cc1f5ad377220e5d7775c5bfc04"
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/steel_frame_shelves_02/steel_frame_shelves_02_nor_gl_1k.png": {
+        "size": 800472,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/steel_frame_shelves_02/steel_frame_shelves_02_nor_gl_1k.png",
+        "md5": "b042c7699c90f6c691a36498d761238d"
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/steel_frame_shelves_02/steel_frame_shelves_02_metal_1k.png": {
+        "size": 100768,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/steel_frame_shelves_02/steel_frame_shelves_02_metal_1k.png",
+        "md5": "4ca45b3ef60aecf5c31c6365470d9fb6"
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/steel_frame_shelves_02/steel_frame_shelves_02_rough_1k.png": {
+        "size": 515715,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/steel_frame_shelves_02/steel_frame_shelves_02_rough_1k.png",
+        "md5": "73ecce8a87b03167cbac0a56f879d7e4"
+      }
+    },
+    "files": [
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/steel_frame_shelves_02/diffuse.png",
+        "sha256": "e18a54eddf410220c50a54af3a9c0258dddb9c43906c6059414955b03d6e40d2"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/steel_frame_shelves_02/metal.png",
+        "sha256": "00b7f71d3624943c1f18173d646f12d29018943002686bd65c8c7ee1e71b9743"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/steel_frame_shelves_02/nor_gl.png",
+        "sha256": "eed8e5cfd24349a4c5d7b133032b8a7bf4f7e3db03831cda62fc6e160515320c"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/steel_frame_shelves_02/rough.png",
+        "sha256": "e2e54e9b0f430eb8be8fd73f3039f6e907240afd10c0d558d877a8f232c18eee"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/steel_frame_shelves_02/steel_frame_shelves_02.fbx",
+        "sha256": "e69bffb5ab886ff38d48018d09fae2997d519fedb6f09852e1ff2ba368a923a5"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/steel_frame_shelves_02/unity_mask.png",
+        "sha256": "cd116c288d038562a852ba99b53a73b24862fc993b1cf5a5321618689fb22967"
+      }
+    ]
+  },
+  {
+    "id": "steel_frame_shelves_03",
+    "source": "https://polyhaven.com/a/steel_frame_shelves_03",
+    "license": "CC0-1.0",
+    "authors": {
+      "Ulan Cabanilla": "All"
+    },
+    "downloads": {
+      "https://dl.polyhaven.org/file/ph-assets/Models/fbx/1k/steel_frame_shelves_03/steel_frame_shelves_03_1k.fbx": {
+        "include": {
+          "textures/steel_frame_shelves_03_drawers_rough_1k.png": {
+            "size": 1117821,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/steel_frame_shelves_03/steel_frame_shelves_03_drawers_rough_1k.png",
+            "md5": "92191c9654fb6aabd1a2b64f8afb8c8b"
+          },
+          "textures/steel_frame_shelves_03_diff_1k.jpg": {
+            "size": 375274,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/steel_frame_shelves_03/steel_frame_shelves_03_diff_1k.jpg",
+            "md5": "b3618cb3cb90a8c1539604b45941f2cb"
+          },
+          "textures/steel_frame_shelves_03_nor_gl_1k.exr": {
+            "size": 1119394,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/steel_frame_shelves_03/steel_frame_shelves_03_nor_gl_1k.exr",
+            "md5": "8e3b8cd49fdbd34f537a9e206d98ca3f"
+          },
+          "textures/steel_frame_shelves_03_drawers_diff_1k.png": {
+            "size": 3536301,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/steel_frame_shelves_03/steel_frame_shelves_03_drawers_diff_1k.png",
+            "md5": "481e4774a02c538c3bb6a50e91a7e7d1"
+          },
+          "textures/steel_frame_shelves_03_rough_1k.exr": {
+            "size": 638667,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/steel_frame_shelves_03/steel_frame_shelves_03_rough_1k.exr",
+            "md5": "c156acc61cdd660394e355a107ec80de"
+          },
+          "textures/steel_frame_shelves_03_drawers_nor_gl_1k.png": {
+            "size": 3158936,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/steel_frame_shelves_03/steel_frame_shelves_03_drawers_nor_gl_1k.png",
+            "md5": "f7a09bbd2a378a51e5da1288df4bb88e"
+          },
+          "textures/steel_frame_shelves_03_metal_1k.exr": {
+            "size": 320185,
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/steel_frame_shelves_03/steel_frame_shelves_03_metal_1k.exr",
+            "md5": "d81ae9da7ea46e2bf3ff7cdfb06d2bf2"
+          }
+        },
+        "size": 263228,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/fbx/1k/steel_frame_shelves_03/steel_frame_shelves_03_1k.fbx",
+        "md5": "7621a41f21be37e510d58a5975a2d803"
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/steel_frame_shelves_03/steel_frame_shelves_03_diff_1k.png": {
+        "size": 1432941,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/steel_frame_shelves_03/steel_frame_shelves_03_diff_1k.png",
+        "md5": "5594140d6a638c2538f635eeb6058d73"
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/steel_frame_shelves_03/steel_frame_shelves_03_drawers_diff_1k.png": {
+        "size": 3536301,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/steel_frame_shelves_03/steel_frame_shelves_03_drawers_diff_1k.png",
+        "md5": "481e4774a02c538c3bb6a50e91a7e7d1"
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/steel_frame_shelves_03/steel_frame_shelves_03_drawers_rough_1k.png": {
+        "size": 1117821,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/steel_frame_shelves_03/steel_frame_shelves_03_drawers_rough_1k.png",
+        "md5": "92191c9654fb6aabd1a2b64f8afb8c8b"
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/steel_frame_shelves_03/steel_frame_shelves_03_metal_1k.png": {
+        "size": 109848,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/steel_frame_shelves_03/steel_frame_shelves_03_metal_1k.png",
+        "md5": "9986e3c1bb5820a4173be2119ac72511"
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/steel_frame_shelves_03/steel_frame_shelves_03_rough_1k.png": {
+        "size": 1364036,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/steel_frame_shelves_03/steel_frame_shelves_03_rough_1k.png",
+        "md5": "ec9a2585c69622a50eab61b89173b054"
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/steel_frame_shelves_03/steel_frame_shelves_03_nor_gl_1k.png": {
+        "size": 3641613,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/steel_frame_shelves_03/steel_frame_shelves_03_nor_gl_1k.png",
+        "md5": "2d56ba37656de870033f12d3a69414d8"
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/steel_frame_shelves_03/steel_frame_shelves_03_drawers_nor_gl_1k.png": {
+        "size": 3158936,
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/steel_frame_shelves_03/steel_frame_shelves_03_drawers_nor_gl_1k.png",
+        "md5": "f7a09bbd2a378a51e5da1288df4bb88e"
+      }
+    },
+    "files": [
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/steel_frame_shelves_03/diffuse.png",
+        "sha256": "9135e4dad1b9e54801689de2f3d766589a5ba7277f49a8164cad754d59162b39"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/steel_frame_shelves_03/drawers_diff.png",
+        "sha256": "ab84f813834ae87c11fd665f8fc70fe2ed2717a8b56dab1457cfb63b77cf380e"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/steel_frame_shelves_03/drawers_nor_gl.png",
+        "sha256": "cf71c5266b69aa4875c2813d183ccfa635571dedddb4685365b1a846c960839e"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/steel_frame_shelves_03/drawers_rough.png",
+        "sha256": "413830b3ad630b1ccd388ad3e53e4cd108ceb9949df3009a440ffd972a29fb07"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/steel_frame_shelves_03/drawers_unity_mask.png",
+        "sha256": "59141e9a74fea7b8e5ccee9078846a0efaaab2e3628f0fd0f6c472b4c1ca8322"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/steel_frame_shelves_03/metal.png",
+        "sha256": "5070b858c641bce12194de21ed0bcfc79d6143503c6f749e5a7f49aa1dd9f957"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/steel_frame_shelves_03/nor_gl.png",
+        "sha256": "de80f686a4c1198a9ce236d216fbd66e43adc62541c235a0f1eb5fbf4a043bb5"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/steel_frame_shelves_03/rough.png",
+        "sha256": "ac5bfb6c1834d9f4d303251aa03aa1421623c2dda0e477358595634498f09786"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/steel_frame_shelves_03/steel_frame_shelves_03.fbx",
+        "sha256": "d8e8a620190d68e71efce6f86a315a0defb849334fc31b48a8c6f911ddc856c0"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/steel_frame_shelves_03/unity_mask.png",
+        "sha256": "38119b40d7f9c48db8821de7fbbc3cbf733346bf0351a2ad6d47c4d993b7bc2d"
+      }
+    ]
+  },
+  {
+    "id": "vintage_electric_kettle",
+    "source": "https://polyhaven.com/a/vintage_electric_kettle",
+    "license": "CC0-1.0",
+    "authors": {
+      "SV Garip": "All"
+    },
+    "downloads": {
+      "https://dl.polyhaven.org/file/ph-assets/Models/fbx/1k/vintage_electric_kettle/vintage_electric_kettle_1k.fbx": {
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/fbx/1k/vintage_electric_kettle/vintage_electric_kettle_1k.fbx",
+        "md5": "dc58179fa46c4202dea31c3276e089d3",
+        "size": 420620,
+        "include": {
+          "textures/vintage_electric_kettle_alpha_1k.png": {
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/vintage_electric_kettle/vintage_electric_kettle_alpha_1k.png",
+            "md5": "10ea46cd789621621942869f40d25aba",
+            "size": 62795
+          },
+          "textures/vintage_electric_kettle_diff_1k.jpg": {
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/vintage_electric_kettle/vintage_electric_kettle_diff_1k.jpg",
+            "md5": "758b520b36cd419442d06fa5ea2b4924",
+            "size": 584337
+          },
+          "textures/vintage_electric_kettle_metal_1k.exr": {
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/vintage_electric_kettle/vintage_electric_kettle_metal_1k.exr",
+            "md5": "91d637cda2bab014515ebdce823217e8",
+            "size": 522591
+          },
+          "textures/vintage_electric_kettle_nor_gl_1k.exr": {
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/vintage_electric_kettle/vintage_electric_kettle_nor_gl_1k.exr",
+            "md5": "855f03b14e7166ce266aa152a2fbe5db",
+            "size": 1389083
+          },
+          "textures/vintage_electric_kettle_rough_1k.exr": {
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/vintage_electric_kettle/vintage_electric_kettle_rough_1k.exr",
+            "md5": "ebeb30ec5811377b1f319ab9cebba374",
+            "size": 672625
+          }
+        }
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/vintage_electric_kettle/vintage_electric_kettle_alpha_1k.png": {
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/vintage_electric_kettle/vintage_electric_kettle_alpha_1k.png",
+        "md5": "10ea46cd789621621942869f40d25aba",
+        "size": 62795
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/vintage_electric_kettle/vintage_electric_kettle_diff_1k.png": {
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/vintage_electric_kettle/vintage_electric_kettle_diff_1k.png",
+        "md5": "e1be24081d3c4d6d513e80303d0ac93e",
+        "size": 4531054
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/vintage_electric_kettle/vintage_electric_kettle_metal_1k.png": {
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/vintage_electric_kettle/vintage_electric_kettle_metal_1k.png",
+        "md5": "5658021b38659b92a3f497fff6a0f0a8",
+        "size": 1043808
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/vintage_electric_kettle/vintage_electric_kettle_nor_gl_1k.png": {
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/vintage_electric_kettle/vintage_electric_kettle_nor_gl_1k.png",
+        "md5": "5073a06d88f426ec226a43f829637edc",
+        "size": 4132788
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/vintage_electric_kettle/vintage_electric_kettle_rough_1k.png": {
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/vintage_electric_kettle/vintage_electric_kettle_rough_1k.png",
+        "md5": "fca35a5cc76c49a339a8dfa58a4a21ab",
+        "size": 1298817
+      }
+    },
+    "files": [
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/vintage_electric_kettle/alpha.png",
+        "sha256": "bf4e9dc8908fe95808593da2408c5d07a324226abce77d156430b109a2fe264c"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/vintage_electric_kettle/diffuse.png",
+        "sha256": "964a19a7942d70f3237c208434eeb2d74dbc8ed5f923f8ac2434e7538b2534cf"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/vintage_electric_kettle/metal.png",
+        "sha256": "6a9428cb4100285c85f274c291b93b696af68293ff5b04b34e2232dded0a2133"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/vintage_electric_kettle/nor_gl.png",
+        "sha256": "7ca4de1eba62aefcd94531e8a209d5bec5195c6ee068840d36fd19ed0a877392"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/vintage_electric_kettle/rough.png",
+        "sha256": "5a1a8283650d08e07b5b5ec094dbf50515876701f37fda4016594884b7ed0a31"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/vintage_electric_kettle/unity_mask.png",
+        "sha256": "8ea758bbebf7b2ed453e416b25945a4901c650fd9bcaebf7302cb405a2860a62"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/vintage_electric_kettle/vintage_electric_kettle.fbx",
+        "sha256": "e1edab433e48b401e583964fb3661549b092dced5283cc7873b75a33a4e69c8f"
+      }
+    ]
+  },
+  {
+    "id": "vintage_microwave",
+    "source": "https://polyhaven.com/a/vintage_microwave",
+    "license": "CC0-1.0",
+    "authors": {
+      "Adam Nekola": "All"
+    },
+    "downloads": {
+      "https://dl.polyhaven.org/file/ph-assets/Models/fbx/1k/vintage_microwave/vintage_microwave_1k.fbx": {
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/fbx/1k/vintage_microwave/vintage_microwave_1k.fbx",
+        "md5": "3e719395732c5bc1b3a47e19aaf6cb69",
+        "size": 256300,
+        "include": {
+          "textures/vintage_microwave_alpha_1k.png": {
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/vintage_microwave/vintage_microwave_alpha_1k.png",
+            "md5": "1994a086aab8cdb7e93569c0883ef063",
+            "size": 83128
+          },
+          "textures/vintage_microwave_diff_1k.jpg": {
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/vintage_microwave/vintage_microwave_diff_1k.jpg",
+            "md5": "acf65eaa51d62786edb4f06a38d5febd",
+            "size": 489267
+          },
+          "textures/vintage_microwave_metal_1k.exr": {
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/vintage_microwave/vintage_microwave_metal_1k.exr",
+            "md5": "6c8f8b7cd2cb378bcf23ee0571739e35",
+            "size": 212703
+          },
+          "textures/vintage_microwave_nor_gl_1k.exr": {
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/vintage_microwave/vintage_microwave_nor_gl_1k.exr",
+            "md5": "008ec0476036b91e297da687ff5c4136",
+            "size": 614003
+          },
+          "textures/vintage_microwave_rough_1k.exr": {
+            "url": "https://dl.polyhaven.org/file/ph-assets/Models/exr/1k/vintage_microwave/vintage_microwave_rough_1k.exr",
+            "md5": "7d86e348b407f78882620866796c88c4",
+            "size": 585349
+          }
+        }
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/vintage_microwave/vintage_microwave_alpha_1k.png": {
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/vintage_microwave/vintage_microwave_alpha_1k.png",
+        "md5": "1994a086aab8cdb7e93569c0883ef063",
+        "size": 83128
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/vintage_microwave/vintage_microwave_diff_1k.png": {
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/vintage_microwave/vintage_microwave_diff_1k.png",
+        "md5": "7ffb981e3b7ec3bac5f6385b2716e21a",
+        "size": 4413066
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/vintage_microwave/vintage_microwave_metal_1k.png": {
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/vintage_microwave/vintage_microwave_metal_1k.png",
+        "md5": "b22b72d4bf7ac59be60956ed89da6f02",
+        "size": 192903
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/vintage_microwave/vintage_microwave_nor_gl_1k.png": {
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/vintage_microwave/vintage_microwave_nor_gl_1k.png",
+        "md5": "43a2d3b1b63273c1e92fde1abe1f189a",
+        "size": 3015808
+      },
+      "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/vintage_microwave/vintage_microwave_rough_1k.png": {
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/vintage_microwave/vintage_microwave_rough_1k.png",
+        "md5": "c01c7eea2fc9b8c6b79ecd41d78d660b",
+        "size": 1388615
+      }
+    },
+    "files": [
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/vintage_microwave/alpha.png",
+        "sha256": "f3d573047ee3979826aef2e52591f0949a4737f2bf66741e395a6aa2774fb42e"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/vintage_microwave/diffuse.png",
+        "sha256": "b654720898c88319f95b6288dd5370666946238cce0e5408d0f348b6ee24477a"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/vintage_microwave/metal.png",
+        "sha256": "bda0b4c8bfa3fe59771a35b058b59748eb533130ff0cc1550131335c9c91bc08"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/vintage_microwave/nor_gl.png",
+        "sha256": "0c0496db007f9027c12bb299c34c8aaa748538f08443835b293a7b0c738d3bed"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/vintage_microwave/rough.png",
+        "sha256": "02b5edf64f016d49ec88590765831e74f8b11d895854f3e1843e255848856628"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/vintage_microwave/unity_mask.png",
+        "sha256": "054c85e7185ef5fc64b90e713bf1569f54136e3a866c0487eeb2f9b269181d12"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/vintage_microwave/vintage_microwave.fbx",
+        "sha256": "81a906f5ec156360eecb8ebe8d528dc3c86776cb6d0428b78ba6d2de877a46d6"
+      }
+    ]
+  },
+  {
+    "id": "Sanitary",
+    "author": "loafbrr_1",
+    "license": "CC0-1.0",
+    "source": "https://opengameart.org/node/165996",
+    "download": "https://opengameart.org/sites/default/files/toilets_fbx_gltf_blend.zip",
+    "archive_sha256": "66abe8c3bc7f9f93f0234fae680d90dd6fa04700353e5559ea846592f5895684",
+    "files": [
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/Sanitary/Toilet_pipes_flush_Roughness_1K.png",
+        "sha256": "1224f91b0a7595b13108e7406f0ce26ad0945c0e01d1b820eb5c757870e9e40b"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/Sanitary/Toilet_Elongated_Seat_unity_mask.png",
+        "sha256": "203d7b4992bfb891395d45944dbeb1e80076bfe495b12f2fac72f21b67783811"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/Sanitary/Urinal_A_unity_mask.png",
+        "sha256": "c7520e5be7f9962b319279a73686125a0a37c8363143d776fd2d193c70621693"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/Sanitary/Toilet_pipes_flush_unity_mask.png",
+        "sha256": "3fc954a3677aa7383aef45afa60e17e420b93722bbac7fbf28af2b67f287f479"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/Sanitary/Toilet_Flush_Box_unity_mask.png",
+        "sha256": "680133e9947e6aa0f2fc34b47ac2017dcf7c6b6d4b2dab00eb2b811b0cc4f42f"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/Sanitary/Toilet_Flush_Box_Metalness_1K.png",
+        "sha256": "c768d790e26b9c258b834c985a181642ebdfb3195aa38084ad746d94c8725898"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/Sanitary/Sink_A_unity_mask.png",
+        "sha256": "2cab8231b5415e630401aae0cebd94dda63a986293d642f5f5fe43e496abd3c2"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/Sanitary/Toilet_Elongated_Normal_1K.png",
+        "sha256": "3f1948eaf9b6eb9b868cea782ea7b28c062d074a4845d7a003d490a9183264e8"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/Sanitary/Toilet_Flush_Box_Normal_1K.png",
+        "sha256": "8a26092639ed1a773c15891eb24e304f0cc18435059cbfd605521ef7a63cbb71"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/Sanitary/Toilet_pipes_flush_Normal_1K.png",
+        "sha256": "d9024493003c392aa7efd42502c550b4ee2e440996eb16893490424eb0ff1c81"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/Sanitary/Urinal_A_Roughness_1K.png",
+        "sha256": "e209bf43a63d71b5dcfebb6c226c53c39c74fdd99c073252b0e6e7fea01ba119"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/Sanitary/Toilet_Elongated_Roughness_1K.png",
+        "sha256": "0925235cd149b1359146673be182e4c9abc6d1bd3413c3395722372029410b12"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/Sanitary/Toilet_Elongated_Seat_Roughness_1K.png",
+        "sha256": "f253e06c8ea3d91aebadbd8fcd08c25cede515996c318d4a9f93ae9e8dc4d230"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/Sanitary/Sink_A_Normal_1K.png",
+        "sha256": "f8d3b8c0684ac7211cb43f28698270be13bf03704dba9b7796ef3d1057d7d197"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/Sanitary/Toilet_pipes_flush_Diffuse_1K.png",
+        "sha256": "8a62fa0578d3b3cfc01bce08d7a5e6511cff6e8eba917bcac901a7c20eb73a44"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/Sanitary/Toilet_Elongated_Seat_Diffuse_1K.png",
+        "sha256": "4ba52f9bdb5f4cb7b357356e6b06f7cc80e13ba9ba3f6e776cd540ccc4d7ea16"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/Sanitary/Urinal_A_Normal_1K.png",
+        "sha256": "5d2c627d1933d3d636fd1ee3e7edf0e3589ada91aae5f71c09900f13e9dbd233"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/Sanitary/Sink_A_Metalness_1K.png",
+        "sha256": "dae2dccebec4b263f9df8613310c7a3448392a7d11c592c13d7ed83ea6db6b96"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/Sanitary/Sink_A_Roughness_1K.png",
+        "sha256": "12c5456157c62a7dce431d8e37d0084ef7e23f18aa91b0ac430980702b11e4af"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/Sanitary/Toilet_pipes_flush_Metalness_1K.png",
+        "sha256": "55d632619c0930b54a2461e7ec3d4ded4170cf4431b9d133ac32481e5961d8d1"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/Sanitary/README.txt",
+        "sha256": "ef5106b6663a745ea0c65518f2fec68b859abe800489a9da42eef061f9422aff"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/Sanitary/Toilet_Elongated_Seat_Normal_1K.png",
+        "sha256": "07ca783fbc855be3ece2cd685731269cdfac485a4a4de0705db35d09a5f636ac"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/Sanitary/Toilet_Flush_Box_Roughness_1K.png",
+        "sha256": "51982dd7ac5dfd7bdad6ffe9ebd488dfbd88c62f1c25527b84be793e337dd4d6"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/Sanitary/Sink_A.fbx",
+        "sha256": "7509e831f7bca5ee31f726825ccce766d8c70ab975c106d107ae5000307ddb94"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/Sanitary/Urinal_A_Diffuse_1K.png",
+        "sha256": "f5123dcda46a386bc484e0237e47c0219a1146448c9eed3477a0ea9ff4445346"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/Sanitary/Urinal_A.fbx",
+        "sha256": "54afef7afcf09a5420ea43c3635f5073cf489680f610d67f5b63cb1a15850db1"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/Sanitary/Sink_A_Diffuse_1K.png",
+        "sha256": "260a2495d38d78297b98fd545b0848dbd49e9c6367eabd7be2f8561c630b67a5"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/Sanitary/Urinal_A_Metalness_1K.png",
+        "sha256": "65f45a9db482637271ca8f662870915619151bbe530f3bf05bb300a65a7aee18"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/Sanitary/Toilet_Elongated_Diffuse_1K.png",
+        "sha256": "8607b59b3bf3bd5ad33e4ba91b6e396cdf6dcefde30d5afbf866a9160c715645"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/Sanitary/Toilet_Flush_Box_Diffuse_1K.png",
+        "sha256": "0dd202854377bd1c7fd2e7df6911a7fc02b576d8d668d46777197a9f6efe8525"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/Sanitary/Toilet_Elongated_unity_mask.png",
+        "sha256": "abf71f0644e53ea687f481a9c98cb73b747dcffd06b9782fb72b8d4e92e590f4"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/Sanitary/LICENSE.txt",
+        "sha256": "2331f5fc022db732f5d089aec9a93999e87c953adeec6d5840f023cc09672e37"
+      },
+      {
+        "path": "Assets/BlackMarket/Art/ShopSources/Sanitary/Toilet_Elongated_A.fbx",
+        "sha256": "13a8732d08613674d572b8b55481e2f01d857747c458bef43f54ddfc0c6de5f8"
+      }
+    ]
+  }
+]

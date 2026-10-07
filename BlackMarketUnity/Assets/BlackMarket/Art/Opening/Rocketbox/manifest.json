@@ -1,0 +1,38 @@
+[
+  {
+    "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_03/Textures/m004_body_color.tga",
+    "sha256": "13686c52f5a8552a7263545f22d79aeef7269112f8b48fc1e7864a13de0b045b"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_03/Textures/m004_body_normal.tga",
+    "sha256": "27cba209d0091dc9865a08f0e5e8cf9521c673c68fddbdf9feca9a3dd2f14b05"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_03/Textures/m004_body_specular.tga",
+    "sha256": "8aaa39ab5c7dd4b55d456c3268996f62cbb929d1916ffdf6ae3ca0c43c9f3e05"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_03/Textures/m004_head_color.tga",
+    "sha256": "96130ef4c94702d8ee6004ce7d1c48f4b5fb6383ad70410f7316ff4031b031e4"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_03/Textures/m004_head_normal.tga",
+    "sha256": "bd2b02627b56103f33e8c74b5ac1ac6f32fd396884869dcb6d3d2bcca5173a6a"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_03/Textures/m004_head_specular.tga",
+    "sha256": "5ef06d4323549e77c0d2e267d44e6ef9e2b83292d387d87eeb1c21500466c391"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_03/Textures/m004_opacity_color.tga",
+    "sha256": "7b7255ae4042577edbf3dff253b2a32231db6fe281cd8781306d9e26fcf9d03a"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_03/Export/Male_Adult_03.fbx",
+    "sha256": "7064a9f50c95975c6d64ab0c5f5504364bad4ac987750728d0b5f1788fd59dcf"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/LICENSE.md",
+    "sha256": "17474e386e0b9e1a700cc3d06b2b0882a2c376d9c6b49c7f8274409b8f8d2352"
+  }
+]

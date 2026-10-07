@@ -1,0 +1,27 @@
+Assets/BlackMarket/Art/ShopSources/Camera_01/Camera_01.fbx BOUNDS Center: (0.03, 0.04, 0.07), Extents: (0.11, 0.04, 0.13) MATS Camera_01_lens_body,Camera_01_lens,Camera_01_body,Camera_01_strap
+  Camera_01 Center: (0.00, 0.04, 0.03), Extents: (0.07, 0.04, 0.04)
+  Camera_01_strap Center: (0.03, 0.03, 0.07), Extents: (0.11, 0.03, 0.13)
+Assets/BlackMarket/Art/ShopSources/CashRegister_01/CashRegister_01.fbx BOUNDS Center: (-0.08, 0.31, 0.14), Extents: (0.30, 0.31, 0.31) MATS CashRegister_01,CashRegister_01_glass
+  CashRegister_01_body Center: (-0.08, 0.31, 0.04), Extents: (0.30, 0.31, 0.22)
+  CashRegister_011_drawer Center: (-0.02, 0.08, 0.29), Extents: (0.21, 0.05, 0.16)
+Assets/BlackMarket/Art/ShopSources/boombox/boombox.fbx BOUNDS Center: (0.00, 0.24, 0.02), Extents: (0.36, 0.24, 0.09) MATS boombox,boombox_speakers
+  boombox(Clone) Center: (0.00, 0.24, 0.02), Extents: (0.36, 0.24, 0.09)
+Assets/BlackMarket/Art/ShopSources/classic_laptop/classic_laptop.fbx BOUNDS Center: (0.00, 0.27, 0.00), Extents: (0.33, 0.27, 0.24) MATS classic_laptop,classic_laptop_screen
+  classic_laptop Center: (0.00, 0.05, 0.00), Extents: (0.33, 0.05, 0.24)
+  classic_laptop_screen Center: (0.00, 0.31, -0.20), Extents: (0.32, 0.23, 0.03)
+  classic_laptop_stand Center: (0.00, 0.01, -0.21), Extents: (0.29, 0.01, 0.02)
+Assets/BlackMarket/Art/ShopSources/plastic_monobloc_chair_01/plastic_monobloc_chair_01.fbx BOUNDS Center: (0.00, 0.44, -0.02), Extents: (0.32, 0.44, 0.31) MATS plastic_monobloc_chair_01
+  plastic_monobloc_chair_01(Clone) Center: (0.00, 0.44, -0.02), Extents: (0.32, 0.44, 0.31)
+Assets/BlackMarket/Art/ShopSources/security_camera_01/security_camera_01.fbx BOUNDS Center: (0.00, 0.12, -0.03), Extents: (0.08, 0.14, 0.28) MATS security_camera_01,security_camera_01_glass
+  security_camera_01 Center: (0.00, 0.12, -0.03), Extents: (0.08, 0.14, 0.28)
+Assets/BlackMarket/Art/ShopSources/steel_frame_shelves_02/steel_frame_shelves_02.fbx BOUNDS Center: (0.00, 1.07, 0.00), Extents: (0.30, 1.07, 0.25) MATS steel_frame_shelves_02
+  steel_frame_shelves_02(Clone) Center: (0.00, 1.07, 0.00), Extents: (0.30, 1.07, 0.25)
+Assets/BlackMarket/Art/ShopSources/steel_frame_shelves_03/steel_frame_shelves_03.fbx BOUNDS Center: (-0.13, 1.16, 0.00), Extents: (1.18, 1.16, 0.36) MATS steel_frame_shelves_03,steel_frame_shelves_03_drawers
+  steel_frame_shelves_03 Center: (-0.13, 1.16, 0.00), Extents: (1.18, 1.16, 0.36)
+  steel_frame_shelves_03_drawer_01 Center: (0.51, 0.58, 0.04), Extents: (0.48, 0.05, 0.32)
+  steel_frame_shelves_03_drawer_02 Center: (0.51, 0.47, 0.04), Extents: (0.48, 0.05, 0.32)
+  steel_frame_shelves_03_drawer_03 Center: (0.51, 0.35, 0.04), Extents: (0.48, 0.05, 0.32)
+Assets/BlackMarket/Art/ShopSources/vintage_electric_kettle/vintage_electric_kettle.fbx BOUNDS Center: (0.00, 0.15, 0.00), Extents: (0.16, 0.15, 0.12) MATS vintage_electric_kettle,vintage_electric_kettle_glass
+  vintage_electric_kettle(Clone) Center: (0.00, 0.15, 0.00), Extents: (0.16, 0.15, 0.12)
+Assets/BlackMarket/Art/ShopSources/vintage_microwave/vintage_microwave.fbx BOUNDS Center: (-0.03, 0.26, 0.01), Extents: (0.54, 0.26, 0.37) MATS vintage_microwave,vintage_microwave_glass
+  vintage_microwave(Clone) Center: (-0.03, 0.26, 0.01), Extents: (0.54, 0.26, 0.37)

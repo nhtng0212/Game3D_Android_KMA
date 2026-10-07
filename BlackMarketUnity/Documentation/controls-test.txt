@@ -1,0 +1,38 @@
+PASS campaign starts
+PASS separate three-variant pistol and AK sound banks
+PASS menu on boot
+PASS menu Input System pointer hit test
+PASS prologue
+PASS chapter 1 starts
+PASS touch joystick has no jump on first contact
+PASS four-finger move + fire + aim + look
+PASS look finger keeps ownership across fire button
+PASS run is held
+PASS released contacts clear held controls
+PASS crouch touch toggles on
+PASS held crouch does not toggle every frame
+PASS locked weapon controls cannot fire
+PASS pause clears simultaneous fire
+PASS held finger cannot fire through resume
+PASS touch opens tablet
+PASS tablet blocks direct firing
+PASS tablet close requires a fresh contact
+PASS safe-area canvas (1280.00, 720.00)
+PASS safe-area canvas (2220.00, 1080.00)
+PASS safe-area canvas (2048.00, 1476.00)
+PASS settings returns to pause
+PASS settings preserves death screen instead of allowing invalid resume
+PASS canceled touch does not click menu
+PASS EnhancedTouch device events reach movement control: (0.00, 1.00) contacts=1
+PASS EnhancedTouch tracks moving and firing fingers together: (0.00, 1.00) fire=True
+PASS EnhancedTouch end/cancel clears controls
+PASS crouch head remains below cover: 1.186
+PASS crouch pelvis uses moderate knee bend, not seated half-metre drop
+PASS crouch keeps alternating animated steps
+PASS crouch pose does not accumulate while paused
+PASS standing pose restored after crouch
+PASS no detection alarm while hidden
+PASS confirmed detection raises urgent alarm
+PASS pause fades detection alarm
+PASS alarm fades when encounter ends
+RESULT: PASS / 0 failures

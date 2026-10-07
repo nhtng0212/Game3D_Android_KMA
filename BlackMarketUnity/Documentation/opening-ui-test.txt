@@ -1,0 +1,3 @@
+PASS campaign loads
+PASS computer page ready for visual verification
+RESULT: PASS / 0 failures

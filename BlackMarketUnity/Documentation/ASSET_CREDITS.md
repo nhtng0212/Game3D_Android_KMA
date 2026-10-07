@@ -1,5 +1,13 @@
 # Asset credits
 
+## Cửa hàng điện tử mới — 07/10/2026
+
+10 model mới từ [Poly Haven](https://polyhaven.com/models), [CC0](https://polyhaven.com/license): classic_laptop, CashRegister_01, boombox, Camera_01, vintage_electric_kettle, vintage_microwave, security_camera_01, plastic_monobloc_chair_01, steel_frame_shelves_02, steel_frame_shelves_03. Tác giả từng model, URL tải và SHA256 trong [shop-assets-manifest.json](shop-assets-manifest.json).
+
+Ba model `Sink_A`, `Toilet_Elongated_A`, `Urinal_A` từ [Toilets — loafbrr_1](https://opengameart.org/node/165996), CC0. Giữ README và license ở `Assets/BlackMarket/Art/ShopSources/Sanitary`. Texture 1K; normal/metallic/roughness được đưa vào material URP. Các mask metallic/smoothness được chuyển từ texture nguồn.
+
+Kiến trúc, kệ trưng bày, quầy, TV phẳng, nhãn North Point, texture sàn/gỗ đơn giản là nội dung do dự án tạo. Xem [SHOP_REBUILD_VI.md](SHOP_REBUILD_VI.md).
+
 ## Poly Haven — CC0 1.0
 
 https://polyhaven.com/license
@@ -74,3 +82,15 @@ Model AK, kính nhìn đêm, bàn họp, ghế có lưng, tủ cá nhân và ph�
 [The Free Firearm Sound Library](https://opengameart.org/node/21826), CC0, bản thu của Ben Jaszczak, Brian Nelson, Kevin Heras và Matthew Nanney. Pistol dùng ba phát riêng từ Walther PPQ `X_39P.wav`; AK dùng ba phát riêng từ AK-47 `C_28P.wav`. Mono 44,1 kHz PCM, lọc tiếng ù tần số thấp, thêm phản xạ phòng nhẹ và fade đuôi; không tăng cao độ tiếng pistol để giả làm AK. URL/SHA256 nguồn và từng clip ở `combat-audio-manifest.json`; script tái tạo: `Tools/prepare_combat_audio.py`.
 
 Tiếng cửa trượt kết hợp texture từ Kenney `impactMetal_light_000.ogg` đã có trong dự án (CC0) với tiếng motor tổng hợp gốc. Tiếng chốt và va chạm tiếp tục dùng Foley Kenney. Không thêm nhạc có bản quyền.
+
+## Đoạn mở đầu và nhóm truy bắt
+
+- Nhân vật dân sự mặc vest: `Male_Adult_03`, [Microsoft Rocketbox](https://github.com/microsoft/Microsoft-Rocketbox/tree/master/Assets/Avatars/Adults/Male_Adult_03), giấy phép MIT. Dùng bộ chuyển động idle/walk/run Rocketbox đã có; vật liệu áo được làm tối, texture nguồn giảm về 1K. License và manifest SHA256 nguồn giữ trong `Assets/BlackMarket/Art/Opening/Rocketbox`.
+- Xe sedan: [Kenney Car Kit](https://kenney.nl/assets/car-kit), CC0. Chỉ nhập sedan và bảng màu; chỉnh màu sơn tối. License kèm `Assets/BlackMarket/Art/Opening/Cars`.
+- Âm thanh động cơ tiếp cận `arrival_engine.wav`: tổng hợp mới bằng sóng điều hòa và nhiễu, không có bản thu lời thoại tải ngoài. Hội thoại nhóm truy bắt hiển thị bằng phụ đề.
+
+## Cập nhật cửa hàng: Alex trẻ và sedan
+
+- **Alex: Male_Adult_08 / m014**, Microsoft Rocketbox, MIT. Nguồn: https://github.com/microsoft/Microsoft-Rocketbox/tree/master/Assets/Avatars/Adults/Male_Adult_08 . Bản giấy phép nằm ở `Assets/BlackMarket/Art/Revision/Rocketbox/LICENSE.md`; URL và SHA-256 từng tệp tại `Art/Revision/young-man-manifest.json`. Model dùng rig và hoạt ảnh Rocketbox sẵn trong dự án; vật liệu được chuyển sang URP.
+- **Large Sedan (Black, LOD0)**, MrJaneLAB, CC0. Nguồn và giấy phép do tác giả công bố: https://mrjanelab.itch.io/free-low-poly-large-sedan-lod-included . Dùng thân xe và bánh riêng, chuyển vật liệu sang URP, thêm biển số và đèn pha. SHA-256 tệp ZIP tại `Assets/BlackMarket/Art/Revision/Sedan/source.json`.
+- Tủ mở được, giá sách, cầu thang, khối nhà phố, vỉa hè và biển chỉ dẫn bổ sung được dựng trong dự án. Kệ kho tiếp tục dùng các model miễn phí đã ghi nguồn ở trên.

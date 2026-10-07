@@ -3306,7 +3306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlackMarket.Interaction
   id: exit
-  title: "B6 / CONTROL ROOM / M\u1EDE C\u1EECA C\u1EA6U THANG"
+  title: "B6 / PH\xD2NG \u0110I\u1EC0U H\xC0NH / M\u1EDE C\u1EECA C\u1EA6U THANG"
   consumed: 0
 --- !u!1 &372777830285128624
 GameObject:
@@ -15060,9 +15060,9 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1608559823705548915}
-  m_Text: EXTERNAL UPLINK
+  m_Text: "TRUY\u1EC0N D\u1EEE LI\u1EC6U RA NGO\xC0I"
   m_OffsetZ: 0
-  m_CharacterSize: 0.028599998
+  m_CharacterSize: 0.018652173
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
@@ -20357,7 +20357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlackMarket.RoomDoor
   leaf: {fileID: 8092732104856969637}
-  roomName: "PH\xD2NG BACKUP"
+  roomName: "PH\xD2NG D\u1EF0 PH\xD2NG"
 --- !u!114 &7421947977476524782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20371,7 +20371,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlackMarket.Interaction
   id: roomdoor_backup
-  title: "M\u1EDE C\u1EECA / PH\xD2NG BACKUP"
+  title: "M\u1EDE C\u1EECA / PH\xD2NG D\u1EF0 PH\xD2NG"
   consumed: 0
 --- !u!1 &2224909721839933023
 GameObject:
@@ -28586,9 +28586,9 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2966453570280885888}
-  m_Text: DATA HALL
+  m_Text: "PH\xD2NG D\u1EEE LI\u1EC6U"
   m_OffsetZ: 0
-  m_CharacterSize: 0.028599998
+  m_CharacterSize: 0.0198
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
@@ -31685,7 +31685,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlackMarket.Interaction
   id: upload
-  title: "UPLINK / G\u1EECI ORDER 071"
+  title: "TR\u1EA0M TRUY\u1EC0N D\u1EEE LI\u1EC6U / G\u1EECI H\u1ED2 S\u01A0 071"
   consumed: 0
 --- !u!1 &3213014972356304413
 GameObject:
@@ -37338,9 +37338,9 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3815994933096415172}
-  m_Text: UPS / COOLING
+  m_Text: "B\u1ED8 L\u01AFU \u0110I\u1EC6N / L\xC0M M\xC1T"
   m_OffsetZ: 0
-  m_CharacterSize: 0.028599998
+  m_CharacterSize: 0.01770476
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
@@ -39030,7 +39030,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlackMarket.Interaction
   id: supply_entry
-  title: "TI\u1EBEP T\u1EBE / MEDICAL"
+  title: "TI\u1EBEP T\u1EBE / Y T\u1EBE"
   consumed: 0
 --- !u!1 &4041191650114290104
 GameObject:
@@ -39424,7 +39424,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4094996107383042020}
-  m_Text: NETWORK / ROUTING
+  m_Text: "M\u1EA0NG / \u0110\u1ECANH TUY\u1EBEN"
   m_OffsetZ: 0
   m_CharacterSize: 0.028599998
   m_LineSpacing: 1
@@ -44933,7 +44933,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlackMarket.Interaction
   id: supply_uplink
-  title: "TI\u1EBEP T\u1EBE / MEDICAL"
+  title: "TI\u1EBEP T\u1EBE / Y T\u1EBE"
   consumed: 0
 --- !u!1 &4712301118987892115
 GameObject:
@@ -56149,9 +56149,9 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6030428874946314890}
-  m_Text: WC / STAFF
+  m_Text: "NH\xC0 V\u1EC6 SINH / NH\xC2N VI\xCAN"
   m_OffsetZ: 0
-  m_CharacterSize: 0.028599998
+  m_CharacterSize: 0.016587999
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
@@ -76821,9 +76821,9 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8204773384157999760}
-  m_Text: BACKUP / STORAGE
+  m_Text: "D\u1EF0 PH\xD2NG / KHO H\xC0NG"
   m_OffsetZ: 0
-  m_CharacterSize: 0.028599998
+  m_CharacterSize: 0.024084209
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
@@ -77317,11 +77317,9 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8251733030437326877}
-  m_Text: 'B6 / CONTROL ROOM
-
-    STAIRS  /  DOWN'
+  m_Text: "B6 / PH\xD2NG \u0110I\u1EC0U H\xC0NH\nC\u1EA6U THANG / \u0110I XU\u1ED0NG"
   m_OffsetZ: 0
-  m_CharacterSize: 0.028599998
+  m_CharacterSize: 0.024309998
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1

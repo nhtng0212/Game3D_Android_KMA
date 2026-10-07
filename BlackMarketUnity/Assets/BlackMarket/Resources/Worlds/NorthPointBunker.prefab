@@ -4182,7 +4182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlackMarket.Interaction
   id: recording
-  title: FOR_ALEX / DATA DRIVE
+  title: "G\u1EECI ALEX / \u1ED4 D\u1EEE LI\u1EC6U"
   consumed: 0
 --- !u!1 &672737330520478851
 GameObject:
@@ -7900,9 +7900,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1646797530176929683}
-  m_Text: 'FOR_ALEX
-
-    ENCRYPTED'
+  m_Text: "G\u1EECI ALEX\n\u0110\xC3 M\xC3 H\xD3A"
   m_OffsetZ: 0
   m_CharacterSize: 0.012999999
   m_LineSpacing: 1
@@ -8315,6 +8313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlackMarket.WorldMarker
   id: enemy_a
+  patrolWait: 0
 --- !u!1 &1725614877751006956
 GameObject:
   m_ObjectHideFlags: 0
@@ -9815,6 +9814,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlackMarket.WorldMarker
   id: camera_1
+  patrolWait: 0
 --- !u!1 &2147814779068787560
 GameObject:
   m_ObjectHideFlags: 0
@@ -10100,6 +10100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlackMarket.WorldMarker
   id: boss
+  patrolWait: 0
 --- !u!1 &2232182510099824335
 GameObject:
   m_ObjectHideFlags: 0
@@ -11456,6 +11457,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlackMarket.WorldMarker
   id: enemy_c
+  patrolWait: 0
 --- !u!1 &2566530930841637723
 GameObject:
   m_ObjectHideFlags: 0
@@ -11546,9 +11548,9 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2566530930841637723}
-  m_Text: SERVER / FOR_ALEX
+  m_Text: "M\xC1Y CH\u1EE6 / G\u1EECI ALEX"
   m_OffsetZ: 0
-  m_CharacterSize: 0.08319999
+  m_CharacterSize: 0.07857777
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
@@ -14841,7 +14843,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlackMarket.Interaction
   id: supply_a
-  title: "TI\u1EBEP T\u1EBE / MEDICAL"
+  title: "TI\u1EBEP T\u1EBE / Y T\u1EBE"
   consumed: 0
 --- !u!1 &3135417909944877045
 GameObject:
@@ -15068,7 +15070,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlackMarket.Interaction
   id: pistol
-  title: PISTOL / ARMORY
+  title: "S\xDANG NG\u1EAEN / KHO V\u0168 KH\xCD"
   consumed: 0
 --- !u!1 &3157177121919869212
 GameObject:
@@ -16156,6 +16158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlackMarket.WorldMarker
   id: camera_0
+  patrolWait: 0
 --- !u!1 &3416229125781259047
 GameObject:
   m_ObjectHideFlags: 0
@@ -17530,6 +17533,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlackMarket.WorldMarker
   id: shutter
+  patrolWait: 0
 --- !u!1 &3790572217237152662
 GameObject:
   m_ObjectHideFlags: 0
@@ -18069,7 +18073,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlackMarket.Interaction
   id: order
-  title: LOCKER 071
+  title: "T\u1EE6 H\u1ED2 S\u01A0 071"
   consumed: 0
 --- !u!1 &3966556241775375561
 GameObject:
@@ -19884,7 +19888,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlackMarket.Interaction
   id: supply_b
-  title: "TI\u1EBEP T\u1EBE / MEDICAL"
+  title: "TI\u1EBEP T\u1EBE / Y T\u1EBE"
   consumed: 0
 --- !u!1 &4373982474991054039
 GameObject:
@@ -20403,6 +20407,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlackMarket.WorldMarker
   id: spawn
+  patrolWait: 0
 --- !u!1 &4591037759695080954
 GameObject:
   m_ObjectHideFlags: 0
@@ -23468,6 +23473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlackMarket.WorldMarker
   id: enemy_b
+  patrolWait: 0
 --- !u!1 &5182156126390683753
 GameObject:
   m_ObjectHideFlags: 0
@@ -24818,9 +24824,9 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5571962436230962566}
-  m_Text: ORDER ROOM / 071
+  m_Text: "PH\xD2NG H\u1ED2 S\u01A0 / 071"
   m_OffsetZ: 0
-  m_CharacterSize: 0.051999997
+  m_CharacterSize: 0.048941173
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
@@ -29039,11 +29045,9 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6638855419614378708}
-  m_Text: 'ORDER #071
-
-    UPLINK READY'
+  m_Text: "H\u1ED2 S\u01A0 071\nS\u1EB4N S\xC0NG TRUY\u1EC0N D\u1EEE LI\u1EC6U"
   m_OffsetZ: 0
-  m_CharacterSize: 0.012999999
+  m_CharacterSize: 0.007539999
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
@@ -30389,7 +30393,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6924372220365838752}
-  m_Text: "\u221203 / NORTH POINT OPERATIONS"
+  m_Text: "\u221203 / \u0110I\u1EC0U H\xC0NH NORTH POINT"
   m_OffsetZ: 0
   m_CharacterSize: 0.051999997
   m_LineSpacing: 1
@@ -33450,6 +33454,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlackMarket.WorldMarker
   id: alarm
+  patrolWait: 0
 --- !u!1 &7755764855214578093
 GameObject:
   m_ObjectHideFlags: 0
@@ -34692,6 +34697,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlackMarket.WorldMarker
   id: camera_2
+  patrolWait: 0
 --- !u!1 &8093711430652409277
 GameObject:
   m_ObjectHideFlags: 0
@@ -37447,7 +37453,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlackMarket.Interaction
   id: upload
-  title: UPLINK / ORDER 071
+  title: "TR\u1EA0M TRUY\u1EC0N D\u1EEE LI\u1EC6U / H\u1ED2 S\u01A0 071"
   consumed: 0
 --- !u!1 &8881248752590045902
 GameObject:

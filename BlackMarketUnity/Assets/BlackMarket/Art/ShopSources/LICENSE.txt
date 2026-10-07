@@ -1,0 +1,4 @@
+Downloaded Poly Haven assets: CC0 1.0 Universal.
+https://polyhaven.com/license
+https://creativecommons.org/publicdomain/zero/1.0/
+Per-asset authors, download URLs and SHA256: Documentation/shop-assets-manifest.json

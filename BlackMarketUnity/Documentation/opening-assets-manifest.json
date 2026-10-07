@@ -1,0 +1,14 @@
+{
+  "author": "Kenney",
+  "license": "CC0",
+  "source": "https://kenney.nl/assets/car-kit",
+  "download": "https://kenney.nl/media/pages/assets/car-kit/1a312ec241-1775131960/kenney_car-kit.zip",
+  "source_archive_sha256": "fac7dacac5c7874348cf19729af3ef205f3d366493edaf0a827d93f4fdf3d0c4",
+  "imported": [
+    "sedan.fbx",
+    "colormap.png"
+  ],
+  "derived": {
+    "colormap-dark.png": "Dark paint palette derived from source; preserves lamps and windows."
+  }
+}

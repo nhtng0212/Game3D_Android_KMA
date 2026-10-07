@@ -3560,11 +3560,9 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 214126975325602454}
-  m_Text: 'THE MARKET
-
-    KEEPER NETWORK'
+  m_Text: "CH\u1EE2 \u0110EN\nNG\u01AF\u1EDCI QU\u1EA2N L\xDD M\u1EA0NG"
   m_OffsetZ: 0
-  m_CharacterSize: 0.012999999
+  m_CharacterSize: 0.010111111
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
@@ -19073,7 +19071,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlackMarket.Interaction
   id: override
-  title: "LOCAL OVERRIDE / KH\xD4I PH\u1EE4C QUY\u1EC0N"
+  title: "KH\xD4I PH\u1EE4C T\u1EA0I CH\u1ED6 / KH\xD4I PH\u1EE4C QUY\u1EC0N"
   consumed: 0
 --- !u!1 &1197835581782214138
 GameObject:
@@ -23483,9 +23481,9 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1493029594083647726}
-  m_Text: KEEPER ARCHIVE
+  m_Text: "H\u1ED2 S\u01A0 NG\u01AF\u1EDCI QU\u1EA2N L\xDD"
   m_OffsetZ: 0
-  m_CharacterSize: 0.028599998
+  m_CharacterSize: 0.021073682
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
@@ -54192,11 +54190,9 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3180289702600798826}
-  m_Text: 'THE MARKET
-
-    KEEPER NETWORK'
+  m_Text: "CH\u1EE2 \u0110EN\nNG\u01AF\u1EDCI QU\u1EA2N L\xDD M\u1EA0NG"
   m_OffsetZ: 0
-  m_CharacterSize: 0.012999999
+  m_CharacterSize: 0.010111111
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
@@ -59714,11 +59710,9 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3536865097809597895}
-  m_Text: 'THE MARKET
-
-    KEEPER NETWORK'
+  m_Text: "CH\u1EE2 \u0110EN\nNG\u01AF\u1EDCI QU\u1EA2N L\xDD M\u1EA0NG"
   m_OffsetZ: 0
-  m_CharacterSize: 0.012999999
+  m_CharacterSize: 0.010111111
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
@@ -63218,7 +63212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlackMarket.Interaction
   id: supply_boss
-  title: "TI\u1EBEP T\u1EBE / MEDICAL"
+  title: "TI\u1EBEP T\u1EBE / Y T\u1EBE"
   consumed: 0
 --- !u!1 &3762305378409124216
 GameObject:
@@ -82265,7 +82259,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4848146054054956381}
-  m_Text: ELECTRICAL
+  m_Text: "PH\xD2NG \u0110I\u1EC6N"
   m_OffsetZ: 0
   m_CharacterSize: 0.028599998
   m_LineSpacing: 1
@@ -83870,7 +83864,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlackMarket.RoomDoor
   leaf: {fileID: 6698496469443062619}
-  roomName: "H\u1ED2 S\u01A0 KEEPER"
+  roomName: "H\u1ED2 S\u01A0 NG\u01AF\u1EDCI QU\u1EA2N L\xDD"
 --- !u!114 &1191153234105170058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83884,7 +83878,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlackMarket.Interaction
   id: roomdoor_archive
-  title: "M\u1EDE C\u1EECA / H\u1ED2 S\u01A0 KEEPER"
+  title: "M\u1EDE C\u1EECA / H\u1ED2 S\u01A0 NG\u01AF\u1EDCI QU\u1EA2N L\xDD"
   consumed: 0
 --- !u!1 &4925246770020956818
 GameObject:
@@ -96931,7 +96925,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlackMarket.Interaction
   id: final
-  title: "SUCCESSOR / QUY\u1EBET \u0110\u1ECANH"
+  title: "NG\u01AF\u1EDCI K\u1EBE TH\u1EEAA / QUY\u1EBET \u0110\u1ECANH"
   consumed: 0
 --- !u!1 &5714631432542333480
 GameObject:
@@ -99774,9 +99768,9 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5863941210217174296}
-  m_Text: WC / STAFF
+  m_Text: "NH\xC0 V\u1EC6 SINH / NH\xC2N VI\xCAN"
   m_OffsetZ: 0
-  m_CharacterSize: 0.028599998
+  m_CharacterSize: 0.016587999
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
@@ -105435,7 +105429,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6241873158278773160}
-  m_Text: SUCCESSOR TERMINAL
+  m_Text: "M\xC1Y T\xCDNH K\u1EBE TH\u1EEAA"
   m_OffsetZ: 0
   m_CharacterSize: 0.028599998
   m_LineSpacing: 1
@@ -109174,9 +109168,9 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6413903258466629438}
-  m_Text: LOCAL OVERRIDE
+  m_Text: "KH\xD4I PH\u1EE4C T\u1EA0I CH\u1ED6"
   m_OffsetZ: 0
-  m_CharacterSize: 0.028599998
+  m_CharacterSize: 0.02355294
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
@@ -109422,7 +109416,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6425947805729933169}
-  m_Text: VICTOR / COMMAND
+  m_Text: "VICTOR / CH\u1EC8 HUY"
   m_OffsetZ: 0
   m_CharacterSize: 0.028599998
   m_LineSpacing: 1
@@ -112733,7 +112727,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlackMarket.Interaction
   id: supply_entry
-  title: "TI\u1EBEP T\u1EBE / MEDICAL"
+  title: "TI\u1EBEP T\u1EBE / Y T\u1EBE"
   consumed: 0
 --- !u!1 &6585097704186551939
 GameObject:
@@ -133890,11 +133884,9 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7785766474375918878}
-  m_Text: 'THE MARKET
-
-    KEEPER NETWORK'
+  m_Text: "CH\u1EE2 \u0110EN\nNG\u01AF\u1EDCI QU\u1EA2N L\xDD M\u1EA0NG"
   m_OffsetZ: 0
-  m_CharacterSize: 0.012999999
+  m_CharacterSize: 0.010111111
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
@@ -148542,11 +148534,9 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8622980419194742820}
-  m_Text: 'THE MARKET
-
-    KEEPER NETWORK'
+  m_Text: "CH\u1EE2 \u0110EN\nNG\u01AF\u1EDCI QU\u1EA2N L\xDD M\u1EA0NG"
   m_OffsetZ: 0
-  m_CharacterSize: 0.012999999
+  m_CharacterSize: 0.010111111
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
@@ -149691,11 +149681,9 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8682651363428768920}
-  m_Text: 'THE MARKET
-
-    KEEPER NETWORK'
+  m_Text: "CH\u1EE2 \u0110EN\nNG\u01AF\u1EDCI QU\u1EA2N L\xDD M\u1EA0NG"
   m_OffsetZ: 0
-  m_CharacterSize: 0.012999999
+  m_CharacterSize: 0.010111111
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
@@ -153367,11 +153355,9 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8865498663431636417}
-  m_Text: 'THE MARKET
-
-    KEEPER NETWORK'
+  m_Text: "CH\u1EE2 \u0110EN\nNG\u01AF\u1EDCI QU\u1EA2N L\xDD M\u1EA0NG"
   m_OffsetZ: 0
-  m_CharacterSize: 0.012999999
+  m_CharacterSize: 0.010111111
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1

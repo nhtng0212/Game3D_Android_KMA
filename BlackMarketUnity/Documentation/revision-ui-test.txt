@@ -1,0 +1,61 @@
+PASS story begins with typewriter and disabled continue
+PASS button waits after final character
+PASS button still gated before three seconds
+PASS continue lights at three seconds after final character
+PASS young protagonist mesh imported
+PASS six cabinets, 24 drawers, one red card
+PASS all search cabinets placed against office walls
+PASS warehouse has four times nine original racks
+PASS warehouse depth increased from six to eighteen metres
+PASS computer rejects missing card
+PASS card hidden before drawer opens
+PASS drawer target 1
+PASS drawer target 2
+PASS drawer target 3
+PASS drawer target 4
+PASS drawer target 5
+PASS drawer target 6
+PASS drawer target 7
+PASS drawer target 8
+PASS drawer target 9
+PASS drawer target 10
+PASS drawer target 11
+PASS drawer target 12
+PASS drawer target 13
+PASS drawer target 14
+PASS drawer target 15
+PASS drawer target 16
+PASS drawer target 17
+PASS drawer target 18
+PASS red card can be picked up separately
+PASS drawer target 19
+PASS drawer target 20
+PASS drawer target 21
+PASS drawer target 22
+PASS drawer target 23
+PASS drawer target 24
+PASS search and card collection complete
+PASS desktop awaits file click
+PASS Order 71 icon opens document
+PASS terminal also waits three seconds after typing
+PASS terminal next button enabled after three seconds
+PASS reading starts convoy
+PASS four members of suited group
+PASS navigation reaches (0.00, 1.00, 46.70)
+PASS warehouse path bends through several rack rows: 145.6m
+PASS CharacterController physically traverses route
+PASS larger winding warehouse escape survivable
+PASS outer card gate does not advance stage
+PASS navigation reaches (0.90, 0.00, 50.50)
+PASS CharacterController physically traverses route
+PASS scan locks controls from far edge of pad
+PASS scan camera has unobstructed view of face
+PASS scan aligns Alex to safe pad
+PASS scan pauses correctly
+PASS descent starts without restoring player input
+PASS Alex runs down real stairs before loading B1
+PASS automatic staircase sequence loads B1 and restores control
+PASS new game resets cabinets and gates
+PASS completed file skippable on replay
+PASS skip still starts suited group encounter
+RESULT 0 failures

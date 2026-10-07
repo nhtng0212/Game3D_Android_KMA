@@ -522,7 +522,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 19380914500342030}
-  m_Text: TRIAGE / MEDICAL
+  m_Text: "S\u01A0 C\u1EE8U / Y T\u1EBE"
   m_OffsetZ: 0
   m_CharacterSize: 0.028599998
   m_LineSpacing: 1
@@ -32588,7 +32588,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlackMarket.Interaction
   id: supply_entry
-  title: "TI\u1EBEP T\u1EBE / MEDICAL"
+  title: "TI\u1EBEP T\u1EBE / Y T\u1EBE"
   consumed: 0
 --- !u!1 &1307568914403375585
 GameObject:
@@ -48457,11 +48457,10 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1888970820434846839}
-  m_Text: 'B5 / UPLINK
-
-    STAIRS  /  DOWN'
+  m_Text: "B5 / TR\u1EA0M TRUY\u1EC0N D\u1EEE LI\u1EC6U\nC\u1EA6U THANG / \u0110I
+    XU\u1ED0NG"
   m_OffsetZ: 0
-  m_CharacterSize: 0.028599998
+  m_CharacterSize: 0.017874999
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
@@ -160909,9 +160908,9 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5852058259907800487}
-  m_Text: PHARMACY / WARD
+  m_Text: "D\u01AF\u1EE2C PH\u1EA8M / BU\u1ED2NG B\u1EC6NH"
   m_OffsetZ: 0
-  m_CharacterSize: 0.028599998
+  m_CharacterSize: 0.019499999
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
@@ -165280,7 +165279,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlackMarket.Interaction
   id: exit
-  title: "B5 / UPLINK / M\u1EDE C\u1EECA C\u1EA6U THANG"
+  title: "B5 / TR\u1EA0M TRUY\u1EC0N D\u1EEE LI\u1EC6U / M\u1EDE C\u1EECA C\u1EA6U
+    THANG"
   consumed: 0
 --- !u!1 &6020223068526644218
 GameObject:
@@ -189757,9 +189757,9 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6964540094815139675}
-  m_Text: FREIGHT / STORAGE
+  m_Text: "H\xC0NG V\u1EACN CHUY\u1EC2N / KHO H\xC0NG"
   m_OffsetZ: 0
-  m_CharacterSize: 0.028599998
+  m_CharacterSize: 0.018699998
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
@@ -197233,7 +197233,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7224272939836305862}
-  m_Text: ISOLATION
+  m_Text: "C\xC1CH LY"
   m_OffsetZ: 0
   m_CharacterSize: 0.028599998
   m_LineSpacing: 1
@@ -242620,7 +242620,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlackMarket.Interaction
   id: supply_medical
-  title: "TI\u1EBEP T\u1EBE / MEDICAL"
+  title: "TI\u1EBEP T\u1EBE / Y T\u1EBE"
   consumed: 0
 --- !u!1 &8878755827808510890
 GameObject:

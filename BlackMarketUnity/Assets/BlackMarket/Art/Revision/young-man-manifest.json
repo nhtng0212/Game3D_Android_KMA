@@ -1,0 +1,26 @@
+[
+  {
+    "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_08/Export/Male_Adult_08.fbx",
+    "sha256": "e0d979315a5f11050945522f9f084932807af2edeefbdb380a2c9aa36c9f9bb3"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_08/Textures/m014_body_color.tga",
+    "sha256": "9b6cef05b86497ffca6f131842950341302fa170e5ce3de1c2446501be774b91"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_08/Textures/m014_body_normal.tga",
+    "sha256": "e77af685914352cf75755d45254cdab57d3af3c6fa848a1f2f871250eb87d3ab"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_08/Textures/m014_head_color.tga",
+    "sha256": "5d3723b8d6f6175b26adb1f2d46ade55b19630c2cee1bd2e43dbd293c6fa7d38"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_08/Textures/m014_head_normal.tga",
+    "sha256": "0a43fbc692b1cf9237f21c869eb2192e16057aa62e34117e569f9b0c0a2b9796"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/microsoft/Microsoft-Rocketbox/master/Assets/Avatars/Adults/Male_Adult_08/Textures/m014_opacity_color.tga",
+    "sha256": "282684b09dd7e3b7b521387240855773f419a90c67ba58ff9ad478a7ec01cc93"
+  }
+]

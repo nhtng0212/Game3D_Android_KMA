@@ -1,0 +1,3 @@
+PASS face visible immediately when scan begins
+PASS revised staircase completes
+RESULT 0 failures

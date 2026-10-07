@@ -8,7 +8,7 @@ namespace BlackMarket {
         public int VariantCount(string id)=>variations.TryGetValue(id,out var bank)?bank.Length:0;
         AudioLowPassFilter[] filters;AudioSource[] voices;int cursor;AudioSource ambience,rain;AudioClip[] footsteps;
         void Awake(){
-            foreach(var id in new[]{"shot","reload","door","beep","alarm","hit","step","ring","ambient"})clips[id]=Resources.Load<AudioClip>("Audio/"+id);
+            foreach(var id in new[]{"arrival_engine","shot","reload","door","beep","alarm","hit","step","ring","ambient"})clips[id]=Resources.Load<AudioClip>("Audio/"+id);
             var foley=Resources.Load<AudioClip>("Foley/footstep_concrete_000");if(foley)clips["step"]=foley;
             var shot=Resources.Load<AudioClip>("FieldAudio/shot");if(shot)clips["shot"]=shot;var reload=Resources.Load<AudioClip>("FieldAudio/reload");if(reload)clips["reload"]=reload;footsteps=new AudioClip[5];for(int k=0;k<5;k++)footsteps[k]=Resources.Load<AudioClip>("Foley/footstep_concrete_00"+k);
             foreach(var id in new[]{"pistol","rifle"}){var bank=new List<AudioClip>();for(int i=0;i<3;i++){var take=Resources.Load<AudioClip>("FieldAudio/"+id+"_"+i);if(take)bank.Add(take);}if(bank.Count>0){variations[id]=bank.ToArray();clips[id]=bank[0];}else clips[id]=clips["shot"];}

@@ -3,7 +3,7 @@ using UnityEngine.AI;
 using System.Collections.Generic;
 namespace BlackMarket {
     public class EnemyController : MonoBehaviour {
-        public Campaign campaign;public bool boss,shielded;public float hp=100,damage=15,speed=3,stun,suspicion;public int phase=1;
+        public Campaign campaign;public bool captureOnContact;public bool boss,shielded;public float hp=100,damage=15,speed=3,stun,suspicion;public int phase=1;
         public enum Mode {Patrol,Investigate,Chase,Attack,Search}
         public Mode mode;
         public string routeId,actorPrefab="Operator";
@@ -28,14 +28,14 @@ namespace BlackMarket {
             if(route.Count==0){route.Add(home);if(NavMesh.SamplePosition(home+Vector3.forward*3,out var patrol,2,NavMesh.AllAreas))route.Add(patrol.position);}
             destination=route[0];SetEquipment(false);
         }
-        void SetEquipment(bool armed){if(gun)gun.SetActive(armed && hp>0);if(flashlight)flashlight.SetActive(!armed && hp>0);}
+        void SetEquipment(bool armed){if(gun)gun.SetActive(armed && hp>0 && !captureOnContact);if(flashlight)flashlight.SetActive(!armed && hp>0 && !captureOnContact);}
         void Arm(){if(alerted)return;alerted=true;drawUntil=Time.time+.7f;gunPose.weight=0;SetEquipment(true);campaign.sound.Play("draw",.22f,transform.position);}
         // Visibility and illumination use the same origin, range and spotlight angle while patrolling.
         public bool CanSeePoint(Vector3 target){
-            Vector3 origin=Armed?transform.position+Vector3.up*1.45f:torch.transform.position;
-            Vector3 forward=Armed?visual.forward:torch.transform.forward;Vector3 delta=target-origin;
-            float range=Armed?18:torch.range;
-            if(delta.magnitude>range || (delta.magnitude>1.5f && Vector3.Angle(forward,delta)>(Armed?48:torch.spotAngle*.5f)))return false;
+            Vector3 origin=Armed || captureOnContact?transform.position+Vector3.up*1.45f:torch.transform.position;
+            Vector3 forward=Armed || captureOnContact?visual.forward:torch.transform.forward;Vector3 delta=target-origin;
+            float range=captureOnContact?16:Armed?18:torch.range;
+            if(delta.magnitude>range || (delta.magnitude>1.5f && Vector3.Angle(forward,delta)>(captureOnContact?55:Armed?48:torch.spotAngle*.5f)))return false;
             foreach(var hit in Physics.RaycastAll(origin,delta.normalized,delta.magnitude,~(1<<2),QueryTriggerInteraction.Ignore))if(hit.collider.GetComponentInParent<EnemyController>()!=this)return false;
             return true;
         }
@@ -45,12 +45,13 @@ namespace BlackMarket {
             if(hp<=0)return;if(Armed)gunPose.weight=Mathf.Clamp01(1-(drawUntil-Time.time)/.7f);bool stop=!campaign.Running || stun>0;if(agent && agent.isOnNavMesh)agent.isStopped=stop;if(!campaign.Running)return;
             stun=Mathf.Max(0,stun-Time.deltaTime);if(stun>0)return;memory-=Time.deltaTime;
             if(Time.time>=nextThink){nextThink=Time.time+.12f;Think(.12f);}
-            if(agent.isOnNavMesh){agent.speed=alerted?speed+1:mode==Mode.Patrol?1.5f:2.1f;agent.isStopped=mode==Mode.Attack || Time.time<drawUntil || PatrolResting;}
+            if(agent.isOnNavMesh){agent.speed=alerted?speed+1:mode==Mode.Patrol?(captureOnContact?1.85f:1.5f):2.1f;agent.isStopped=mode==Mode.Attack || Time.time<drawUntil || PatrolResting;}
             Vector3 facing=mode==Mode.Attack?lastSeen-transform.position:agent.velocity;
             if(facing.sqrMagnitude>.03f){facing.y=0;visual.rotation=Quaternion.Slerp(visual.rotation,Quaternion.LookRotation(facing),Time.deltaTime*7);}
             else if(PatrolResting && routeIndex<routeMarkers.Count)visual.rotation=Quaternion.Slerp(visual.rotation,routeMarkers[routeIndex].transform.rotation,Time.deltaTime*4);
             else if(mode==Mode.Search || mode==Mode.Investigate)visual.Rotate(0,Time.deltaTime*40,0,Space.World);
-            if(mode==Mode.Attack && Time.time>=drawUntil && Time.time>=nextShot && CanSee()){
+            if(captureOnContact && suspicion>=1 && Vector3.Distance(transform.position,campaign.player.transform.position)<1.25f && CanSee()){campaign.ui.Subtitle("KẺ TRUY BẮT","Bắt được mày rồi!");campaign.Damage(1000);return;}
+            if(!captureOnContact && mode==Mode.Attack && Time.time>=drawUntil && Time.time>=nextShot && CanSee()){
                 nextShot=Time.time+(boss?.85f:1.25f);Vector3 start=transform.position+Vector3.up*1.4f,end=visibleAimPoint;
                 bool blocked=false;foreach(var hit in Physics.RaycastAll(start,(end-start).normalized,Vector3.Distance(start,end),~(1<<2)))if(hit.collider.GetComponentInParent<EnemyController>()!=this){blocked=true;end=hit.point;break;}
                 if(!blocked)campaign.EnemyShot(damage);campaign.sound.Play("pistol",.48f,start);Effects.Shot(start,end,true);
@@ -60,7 +61,7 @@ namespace BlackMarket {
         }
         void Think(float dt){
             bool seen=CanSee();if(seen){lastSeen=campaign.player.transform.position;memory=12;float d=Vector3.Distance(transform.position,lastSeen);suspicion=Mathf.Clamp01(suspicion+dt*(d<2?4:campaign.player.crouch?.65f:1.2f));
-                if(suspicion>=1){Arm();destination=lastSeen;mode=d<8?Mode.Attack:Mode.Chase;}
+                if(suspicion>=1){Arm();destination=lastSeen;mode=!captureOnContact && d<8?Mode.Attack:Mode.Chase;}
                 else {mode=Mode.Investigate;destination=lastSeen;}
             }else{
                 suspicion=Mathf.Max(0,suspicion-dt*.16f);
@@ -79,15 +80,15 @@ namespace BlackMarket {
             if(agent.isOnNavMesh)agent.SetDestination(destination);
         }
         public void TakeDamage(float amount){
-            if(hp<=0)return;if(shielded){campaign.ui.Toast("ACCESS REVOKED / Khôi phục quyền tại terminal.");return;}
+            if(hp<=0)return;if(shielded){campaign.ui.Toast("QUYỀN TRUY CẬP BỊ THU HỒI / Khôi phục quyền tại máy tính.");return;}
             hp=Mathf.Max(0,hp-amount);suspicion=1;Arm();memory=12;lastSeen=campaign.player.transform.position;destination=lastSeen;mode=Mode.Chase;
-            if(boss && hp<=200 && phase==1){phase=2;shielded=true;campaign.security.revoked=true;campaign.security.Close();campaign.Objective("override","Victor đã khóa Tablet. Khôi phục quyền Keeper ở terminal.");campaign.ui.Subtitle("VICTOR HALE","Marcus nghĩ mình có thể thay đổi The Market. Cháu cũng vậy sao?");}
-            if(boss && hp<=100 && phase==2){phase=3;damage=20;campaign.ui.Subtitle("KEEPER OS","Quyền được phục hồi. Dùng đèn / xung EMP để vô hiệu hóa Victor.");}
+            if(boss && hp<=200 && phase==1){phase=2;shielded=true;campaign.security.revoked=true;campaign.security.Close();campaign.Objective("override","Victor đã khóa máy tính bảng. Khôi phục quyền quản lý ở máy tính.");campaign.ui.Subtitle("VICTOR HALE","Marcus nghĩ mình có thể thay đổi Chợ Đen. Cháu cũng vậy sao?");}
+            if(boss && hp<=100 && phase==2){phase=3;damage=20;campaign.ui.Subtitle("HỆ THỐNG AN NINH","Quyền được phục hồi. Dùng đèn / xung điện từ để vô hiệu hóa Victor.");}
             if(hp>0)return;
             SetEquipment(false);agent.enabled=false;GetComponent<Collider>().enabled=false;if(anim)anim.Stop();visual.localRotation=Quaternion.Euler(0,0,85);visual.localPosition=Vector3.up*.2f;
             campaign.state.kills++;
-            if(boss){campaign.flags.Add("boss_dead");campaign.Objective("final","Đến Successor Terminal. Quyết định số phận North Point.");}
-            else {var drop=new GameObject("Operator supply");drop.transform.SetParent(campaign.level.transform);drop.transform.position=transform.position;var point=drop.AddComponent<Interaction>();point.id="supply_drop";point.title="ĐẠN / CỨU THƯƠNG";}
+            if(boss){campaign.flags.Add("boss_dead");campaign.Objective("final","Đến máy tính kế thừa. Quyết định số phận North Point.");}
+            else {var drop=new GameObject("đặc vụ supply");drop.transform.SetParent(campaign.level.transform);drop.transform.position=transform.position;var point=drop.AddComponent<Interaction>();point.id="supply_drop";point.title="ĐẠN / CỨU THƯƠNG";}
         }
     }
 }

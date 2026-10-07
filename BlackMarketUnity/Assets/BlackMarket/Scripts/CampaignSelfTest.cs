@@ -6,30 +6,49 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 namespace BlackMarket {
-    // Explicit opt-in, only in a development player. Never changes a player's checkpoint.
-    public class CampaignSelfTest : MonoBehaviour {
+    // Explicit opt-in, only in the Editor or a development player. Never changes a player's checkpoint.
+    [DefaultExecutionOrder(1000)]
+    public partial class CampaignSelfTest : MonoBehaviour {
+        string ReportPath=>Array.IndexOf(Environment.GetCommandLineArgs(),"--controls-check")>=0?"Documentation/controls-test.txt":"Documentation/runtime-test.txt";
         Campaign g;readonly List<string> log=new List<string>();int failures;float deadline;bool captures;
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         static void StartIfRequested(){if(Debug.isDebugBuild && Array.IndexOf(Environment.GetCommandLineArgs(),"--self-test")>=0)new GameObject("Campaign QA").AddComponent<CampaignSelfTest>();}
         void Check(bool ok,string message){log.Add((ok?"PASS ":"FAIL ")+message);if(!ok)failures++;Debug.Log(log[log.Count-1]);}
         void Use(string id){var p=g.level.GetComponentsInChildren<Interaction>().FirstOrDefault(x=>x.id==id);Check(p!=null,"interaction exists "+id);if(p)p.Use();}
+        Action afterPose;
+        void LateUpdate(){var callback=afterPose;afterPose=null;callback?.Invoke();}
+        IEnumerator AfterPose(Action callback){bool done=false;afterPose=()=>{callback();done=true;};while(!done)yield return null;}
+        IEnumerator RenderedFrame(){if(Application.isBatchMode){yield return null;yield return null;}else yield return new WaitForEndOfFrame();}
         IEnumerator Frame(){yield return null;yield return null;}
+        IEnumerator ReadDocument(){
+            if(g.ui.modal=="computer")g.ui.OpenOrderFile();
+            while(g.ui.modal=="story"){
+                if(g.ui.ComputerScreen){if(g.ui.TerminalPageReady)g.ui.NextTerminalPage();}
+                else {g.ui.ScrollStory(100);if(g.ui.StoryReady)g.ui.ContinueStory();}
+                yield return null;
+            }
+            while(g.opening && g.opening.Playing)yield return null;
+        }
         IEnumerator Start(){
-            Directory.CreateDirectory("Documentation");File.WriteAllText("Documentation/runtime-test.txt","RUNNING — completion required\n");
+            Directory.CreateDirectory("Documentation");File.WriteAllText(ReportPath,"RUNNING — completion required\n");
             Application.runInBackground=true;deadline=Time.realtimeSinceStartup+600;captures=Array.IndexOf(Environment.GetCommandLineArgs(),"--capture")>=0;
             yield return null;g=Campaign.Instance;Check(g!=null,"campaign starts");if(!g){Finish();yield break;}
             Check(g.sound.VariantCount("pistol")==3 && g.sound.VariantCount("rifle")==3,"separate three-variant pistol and AK sound banks");Check(g.ui.modal=="menu","menu on boot");yield return Capture("menu");
-            g.NewGame();Check(g.ui.modal=="story","prologue");g.ui.ContinueStory();yield return Frame();
+            if(Application.isBatchMode){g.ui.ProcessMenuPointer(new Vector2(220,510),true,false);g.ui.ProcessMenuPointer(new Vector2(220,510),false,true);Check(g.ui.TryPointerClick(new Rect(58,485,420,49)),"menu Input System pointer hit test");g.NewGame();}
+            else {g.ui.ProcessMenuPointer(new Vector2(220,510),true,false);g.ui.ProcessMenuPointer(new Vector2(220,510),false,true);yield return Frame();Check(g.ui.modal=="story","menu start responds to Input System pointer");if(g.ui.modal!="story")g.NewGame();}Check(g.ui.modal=="story","prologue");yield return ReadDocument();yield return Frame();
             Check(g.state.stage==0 && g.Running,"chapter 1 starts");
+            yield return TestControls();
+            if(Array.IndexOf(Environment.GetCommandLineArgs(),"--controls-check")>=0){Finish();yield break;}
             if(Array.IndexOf(Environment.GetCommandLineArgs(),"--stealth-check")>=0){yield return TestPatrolGap();Finish();yield break;}
             Check(g.player.transform.position.z>0,"spawn inside locked storefront");
             Check(!string.IsNullOrEmpty(g.ObjectivePurpose),"objective explains its purpose");g.ui.OpenJournal();Check(g.ui.modal=="journal" && g.paused,"journal pauses and exposes context");yield return Capture("journal");g.Resume();
             yield return TestShopAndDoors();
-            yield return WalkTo(new Vector3(-10.65f,0,15.4f),"storefront to Marcus office");
-            Use("door06");Check(g.state.stage==0,"Door 06 gate");Use("keycard");Check(g.state.keycard,"keycard");Use("computer");g.ui.ContinueStory();
-            yield return Capture("office");Use("door06");g.ui.ContinueStory();yield return Frame();
+            yield return MissionTestSteps.RevealDrawers(g);
+            yield return WalkTo(g.level.GetComponentsInChildren<Interaction>().Single(x=>x.id=="keycard").transform.position,"storefront to Marcus office");
+            Use("door06");Check(g.state.stage==0,"Door 06 gate");Use("keycard");Check(g.state.keycard,"keycard");Use("computer");yield return ReadDocument();
+            yield return Capture("office");Use("door06");yield return MissionTestSteps.PassAirlock(g);yield return ReadDocument();yield return Frame();
             Check(g.state.stage==1 && !g.state.armed,"unarmed stealth");yield return CheckFloor(1,"radio");yield return TestPatrolGap();yield return TestStealth();
-            Use("door06");Check(g.state.stage==1,"radio gate");Use("radio");Use("door06");g.ui.ContinueStory();yield return Frame();
+            Use("door06");Check(g.state.stage==1,"radio gate");Use("radio");Use("door06");yield return ReadDocument();yield return Frame();
             Check(g.state.stage==2,"biometric descent");yield return CheckFloor(2,"pistol");Use("pistol");Check(g.state.armed,"pistol unlock");g.state.ammo=0;g.state.reserve=12;g.player.Reload();yield return new WaitForSeconds(1.7f);Check(g.state.ammo==8 && g.state.reserve==4,"reload transfer");
             g.player.body.enabled=false;g.player.transform.position=new Vector3(0,.05f,6);g.player.body.enabled=true;
             var dummy=new GameObject("QA target");dummy.transform.SetParent(g.level.transform);dummy.transform.position=g.player.transform.position+Vector3.back*3;var target=dummy.AddComponent<EnemyController>();target.campaign=g;target.Setup();target.enabled=false;g.player.yaw=180;g.player.aiming=true;yield return Frame();g.player.camera.transform.LookAt(dummy.transform.position+Vector3.up*1.2f);g.player.Fire();Check(target.hp==75 && g.state.ammo==7,"hitscan damages visible target and consumes one round");Destroy(dummy);yield return Frame();
@@ -37,11 +56,11 @@ namespace BlackMarket {
             g.player.touchAim=true;yield return new WaitForSeconds(.3f);Check(pose.RaisedAmount>.9f,"aim raises gun smoothly");yield return Capture("aim-ready");g.player.touchAim=false;
 
 
-            yield return WalkTo(new Vector3(11,0,22.7f),"B2 evidence locker reachable");Use("order");Use("recording");g.ui.ContinueStory();yield return Frame();
-            Check(g.state.stage==2 && g.state.tablet,"recording unlocks tablet without teleporting floors");Use("exit");g.ui.ContinueStory();yield return Frame();yield return CheckFloor(3,"exit");yield return TestCorridorWindows(3);
+            yield return WalkTo(new Vector3(11,0,22.7f),"B2 evidence locker reachable");Use("order");Use("recording");yield return ReadDocument();yield return Frame();
+            Check(g.state.stage==2 && g.state.tablet,"recording unlocks tablet without teleporting floors");Use("exit");yield return ReadDocument();yield return Frame();yield return CheckFloor(3,"exit");yield return TestCorridorWindows(3);
             Check(g.state.stage==3 && g.state.tablet,"tablet unlock");g.security.Toggle();g.security.Alarm();g.security.Door();Check(g.flags.Contains("security_done"),"security tutorial");Check(g.security.locked,"physical shutter closes");yield return Capture("tablet");g.security.Door();g.security.Close();
-            Use("exit");g.ui.ContinueStory();yield return Frame();Check(g.state.stage==4,"storage chapter");yield return CheckFloor(4,"exit");yield return TestCorridorWindows(4);g.security.Toggle();g.security.Light();g.security.Door();g.security.Close();Check(g.security.dark,"darkness");Use("exit");g.ui.ContinueStory();yield return Frame();
-            Check(g.state.stage==5,"evidence chapter");yield return CheckFloor(5,"upload");Use("upload");Check(g.enemies.Count==6,"doubled purge encounter");Check(g.enemies.Select(e=>e.actorPrefab).Distinct().Count()==6,"six distinct character models at Uplink");Use("exit");Check(g.state.stage==5,"upload exit gated");foreach(var e in g.enemies)e.enabled=false;g.upload=.05f;yield return new WaitForSeconds(.15f);Use("exit");g.ui.ContinueStory();yield return Frame();
+            Use("exit");yield return ReadDocument();yield return Frame();Check(g.state.stage==4,"storage chapter");yield return CheckFloor(4,"exit");yield return TestCorridorWindows(4);g.security.Toggle();g.security.Light();g.security.Door();g.security.Close();Check(g.security.dark,"darkness");Use("exit");yield return ReadDocument();yield return Frame();
+            Check(g.state.stage==5,"evidence chapter");yield return CheckFloor(5,"upload");Use("upload");Check(g.enemies.Count==6,"doubled purge encounter");Check(g.enemies.Select(e=>e.actorPrefab).Distinct().Count()==6,"six distinct character models at Uplink");Use("exit");Check(g.state.stage==5,"upload exit gated");foreach(var e in g.enemies)e.enabled=false;g.upload=.05f;yield return new WaitForSeconds(.15f);Use("exit");yield return ReadDocument();yield return Frame();
             Check(g.state.stage==6,"Victor chapter");yield return CheckFloor(6,"override");yield return TestEquipment();var boss=g.enemies.First(x=>x.boss);boss.enabled=false;boss.TakeDamage(100);Check(boss.phase==2 && boss.shielded,"Victor phase 2 revokes security");boss.TakeDamage(25);Check(boss.hp==200,"Victor immune before override");Use("override");Check(!boss.shielded && !g.security.revoked,"local override");boss.TakeDamage(100);Check(boss.phase==3,"Victor phase 3");g.security.Toggle();g.security.Light();Check(boss.stun>0,"EMP");g.security.Close();yield return Capture("boss");boss.TakeDamage(100);Use("final");Check(g.ui.modal=="choice","final choice");g.ui.Ending(false);Check(!g.active && g.ui.modal=="story","destroy ending");yield return Capture("ending-destroy");g.ui.Ending(true);Check(!g.active,"accept ending");g.Continue();yield return Frame();Check(g.state.stage==6 && g.enemies.First(x=>x.boss).hp==300,"retry restores full encounter");g.Damage(1000);Check(g.state.hp==0 && g.ui.modal=="death","death");g.Continue();yield return Frame();Check(g.state.hp>0 && g.Running,"retry after death");g.Pause();Check(g.paused,"pause");g.Resume();Check(g.Running,"resume");Finish();
         }
         IEnumerator TestShopAndDoors(){
@@ -109,7 +128,7 @@ namespace BlackMarket {
             var npc=new GameObject("Stealth QA guard");npc.transform.position=new Vector3(80,0,-5);npc.transform.SetParent(g.level.transform);var guard=npc.AddComponent<EnemyController>();guard.campaign=g;guard.Setup();guard.enabled=false;
             yield return Frame();Physics.SyncTransforms();Check(!guard.Armed && guard.Flashlight.gameObject.activeInHierarchy,"patrol uses flashlight and holsters gun");Check(guard.CanSee(),"player in flashlight cone visible");Check(guard.Flashlight.intensity>=20 && guard.Flashlight.GetComponentInChildren<MeshFilter>(),"bright flashlight with visible cone");p.camera.transform.position=new Vector3(84,2,-8);p.camera.transform.LookAt(new Vector3(80,1,-2));yield return Capture("flashlight-patrol");
             var cover=GameObject.CreatePrimitive(PrimitiveType.Cube);cover.name="QA opaque cover";cover.GetComponent<Renderer>().sharedMaterial=Resources.Load<Material>("Materials/Cardboard");cover.transform.position=new Vector3(80,1.5f,-1);cover.transform.localScale=new Vector3(3,3,.3f);Physics.SyncTransforms();Check(!guard.CanSee(),"wall blocks flashlight detection");
-            cover.transform.position=new Vector3(80,.675f,-.3f);cover.transform.localScale=new Vector3(3,1.35f,.3f);Physics.SyncTransforms();p.crouch=false;Check(guard.CanSee(),"standing head exposed above low cover");p.crouch=true;yield return new WaitForSeconds(.3f);yield return new WaitForEndOfFrame();Check(!guard.CanSee(),"crouching behind crate breaks visibility");var head=p.visual.GetComponentsInChildren<Transform>().First(x=>x.name=="Bip01 Head");Check(head.position.y-p.transform.position.y<1.35f,"crouch pose head height="+(head.position.y-p.transform.position.y).ToString("F3")+" (must be below 1.35 m)");yield return Capture("crouch-cover");p.crouch=false;
+            cover.transform.position=new Vector3(80,.675f,-.3f);cover.transform.localScale=new Vector3(3,1.35f,.3f);Physics.SyncTransforms();p.crouch=false;Check(guard.CanSee(),"standing head exposed above low cover");p.crouch=true;yield return new WaitForSeconds(.3f);yield return RenderedFrame();Check(!guard.CanSee(),"crouching behind crate breaks visibility");var head=p.visual.GetComponentsInChildren<Transform>().First(x=>x.name=="Bip01 Head");yield return AfterPose(()=>Check(head.position.y-p.transform.position.y<1.35f,"crouch pose head height="+(head.position.y-p.transform.position.y).ToString("F3")+" (must be below 1.35 m)"));yield return Capture("crouch-cover");p.crouch=false;
             Destroy(cover);yield return Frame();guard.enabled=true;float hp=g.state.hp;yield return new WaitForSeconds(.4f);Check(!guard.Armed,"brief exposure builds suspicion before drawing");
             float timeout=0;while(!guard.Armed && timeout<3){timeout+=Time.deltaTime;yield return null;}Check(guard.Armed,"confirmed detection draws gun");Check(g.state.hp==hp,"draw delay prevents instant shot");yield return new WaitForSeconds(1.6f);Check(g.state.hp<hp,"guard fires after detection and draw delay");
             var wall=GameObject.CreatePrimitive(PrimitiveType.Cube);wall.transform.position=new Vector3(80,1.5f,-.5f);wall.transform.localScale=new Vector3(40,6,.3f);var obstacle=wall.AddComponent<NavMeshObstacle>();obstacle.shape=NavMeshObstacleShape.Box;obstacle.size=Vector3.one;obstacle.carving=true;Physics.SyncTransforms();var last=p.transform.position;hp=g.state.hp;
@@ -142,8 +161,29 @@ namespace BlackMarket {
             foreach(var corner in path.corners){float time=0;while(Vector3.Distance(new Vector3(p.transform.position.x,corner.y,p.transform.position.z),corner)>.3f && time<12){var d=corner-p.transform.position;d.y=0;p.body.Move((d.normalized*5+Vector3.down*9)*Time.deltaTime);time+=Time.deltaTime;yield return null;}}
             Check(Vector2.Distance(new Vector2(p.transform.position.x,p.transform.position.z),new Vector2(goal.x,goal.z))<1.2f,"collision traversal "+description);p.enabled=true;
         }
-        IEnumerator Capture(string name){if(!captures)yield break;yield return new WaitForEndOfFrame();Directory.CreateDirectory("Documentation/Playtest");ScreenCapture.CaptureScreenshot(Path.GetFullPath("Documentation/Playtest/"+name+".png"));yield return null;}
+        IEnumerator Capture(string name){
+            if(!captures)yield break;
+            yield return AfterPose(()=>{
+                string captureDirectory=Application.isBatchMode?"Documentation/EditorPlaytest":"Documentation/Playtest";Directory.CreateDirectory(captureDirectory);
+                if(Application.isBatchMode){
+                    var cam=g.player.camera;var rt=new RenderTexture(1280,720,24);var previous=RenderTexture.active;var previousTarget=cam.targetTexture;
+                    var texture=new Texture2D(1280,720,TextureFormat.RGB24,false);
+                    // Batch cameras render before Unity's usual skinning update. Bake the final bones for this snapshot.
+                    var skins=g.player.visual.GetComponentsInChildren<SkinnedMeshRenderer>().Where(r=>r.enabled).ToArray();
+                    var snapshots=new List<GameObject>();var meshes=new List<Mesh>();
+                    foreach(var skin in skins){var mesh=new Mesh();skin.BakeMesh(mesh);meshes.Add(mesh);var snapshot=new GameObject("QA skin snapshot");snapshot.transform.SetParent(skin.transform,false);snapshot.AddComponent<MeshFilter>().sharedMesh=mesh;snapshot.AddComponent<MeshRenderer>().sharedMaterials=skin.sharedMaterials;snapshots.Add(snapshot);skin.enabled=false;}
+                    try{cam.targetTexture=rt;cam.Render();RenderTexture.active=rt;texture.ReadPixels(new Rect(0,0,1280,720),0,0);texture.Apply();File.WriteAllBytes(captureDirectory+"/"+name+".png",texture.EncodeToPNG());}
+                    finally{foreach(var skin in skins)skin.enabled=true;foreach(var snapshot in snapshots){snapshot.SetActive(false);Destroy(snapshot);}foreach(var mesh in meshes)Destroy(mesh);cam.targetTexture=previousTarget;RenderTexture.active=previous;rt.Release();Destroy(rt);Destroy(texture);}
+                }else ScreenCapture.CaptureScreenshot(Path.GetFullPath("Documentation/Playtest/"+name+".png"));
+            });
+        }
         void Update(){if(deadline>0 && Time.realtimeSinceStartup>deadline){Check(false,"self-test timed out");Finish();}}
-        void Finish(){Directory.CreateDirectory("Documentation");log.Add("RESULT: "+(failures==0?"PASS":"FAIL")+" / "+failures+" failures");File.WriteAllLines("Documentation/runtime-test.txt",log);Application.Quit(failures==0?0:1);enabled=false;}
+        void Finish(){Directory.CreateDirectory("Documentation");log.Add("RESULT: "+(failures==0?"PASS":"FAIL")+" / "+failures+" failures");File.WriteAllLines(ReportPath,log);enabled=false;
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.Exit(failures==0?0:1);
+#else
+            Application.Quit(failures==0?0:1);
+#endif
+        }
     }
 }

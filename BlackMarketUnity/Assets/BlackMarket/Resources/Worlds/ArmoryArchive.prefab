@@ -14155,11 +14155,9 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1006154104194561040}
-  m_Text: 'B3 / SECURITY
-
-    STAIRS  /  DOWN'
+  m_Text: "B3 / AN NINH\nC\u1EA6U THANG / \u0110I XU\u1ED0NG"
   m_OffsetZ: 0
-  m_CharacterSize: 0.028599998
+  m_CharacterSize: 0.021449998
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
@@ -23879,7 +23877,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlackMarket.Interaction
   id: supply_entry
-  title: "TI\u1EBEP T\u1EBE / MEDICAL"
+  title: "TI\u1EBEP T\u1EBE / Y T\u1EBE"
   consumed: 0
 --- !u!1 &1659263345819331337
 GameObject:
@@ -34515,9 +34513,9 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2525888696246965200}
-  m_Text: ORDER 071 / EVIDENCE
+  m_Text: "H\u1ED2 S\u01A0 071 / B\u1EB0NG CH\u1EE8NG"
   m_OffsetZ: 0
-  m_CharacterSize: 0.028599998
+  m_CharacterSize: 0.025999999
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
@@ -47162,7 +47160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlackMarket.Interaction
   id: order
-  title: "LOCKER 071 / B\u1EB0NG CH\u1EE8NG"
+  title: "T\u1EE6 H\u1ED2 S\u01A0 071 / B\u1EB0NG CH\u1EE8NG"
   consumed: 0
 --- !u!1 &3474628775558899710
 GameObject:
@@ -50921,7 +50919,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3849451400589021958}
-  m_Text: ARMORY / PERSONAL DEFENCE
+  m_Text: "KHO V\u0168 KH\xCD / T\u1EF0 V\u1EC6"
   m_OffsetZ: 0
   m_CharacterSize: 0.028599998
   m_LineSpacing: 1
@@ -52743,9 +52741,9 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3968707391282055367}
-  m_Text: ARMORY / LOCKERS
+  m_Text: "KHO V\u0168 KH\xCD / T\u1EE6 \u0110\u1ED2"
   m_OffsetZ: 0
-  m_CharacterSize: 0.028599998
+  m_CharacterSize: 0.025422221
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
@@ -63451,7 +63449,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4938452748260219868}
-  m_Text: FOR_ALEX / PRIVATE ARCHIVE
+  m_Text: "G\u1EECI ALEX / H\u1ED2 S\u01A0 RI\xCANG"
   m_OffsetZ: 0
   m_CharacterSize: 0.028599998
   m_LineSpacing: 1
@@ -68716,7 +68714,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlackMarket.Interaction
   id: exit
-  title: "B3 / SECURITY / M\u1EDE C\u1EECA C\u1EA6U THANG"
+  title: "B3 / AN NINH / M\u1EDE C\u1EECA C\u1EA6U THANG"
   consumed: 0
 --- !u!1 &5363242488544556713
 GameObject:
@@ -87777,7 +87775,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlackMarket.Interaction
   id: recording
-  title: "FOR_ALEX / \u0110\u1ECCC B\u1EA2N GHI"
+  title: "G\u1EECI ALEX / \u0110\u1ECCC B\u1EA2N GHI"
   consumed: 0
 --- !u!1 &6894476155296943320
 GameObject:
@@ -105961,7 +105959,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BlackMarket.Interaction
   id: pistol
-  title: "PISTOL / T\u1EF0 V\u1EC6"
+  title: "S\xDANG NG\u1EAEN / T\u1EF0 V\u1EC6"
   consumed: 0
 --- !u!1 &8291210776272869588
 GameObject:
@@ -111824,9 +111822,9 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8729487642405888767}
-  m_Text: RETURNS / INVENTORY
+  m_Text: "H\xC0NG TR\u1EA2 L\u1EA0I / KI\u1EC2M K\xCA"
   m_OffsetZ: 0
-  m_CharacterSize: 0.028599998
+  m_CharacterSize: 0.024699999
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1

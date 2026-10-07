@@ -1,0 +1,37 @@
+PASS campaign loads
+PASS first prologue cannot be skipped
+PASS prologue returns control
+PASS reading completion persists separately
+PASS first terminal page cannot advance before text finishes
+PASS terminal must finish before convoy
+PASS cutscene locks movement
+PASS first arrival cannot skip
+PASS pause freezes cinematic
+PASS player remains in office during cinematic
+PASS four civilian suited pursuers
+PASS camera returns and escape objective starts
+PASS arrival seen flag recorded
+PASS narrow warehouse route exists
+PASS controller fits between stocked shelves
+PASS office to basement escape is survivable
+PASS basement transition preserves B1
+PASS completed prologue skippable on reset
+PASS completed terminal skippable on reset
+PASS skipping cinematic preserves encounter
+PASS detected player caught at contact dies
+PASS death checkpoint resets encounter cleanly
+PASS death reset keeps skip entitlement
+PASS ignoring escape in office lets patrol find and capture player
+PASS translated floor loads: 1
+PASS no untranslated direction labels: 1
+PASS translated floor loads: 2
+PASS no untranslated direction labels: 2
+PASS translated floor loads: 3
+PASS no untranslated direction labels: 3
+PASS translated floor loads: 4
+PASS no untranslated direction labels: 4
+PASS translated floor loads: 5
+PASS no untranslated direction labels: 5
+PASS translated floor loads: 6
+PASS no untranslated direction labels: 6
+RESULT: PASS / 0 failures

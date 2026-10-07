@@ -4,7 +4,7 @@ Mỗi chương tải một prefab riêng, không dùng lại NorthPointBunker. M
 
 | Chương / tầng | Prefab trong Resources/Worlds | Bố cục và mục đích |
 | --- | --- | --- |
-| 1 / Tầng 1 | NorthPointShop | Cửa hàng kính, quầy dịch vụ, văn phòng Marcus, phòng hồ sơ/nhân viên, xưởng, kho, WC và phòng điện. Tìm thẻ và đọc terminal để biết ORDER 071 được giấu ở đâu. |
+| 1 / Tầng 1 | NorthPointShop | Cửa hàng điện tử được thay mới 07/10: mặt tiền kính, quầy thu ngân có laptop/máy tính tiền, 12 cụm kệ hai mặt, khu TV, phòng Marcus, hai WC Nam/Nữ, kho sau và Door 06. Tìm thẻ và đọc terminal để biết ORDER 071 được giấu ở đâu. Xem SHOP_REBUILD_VI.md. |
 | 2 / B1 | UtilityBasement | Máy phát, phòng điện, tủ đồ/WC, xưởng radio, hành lang có đường vòng. Chưa có súng: dùng radio kéo đội lục soát khỏi cầu thang. |
 | 3 / B2 | ArmoryArchive | Kho vũ khí phía tây, hồ sơ phía đông, phòng FOR_ALEX ở giữa. Nhận súng, lấy bằng chứng, đọc bản ghi; tự đi tới cầu thang sau khi mở khóa Tablet. |
 | 4 / B3 | SecurityHub | Phòng giám sát ở trung tâm, tuyến vòng hai bên, phòng thẩm vấn và kiểm soát truy cập. Học camera → báo động → cửa để vượt đội thanh trừng. |
