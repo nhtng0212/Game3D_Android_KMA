@@ -1,0 +1,17 @@
+{
+  "source": "https://duhgless.itch.io/yet-another-psx-style-low-poly-bike",
+  "author": "Duhgless",
+  "license": "CC0",
+  "files": {
+    "Fonk-Bike.obj": "28fd87b8e57e4c4caee2ab95578aa019003f8cbaae23fb3b05b668cc73daaf49",
+    "Rear-Tire.png": "396791d18bf3575920d24a5d8623bdb8500423f4acc9ea325e3d0828c9d8413a",
+    "Fonk-Frame.png": "c3f7900dceb0809382fa016fd85367492f5dbc2c2d78286398f859f8db7d26db",
+    "Forks.png": "80f351d9318863e9c1b0561f0ad0c4b48b8bdecc864648f0fb034aea9eb7c6c5",
+    "Front-Wheeel.png": "af074c5d66de7c4a3d583fad33b54efa911587ee382fe21ced1d5656e81b0f10",
+    "Fonk-Bike.mtl": "7e2524c872cefa977626c6b47c03ed10632f5d78df7258b17efab79265cb96a5"
+  },
+  "adaptations": [
+    "MTL texture paths made relative",
+    "OBJ object names also declared as groups for Unity mesh separation"
+  ]
+}

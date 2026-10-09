@@ -21,6 +21,7 @@ namespace BlackMarket {
         IEnumerator RenderedFrame(){if(Application.isBatchMode){yield return null;yield return null;}else yield return new WaitForEndOfFrame();}
         IEnumerator Frame(){yield return null;yield return null;}
         IEnumerator ReadDocument(){
+            MissionTestSteps.SkipIntro(g);
             if(g.ui.modal=="computer")g.ui.OpenOrderFile();
             while(g.ui.modal=="story"){
                 if(g.ui.ComputerScreen){if(g.ui.TerminalPageReady)g.ui.NextTerminalPage();}
@@ -35,7 +36,7 @@ namespace BlackMarket {
             yield return null;g=Campaign.Instance;Check(g!=null,"campaign starts");if(!g){Finish();yield break;}
             Check(g.sound.VariantCount("pistol")==3 && g.sound.VariantCount("rifle")==3,"separate three-variant pistol and AK sound banks");Check(g.ui.modal=="menu","menu on boot");yield return Capture("menu");
             if(Application.isBatchMode){g.ui.ProcessMenuPointer(new Vector2(220,510),true,false);g.ui.ProcessMenuPointer(new Vector2(220,510),false,true);Check(g.ui.TryPointerClick(new Rect(58,485,420,49)),"menu Input System pointer hit test");g.NewGame();}
-            else {g.ui.ProcessMenuPointer(new Vector2(220,510),true,false);g.ui.ProcessMenuPointer(new Vector2(220,510),false,true);yield return Frame();Check(g.ui.modal=="story","menu start responds to Input System pointer");if(g.ui.modal!="story")g.NewGame();}Check(g.ui.modal=="story","prologue");yield return ReadDocument();yield return Frame();
+            else {g.ui.ProcessMenuPointer(new Vector2(220,510),true,false);g.ui.ProcessMenuPointer(new Vector2(220,510),false,true);yield return Frame();Check(g.prologue && g.prologue.Playing,"menu start responds to Input System pointer");if(!g.prologue || !g.prologue.Playing)g.NewGame();}Check(g.prologue && g.prologue.Playing,"prologue");yield return ReadDocument();yield return Frame();
             Check(g.state.stage==0 && g.Running,"chapter 1 starts");
             yield return TestControls();
             if(Array.IndexOf(Environment.GetCommandLineArgs(),"--controls-check")>=0){Finish();yield break;}

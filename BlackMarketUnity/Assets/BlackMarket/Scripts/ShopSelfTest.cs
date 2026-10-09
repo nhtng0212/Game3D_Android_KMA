@@ -17,6 +17,7 @@ namespace BlackMarket {
         static void Launch(){if(Debug.isDebugBuild && Array.IndexOf(Environment.GetCommandLineArgs(),"--shop-check")>=0)new GameObject("Shop QA").AddComponent<ShopSelfTest>();}
         void Check(bool ok,string name){report.Add((ok?"PASS ":"FAIL ")+name);Debug.Log(report.Last());if(!ok)failures++;}
         IEnumerator ReadDocument(){
+            MissionTestSteps.SkipIntro(game);
             if(game.ui.modal=="computer")game.ui.OpenOrderFile();
             while(game.ui.modal=="story"){
                 if(game.ui.ComputerScreen){if(game.ui.TerminalPageReady)game.ui.NextTerminalPage();}

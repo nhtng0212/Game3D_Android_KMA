@@ -4,6 +4,7 @@ namespace BlackMarket {
         public int version = 1, stage, ammo = 8, reserve = 32, kills;
         public float hp = 100, elapsed;
         public bool armed, drive, tablet, keycard, hasAK, hasNightVision;
+        public bool introCompleted, askedAboutCard, askedAboutHunters, promisedMarcus;
         public int selectedWeapon, rifleAmmo, rifleReserve;
     }
     public static class StoryData {

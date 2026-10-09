@@ -94,3 +94,13 @@ Tiếng cửa trượt kết hợp texture từ Kenney `impactMetal_light_000.og
 - **Alex: Male_Adult_08 / m014**, Microsoft Rocketbox, MIT. Nguồn: https://github.com/microsoft/Microsoft-Rocketbox/tree/master/Assets/Avatars/Adults/Male_Adult_08 . Bản giấy phép nằm ở `Assets/BlackMarket/Art/Revision/Rocketbox/LICENSE.md`; URL và SHA-256 từng tệp tại `Art/Revision/young-man-manifest.json`. Model dùng rig và hoạt ảnh Rocketbox sẵn trong dự án; vật liệu được chuyển sang URP.
 - **Large Sedan (Black, LOD0)**, MrJaneLAB, CC0. Nguồn và giấy phép do tác giả công bố: https://mrjanelab.itch.io/free-low-poly-large-sedan-lod-included . Dùng thân xe và bánh riêng, chuyển vật liệu sang URP, thêm biển số và đèn pha. SHA-256 tệp ZIP tại `Assets/BlackMarket/Art/Revision/Sedan/source.json`.
 - Tủ mở được, giá sách, cầu thang, khối nhà phố, vỉa hè và biển chỉ dẫn bổ sung được dựng trong dự án. Kệ kho tiếp tục dùng các model miễn phí đã ghi nguồn ở trên.
+
+## Xe máy Alex — mở đầu màn 1
+
+- **Yet Another PSX Style Low Poly Bike**, tác giả **Duhgless**.
+- Nguồn: https://duhgless.itch.io/yet-another-psx-style-low-poly-bike
+- Giấy phép: **CC0**, ghi trên trang phát hành; tải ngày 2026-10-08.
+- Đã dùng: Fonk-Bike.obj, Fonk-Bike.mtl, Fonk-Frame.png, Forks.png, Front-Wheeel.png, Rear-Tire.png.
+- Đã chuẩn hóa kích thước 2,25 m, hướng di chuyển, chuyển material sang URP và thêm biển số trong prefab. Đường dẫn texture tuyệt đối trong MTL được đổi thành đường dẫn tương đối; thêm khai báo nhóm trong OBJ để Unity tách bánh xe và khung đúng theo các bộ phận gốc.
+- Phòng ngủ, đồ nội thất hình học và biển số được tạo riêng trong dự án; không cần mua asset.
+- `Resources/Audio/alex_motorcycle.wav`: âm động cơ tổng hợp riêng từ các sóng hài và nhiễu, không phải bản ghi âm tải từ bên thứ ba.

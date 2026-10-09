@@ -21,9 +21,9 @@ namespace BlackMarket {
             if(!Application.isBatchMode){game.ui.modal="help";yield return null;yield return null;ScreenCapture.CaptureScreenshot("Documentation/OpeningPreview/00-help.png");yield return null;yield return null;}
             File.Delete(game.SavePath+".reading");
             if(Array.IndexOf(Environment.GetCommandLineArgs(),"--opening-ui-only")>=0){game.LoadWorld(0);game.state.keycard=true;Item("computer").Use();game.ui.OpenOrderFile();yield return Read();yield break;}
-            game.NewGame();game.ui.ContinueStory();Check(game.ui.modal=="story","first prologue cannot be skipped");yield return Read();
+            game.NewGame();Check(game.prologue.Playing && !game.Running,"interactive prologue locks controls");MissionTestSteps.SkipIntro(game);yield return Read();
             Check(game.Running && game.state.stage==0,"prologue returns control");
-            Check(game.HasSeenStory("prologue"),"reading completion persists separately");
+            Check(game.HasSeenStory("alex-intro"),"reading completion persists separately");
             foreach(var d in game.level.GetComponentsInChildren<RoomDoor>())d.SetOpenImmediate(true);
             Teleport(new Vector3(-9,0,26));game.state.keycard=true;
             var terminal=Item("computer");terminal.Use();game.ui.OpenOrderFile();game.ui.NextTerminalPage();Check(game.ui.TerminalPage==0,"first terminal page cannot advance before text finishes");game.ui.ContinueStory();Check(game.ui.modal=="story" && !game.opening.Playing,"terminal must finish before convoy");yield return Read();
@@ -39,7 +39,7 @@ namespace BlackMarket {
             yield return Walk(Item("door06").transform.position);
             Check(game.state.hp>0,"office to basement escape is survivable");yield return null;yield return null;Capture("03-warehouse-escape");
             Item("door06").Use();yield return MissionTestSteps.PassAirlock(game);yield return null;Check(game.state.stage==1 && game.enemies.Count==4,"basement transition preserves B1");
-            game.NewGame();Check(game.ui.StoryReady,"completed prologue skippable on reset");game.ui.ContinueStory();yield return null;
+            game.NewGame();Check(game.prologue.CanSkip,"completed prologue skippable on reset");game.prologue.Skip();yield return null;
             game.state.keycard=true;Item("computer").Use();game.ui.OpenOrderFile();Check(game.ui.StoryReady,"completed terminal skippable on reset");game.ui.SkipReadStory();game.opening.Skip();yield return null;yield return null;
             Check(game.opening.PursuitStarted && game.enemies.Count==4,"skipping cinematic preserves encounter");
             var e=game.enemies[0];var agent=e.GetComponent<NavMeshAgent>();Teleport(new Vector3(0,0,5));agent.Warp(new Vector3(0,0,4));

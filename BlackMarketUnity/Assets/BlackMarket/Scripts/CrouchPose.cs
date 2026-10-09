@@ -22,15 +22,16 @@ namespace BlackMarket {
             bones[8].rotation=Quaternion.AngleAxis(amount*12,transform.right)*bones[8].rotation;
             bones[9].rotation=Quaternion.AngleAxis(amount*6,transform.right)*bones[9].rotation;
             bones[10].rotation=Quaternion.AngleAxis(amount*-20,transform.right)*bones[10].rotation;
-            RelaxArm(11,-1);if(!player.campaign.state.armed)RelaxArm(14,1);
+            if(!player.campaign.state.armed || !player.UsingAK)RelaxArm(11,-1);if(!player.campaign.state.armed)RelaxArm(14,1);
             Solve(bones[1],bones[2],bones[3],left);Solve(bones[4],bones[5],bones[6],right);bones[3].rotation=lrot;bones[6].rotation=rrot;
         }
         void RelaxArm(int index,float side){
             var upper=bones[index];var elbow=bones[index+1];var hand=bones[index+2];
-            var upperDirection=transform.forward*.25f-Vector3.up*.8f+transform.right*(side*.12f);
-            upper.rotation=Quaternion.Slerp(upper.rotation,Quaternion.FromToRotation(elbow.position-upper.position,upperDirection)*upper.rotation,amount*.85f);
-            var foreDirection=transform.forward*.65f-Vector3.up*.2f;
-            elbow.rotation=Quaternion.Slerp(elbow.rotation,Quaternion.FromToRotation(hand.position-elbow.position,foreDirection)*elbow.rotation,amount*.85f);
+            float sway=Mathf.Sin(Time.time*5.5f)*Mathf.Clamp01(player.MoveSpeed/2)*.045f*side;
+            // Hands forward of the ribs, elbows tucked beside the torso: a guarded sneak.
+            Vector3 target=bones[0].position+transform.up*.22f+transform.forward*(.32f+sway)+transform.right*(side*.25f);
+            IntroActorPose.Solve(upper,elbow,hand,Vector3.Lerp(hand.position,target,amount),-transform.up+transform.right*side*.45f);
+
         }
         Vector3 FootTarget(Transform foot){
             var local=transform.InverseTransformPoint(foot.position);

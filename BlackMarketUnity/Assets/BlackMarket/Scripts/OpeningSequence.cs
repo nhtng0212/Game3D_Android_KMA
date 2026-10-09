@@ -46,12 +46,14 @@ namespace BlackMarket {
                     float walk=Mathf.Clamp01((elapsed-5.6f)/7.4f);
                     float doorAngle=elapsed<6?Mathf.SmoothStep(0,72,Mathf.Clamp01((elapsed-4)/.7f)):Mathf.SmoothStep(72,0,Mathf.Clamp01((elapsed-6)/.8f));
                     foreach(var car in cars)foreach(var door in car.GetComponentsInChildren<Transform>())if(door.name=="Cửa xe chuyển động")door.localRotation=Quaternion.Euler(0,doorAngle,0);
-                    Caption=elapsed<8?"KẺ CẦM ĐẦU: Chặn cửa trước. Tìm thằng cháu của Marcus.":"NHÓM NGƯỜI MẶC VEST: Lục soát từng phòng. Không để nó thoát!";
+                    Caption=elapsed<11?"KẺ CẦM ĐẦU: Đúng biển số xe của thằng cháu Marcus. Nó vẫn ở trong cửa hàng. Mau vào xử lý hắn!":"NHÓM NGƯỜI MẶC VEST: Lục soát từng phòng. Không để nó thoát!";
                     Shot(elapsed<8?new Vector3(0,2.2f,-15):new Vector3(4,2.3f,-4),new Vector3(-1,1.15f,-3+walk*4),elapsed<8?65:62);
                     for(int i=0;i<4;i++){
                         var a=actors[i];a.SetActive(elapsed>4.65f);float x=(i<2?-6:6)+(i%2==0?-1:1);
                         var start=new Vector3(x,0,-4.9f);var end=new Vector3((i%2==0?-.55f:.55f),0,1.5f-i*.6f);
-                        a.transform.position=elapsed<5.6f?Vector3.Lerp(new Vector3(x,0,-5.65f),start,Mathf.Clamp01((elapsed-4.65f)/.95f)):Vector3.Lerp(start,end,walk);a.transform.rotation=Quaternion.LookRotation(end-start);
+                        // The two men from the right-hand car walk around Alex's parked motorcycle.
+                        var via=new Vector3(6,0,-.7f);var destination=i<2?Vector3.Lerp(start,end,walk):walk<.45f?Vector3.Lerp(start,via,walk/.45f):Vector3.Lerp(via,end,(walk-.45f)/.55f);
+                        a.transform.position=elapsed<5.6f?Vector3.Lerp(new Vector3(x,0,-5.65f),start,Mathf.Clamp01((elapsed-4.65f)/.95f)):destination;a.transform.rotation=Quaternion.LookRotation(i<2?end-start:walk<.45f?via-start:end-via);
                         var anim=a.GetComponentInChildren<Animation>();if(anim){anim.cullingType=AnimationCullingType.AlwaysAnimate;}if(anim && !anim.IsPlaying(elapsed>4.65f?"walk":"idle"))anim.CrossFade(elapsed>4.65f?"walk":"idle");
                     }
                     if(elapsed>9)OpenEntrance();

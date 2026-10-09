@@ -1,5 +1,7 @@
 # Mở đầu cửa hàng và hướng dẫn chơi
 
+Chiến dịch hiện bắt đầu ở phòng ngủ Alex với cuộc gọi phân nhánh, sau đó là cảnh đi xe máy tới cửa hàng. Xem [cây hội thoại và cách chỉnh hoạt cảnh](PROLOGUE_DIALOGUE_VI.md). Các bước dưới đây áp dụng khi Alex đã tự bước vào cửa hàng và trả quyền điều khiển.
+
 ## Thẻ và máy tính là hai bước khác nhau
 
 Thẻ đỏ được giấu trong một ngăn tủ tại phòng Marcus. Đây là chìa khóa xác thực; tài liệu cần đọc nằm trong máy tính. Alex dùng thẻ để mở máy tính của chú. Tệp **Order 71** trên máy tính giải thích cái chết bị dàn dựng của Marcus, nhóm truy bắt của Victor và đường thoát qua Cửa 006. Bản gốc bằng chứng cùng bản ghi GỬI ALEX nằm ở B2.
@@ -36,7 +38,7 @@ Nhóm người mặc vest nhìn theo hướng quay mặt; tường và vật che
 
 ## Chỉnh sửa trong Unity
 
-Mở scene `Assets/BlackMarket/Scenes/NorthPoint.unity` rồi Play để thử cốt truyện. Chọn **BẮT ĐẦU CHIẾN DỊCH** để chơi từ cửa hàng; bản dựng cũ chưa chứa thay đổi này.
+Mở scene `Assets/BlackMarket/Scenes/NorthPoint.unity` rồi Play để thử cốt truyện. Chọn **BẮT ĐẦU CHIẾN DỊCH** để xem từ phòng ngủ Alex; chọn **TIẾP TỤC ĐIỂM LƯU** để dùng điểm lưu đã có.
 
 Map được cập nhật trên prefab đã lưu, không dựng lại toàn bộ bố cục. Nhóm `10 - Kho hẹp và sân ngoài` chứa các kệ mới và phần mặt đường. Các tầng hầm chỉ đổi nhãn hiển thị; không dựng lại hình học của chúng. Sau khi di chuyển vật cản trong tầng 1, lưu prefab và dùng `BLACK MARKET → Shop → 4` để cập nhật đường đi.
 

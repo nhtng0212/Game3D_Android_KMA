@@ -51,7 +51,7 @@ namespace BlackMarket {
         public void Subtitle(string who,string value){speaker=who;subtitle=value;subtitleUntil=Time.unscaledTime+Mathf.Max(6,value.Length*.055f);}
         public void ContinueStory(){if(modal!="story" || !StoryReady || (ComputerScreen && terminalPage<terminalPages.Length-1))return;FinishStory();}
         void FinishStory(){if(!string.IsNullOrEmpty(storyKey))game.MarkStorySeen(storyKey);var next=continuation;continuation=null;game.Resume();next?.Invoke();}
-        void Init(){if(text!=null)return;text=new GUIStyle(GUI.skin.label){font=regular,fontSize=20,wordWrap=true};text.normal.textColor=ivory;heading=new GUIStyle(text){font=bold,fontSize=48};small=new GUIStyle(text){font=mono,fontSize=13};small.normal.textColor=muted;button=new GUIStyle(GUI.skin.button){font=mono,fontSize=16,alignment=TextAnchor.MiddleLeft,padding=new RectOffset(20,12,5,5)};}
+        void Init(){if(text!=null)return;text=new GUIStyle(GUI.skin.label){font=regular,fontSize=20,wordWrap=true};text.normal.textColor=ivory;heading=new GUIStyle(text){font=bold,fontSize=48};small=new GUIStyle(text){font=mono,fontSize=13};small.normal.textColor=muted;button=new GUIStyle(GUI.skin.button){font=mono,fontSize=16,wordWrap=true,alignment=TextAnchor.MiddleLeft,padding=new RectOffset(20,12,5,5)};}
         void Panel(Rect r,Color c){GUI.color=c;GUI.DrawTexture(r,Texture2D.whiteTexture);GUI.color=Color.white;}
         string ControlText(string value)=>TouchControls?value.Replace("[E]","[DÙNG]").Replace("[C]","[KHOM]").Replace("[N]","[KÍNH ĐÊM]").Replace("[Q]","[ĐỔI SÚNG]").Replace(" [TAB]","").Replace(" [Tab]","").Replace(" [J]",""):value;
         void Label(string s,float x,float y,float w=900,float h=40,int size=20,Color? color=null){s=ControlText(s);var st=new GUIStyle(text){fontSize=size};st.normal.textColor=color??ivory;GUI.Label(new Rect(x,y,w,h),s,st);}
@@ -137,7 +137,7 @@ namespace BlackMarket {
             }
         }
         void Update(){
-            if(modal=="story" && (Application.isFocused || Application.isBatchMode)){
+            if(modal=="story" && (Application.isFocused || Application.isBatchMode || game.IsSelfTest)){
                 int count=ComputerScreen?terminalPages[terminalPage].Length:(body??"").Length;
                 float dt=Time.unscaledDeltaTime, typingTime=Mathf.Max(0,count-typedCharacters)/42f;
                 typedCharacters=Mathf.Min(count,typedCharacters+42*dt);
@@ -164,6 +164,19 @@ namespace BlackMarket {
                 if(Button("ĐIỀU KHIỂN",276,609,202))modal="help";
                 Label("01—07   /   MỘT NGƯỜI CHƠI   /   KHÔNG CẦN MẠNG",60,684,490,22,11,muted);
                 Label("CỬA HÀNG NORTH POINT\nĐIỆN TỬ / SỬA CHỮA / TỪ NĂM 1998",865,570,355,70,14,ivory);if(!TouchControls && Button("THOÁT TRÒ CHƠI",1015,644,205))Application.Quit();return;
+            }
+            if(game.prologue && game.prologue.Playing && modal==""){
+                var intro=game.prologue;Panel(new Rect(0,0,W,64),ink);Label("CUỘC GỌI CUỐI CÙNG / ALEX CARTER",35,20,950,32,20,accent);
+                if(Button("TẠM DỪNG",1045,8,205))game.Pause();
+                if(intro.Node!=null){
+                    Panel(new Rect(55,400,1170,305),ink);Label(intro.Node.speaker+" / ĐIỆN THOẠI",80,416,1100,30,18,accent);
+                    Label(intro.VisibleText,80,452,1100,90,22);
+                    Label(intro.Ready?"CHỌN CÂU TRẢ LỜI CỦA ALEX":"Đọc lời thoại… Các lựa chọn sáng sau khi chữ chạy hết 3 giây.",80,546,1090,26,15,muted);
+                    GUI.enabled=intro.Ready;
+                    for(int i=0;i<intro.Node.choices.Length;i++)if(Button(intro.Node.choices[i].text,80+i*370,582,355,true)){intro.Choose(i);break;}
+                    GUI.enabled=true;
+                }else{Panel(new Rect(0,H-120,W,120),ink);Label(intro.Caption,80,H-100,1120,65,23);}
+                if(intro.CanSkip && Button("BỎ QUA PHẦN ĐÃ XEM",865,75,360))intro.Skip();return;
             }
             if(game.opening && game.opening.Playing && modal=="" ){
                 Panel(new Rect(0,0,W,64),ink);Panel(new Rect(0,H-125,W,125),ink);Label("23:00 / NHỮNG VỊ KHÁCH KHÔNG MỜI",45,20,1050,35,20,accent);Label(game.opening.Caption,100,H-106,1050,60,23);

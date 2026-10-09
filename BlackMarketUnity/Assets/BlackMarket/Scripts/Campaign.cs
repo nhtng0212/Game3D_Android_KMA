@@ -18,6 +18,7 @@ namespace BlackMarket {
         public Soundscape sound;
         public bool active;
         public OpeningSequence opening;
+        public PrologueSequence prologue;
         public BasementAirlock airlock;
         public bool HasSeenStory(string id)=>!string.IsNullOrEmpty(id) && StoryMemory.Seen(SavePath,id);
         public void MarkStorySeen(string id)=>StoryMemory.Mark(SavePath,id);
@@ -27,8 +28,8 @@ namespace BlackMarket {
         public readonly List<string> journal = new List<string>();
         public float upload = -1;
         public bool paused => ui != null && ui.modal != "";
-        public bool Running => active && !paused && !(opening && opening.Playing) && !(airlock && airlock.Scanning) && state.hp > 0;
-        public string SavePath => Path.Combine(Array.IndexOf(Environment.GetCommandLineArgs(),"--self-test")>=0 || Array.IndexOf(Environment.GetCommandLineArgs(),"--shop-check")>=0 || Array.IndexOf(Environment.GetCommandLineArgs(),"--opening-check")>=0 || (Array.IndexOf(Environment.GetCommandLineArgs(),"--mission-check")>=0 || Array.IndexOf(Environment.GetCommandLineArgs(),"--revision-check")>=0) ? Application.temporaryCachePath : Application.persistentDataPath,Array.IndexOf(Environment.GetCommandLineArgs(),"--opening-check")>=0 || (Array.IndexOf(Environment.GetCommandLineArgs(),"--mission-check")>=0 || Array.IndexOf(Environment.GetCommandLineArgs(),"--revision-check")>=0)?"north-point-opening-test.json":"north-point-unity-v1.json");
+        public bool Running => active && !paused && !(prologue && prologue.Playing) && !(opening && opening.Playing) && !(airlock && airlock.Scanning) && state.hp > 0;
+        public string SavePath => Path.Combine(Array.IndexOf(Environment.GetCommandLineArgs(),"--intro-check")>=0 || Array.IndexOf(Environment.GetCommandLineArgs(),"--self-test")>=0 || Array.IndexOf(Environment.GetCommandLineArgs(),"--shop-check")>=0 || Array.IndexOf(Environment.GetCommandLineArgs(),"--opening-check")>=0 || (Array.IndexOf(Environment.GetCommandLineArgs(),"--mission-check")>=0 || Array.IndexOf(Environment.GetCommandLineArgs(),"--revision-check")>=0) ? Application.temporaryCachePath : Application.persistentDataPath,Array.IndexOf(Environment.GetCommandLineArgs(),"--intro-check")>=0?"north-point-intro-test.json":Array.IndexOf(Environment.GetCommandLineArgs(),"--opening-check")>=0 || (Array.IndexOf(Environment.GetCommandLineArgs(),"--mission-check")>=0 || Array.IndexOf(Environment.GetCommandLineArgs(),"--revision-check")>=0)?"north-point-opening-test.json":"north-point-unity-v1.json");
         public Transform Marker(string id) {
             foreach(var p in level.GetComponentsInChildren<WorldMarker>()) if(p.id==id) return p.transform;
             return level.transform;
@@ -47,7 +48,7 @@ namespace BlackMarket {
         }
         public void NewGame() {
             state=new CampaignSave(); flags.Clear(); Save();
-            ui.Story("CUỘC GỌI CUỐI CÙNG",StoryData.Prologue,()=>LoadWorld(0),"prologue");
+            LoadWorld(0);prologue=gameObject.AddComponent<PrologueSequence>();prologue.Begin(this);
         }
         public bool HasSave() { return ReadSave()!=null; }
         CampaignSave ReadSave() {
@@ -64,13 +65,14 @@ namespace BlackMarket {
             try { Directory.CreateDirectory(Path.GetDirectoryName(SavePath)); File.WriteAllText(SavePath+".tmp",JsonUtility.ToJson(state,true)); if(File.Exists(SavePath))File.Replace(SavePath+".tmp",SavePath,null);else File.Move(SavePath+".tmp",SavePath); }
             catch(Exception e) { ui?.Toast("Không thể lưu điểm lưu: "+e.Message); }
         }
-        public void Continue() { var s=ReadSave(); if(s==null) {ui.Toast("Không có điểm lưu hợp lệ.");return;} state=s; LoadWorld(s.stage); }
+        public void Continue() { var s=ReadSave(); if(s==null) {ui.Toast("Không có điểm lưu hợp lệ.");return;} state=s; LoadWorld(s.stage);if(s.stage==0 && !s.introCompleted){prologue=gameObject.AddComponent<PrologueSequence>();prologue.Begin(this);} }
         public void Advance() {
             state.stage=Mathf.Min(6,state.stage+1);state.hp=Mathf.Max(70,state.hp);
             if(state.armed) state.reserve=Mathf.Max(24,state.reserve);
             Save(); LoadWorld(state.stage); ui.Toast("ĐIỂM LƯU / "+StoryData.Chapters[state.stage]);
         }
         public void LoadWorld(int stage) {
+            if(prologue){prologue.Cancel();Destroy(prologue);prologue=null;}
             Time.timeScale=1; flags.Clear(); enemies.Clear(); journal.Clear(); upload=-1;
             security.Close();opening=null;airlock=null;
             if(level) {level.SetActive(false);Destroy(level);}
@@ -85,7 +87,7 @@ namespace BlackMarket {
             player.Setup();view=player.camera;
             security.Setup();ui.modal="";active=true;LockCursor(true);
 
-            if(stage==0) Objective("drawers","Tìm thẻ đỏ trong các ngăn tủ sát tường tại văn phòng Marcus.");
+            if(stage==0){PrologueSequence.EnsureBike(this);Objective("drawers","Tìm thẻ đỏ trong các ngăn tủ sát tường tại văn phòng Marcus.");PrologueSequence.AddJournal(this);}
             if(stage==1) {
                 Objective("radio","Chưa có vũ khí. Bật đài phát thanh ở xưởng kỹ thuật để đánh lạc hướng lính.");
                 SpawnGuards(4,true);
@@ -144,7 +146,7 @@ namespace BlackMarket {
                     if(state.stage==0) {
                         if(!flags.Contains("computer")){ui.Toast("TRUY CẬP BỊ TỪ CHỐI / Kiểm tra máy tính Marcus trước.");break;}
                         if(!opening || !opening.PursuitStarted){ui.Toast("Đọc hết hồ sơ trên máy tính của chú trước.");break;}
-                        airlock.UnlockOuter();
+                        airlock.UnlockOuter();if(state.promisedMarcus)ui.Subtitle("ALEX","Cháu xin lỗi, chú Marcus… cháu không còn đường nào khác.");
                     } else {
                         if(!flags.Contains("radio")){ui.Toast("Bật đài phát thanh trong xưởng để kéo lính khỏi cầu thang xuống B2.");break;}
                         ui.Story("LỐI XUỐNG KHO HỒ SƠ","Quyền truy cập của Alex đã được xác nhận tại Cửa 006. Lối xuống B2 mở ra sau khi đội lục soát bị đánh lạc hướng.\n\nB2: lấy súng tự vệ tại kho vũ khí, tìm Tủ hồ sơ 071 rồi mở bản ghi GỬI ALEX. Đây là nơi Marcus giấu sự thật.",Advance);
@@ -175,7 +177,7 @@ namespace BlackMarket {
             if(state.hp<=0){security.Close();ui.modal="death";player.ResetTouch();LockCursor(false);}
         }
         public void Pause(){if(!active || paused)return;security.Close();ui.modal="pause";player.ResetTouch();LockCursor(false);}
-        public void Resume(){player?.ResetTouch();ui.modal="";Time.timeScale=1;LockCursor(!(opening && opening.Playing) && !(airlock && airlock.Scanning));}
+        public void Resume(){player?.ResetTouch();ui.modal="";Time.timeScale=1;LockCursor(!(prologue && prologue.Playing) && !(opening && opening.Playing) && !(airlock && airlock.Scanning));}
         public void Menu(){player?.ResetTouch();security.Close();active=false;ui.modal="menu";LockCursor(false);}
         void Update() {
             if(Keyboard.current!=null && Keyboard.current.escapeKey.wasPressedThisFrame) {if(security.opened)security.Close();else if(paused)ui.Back();else if(active)Pause();}
@@ -185,9 +187,9 @@ namespace BlackMarket {
             if(!Running)return;state.elapsed+=Time.deltaTime;
             if(upload>0){upload-=Time.deltaTime;if(upload<=0){flags.Add("uploaded");Objective("exit","Bằng chứng đã truyền. Đến phòng điều hành đối mặt Victor.");}}
         }
-        bool IsSelfTest => Debug.isDebugBuild && (Array.IndexOf(Environment.GetCommandLineArgs(),"--self-test")>=0 || Array.IndexOf(Environment.GetCommandLineArgs(),"--shop-check")>=0 || Array.IndexOf(Environment.GetCommandLineArgs(),"--opening-check")>=0 || (Array.IndexOf(Environment.GetCommandLineArgs(),"--mission-check")>=0 || Array.IndexOf(Environment.GetCommandLineArgs(),"--revision-check")>=0));
-        void OnApplicationFocus(bool focus){if(!focus && (Running || opening && opening.Playing || airlock && airlock.Scanning) && !IsSelfTest)Pause();}
-        void OnApplicationPause(bool value){if(value && (Running || opening && opening.Playing || airlock && airlock.Scanning) && !IsSelfTest)Pause();}
+        public bool IsSelfTest => Debug.isDebugBuild && (Array.IndexOf(Environment.GetCommandLineArgs(),"--intro-check")>=0 || Array.IndexOf(Environment.GetCommandLineArgs(),"--self-test")>=0 || Array.IndexOf(Environment.GetCommandLineArgs(),"--shop-check")>=0 || Array.IndexOf(Environment.GetCommandLineArgs(),"--opening-check")>=0 || (Array.IndexOf(Environment.GetCommandLineArgs(),"--mission-check")>=0 || Array.IndexOf(Environment.GetCommandLineArgs(),"--revision-check")>=0));
+        void OnApplicationFocus(bool focus){if(!focus && (Running || prologue && prologue.Playing || opening && opening.Playing || airlock && airlock.Scanning) && !IsSelfTest)Pause();}
+        void OnApplicationPause(bool value){if(value && (Running || prologue && prologue.Playing || opening && opening.Playing || airlock && airlock.Scanning) && !IsSelfTest)Pause();}
         void OnDestroy(){Time.timeScale=1;Cursor.lockState=CursorLockMode.None;if(Instance==this)Instance=null;}
     }
 }
