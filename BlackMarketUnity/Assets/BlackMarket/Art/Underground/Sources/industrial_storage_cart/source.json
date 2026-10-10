@@ -1,0 +1,32 @@
+{
+  "source": "https://polyhaven.com/a/industrial_storage_cart",
+  "license": "CC0",
+  "license_url": "https://polyhaven.com/license",
+  "files": [
+    {
+      "file": "industrial_storage_cart_1k.fbx",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/fbx/1k/industrial_storage_cart/industrial_storage_cart_1k.fbx",
+      "sha256": "032d6358f57a444f333018825d8b6fbca3188df653807361892d8be72d40310b"
+    },
+    {
+      "file": "industrial_storage_cart_nor_gl_1k.png",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/industrial_storage_cart/industrial_storage_cart_nor_gl_1k.png",
+      "sha256": "8f6267a9afcc22c753cfeadfd55968578b064db82992af988d3166a0326463b9"
+    },
+    {
+      "file": "industrial_storage_cart_diff_1k.png",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/industrial_storage_cart/industrial_storage_cart_diff_1k.png",
+      "sha256": "d67c7e27ea94763d08fa9b676f72f082761669e66c1d469e1d34162fcca096c4"
+    },
+    {
+      "file": "industrial_storage_cart_rough_1k.png",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/industrial_storage_cart/industrial_storage_cart_rough_1k.png",
+      "sha256": "bbfeae875b6696fcd156bceec39c2c51e8727538903ef86b0d9786265ed65017"
+    },
+    {
+      "file": "industrial_storage_cart_metal_1k.png",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/industrial_storage_cart/industrial_storage_cart_metal_1k.png",
+      "sha256": "163a4e3e5ac98bd7f2dfe3addd25ae8712a46c2530f86ea5cf946c4053a4d55e"
+    }
+  ]
+}

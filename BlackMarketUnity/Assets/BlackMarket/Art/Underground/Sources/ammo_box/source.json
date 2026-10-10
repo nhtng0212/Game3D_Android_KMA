@@ -1,0 +1,32 @@
+{
+  "source": "https://polyhaven.com/a/ammo_box",
+  "license": "CC0",
+  "license_url": "https://polyhaven.com/license",
+  "files": [
+    {
+      "file": "ammo_box_1k.fbx",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/fbx/1k/ammo_box/ammo_box_1k.fbx",
+      "sha256": "eec84b80f2c412ab8134dee8d937ac9b4d39de9e8a05a0358d4813dbc0b6acff"
+    },
+    {
+      "file": "ammo_box_nor_gl_1k.png",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/ammo_box/ammo_box_nor_gl_1k.png",
+      "sha256": "c03d0490deac0d98e0f9833f36a1898a8684e6fb82e23ff762b162da30d90934"
+    },
+    {
+      "file": "ammo_box_diff_1k.png",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/ammo_box/ammo_box_diff_1k.png",
+      "sha256": "d2a7f6aa719981d4fc205a4375ececb037da00add6a5e1ac30098df042f78d08"
+    },
+    {
+      "file": "ammo_box_rough_1k.png",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/ammo_box/ammo_box_rough_1k.png",
+      "sha256": "e515cb901dd3842fa5e310859f217230ce4dbc0e703be48e1da763add157a2b0"
+    },
+    {
+      "file": "ammo_box_metal_1k.png",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/ammo_box/ammo_box_metal_1k.png",
+      "sha256": "e515cb901dd3842fa5e310859f217230ce4dbc0e703be48e1da763add157a2b0"
+    }
+  ]
+}

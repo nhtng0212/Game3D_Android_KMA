@@ -18,7 +18,7 @@ namespace BlackMarket {
         void Awake(){outerClosed=outerLeaf.localPosition;innerClosed=innerLeaf.localPosition;foreach(var obstacle in GetComponentsInChildren<NavMeshObstacle>())obstacle.enabled=true;scanBeam.gameObject.SetActive(false);}
         public void UnlockOuter(){
             if(!game.Running || OuterMoving || OuterUnlocked)return;
-            if(!game.state.keycard){game.ui.Toast("Cửa 006 cần thẻ đỏ của Marcus.");return;}
+            if(!game.state.keycard){game.ui.Toast("Cửa 006 cần USB đỏ của Marcus.");return;}
             if(!game.flags.Contains("computer") || !game.opening.PursuitStarted){game.ui.Toast("Trước hết hãy mở tệp Order 71 trên máy tính của Marcus.");return;}
             StartCoroutine(OpenOuter());
         }
@@ -26,7 +26,7 @@ namespace BlackMarket {
             OuterUnlocked=true;OuterMoving=true;game.sound.Play("door_move",.5f,outerLeaf.position);
             game.Objective("face_scan","Qua Cửa 006, đứng trên dấu chân trước lớp cửa trong để quét khuôn mặt.");
             while(Vector3.Distance(outerLeaf.localPosition,outerClosed+Vector3.up*2.85f)>.01f){if(game.Running)outerLeaf.localPosition=Vector3.MoveTowards(outerLeaf.localPosition,outerClosed+Vector3.up*2.85f,Time.deltaTime*2.5f);yield return null;}
-            OuterMoving=false;game.ui.Subtitle("HỆ THỐNG","Thẻ đỏ hợp lệ. Lớp cửa trong yêu cầu xác thực khuôn mặt.");
+            OuterMoving=false;game.ui.Subtitle("HỆ THỐNG","USB đỏ hợp lệ. Lớp cửa trong yêu cầu xác thực khuôn mặt.");
         }
         public void StartScan(){
             if(!game.Running || !OuterUnlocked || OuterMoving || Scanning || FaceVerified)return;
@@ -59,16 +59,22 @@ namespace BlackMarket {
             Destroy(lampObject);cameraData.renderPostProcessing=post;AutoDescending=true;Status="ALEX ĐANG CHẠY XUỐNG TẦNG HẦM";
             game.Objective("basement_exit","Đã xác thực. Alex đang tự chạy xuống cầu thang tới tầng hầm B1.");
             if(animation)animation.CrossFade("run",.2f);
+            var blackout=gameObject.AddComponent<DescentBlackout>();
             foreach(var waypoint in descentPath){
                 while(Vector3.Distance(player.transform.position,waypoint.position)>.015f){
                     if(game.paused){yield return null;continue;}
                     var direction=waypoint.position-player.transform.position;var flat=Vector3.ProjectOnPlane(direction,Vector3.up);if(flat.sqrMagnitude>.001f)player.visual.rotation=Quaternion.Slerp(player.visual.rotation,Quaternion.LookRotation(flat),Time.deltaTime*10);
                     player.transform.position=Vector3.MoveTowards(player.transform.position,waypoint.position,Time.deltaTime*3.2f);
                     var target=player.transform.position+Vector3.up*1.35f;var eye=player.transform.position-transform.forward*2.1f+transform.right*.6f+Vector3.up*2.1f;
+                    // Hold the camera above the lower stairs instead of following Alex into the end wall.
+                    float localZ=transform.InverseTransformPoint(player.transform.position).z;
+
+                    blackout.opacity=Mathf.SmoothStep(0,1,Mathf.InverseLerp(8.1f,10.6f,localZ));
                     cam.transform.SetPositionAndRotation(eye,Quaternion.LookRotation(target-eye));cam.fieldOfView=58;yield return null;
                 }
             }
-            game.Advance();
+            blackout.opacity=1;float hold=0;while(hold<.3f){if(!game.paused)hold+=Time.deltaTime;yield return null;}
+            var continuity=game.gameObject.AddComponent<DescentBlackout>();continuity.opacity=1;game.Advance();continuity.FadeOutAfterLoad();
         }
         void SetScanCamera(Camera cam){
             var face=game.player.transform.position+Vector3.up*1.62f;

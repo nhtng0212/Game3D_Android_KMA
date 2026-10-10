@@ -5,6 +5,7 @@ namespace BlackMarket.Editor {
     // No player build is produced. The opt-in self-test exits this editor when it finishes.
     public static class PlayVerification {
         public static void Run(){
+            UnityEngine.Application.runInBackground=true;
             EditorSceneManager.OpenScene("Assets/BlackMarket/Scenes/NorthPoint.unity");
             var gameView=System.Type.GetType("UnityEditor.GameView,UnityEditor");
             if(!UnityEngine.Application.isBatchMode && gameView!=null)EditorWindow.GetWindow(gameView).Focus();

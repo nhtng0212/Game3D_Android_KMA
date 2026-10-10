@@ -386,7 +386,7 @@ namespace BlackMarket.Editor {
             var gameplay=Node("08 - GAMEPLAY - keep IDs when moving",p);
             Marker(gameplay,"spawn",new Vector3(0,.1f,2));Marker(gameplay,"safe",new Vector3(0,.1f,2));
             Marker(gameplay,"shutter",new Vector3(0,5,30));Marker(gameplay,"alarm",new Vector3(3,1,29));
-            Item(gameplay,"frontdoor","CỬA TRƯỚC / ĐÃ KHÓA",new Vector3(0,1,.4f));
+            Item(gameplay,"frontdoor","CỬA CHÍNH",new Vector3(0,1,.4f));
             for(int i=0;i<3;i++){
                 var camera=Node("@camera_"+i,gameplay,new Vector3(i==1?13:-13,3.15f,3+i*12));camera.gameObject.AddComponent<WorldMarker>().id="camera_"+i;camera.LookAt(p.TransformPoint(new Vector3(0,1,8+i*10)));
                 Place("security_camera_01",gameplay,camera.localPosition,i==1?270:90);

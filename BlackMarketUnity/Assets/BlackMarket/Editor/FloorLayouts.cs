@@ -77,7 +77,7 @@ namespace BlackMarket.Editor {
             // Subdivide the former dispatch stock area into WC and electrical rooms.
             remove.Clear();foreach(Transform t in parent)if(t.position.x>3.5f && t.position.z>24.5f && t.position.z<35 && t.position.y<2.5f && !t.GetComponent<WorldMarker>() && t.name!="Room partition" && t.name!="Floor tile")remove.Add(t.gameObject);foreach(var g in remove)UnityEngine.Object.DestroyImmediate(g);
             WallRun(false,8,24,36,27,33);Toilet(new Vector3(11,0,28.8f));Electrical(new Vector3(9,0,35));RoomSign("WC / RESTROOM",9,24);RoomSign("ELECTRICAL / STAFF ONLY",9,30);
-            Item("frontdoor","CỬA TRƯỚC / ĐÃ KHÓA",new Vector3(0,1,.6f));
+            Item("frontdoor","CỬA CHÍNH",new Vector3(0,1,.6f));
             // Door 06 retains its story identity, but leads to the first basement stair.
             foreach(var p in parent.GetComponentsInChildren<Interaction>())if(p.id=="door06")p.title="DOOR 06 / CẦU THANG NHÂN VIÊN";
             RoomSign("06 / STAFF STAIRS",0,35.4f);

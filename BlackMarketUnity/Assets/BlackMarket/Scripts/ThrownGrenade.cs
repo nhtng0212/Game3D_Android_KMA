@@ -1,0 +1,9 @@
+using UnityEngine;
+namespace BlackMarket {
+ public class ThrownGrenade:MonoBehaviour {
+  Campaign game;float fuse=2;Rigidbody body;
+  public static ThrownGrenade Launch(Campaign g,Vector3 position,Vector3 velocity){var go=new GameObject("Lựu đạn");var collider=go.AddComponent<SphereCollider>();collider.radius=.065f;GrenadeVisual.Create(go.transform);go.name="Lựu đạn";go.transform.position=position;var grenade=go.AddComponent<ThrownGrenade>();grenade.game=g;grenade.body=go.AddComponent<Rigidbody>();Physics.IgnoreCollision(collider,g.player.body);grenade.body.mass=.4f;grenade.body.collisionDetectionMode=CollisionDetectionMode.ContinuousDynamic;grenade.body.linearVelocity=velocity;go.transform.SetParent(g.level.transform);return grenade;}
+  void Update(){if(!game.Running)return;fuse-=Time.deltaTime;if(fuse>0)return;var position=transform.position;BlastEffects.Explode(position,6);game.sound.Play("explosion",.75f,position);game.Noise(position,60);game.underground?.Shake(.8f);foreach(var e in game.enemies)if(e&&e.hp>0){float d=Vector3.Distance(position,e.transform.position+Vector3.up);if(d<6&&Clear(position,e.transform.position+Vector3.up,e))e.TakeDamage(180*(1-d/6));}float distance=Vector3.Distance(position,game.player.transform.position+Vector3.up);if(distance<6&&Clear(position,game.player.transform.position+Vector3.up,null))game.Damage(110*(1-distance/6));foreach(var b in game.level.GetComponentsInChildren<LightingBreaker>())if(Vector3.Distance(position,b.transform.position)<6&&Clear(position,b.transform.position,null))b.Hit(100);Destroy(gameObject);}
+  bool Clear(Vector3 from,Vector3 to,EnemyController enemy){foreach(var h in Physics.RaycastAll(from,(to-from).normalized,Vector3.Distance(from,to),~(1<<2),QueryTriggerInteraction.Ignore))if(h.collider.gameObject!=gameObject&&(enemy==null || h.collider.GetComponentInParent<EnemyController>()!=enemy))return false;return true;}
+ }
+}

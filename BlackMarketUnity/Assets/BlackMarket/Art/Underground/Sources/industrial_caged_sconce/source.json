@@ -1,0 +1,32 @@
+{
+  "source": "https://polyhaven.com/a/industrial_caged_sconce",
+  "license": "CC0",
+  "license_url": "https://polyhaven.com/license",
+  "files": [
+    {
+      "file": "industrial_caged_sconce_1k.fbx",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/fbx/1k/industrial_caged_sconce/industrial_caged_sconce_1k.fbx",
+      "sha256": "8358830313e3922c244ee88d497519930676113f615f36f93d2b7830d1ecd200"
+    },
+    {
+      "file": "industrial_caged_sconce_nor_gl_1k.png",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/industrial_caged_sconce/industrial_caged_sconce_nor_gl_1k.png",
+      "sha256": "539a4a866e7ced7f6d8f4f1b7626600b12df732444fb36076c40b04ec6352c8e"
+    },
+    {
+      "file": "industrial_caged_sconce_diff_1k.png",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/industrial_caged_sconce/industrial_caged_sconce_diff_1k.png",
+      "sha256": "9a19d03cd7ceb30614271ad2594c2a739f57572838568d24c8f05ef9b3182a47"
+    },
+    {
+      "file": "industrial_caged_sconce_rough_1k.png",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/industrial_caged_sconce/industrial_caged_sconce_rough_1k.png",
+      "sha256": "cf13d3e84a8caf8c6f046de765a1e0187abea51990d684cb2a28fc8a0ff5d812"
+    },
+    {
+      "file": "industrial_caged_sconce_metal_1k.png",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/industrial_caged_sconce/industrial_caged_sconce_metal_1k.png",
+      "sha256": "48582303e967e33be3d82523bc657e11c26d147f25f13c5d40a727131ab39776"
+    }
+  ]
+}

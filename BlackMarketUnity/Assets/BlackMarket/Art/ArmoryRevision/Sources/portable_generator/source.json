@@ -1,0 +1,26 @@
+{
+  "source": "https://polyhaven.com/a/portable_generator",
+  "license": "CC0",
+  "files": [
+    {
+      "file": "portable_generator_1k.fbx",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/fbx/1k/portable_generator/portable_generator_1k.fbx",
+      "sha256": "60e725eb5356028e7721e95b2616c3de2fa8331c2e8fe06ab5ebf16bc1f1025e"
+    },
+    {
+      "file": "portable_generator_alpha_1k.png",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/portable_generator/portable_generator_alpha_1k.png",
+      "sha256": "112a74af62ccb842a22916e51a79364e7121f948e231b8ce9deac797417ef6bd"
+    },
+    {
+      "file": "portable_generator_diff_1k.png",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/portable_generator/portable_generator_diff_1k.png",
+      "sha256": "073922a002bf514fbabef432891b0f76a7b61734eaa8cf02962870f76d8e5e84"
+    },
+    {
+      "file": "portable_generator_nor_gl_1k.png",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/portable_generator/portable_generator_nor_gl_1k.png",
+      "sha256": "1764cb5985fd0f1c6042f82714d0cf8a69c488fcb31440721d9a6a1b2b2ca50c"
+    }
+  ]
+}

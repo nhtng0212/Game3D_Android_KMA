@@ -35,9 +35,9 @@ namespace BlackMarket {
             PursuitActive=game.active && game.state.hp>0 && alertHold>0;
             if(game.upload>0)threat=Mathf.Max(threat,.8f);
             bool playing=game.active && game.state.hp>0;float duck=game.paused?.25f:1;
-            drone.volume=Mathf.MoveTowards(drone.volume,playing?.38f*duck:game.ui.modal=="menu"?.2f:0,Time.unscaledDeltaTime*.3f);
-            pulse.volume=Mathf.MoveTowards(pulse.volume,playing?(PursuitActive?.55f:threat*.3f)*duck:0,Time.unscaledDeltaTime*.5f);
-            alarm.volume=Mathf.MoveTowards(alarm.volume,PursuitActive && !game.paused?.55f:0,Time.unscaledDeltaTime*(PursuitActive?2:.45f));
+            drone.volume=Mathf.MoveTowards(drone.volume,playing?Mathf.Min(1,1.14f*duck):game.ui.modal=="menu"?.6f:0,Time.unscaledDeltaTime*.3f);
+            pulse.volume=Mathf.MoveTowards(pulse.volume,playing?Mathf.Min(1,(PursuitActive?1.65f:threat*.9f)*duck):0,Time.unscaledDeltaTime*.5f);
+            alarm.volume=Mathf.MoveTowards(alarm.volume,PursuitActive && !game.paused?1:0,Time.unscaledDeltaTime*(PursuitActive?2:.45f));
         }
         void OnDestroy(){if(droneClip)Destroy(droneClip);if(pulseClip)Destroy(pulseClip);if(alarmClip)Destroy(alarmClip);}
     }

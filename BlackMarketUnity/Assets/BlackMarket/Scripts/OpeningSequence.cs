@@ -21,11 +21,12 @@ namespace BlackMarket {
         IEnumerator Arrival(){
             Playing=true;skip=false;game.player.ResetTouch();game.LockCursor(false);
             var oldPosition=game.view.transform.position;var oldRotation=game.view.transform.rotation;float oldFov=game.view.fieldOfView;
-            for(int i=0;i<2;i++){
+            Caption="ALEX: Mã ư?";float beat=0;while(beat<2){if(!game.paused)beat+=Time.deltaTime;yield return null;}
+            for(int i=0;i<3;i++){
                 var car=Instantiate(Resources.Load<GameObject>("Opening/BlackSedan"),transform).transform;
-                car.name="Xe của nhóm truy bắt "+(i+1);car.position=new Vector3(-6+i*12,-.1f,-7);car.rotation=Quaternion.Euler(0,90,0);cars.Add(car);
+                car.name="Xe của nhóm truy bắt "+(i+1);car.position=new Vector3(-10+i*9,-.1f,-7);car.rotation=Quaternion.Euler(0,90,0);cars.Add(car);
             }
-            for(int i=0;i<4;i++){
+            for(int i=0;i<10;i++){
                 var actor=Instantiate(Resources.Load<GameObject>("Actors/BlackSuit"),transform);actor.name="Thành viên nhóm mặc vest "+(i+1);actor.SetActive(false);actors.Add(actor);
             }
             game.sound.Play("arrival_engine",.55f,new Vector3(0,0,-5));
@@ -37,34 +38,34 @@ namespace BlackMarket {
                 if(game.paused || !game.active){yield return null;continue;}
                 elapsed+=Time.deltaTime;
                 float drive=Mathf.SmoothStep(0,1,Mathf.Clamp01(elapsed/4));
-                for(int i=0;i<2;i++)cars[i].position=new Vector3(-6+i*12-18*(1-drive),-.1f,-6.5f);
+                for(int i=0;i<3;i++)cars[i].position=new Vector3(-10+i*9-18*(1-drive),-.1f,-6.5f);
                 if(elapsed<4){
                     Caption="Tiếng động cơ ngoài cửa… Có người tới.";
                     Shot(Vector3.Lerp(new Vector3(10,3,-14),new Vector3(8,2.5f,-11),drive),new Vector3(0,1,-5),55);
                 } else {
                     if(!doorsHeard){doorsHeard=true;game.sound.Play("door_latch",.45f,new Vector3(0,1,-5));}
-                    float walk=Mathf.Clamp01((elapsed-5.6f)/7.4f);
+                    float walk=Mathf.Clamp01((elapsed-5.6f)/8.4f);
                     float doorAngle=elapsed<6?Mathf.SmoothStep(0,72,Mathf.Clamp01((elapsed-4)/.7f)):Mathf.SmoothStep(72,0,Mathf.Clamp01((elapsed-6)/.8f));
                     foreach(var car in cars)foreach(var door in car.GetComponentsInChildren<Transform>())if(door.name=="Cửa xe chuyển động")door.localRotation=Quaternion.Euler(0,doorAngle,0);
                     Caption=elapsed<11?"KẺ CẦM ĐẦU: Đúng biển số xe của thằng cháu Marcus. Nó vẫn ở trong cửa hàng. Mau vào xử lý hắn!":"NHÓM NGƯỜI MẶC VEST: Lục soát từng phòng. Không để nó thoát!";
                     Shot(elapsed<8?new Vector3(0,2.2f,-15):new Vector3(4,2.3f,-4),new Vector3(-1,1.15f,-3+walk*4),elapsed<8?65:62);
-                    for(int i=0;i<4;i++){
-                        var a=actors[i];a.SetActive(elapsed>4.65f);float x=(i<2?-6:6)+(i%2==0?-1:1);
-                        var start=new Vector3(x,0,-4.9f);var end=new Vector3((i%2==0?-.55f:.55f),0,1.5f-i*.6f);
+                    for(int i=0;i<10;i++){
+                        var a=actors[i];a.SetActive(elapsed>4.65f);float x=(-10+(i/4)*9)+(i%2==0?-1:1);
+                        var start=new Vector3(x,0,-4.9f);var end=new Vector3((i%2==0?-.55f:.55f),0,-1.3f-i*.35f);
                         // The two men from the right-hand car walk around Alex's parked motorcycle.
                         var via=new Vector3(6,0,-.7f);var destination=i<2?Vector3.Lerp(start,end,walk):walk<.45f?Vector3.Lerp(start,via,walk/.45f):Vector3.Lerp(via,end,(walk-.45f)/.55f);
                         a.transform.position=elapsed<5.6f?Vector3.Lerp(new Vector3(x,0,-5.65f),start,Mathf.Clamp01((elapsed-4.65f)/.95f)):destination;a.transform.rotation=Quaternion.LookRotation(i<2?end-start:walk<.45f?via-start:end-via);
                         var anim=a.GetComponentInChildren<Animation>();if(anim){anim.cullingType=AnimationCullingType.AlwaysAnimate;}if(anim && !anim.IsPlaying(elapsed>4.65f?"walk":"idle"))anim.CrossFade(elapsed>4.65f?"walk":"idle");
                     }
-                    if(elapsed>9)OpenEntrance();
+                    // Cut to the interior before anyone crosses the storefront glass.
                 }
                 yield return null;
             }
-            for(int i=0;i<cars.Count;i++){cars[i].position=new Vector3(-6+i*12,-.1f,-6.5f);foreach(var door in cars[i].GetComponentsInChildren<Transform>())if(door.name=="Cửa xe chuyển động")door.localRotation=Quaternion.identity;}
-            game.sound.Stop("arrival_engine");OpenEntrance(false);game.sound.Play("door_latch",.35f,new Vector3(0,1,0));foreach(var a in actors)Destroy(a);actors.Clear();
+            for(int i=0;i<cars.Count;i++){cars[i].position=new Vector3(-10+i*9,-.1f,-6.5f);foreach(var door in cars[i].GetComponentsInChildren<Transform>())if(door.name=="Cửa xe chuyển động")door.localRotation=Quaternion.identity;}
+            game.sound.Stop("arrival_engine");OpenEntrance(false);foreach(var a in actors)Destroy(a);actors.Clear();
             game.view.transform.SetPositionAndRotation(oldPosition,oldRotation);game.view.fieldOfView=oldFov;
             game.MarkStorySeen("arrival");Playing=false;PursuitStarted=true;game.LockCursor(true);
-            for(int i=0;i<4;i++)SpawnPursuer(i);
+            for(int i=0;i<10;i++)SpawnPursuer(i);
             game.Objective("door06","Chạy tới kho phía sau! Lách qua các kệ và mở Cửa 006 để xuống hầm.");
             game.ui.Subtitle("ALEX","Chúng tới tìm mình… Cửa trước bị chặn rồi. Phải xuống hầm!");
         }

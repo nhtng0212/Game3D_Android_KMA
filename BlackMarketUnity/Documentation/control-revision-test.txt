@@ -1,0 +1,31 @@
+PASS twenty one arc workstations
+PASS twenty two desktop computers including command desk
+PASS no waiting room or laptops
+PASS sixty archive boxes on additional storage racks
+PASS actual descent stairs at entry
+PASS reachable breaker
+PASS reachable control_entry
+PASS reachable final_terminal
+PASS reachable escape
+PASS Alex arrives at central screen automatically
+PASS Victor arrival immediately enables breaker objective
+PASS Victor has triple final battle health
+PASS breaker mounted against rear wall
+PASS shooting breaker extinguishes lights
+PASS night vision toggles with map 2 equipment
+PASS Victor throws recurring warning grenades
+PASS Victor keeps combat distance instead of rushing into player
+PASS map 3 shares anti burst damage limit
+PASS battle can finish and unlock final story terminal
+PASS USB terminal recovers the ten digit code
+PASS final evidence opens on computer screen
+PASS destruction countdown does not run during evidence reading
+PASS reading all pages copies evidence and starts ninety second escape
+PASS maintenance exit unlocks after evidence transmission
+PASS player controls return route to entry staircase
+PASS approaching entry staircase automatically starts ending
+PASS ending transition fades gradually to black
+PASS ending exterior has neighborhood and fourteen streetlights
+PASS motorcycle departure and explosion reach saved canonical ending
+PASS ending cleans up exterior set
+RESULT 0 failures

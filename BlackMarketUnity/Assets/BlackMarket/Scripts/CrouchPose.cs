@@ -22,7 +22,7 @@ namespace BlackMarket {
             bones[8].rotation=Quaternion.AngleAxis(amount*12,transform.right)*bones[8].rotation;
             bones[9].rotation=Quaternion.AngleAxis(amount*6,transform.right)*bones[9].rotation;
             bones[10].rotation=Quaternion.AngleAxis(amount*-20,transform.right)*bones[10].rotation;
-            if(!player.campaign.state.armed || !player.UsingAK)RelaxArm(11,-1);if(!player.campaign.state.armed)RelaxArm(14,1);
+            if(!player.campaign.state.armed || !player.UsingRifle)RelaxArm(11,-1);if(!player.campaign.state.armed)RelaxArm(14,1);
             Solve(bones[1],bones[2],bones[3],left);Solve(bones[4],bones[5],bones[6],right);bones[3].rotation=lrot;bones[6].rotation=rrot;
         }
         void RelaxArm(int index,float side){

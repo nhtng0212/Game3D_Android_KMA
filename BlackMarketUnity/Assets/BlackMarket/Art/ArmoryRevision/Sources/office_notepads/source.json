@@ -1,0 +1,21 @@
+{
+  "source": "https://polyhaven.com/a/office_notepads",
+  "license": "CC0",
+  "files": [
+    {
+      "file": "office_notepads_1k.fbx",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/fbx/1k/office_notepads/office_notepads_1k.fbx",
+      "sha256": "f59605849d17e497f68ae724678c7698a9b048d3c7ceb88b9e7c6c4dfe7de3f0"
+    },
+    {
+      "file": "office_notepads_diff_1k.png",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/office_notepads/office_notepads_diff_1k.png",
+      "sha256": "b2087f06e881267cf63bf74d8ed233fa9bbee7e917b7d7a1f26171fbd508bbb2"
+    },
+    {
+      "file": "office_notepads_nor_gl_1k.png",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/office_notepads/office_notepads_nor_gl_1k.png",
+      "sha256": "88160d77fc4eaf35d48b74234c21663246407c19997d8db457508432f0d18fcb"
+    }
+  ]
+}

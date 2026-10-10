@@ -1,0 +1,3 @@
+PASS ending starts only after evidence transfer
+PASS ending completes after explosion
+RESULT 0 failures

@@ -1,0 +1,6 @@
+PASS reading returns player control before escape
+PASS exit uses gradual fade
+PASS twenty eight detailed neighborhood buildings
+PASS fourteen streetlights
+PASS revised ending completes
+RESULT 0 failures

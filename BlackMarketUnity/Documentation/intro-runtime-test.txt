@@ -1,0 +1,49 @@
+PASS all document pages fit computer text area
+PASS all document pages fit computer text area
+PASS all document pages fit computer text area
+PASS all phone dialogue fits subtitle area
+PASS dialogue node exists: start
+PASS dialogue node exists: danger
+PASS dialogue node exists: police
+PASS dialogue node exists: card
+PASS dialogue node exists: computer
+PASS dialogue node exists: door
+PASS dialogue node exists: promise
+PASS dialogue node exists: cut
+PASS dialogue node exists: secret
+PASS dialogue node exists: hunters
+PASS all dialogue nodes reachable
+PASS three real conversation branches
+PASS branch effects independent
+PASS first viewing locks controls and skip
+PASS premature skip rejected
+PASS phone opens first node with gated options
+PASS early choice ignored
+PASS pause freezes dialogue and camera
+PASS resume keeps cinematic control lock and pointer
+PASS options remain locked when text ends
+PASS three-second reading delay enforced
+PASS chosen path recorded on campaign state
+PASS news leads to motorcycle cinematic
+PASS left hand grips motorcycle handlebar
+PASS right hand grips motorcycle handlebar
+PASS motorcycle front wheel faces direction of travel
+PASS pause freezes motorcycle
+PASS automatic walk locks movement
+PASS control returns to card search
+PASS intro completion and replay entitlement saved
+PASS parked bike remains for villain recognition
+PASS dialogue hints added to journal
+PASS continue restores choices without replaying completed intro
+PASS new game can skip previously completed intro
+PASS skip leaves one bike and restores control
+PASS new game clears previous choices
+PASS crouch elbow bent L 53.0
+PASS crouch hand raised L
+PASS crouch elbow bent R 53.3
+PASS crouch hand raised R
+PASS armed crouch preserves weapon posing
+PASS villains identify Alex from parked motorcycle
+PASS convoy still starts pursuit after new intro
+PASS stage transition clears intro
+RESULT 0 failures

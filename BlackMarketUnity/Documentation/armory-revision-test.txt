@@ -1,0 +1,85 @@
+PASS effects volume boosted three times
+PASS synthetic speech disabled
+PASS six rooms
+PASS sixteen cover pillars
+PASS no pistol pickup in map 2
+PASS triple weapon racks: 12
+PASS triple document shelves: 18
+PASS triple work desks: 36
+PASS triple meeting tables: 3
+PASS triple computers: 39
+PASS triple plants: 18
+PASS triple generators: 12
+PASS triple machine cabinets: 12
+PASS black depth behind entry, no wall at spawn
+PASS walkable ak
+PASS walkable sniper
+PASS walkable grenades
+PASS walkable base_computer
+PASS walkable retreat
+PASS entrance room_-1_0
+PASS entrance room_-1_1
+PASS entrance room_-1_2
+PASS entrance room_1_0
+PASS entrance room_1_1
+PASS entrance room_1_2
+PASS continuous 006 stair navigation
+PASS valid materials
+PASS AK sniper grenade loadout
+PASS night vision acquired in map 2 armory
+PASS held AK uses metre scale after mesh conversion
+PASS right hand at trigger
+PASS left hand supports foregrip
+PASS crouched rifle grip
+PASS sniper optical zoom
+PASS M700 aimed shot damages target and consumes one round
+PASS throw windup before grenade release
+PASS pause freezes throw animation
+PASS grenade released during forward swing
+PASS throw recovers
+PASS retry restores health in protected armory
+PASS retry preparation interval
+PASS cinematic introduces first five enemy group
+PASS player controls Alex during grenade warning
+PASS grenades precede enemy rush
+PASS pause freezes hostile grenade flight and fuse
+PASS six telegraphed opening grenades
+PASS opening grenades hurt exposed Alex without immediate death
+PASS sprinting still reduces hit probability while enemy accuracy increases
+PASS next group does not spawn while initial group lives
+PASS ordinary enemy stationary hit chance increased
+PASS simultaneous shooters cannot stack damage in one frame
+PASS agents descend from 006 instead of teleport crowd
+PASS enemy sees exposed player at 45 metres
+PASS exposed distant player actually takes damage
+PASS solid cover prevents enemy bullet damage
+PASS corpse mesh settles against floor
+PASS resupply clears remaining hostile grenades
+PASS resupply follows exactly thirty kills
+PASS forty five second playable loot break
+PASS thirty corpse loot drops
+PASS corpse loot is reachable through normal interaction targeting
+PASS collected loot is removed from saved drop list
+PASS healing loot available during break
+PASS resupply checkpoint is accepted by save loader
+PASS continue restores only uncollected corpse loot
+PASS Victor arrival does not repeat door explosion
+PASS twenty escorts plus Victor
+PASS Victor follows behind all twenty escorts
+PASS retreat instruction opens immediately after suppression arrival
+PASS Victor escorts have stronger elite loadout
+PASS ten escort kills activate overwhelming pressure
+PASS exactly fifty HP does not trigger retreat
+PASS overwhelming pressure guarantees retreat even if player holds cover
+PASS incoming damage cannot kill during retreat cinematic
+PASS retreat camera rises above Alex
+PASS pursuers run during automatic retreat
+PASS pause freezes automatic retreat
+PASS automatic retreat navigates out of armory room and loads map 3 alive
+PASS map 3 restores control after center arrival
+PASS Marcus desktop has screen keyboard tower
+PASS removed separate black portal plane
+PASS full blackout before scene replacement (headless)
+PASS black overlay survives level replacement
+PASS map 2 reveals and restores control
+RESULT 0 failures

@@ -8,8 +8,8 @@ Mở `Assets/BlackMarket/Scenes/NorthPoint.unity`, bấm Play rồi **BẮT Đ�
 2. Điện thoại reo, Alex đưa điện thoại lên tai. Người chơi chọn lời đáp trong cuộc gọi với Marcus.
 3. Từng lời thoại chạy chữ; sau ký tự cuối cùng **3 giây** các lựa chọn mới sáng. Tạm dừng không làm trôi thời gian đọc.
 4. Cuộc gọi bị ngắt. Tin Marcus qua đời xuất hiện vào sáng hôm sau. Ba ngày sau, Alex tới North Point.
-5. Alex đi xe máy tới, xuống xe và tự đi vào cửa hàng. Người chơi chỉ điều khiển sau khi cửa trước đã đóng.
-6. Nhiệm vụ cũ tiếp tục: tìm thẻ đỏ trong ngăn kéo → máy tính → Order 71 → nhóm người mặc vest → Cửa 006 → quét mặt → xuống hầm.
+5. Alex đi xe máy tới, xuống xe và tự đi tới gần cửa chính. Camera cắt vào bên trong cửa hàng, bỏ qua động tác đi qua cửa; sau đó mới trả quyền điều khiển.
+6. Nhiệm vụ cũ tiếp tục: tìm USB đỏ trong ngăn kéo → máy tính → Order 71 → nhóm người mặc vest → Cửa 006 → quét mặt → xuống hầm.
 
 ## Cây hội thoại dùng cho bài tập
 
@@ -26,7 +26,7 @@ flowchart TD
     police --> door
     hunters --> card
     hunters --> door
-    card --> computer[Thẻ dùng để mở máy tính / Order 71]
+    card --> computer[USB dùng để mở máy tính / Order 71]
     card --> door
     computer --> door
     door --> promise[Cháu hứa]
@@ -38,9 +38,9 @@ flowchart TD
 
 Các lựa chọn có tác động riêng:
 
-- Hỏi về thẻ: nhật ký ghi cụ thể các ngăn kéo sát tường và tệp Order 71.
+- Hỏi về USB: nhật ký ghi cụ thể các ngăn kéo sát tường và tệp Order 71.
 - Hỏi về kẻ truy đuổi: nhật ký ghi cảnh báo về nhóm người mặc vest đen.
-- Hứa tránh Cửa 006: khi dùng thẻ tại cửa, Alex nói “Cháu xin lỗi, chú Marcus… cháu không còn đường nào khác.”
+- Hứa tránh Cửa 006: khi dùng USB tại cửa, Alex nói “Cháu xin lỗi, chú Marcus… cháu không còn đường nào khác.”
 
 Dù chọn nhánh nào, nhiệm vụ chính vẫn cung cấp đủ thông tin để hoàn thành màn. Lựa chọn được lưu cùng điểm lưu sau hoạt cảnh. Bắt đầu chiến dịch mới xóa lựa chọn cũ; quyền bỏ qua phần đã xem được lưu riêng. Thoát giữa phần mở đầu rồi tiếp tục sẽ bắt đầu lại cuộc gọi, tránh bỏ qua nội dung lần đầu.
 
@@ -59,3 +59,5 @@ Model xe: Duhgless, *Yet Another PSX Style Low Poly Bike*, CC0. Đây là model 
 - `intro-ui-test.txt`: 45 kiểm tra đạt, 0 lỗi; chạy trong Unity Game View, gồm bấm lựa chọn thật, nhịp đọc 3 giây, khóa điều khiển, tạm dừng, hai tay ở tay lái, hướng xe, lưu lựa chọn, bỏ qua khi chơi lại và nối sang truy đuổi.
 - `controls-test.txt`: kiểm tra hồi quy điều khiển và tư thế đi khom đều đạt; có kiểm tra bước chân luân phiên, chiều cao khi khom, tạm dừng và phục hồi tư thế đứng.
 - Ảnh kiểm tra thực tế: thư mục `Documentation/IntroPreview/`. Chưa xuất APK hoặc đo hiệu năng trên thiết bị Android thật.
+
+Bản cập nhật ba màn và hướng dẫn chỉnh hai tầng ngầm: [UNDERGROUND_CAMPAIGN_VI.md](UNDERGROUND_CAMPAIGN_VI.md).

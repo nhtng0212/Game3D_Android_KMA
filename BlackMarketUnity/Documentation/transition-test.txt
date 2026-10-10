@@ -1,0 +1,14 @@
+PASS Alex cuts before reaching storefront glass
+PASS cut returns control with Alex inside
+PASS front door prompt no longer says locked
+PASS suited group stays outside until camera cut
+PASS cut creates four pursuers inside
+PASS end wall removed from descent shot
+PASS black passage exists without a blocking collider
+PASS descent remains automatic
+PASS pause freezes descent and blackout
+PASS screen becomes black before loading map 2
+PASS black cut covers HUD as well as world
+PASS map 2 restores control after black cut
+PASS blackout does not persist on map 2
+RESULT 0 failures

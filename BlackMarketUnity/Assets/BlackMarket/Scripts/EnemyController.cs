@@ -3,6 +3,7 @@ using UnityEngine.AI;
 using System.Collections.Generic;
 namespace BlackMarket {
     public class EnemyController : MonoBehaviour {
+        public bool combat,nightSight,elite; public int combatId; public float maxHp=100; public CombatBrain tactical;
         public Campaign campaign;public bool captureOnContact;public bool boss,shielded;public float hp=100,damage=15,speed=3,stun,suspicion;public int phase=1;
         public enum Mode {Patrol,Investigate,Chase,Attack,Search}
         public Mode mode;
@@ -20,13 +21,13 @@ namespace BlackMarket {
             if(NavMesh.SamplePosition(home,out var snap,3,NavMesh.AllAreas))agent.Warp(snap.position);
             var capsule=gameObject.AddComponent<CapsuleCollider>();capsule.height=1.8f;capsule.radius=.32f;capsule.center=Vector3.up*.9f;
             visual=Instantiate(Resources.Load<GameObject>("Actors/"+actorPrefab),transform).transform;anim=visual.GetComponentInChildren<Animation>();
-            gun=Instantiate(Resources.Load<GameObject>("Actors/Pistol"),visual);gunPose=visual.gameObject.AddComponent<WeaponPose>();gunPose.weapon=gun.transform;gun.SetActive(false);
+            gun=Instantiate(Resources.Load<GameObject>("Actors/"+(combat?"AK":"Pistol")),visual);gunPose=visual.gameObject.AddComponent<WeaponPose>();gunPose.weapon=gun.transform;gun.SetActive(false);
             flashlight=new GameObject("Patrol flashlight");flashlight.transform.SetParent(visual);visual.gameObject.AddComponent<WeaponPose>().weapon=flashlight.transform;
             var casing=GameObject.CreatePrimitive(PrimitiveType.Cylinder);Destroy(casing.GetComponent<Collider>());casing.transform.SetParent(flashlight.transform);casing.transform.localPosition=Vector3.zero;casing.transform.localRotation=Quaternion.Euler(90,0,0);casing.transform.localScale=new Vector3(.055f,.11f,.055f);casing.GetComponent<Renderer>().sharedMaterial=Resources.Load<Material>("Materials/Black");
             var lamp=new GameObject("Flashlight beam");lamp.transform.SetParent(flashlight.transform);lamp.transform.localPosition=Vector3.forward*.13f;torch=lamp.AddComponent<Light>();torch.type=LightType.Spot;torch.spotAngle=48;torch.innerSpotAngle=26;torch.range=14;torch.intensity=24;torch.color=new Color(.9f,.94f,1);torch.shadows=LightShadows.Soft;torch.shadowBias=.02f;torch.shadowNormalBias=.08f;lamp.AddComponent<FlashlightBeam>();
             if(!string.IsNullOrEmpty(routeId))for(int i=0;i<20;i++){Transform found=null;foreach(var m in campaign.level.GetComponentsInChildren<WorldMarker>())if(m.id=="patrol_"+routeId+"_"+i){found=m.transform;break;}if(!found)break;route.Add(found.position);routeMarkers.Add(found.GetComponent<WorldMarker>());}
             if(route.Count==0){route.Add(home);if(NavMesh.SamplePosition(home+Vector3.forward*3,out var patrol,2,NavMesh.AllAreas))route.Add(patrol.position);}
-            destination=route[0];SetEquipment(false);
+            destination=route[0];SetEquipment(combat);if(combat){gunPose.weight=1;tactical=gameObject.AddComponent<CombatBrain>();tactical.Setup(this,agent,visual,anim,gunPose);}
         }
         void SetEquipment(bool armed){if(gun)gun.SetActive(armed && hp>0 && !captureOnContact);if(flashlight)flashlight.SetActive(!armed && hp>0 && !captureOnContact);}
         void Arm(){if(alerted)return;alerted=true;drawUntil=Time.time+.7f;gunPose.weight=0;SetEquipment(true);campaign.sound.Play("draw",.22f,transform.position);}
@@ -40,9 +41,9 @@ namespace BlackMarket {
             return true;
         }
         public bool CanSee(){if(!campaign.player)return false;var p=campaign.player;var torso=p.transform.position+Vector3.up*(p.crouch?.82f:1.25f);var head=p.transform.position+Vector3.up*(p.crouch?1.12f:1.65f);if(CanSeePoint(torso)){visibleAimPoint=torso;return true;}if(CanSeePoint(head)){visibleAimPoint=head;return true;}return false;}
-        public void Hear(Vector3 point,float radius){if(hp<=0 || Vector3.Distance(transform.position,point)>radius || alerted)return;if(Vector3.Distance(transform.position,point)>radius*.55f){var start=transform.position+Vector3.up;var end=point+Vector3.up*.2f;foreach(var hit in Physics.RaycastAll(start,(end-start).normalized,Vector3.Distance(start,end),~(1<<2),QueryTriggerInteraction.Ignore))if(!hit.collider.GetComponentInParent<EnemyController>())return;}destination=point;memory=9;searchUntil=Time.time+9;mode=Mode.Investigate;suspicion=Mathf.Max(suspicion,.18f);}
+        public void Hear(Vector3 point,float radius){if(combat){tactical?.Hear(point,radius);return;}if(hp<=0 || Vector3.Distance(transform.position,point)>radius || alerted)return;if(Vector3.Distance(transform.position,point)>radius*.55f){var start=transform.position+Vector3.up;var end=point+Vector3.up*.2f;foreach(var hit in Physics.RaycastAll(start,(end-start).normalized,Vector3.Distance(start,end),~(1<<2),QueryTriggerInteraction.Ignore))if(!hit.collider.GetComponentInParent<EnemyController>())return;}destination=point;memory=9;searchUntil=Time.time+9;mode=Mode.Investigate;suspicion=Mathf.Max(suspicion,.18f);}
         void Update(){
-            if(hp<=0)return;if(Armed)gunPose.weight=Mathf.Clamp01(1-(drawUntil-Time.time)/.7f);bool stop=!campaign.Running || stun>0;if(agent && agent.isOnNavMesh)agent.isStopped=stop;if(!campaign.Running)return;
+            if(combat){tactical?.Tick();return;}if(hp<=0)return;if(Armed)gunPose.weight=Mathf.Clamp01(1-(drawUntil-Time.time)/.7f);bool stop=!campaign.Running || stun>0;if(agent && agent.isOnNavMesh)agent.isStopped=stop;if(!campaign.Running)return;
             stun=Mathf.Max(0,stun-Time.deltaTime);if(stun>0)return;memory-=Time.deltaTime;
             if(Time.time>=nextThink){nextThink=Time.time+.12f;Think(.12f);}
             if(agent.isOnNavMesh){agent.speed=alerted?speed+1:mode==Mode.Patrol?(captureOnContact?1.85f:1.5f):2.1f;agent.isStopped=mode==Mode.Attack || Time.time<drawUntil || PatrolResting;}
@@ -80,12 +81,12 @@ namespace BlackMarket {
             if(agent.isOnNavMesh)agent.SetDestination(destination);
         }
         public void TakeDamage(float amount){
-            if(hp<=0)return;if(shielded){campaign.ui.Toast("QUYỀN TRUY CẬP BỊ THU HỒI / Khôi phục quyền tại máy tính.");return;}
+            if(combat){if(hp<=0)return;hp=Mathf.Max(0,hp-amount);tactical.Hear(campaign.player.transform.position,100);if(hp<=0){SetEquipment(false);agent.enabled=false;GetComponent<Collider>().enabled=false;if(anim)anim.Stop();gameObject.AddComponent<GroundedDeath>().Fall(visual);if(!(boss&&campaign.state.stage==1))campaign.state.kills++;else visual.gameObject.SetActive(false);campaign.underground.EnemyFell(this);}return;}if(hp<=0)return;if(shielded){campaign.ui.Toast("QUYỀN TRUY CẬP BỊ THU HỒI / Khôi phục quyền tại máy tính.");return;}
             hp=Mathf.Max(0,hp-amount);suspicion=1;Arm();memory=12;lastSeen=campaign.player.transform.position;destination=lastSeen;mode=Mode.Chase;
             if(boss && hp<=200 && phase==1){phase=2;shielded=true;campaign.security.revoked=true;campaign.security.Close();campaign.Objective("override","Victor đã khóa máy tính bảng. Khôi phục quyền quản lý ở máy tính.");campaign.ui.Subtitle("VICTOR HALE","Marcus nghĩ mình có thể thay đổi Chợ Đen. Cháu cũng vậy sao?");}
             if(boss && hp<=100 && phase==2){phase=3;damage=20;campaign.ui.Subtitle("HỆ THỐNG AN NINH","Quyền được phục hồi. Dùng đèn / xung điện từ để vô hiệu hóa Victor.");}
             if(hp>0)return;
-            SetEquipment(false);agent.enabled=false;GetComponent<Collider>().enabled=false;if(anim)anim.Stop();visual.localRotation=Quaternion.Euler(0,0,85);visual.localPosition=Vector3.up*.2f;
+            SetEquipment(false);agent.enabled=false;GetComponent<Collider>().enabled=false;if(anim)anim.Stop();gameObject.AddComponent<GroundedDeath>().Fall(visual);
             campaign.state.kills++;
             if(boss){campaign.flags.Add("boss_dead");campaign.Objective("final","Đến máy tính kế thừa. Quyết định số phận North Point.");}
             else {var drop=new GameObject("đặc vụ supply");drop.transform.SetParent(campaign.level.transform);drop.transform.position=transform.position;var point=drop.AddComponent<Interaction>();point.id="supply_drop";point.title="ĐẠN / CỨU THƯƠNG";}

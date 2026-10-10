@@ -18,7 +18,7 @@ namespace BlackMarket {
             tray.localPosition=Vector3.MoveTowards(tray.localPosition,closed+Vector3.back*.48f,Time.deltaTime*.8f);
             if(Vector3.Distance(tray.localPosition,closed+Vector3.back*.48f)>.005f)return;
             Revealed=true;var game=Campaign.Instance;
-            if(redCard && !game.state.keycard){redCard.SetActive(true);game.Objective("keycard","Đã thấy thẻ đỏ! Nhặt thẻ trong ngăn kéo vừa mở.");game.ui.Toast("Có một chiếc thẻ đỏ trong ngăn kéo.");}
+            if(redCard && !game.state.keycard){redCard.SetActive(true);game.Objective("keycard","Đã thấy USB đỏ! Nhặt USB trong ngăn kéo vừa mở.");game.ui.Toast("Có một chiếc USB đỏ trong ngăn kéo.");}
             else game.ui.Toast("Ngăn kéo "+number+" trống.");
         }
     }

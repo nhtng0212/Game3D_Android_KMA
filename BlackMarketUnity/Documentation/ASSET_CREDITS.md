@@ -104,3 +104,25 @@ Tiếng cửa trượt kết hợp texture từ Kenney `impactMetal_light_000.og
 - Đã chuẩn hóa kích thước 2,25 m, hướng di chuyển, chuyển material sang URP và thêm biển số trong prefab. Đường dẫn texture tuyệt đối trong MTL được đổi thành đường dẫn tương đối; thêm khai báo nhóm trong OBJ để Unity tách bánh xe và khung đúng theo các bộ phận gốc.
 - Phòng ngủ, đồ nội thất hình học và biển số được tạo riêng trong dự án; không cần mua asset.
 - `Resources/Audio/alex_motorcycle.wav`: âm động cơ tổng hợp riêng từ các sóng hài và nhiễu, không phải bản ghi âm tải từ bên thứ ba.
+
+## Hai tầng ngầm — chiến dịch Order 71 (10/10/2026)
+
+Ba model mới từ Poly Haven, CC0, được tải và dùng trực tiếp trong hai bản đồ:
+- [Ammo Box](https://polyhaven.com/a/ammo_box): hộp đạn trên kệ và điểm tiếp tế.
+- [Industrial Storage Cart](https://polyhaven.com/a/industrial_storage_cart): xe đẩy trong kho quân giới và trung tâm.
+- [Industrial Caged Sconce](https://polyhaven.com/a/industrial_caged_sconce): đèn bảo vệ công nghiệp.
+
+Giấy phép: https://polyhaven.com/license . FBX, texture 1K, URL nguồn và SHA-256 nằm trong `Assets/BlackMarket/Art/Underground/Sources/*/source.json`. Vật liệu chuyển sang URP; normal map nhập đúng kiểu NormalMap. Tái sử dụng các bàn, ghế, máy tính, kệ, súng và nhân vật đã ghi nguồn ở các mục trước. Không mua asset.
+
+`explosion.wav` và `power_down.wav` là âm thanh tổng hợp mới bằng sóng/nhiễu; không sử dụng bản thu bên thứ ba.
+
+## Màn 2 — sáu phòng kính và kho súng (10/10/2026)
+
+- **AK47 và M700**, Stein Games, [Free Classic Weapons Pack v1.1](https://stein-indie.itch.io/classic-weapons-pack), **CC0**. Nhập FBX và texture màu/normal, texture giới hạn 1K; chuyển mesh súng sang mesh tĩnh dùng chung. Giấy phép gốc và mã SHA-256 ZIP lưu tại `Art/ArmoryRevision/Sources/SteinWeapons/`.
+- **Medical Box**, **Binder Notebook**, **Office Notepads**, **Potted Plant 02**, **Portable Generator**: Poly Haven, **CC0**. Nguồn lần lượt: https://polyhaven.com/a/medical_box , https://polyhaven.com/a/binder_notebook , https://polyhaven.com/a/office_notepads , https://polyhaven.com/a/potted_plant_02 , https://polyhaven.com/a/portable_generator . FBX, texture 1K và manifest URL/SHA-256 tại `Art/ArmoryRevision/Sources/`. Giấy phép: https://polyhaven.com/license .
+- Bộ máy tính cây (màn hình, bàn phím, chuột, thùng máy), ghế xoay văn phòng, kệ vũ khí và vách kính được dựng riêng bằng hình học trong dự án. Hình giao diện màn hình máy tính được tạo riêng; không dùng ảnh màn hình của sản phẩm thương mại.
+- `Resources/Audio/hunt_shout.mp3`: lời tiếng Việt tổng hợp qua Google Translate TTS bằng gTTS, nội dung “Lùng bắn hắn! Từng nhóm một, kiểm tra các phòng!”, hạ cao độ trong game. Đây là giọng tổng hợp tạm, không phải diễn viên thu âm hay asset CC0 từ Poly Haven/Stein Games. Không có giọng người thật được sao chép.
+
+Giọng `hunt_shout.mp3` hiện đã tắt trong `Soundscape.Play` theo phản hồi về chất lượng. Các câu thoại đang hiển thị bằng chữ; chưa có bộ lồng tiếng diễn xuất mới.
+
+Khu phố mở rộng trong hoạt cảnh kết: 28 nhà, đường/vỉa hè/vạch đường và 14 đèn đường dựng bằng hình học trong dự án (`EndingNeighborhood.cs`). Sáu xe đỗ tái sử dụng BlackSedan đã ghi nguồn ở trên. Không thêm tài sản trả phí.

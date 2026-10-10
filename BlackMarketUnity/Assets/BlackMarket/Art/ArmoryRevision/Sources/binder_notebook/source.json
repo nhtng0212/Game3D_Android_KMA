@@ -1,0 +1,21 @@
+{
+  "source": "https://polyhaven.com/a/binder_notebook",
+  "license": "CC0",
+  "files": [
+    {
+      "file": "binder_notebook_1k.fbx",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/fbx/1k/binder_notebook/binder_notebook_1k.fbx",
+      "sha256": "d4de5da356605b5b8c55e500e9a1f178f241fdd4d6dd05a03f295b07238afb9c"
+    },
+    {
+      "file": "binder_notebook_diff_1k.png",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/binder_notebook/binder_notebook_diff_1k.png",
+      "sha256": "01a3dd5dee5d024fd6087739d899bd0840721fba46d1cd75913d3e438db63259"
+    },
+    {
+      "file": "binder_notebook_nor_gl_1k.png",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/binder_notebook/binder_notebook_nor_gl_1k.png",
+      "sha256": "0e23ea0499bb9588a0be7d629de4e355daad1f50e59ccae2e9ce43de9b0f359b"
+    }
+  ]
+}

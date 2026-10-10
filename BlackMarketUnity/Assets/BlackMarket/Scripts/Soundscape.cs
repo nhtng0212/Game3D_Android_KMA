@@ -8,7 +8,7 @@ namespace BlackMarket {
         public int VariantCount(string id)=>variations.TryGetValue(id,out var bank)?bank.Length:0;
         AudioLowPassFilter[] filters;AudioSource[] voices;int cursor;AudioSource ambience,rain;AudioClip[] footsteps;
         void Awake(){
-            foreach(var id in new[]{"arrival_engine","shot","reload","door","beep","alarm","hit","step","ring","ambient"})clips[id]=Resources.Load<AudioClip>("Audio/"+id);
+            foreach(var id in new[]{"hunt_shout","explosion","power_down","alex_motorcycle","arrival_engine","shot","reload","door","beep","alarm","hit","step","ring","ambient"})clips[id]=Resources.Load<AudioClip>("Audio/"+id);
             var foley=Resources.Load<AudioClip>("Foley/footstep_concrete_000");if(foley)clips["step"]=foley;
             var shot=Resources.Load<AudioClip>("FieldAudio/shot");if(shot)clips["shot"]=shot;var reload=Resources.Load<AudioClip>("FieldAudio/reload");if(reload)clips["reload"]=reload;footsteps=new AudioClip[5];for(int k=0;k<5;k++)footsteps[k]=Resources.Load<AudioClip>("Foley/footstep_concrete_00"+k);
             foreach(var id in new[]{"pistol","rifle"}){var bank=new List<AudioClip>();for(int i=0;i<3;i++){var take=Resources.Load<AudioClip>("FieldAudio/"+id+"_"+i);if(take)bank.Add(take);}if(bank.Count>0){variations[id]=bank.ToArray();clips[id]=bank[0];}else clips[id]=clips["shot"];}
@@ -18,17 +18,18 @@ namespace BlackMarket {
             rain=gameObject.AddComponent<AudioSource>();rain.clip=Resources.Load<AudioClip>("FieldAudio/1");rain.loop=true;rain.volume=0;rain.Play();
             clips["run"]=clips["step"];clips["draw"]=Resources.Load<AudioClip>("Foley/impactMetal_light_000")??clips["reload"];
             filters=new AudioLowPassFilter[32];voices=new AudioSource[32];for(int i=0;i<voices.Length;i++){var g=new GameObject("Spatial voice "+i);g.transform.SetParent(transform);voices[i]=g.AddComponent<AudioSource>();filters[i]=g.AddComponent<AudioLowPassFilter>();filters[i].cutoffFrequency=22000;voices[i].minDistance=2;voices[i].maxDistance=35;voices[i].rolloffMode=AudioRolloffMode.Logarithmic;}
-            ambience=gameObject.AddComponent<AudioSource>();ambience.clip=clips["ambient"];ambience.loop=true;ambience.volume=.09f;ambience.Play();
+            ambience=gameObject.AddComponent<AudioSource>();ambience.clip=clips["ambient"];ambience.loop=true;ambience.volume=.27f;ambience.Play();
         }
-        void Update(){var g=Campaign.Instance;if(!g || !g.player)return;float target=g.state.stage==0?(g.player.transform.position.z<0?.23f:.035f):0;rain.volume=Mathf.MoveTowards(rain.volume,target,Time.unscaledDeltaTime*.15f);}
+        void Update(){var g=Campaign.Instance;if(!g || !g.player)return;float target=g.state.stage==0?(g.player.transform.position.z<0?.23f:.035f):0;rain.volume=Mathf.MoveTowards(rain.volume,target*3,Time.unscaledDeltaTime*.15f);}
         public void Play(string id,float volume,Vector3? position=null){
+            if(id=="hunt_shout")return;
             if(!clips.TryGetValue(id,out var clip)||!clip)return;
             int slot=-1;for(int i=0;i<voices.Length;i++){int candidate=(cursor+i)%voices.Length;if(!voices[candidate].isPlaying){slot=candidate;break;}}
             if(slot<0){slot=cursor%voices.Length;for(int i=0;i<voices.Length;i++)if(voices[i].priority>voices[slot].priority)slot=i;}
             cursor=(slot+1)%voices.Length;var v=voices[slot];v.Stop();
             if(variations.TryGetValue(id,out var bank)){lastVariation.TryGetValue(id,out int last);int choice=(last+Random.Range(1,bank.Length))%bank.Length;clip=bank[choice];lastVariation[id]=choice;}
-            v.clip=(id=="step" || id=="run") && footsteps!=null?footsteps[Random.Range(0,footsteps.Length)]:clip;
-            bool firearm=id=="pistol" || id=="rifle";v.priority=firearm?64:128;v.volume=volume;v.pitch=id=="run"?Random.Range(.85f,.98f):id=="step"?Random.Range(.85f,1.12f):Random.Range(.985f,1.015f);
+            var foot=(id=="step" || id=="run") && footsteps!=null?footsteps[Random.Range(0,footsteps.Length)]:null;v.clip=foot?foot:clip;
+            bool firearm=id=="pistol" || id=="rifle";v.priority=firearm?64:128;v.volume=Mathf.Min(1,volume*3);v.pitch=id=="hunt_shout"?.85f:id=="run"?Random.Range(.85f,.98f):id=="step"?Random.Range(.85f,1.12f):Random.Range(.985f,1.015f);
             bool occluded=false;
             if(position.HasValue && Campaign.Instance && Campaign.Instance.player){var from=position.Value+Vector3.up*.1f;var to=Campaign.Instance.player.camera.transform.position;foreach(var hit in Physics.RaycastAll(from,(to-from).normalized,Vector3.Distance(from,to),~(1<<2),QueryTriggerInteraction.Ignore))if(!hit.collider.GetComponentInParent<EnemyController>()){occluded=true;break;}}
             filters[slot].cutoffFrequency=occluded?1800:22000;if(occluded)v.volume*=.55f;v.spatialBlend=position.HasValue?1:0;v.maxDistance=firearm?55:35;if(position.HasValue)v.transform.position=position.Value;v.Play();

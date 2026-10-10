@@ -1,0 +1,28 @@
+PASS three worlds and ten-digit code
+PASS locked opening and final evidence exist
+PASS old save migrates safely to new armory
+PASS unhurt player receives timed retreat after 35 seconds
+PASS retreat stair fade loads control center
+PASS final checkpoint reload preserves blackout and open entry
+PASS control route to medical
+PASS control route to nightvision
+PASS control route to control_entry
+PASS control route to breaker
+PASS control route to final_terminal
+PASS control route to escape
+PASS safe prep heals and equips night vision
+PASS shooting breaker cuts light power
+PASS non-NV enemies lose sight in darkness
+PASS Victor has night vision
+PASS weapon damage is real damage, no old two-hit override
+PASS grenade uses inventory
+PASS grenade fuse freezes while paused
+PASS grenade explodes after fuse
+PASS final victory unlocks terminal
+PASS final schedules only fifteen reinforcement IDs
+PASS central server retrieves code
+PASS final file opens before escape countdown
+PASS copy evidence then start escape timer
+PASS canonical ending completed and saved
+PASS completed save returns to ending without replaying battle
+RESULT 0 failures
