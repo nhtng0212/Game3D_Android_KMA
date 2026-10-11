@@ -1,13 +1,13 @@
 # Mở đầu cửa hàng và hướng dẫn chơi
 
-Chiến dịch hiện bắt đầu ở phòng ngủ Alex với cuộc gọi phân nhánh, sau đó là cảnh đi xe máy tới cửa hàng. Xem [cây hội thoại và cách chỉnh hoạt cảnh](PROLOGUE_DIALOGUE_VI.md). Các bước dưới đây áp dụng khi hoạt cảnh đã cắt vào bên trong cửa hàng và trả quyền điều khiển.
+Chiến dịch hiện bắt đầu ở phòng ngủ Alex với cuộc gọi ngắn gồm hai câu của Marcus, sau đó là cảnh đi xe máy tới cửa hàng. Xem [cuộc gọi và cách chỉnh hoạt cảnh](PROLOGUE_DIALOGUE_VI.md). Các bước dưới đây áp dụng khi hoạt cảnh đã cắt vào bên trong cửa hàng và trả quyền điều khiển.
 
 ## USB và máy tính là hai bước khác nhau
 
-USB đỏ được giấu trong một ngăn tủ tại phòng Marcus. Đây là chìa khóa xác thực; tài liệu cần đọc nằm trong máy tính. Alex dùng USB để mở máy tính của chú. Tệp **Order 71** trên máy tính giải thích cái chết bị dàn dựng của Marcus, nhóm truy bắt của Victor và đường thoát qua Cửa 006. Phụ lục cuối tệp bị khóa bằng mã 10 chữ số; mã nằm tại máy chủ điều phối ở tầng sâu nhất. Alex nói “Mã ư?” trước khi cảnh đoàn xe bắt đầu.
+USB đỏ được giấu trong một ngăn tủ tại phòng Marcus. Alex kiểm tra máy tính trước và nhận yêu cầu tìm USB xác thực. Order 71 ban đầu chỉ hiện thông tin đơn hàng, người nhận 47 và vị trí sau Cửa 006; không tiết lộ Victor hay cái chết bị dàn dựng. Màn 2 chỉ nơi lấy mã; cuối game mới giải nghĩa hồ sơ. Xem [nội dung hiện tại](ORDER71_STORY_VI.md).
 
 1. Đi tới cuối cửa hàng, vào văn phòng Marcus bên trái.
-2. Đến gần cửa, nhấn **E** để mở. Đến **TỦ CÁ NHÂN / MARCUS**, dùng **E** kiểm tra các ngăn của sáu cụm tủ sát tường cho tới khi thấy USB. Khi thấy USB đỏ, nhấn **E** để nhặt riêng.
+2. Đến gần cửa, nhấn **E** để mở. Kiểm tra máy tính để nhận nhiệm vụ tìm USB, rồi đến **TỦ CÁ NHÂN / MARCUS**, dùng **E** kiểm tra các ngăn của sáu cụm tủ sát tường cho tới khi thấy USB. Khi thấy USB đỏ, nhấn **E** để nhặt riêng.
 3. Đến gần **MÁY TÍNH MARCUS / HỒ SƠ 071**, nhấn **E**.
 4. Màn hình máy tính hiện lớn với biểu tượng tệp **Order 71**. Bấm tệp để mở; mở máy tính thôi chưa kích hoạt cảnh xe đến. Chữ hiện dần; đọc xong một trang rồi bấm **ĐỌC TRANG TIẾP**. Trang cuối có nút **ĐÓNG HỒ SƠ / RỜI MÁY TÍNH**.
 5. Ba xe đến, nhóm 10 người mặc vest bước ra và tiến tới gần cửa. Camera cắt về Alex, sau đó nhóm truy bắt xuất hiện bên trong; không quay đoạn đi xuyên qua cửa. Trong cảnh này không điều khiển Alex.
@@ -18,7 +18,7 @@ Trên điện thoại: dùng cần trái để di chuyển, vuốt vùng trống
 
 ## Đọc lần đầu và chơi lại
 
-Lần đầu, chữ hiện dần. Đúng 3 giây sau ký tự cuối, nút tiếp tục sáng lên; không có thêm bộ đếm thời gian đọc theo độ dài nội dung. Quy tắc này áp dụng cả cốt truyện thông thường lẫn từng trang Order 71. Không cần chạy đua với chữ: trang không tự chuyển. Trò chơi không thể xác nhận bạn đã đọc thật, chỉ kiểm tra thời gian hiển thị và việc đi hết nội dung.
+Lần đầu, chữ hiện dần. Đúng 3 giây sau ký tự cuối, nút tiếp tục sáng lên; không có thêm bộ đếm thời gian đọc theo độ dài nội dung. Quy tắc này áp dụng cả cốt truyện thông thường lẫn từng trang Order 71. Trang tài liệu không tự chuyển. Riêng hai câu trong cuộc gọi mở đầu tự chuyển sau khi chữ hiện hết và chờ 3 giây. Trò chơi không thể xác nhận bạn đã đọc thật, chỉ kiểm tra thời gian hiển thị và việc đi hết nội dung.
 
 Chỉ khi hoàn tất toàn bộ tài liệu/cảnh mới ghi nhận đã xem. Khi chết hoặc bắt đầu lại, nút **BỎ QUA HỒ SƠ ĐÃ ĐỌC** và **BỎ QUA CẢNH ĐÃ XEM** được mở cho nội dung đã hoàn tất. Bỏ qua cảnh vẫn tạo đủ nhóm truy bắt và nhiệm vụ chạy trốn. Dữ liệu đã đọc nằm riêng trong tệp `.reading` cạnh tệp lưu chiến dịch; không bị xóa khi bắt đầu lại.
 

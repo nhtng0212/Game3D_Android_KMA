@@ -11,7 +11,7 @@ namespace BlackMarket {
         string title,body,toast,speaker,subtitle,settingsReturn="menu";float toastUntil,subtitleUntil;Action continuation;Vector2 storyScroll,journalScroll;
         string storyKey; float readRemaining,storyContentHeight; bool readEnd;
         string[] terminalPages; int terminalPage; float typedCharacters;
-        public bool ComputerScreen => modal=="story" && (storyKey=="terminal071" || storyKey=="base-file-v2" || storyKey=="final-file-v2");
+        public bool ComputerScreen => modal=="story" && (storyKey=="terminal071-v3" || storyKey=="base-file-v2" || storyKey=="final-file-v3");
         public int TerminalPage => terminalPage;
         public int TerminalPageCount => terminalPages==null?0:terminalPages.Length;
         public bool TerminalPageReady => ComputerScreen && (game.HasSeenStory(storyKey) || (readRemaining<=0 && typedCharacters>=terminalPages[terminalPage].Length));
@@ -24,7 +24,7 @@ namespace BlackMarket {
         void Awake(){game=GetComponent<Campaign>();regular=Resources.Load<Font>("Fonts/Regular");bold=Resources.Load<Font>("Fonts/Bold");mono=Resources.Load<Font>("Fonts/Mono");assist=PlayerPrefs.GetInt("assist",1)==1;sensitivity=PlayerPrefs.GetFloat("sensitivity",1);volume=PlayerPrefs.GetFloat("volume",.65f);AudioListener.volume=volume;brightness=PlayerPrefs.GetFloat("brightness",.7f);ApplyBrightness();}
         void ApplyBrightness(){var v=FindFirstObjectByType<UnityEngine.Rendering.Volume>();if(v && v.profile.TryGet<UnityEngine.Rendering.Universal.ColorAdjustments>(out var color))color.postExposure.Override(brightness);}
         public void Story(string caption,string content,Action next,string key=null){key=key??"document:"+caption;game.security.Close();storyKey=key;readRemaining=game.HasSeenStory(key)?0:3;typedCharacters=game.HasSeenStory(key)?content.Length:0;readEnd=false;title=caption;body=content;storyContentHeight=Mathf.Max(330,new GUIStyle{font=regular,fontSize=21,wordWrap=true}.CalcHeight(new GUIContent(content),905));readEnd=storyContentHeight<=350;storyScroll=Vector2.zero;continuation=next;modal="story";game.LockCursor(false);game.player?.ResetTouch();
-            if(key=="terminal071" || key=="base-file-v2" || key=="final-file-v2"){
+            if(key=="terminal071-v3" || key=="base-file-v2" || key=="final-file-v3"){
                 terminalPages=content.Trim().Split(new[]{"\n\n"},StringSplitOptions.RemoveEmptyEntries);terminalPage=0;StartTerminalPage();
             }
         }
@@ -32,7 +32,7 @@ namespace BlackMarket {
         public void OpenDecoder(){modal="decoder";game.LockCursor(false);game.player.ResetTouch();}
         public Rect OrderFileRect => new Rect(125,210,260,150);
         public void OpenComputerDesktop(){game.security.Close();modal="computer";game.LockCursor(false);game.player.ResetTouch();}
-        public void OpenOrderFile(){if(modal!="computer" || !game.state.keycard)return;Story("Order 71",StoryData.Terminal,()=>{game.flags.Add("computer");game.opening.Begin();},"terminal071");}
+        public void OpenOrderFile(){if(modal!="computer" || !game.state.keycard)return;Story("Order 71",StoryData.Terminal,()=>{game.flags.Add("computer");game.opening.Begin();},"terminal071-v3");}
         public bool TryOpenOrderFile(){if(modal!="computer" || !TryPointerClick(OrderFileRect))return false;OpenOrderFile();return true;}
         void DrawDesktop(){
             Panel(new Rect(65,42,1150,624),new Color(.13f,.15f,.16f));Panel(new Rect(80,57,1120,594),new Color(.025f,.075f,.09f));
@@ -58,11 +58,36 @@ namespace BlackMarket {
         string ControlText(string value)=>TouchControls?value.Replace("[E]","[DÙNG]").Replace("[C]","[KHOM]").Replace("[N]","[KÍNH ĐÊM]").Replace("[Q]","[ĐỔI SÚNG]").Replace("[G]","[LỰU ĐẠN]").Replace("[chuột phải]","[NGẮM]").Replace("chuột phải","NGẮM").Replace("Chuột phải","NGẮM").Replace("chuột trái","BẮN").Replace("Q đổi","ĐỔI SÚNG để đổi").Replace("R nạp","NẠP để nạp").Replace(" [TAB]","").Replace(" [Tab]","").Replace(" [J]",""):value;
         void Label(string s,float x,float y,float w=900,float h=40,int size=20,Color? color=null){s=ControlText(s);var st=new GUIStyle(text){fontSize=size};st.normal.textColor=color??ivory;GUI.Label(new Rect(x,y,w,h),s,st);}
         bool Button(string s,float x,float y,float w=340,bool primary=false){s=ControlText(s);GUI.backgroundColor=primary?accent:new Color(.15f,.21f,.23f);var rect=new Rect(x,y,w,49);GUI.Box(rect,s,button);bool click=ConsumeClick(rect);GUI.backgroundColor=Color.white;if(click)game.sound.Play("beep",.12f);return click;}
-        public Rect TouchRect(string id){switch(id){case "grenade":return new Rect(570,545,135,55);case "move":return new Rect(35,475,220,210);case "fire":return new Rect(1120,505,110,100);case "aim":return new Rect(1120,395,110,80);case "interact":return new Rect(950,530,135,65);case "reload":return new Rect(1000,620,105,55);case "crouch":return new Rect(275,620,100,55);case "run":return new Rect(275,545,100,55);case "tablet":return new Rect(820,620,150,55);case "switch":return new Rect(405,545,130,55);case "nightvision":return new Rect(405,620,150,55);case "journal":return new Rect(650,620,150,55);case "pause":return new Rect(1190,22,60,45);default:return new Rect();}}
-        static readonly string[] TouchIds={"grenade","move","fire","aim","interact","reload","crouch","run","tablet","switch","nightvision","journal","pause"};
+        public Rect TouchRect(string id){switch(id){
+            case "move":return new Rect(45,465,200,200);
+            case "fire":return new Rect(1111.6f,481.6f,128.8f,128.8f);
+            case "aim":return new Rect(1136,360,80,80);
+            case "interact":return new Rect(526,523,76,76);
+            case "reload":return new Rect(1128,620,68,68);
+            case "crouch":return new Rect(1024,600,72,72);
+            case "run":return new Rect(109,305,72,72);
+            case "grenade":return new Rect(934,414,72,72);
+            case "nightvision":return new Rect(666,527,68,68);
+            case "tablet":return new Rect(844,488,68,68);
+            case "ak":return new Rect(475,617,150,66);
+            case "sniper":return new Rect(639,617,150,66);
+            case "pause":return new Rect(1180,24,64,64);
+            default:return new Rect();}}
+        static readonly string[] TouchIds={"move","fire","aim","interact","reload","crouch","run","grenade","nightvision","tablet","ak","sniper","pause"};
+        bool TouchHit(string id,Vector2 point){var r=TouchRect(id);if(id=="ak"||id=="sniper")return r.Contains(point);return (point-r.center).sqrMagnitude<=r.width*r.width*.25f;}
         readonly Dictionary<int,string> gestures=new Dictionary<int,string>();
         Vector2 moveOrigin;
-        public bool TouchControls => Application.isMobilePlatform || (Debug.isDebugBuild && Array.IndexOf(Environment.GetCommandLineArgs(),"--touch-test")>=0);
+        bool sprintEnabled,aimEnabled;
+        public bool EditorTouchPreview {
+            get {
+#if UNITY_EDITOR
+                return !Application.isBatchMode && UnityEditor.EditorPrefs.GetBool("BlackMarket.AndroidPreview",true);
+#else
+                return false;
+#endif
+            }
+        }
+        public bool TouchControls => EditorTouchPreview || Application.isMobilePlatform || (Debug.isDebugBuild && Array.IndexOf(Environment.GetCommandLineArgs(),"--touch-test")>=0);
         public static Rect FitCanvas(Rect safe){float scale=Mathf.Min(safe.width/W,safe.height/H);return new Rect(safe.center-new Vector2(W,H)*scale*.5f,new Vector2(W,H)*scale);}
         Rect CanvasRect => TouchControls?FitCanvas(new Rect(Screen.safeArea.x,Screen.height-Screen.safeArea.yMax,Screen.safeArea.width,Screen.safeArea.height)):FitCanvas(new Rect(0,0,Screen.width,Screen.height));
         Vector2 GuiPoint(Vector2 p){var r=CanvasRect;return new Vector2((p.x-r.x)*W/r.width,(Screen.height-p.y-r.y)*H/r.height);}
@@ -104,25 +129,27 @@ namespace BlackMarket {
         void OnApplicationFocus(bool focus){if(!focus){pointerHeld=pendingClick=false;menuFinger=-1;ResetTouchGestures();}}
         void OnEnable(){EnhancedTouchSupport.Enable();}
         void OnDisable(){EnhancedTouchSupport.Disable();ResetTouchGestures();if(game && game.player)game.player.ResetTouch();}
-        public void ResetTouchGestures(){gestures.Clear();}
-        public bool TouchVisible(string id){return !((id=="fire"||id=="aim"||id=="reload"||id=="grenade")&&!game.state.armed || id=="tablet"&&!game.state.tablet || id=="switch"&&!game.state.hasAK || id=="nightvision"&&!game.state.hasNightVision);}
-        public void BeginTouchFrame(){var p=game.player;if(!p)return;p.touchMove=Vector2.zero;p.touchAim=p.touchFire=p.touchRun=false;}
+        public void ResetTouchGestures(){gestures.Clear();sprintEnabled=aimEnabled=false;}
+        public bool TouchVisible(string id){return !(id=="interact"&&(!game.player || !game.player.target || !game.player.target.Available || Vector3.Distance(game.player.transform.position,game.player.target.transform.position)>game.player.InteractionRange) || (id=="fire"||id=="aim"||id=="reload"||id=="grenade")&&!game.state.armed || id=="tablet"&&!game.state.tablet || id=="ak"&&!game.state.hasAK || id=="sniper"&&!game.state.hasSniper || id=="nightvision"&&!game.state.hasNightVision);}
+        public void BeginTouchFrame(){var p=game.player;if(!p)return;p.touchMove=Vector2.zero;p.touchFire=false;p.touchAim=aimEnabled&&game.state.armed;p.touchRun=false;sprintEnabled=false;}
         // A finger owns its initial control until release; returning from an overlay requires a fresh press.
         public void ProcessTouch(int finger,Vector2 pos,Vector2 delta,bool began,bool ended){
             var p=game.player;if(!p || !game.Running || game.security.opened){if(p)p.ResetTouch();return;}
             if(ended){gestures.Remove(finger);return;}
             if(began){
                 string role="none";
-                foreach(var id in TouchIds)if(TouchVisible(id) && TouchRect(id).Contains(pos)){role=id;break;}
+                foreach(var id in TouchIds)if(TouchVisible(id) && TouchHit(id,pos)){role=id;break;}
                 if(role=="none" && pos.x>W*.4f && pos.x<W && pos.y>190 && pos.y<H)role="look";
                 if((role=="move" || role=="look") && gestures.ContainsValue(role))role="none";
                 gestures[finger]=role;if(role=="move")moveOrigin=pos;
                 switch(role){
                     case "interact":p.Interact();break;
                     case "reload":p.Reload();break;
-                    case "grenade":p.ThrowGrenade();break;case "crouch":p.ToggleCrouch();break;
+                    case "grenade":p.ThrowGrenade();break;case "crouch":sprintEnabled=false;p.ToggleCrouch();break;
+                    case "run":p.crouch=false;aimEnabled=p.touchAim=false;break;
+                    case "aim":aimEnabled=!aimEnabled;if(aimEnabled)sprintEnabled=p.touchRun=false;p.touchAim=aimEnabled&&game.state.armed;break;
                     case "tablet":game.security.Toggle();break;
-                    case "switch":p.SwitchWeapon(p.UsingAK&&p.campaign.state.hasSniper?2:1);break;
+                    case "ak":p.SwitchWeapon(1);break;case "sniper":p.SwitchWeapon(2);break;
                     case "nightvision":p.nightVision.Toggle();break;
                     case "journal":OpenJournal();break;
                     case "pause":game.Pause();break;
@@ -131,10 +158,12 @@ namespace BlackMarket {
             }
             if(!gestures.TryGetValue(finger,out var control))return;
             switch(control){
-                case "move":var v=new Vector2(pos.x-moveOrigin.x,moveOrigin.y-pos.y)/70;float length=v.magnitude;p.touchMove=length<.12f?Vector2.zero:v.normalized*Mathf.Clamp01((length-.12f)/.88f);break;
-                case "fire":p.touchFire=game.state.armed;break;
-                case "aim":p.touchAim=game.state.armed;break;
-                case "run":p.touchRun=true;break;
+                case "move":var v=new Vector2(pos.x-moveOrigin.x,moveOrigin.y-pos.y)/70;float length=v.magnitude;p.touchMove=length<.12f?Vector2.zero:v.normalized*Mathf.Clamp01((length-.12f)/.88f);
+                    if(pos.y<TouchRect("run").yMax && v.y>1.5f && Mathf.Abs(v.x)<.9f){sprintEnabled=p.touchRun=true;aimEnabled=p.touchAim=false;p.crouch=false;}
+                    break;
+                case "fire":p.touchFire=game.state.armed;p.yaw+=delta.x*.11f*sensitivity;p.pitch=Mathf.Clamp(p.pitch-delta.y*.09f*sensitivity,-30,55);break;
+                case "aim":p.touchAim=aimEnabled&&game.state.armed;break;
+                case "run":if(TouchHit("run",pos)){sprintEnabled=p.touchRun=true;p.crouch=false;aimEnabled=p.touchAim=false;}break;
                 case "look":p.yaw+=delta.x*.11f*sensitivity;p.pitch=Mathf.Clamp(p.pitch-delta.y*.09f*sensitivity,-30,55);break;
             }
         }
@@ -151,7 +180,15 @@ namespace BlackMarket {
             if(!TouchControls || !game.player)return;
             BeginTouchFrame();
             if(!game.Running || game.security.opened){game.player.ResetTouch();return;}
+            game.player.FindTarget();
             foreach(var t in FingerTouch.activeTouches){ProcessTouch(t.touchId,GuiPoint(t.screenPosition),GuiDelta(t.delta),t.began,t.ended);if(!game.Running || game.security.opened)break;}
+            // Simulator supplies real touch events; ordinary Game View uses mouse as one finger.
+            if(EditorTouchPreview && FingerTouch.activeTouches.Count==0 && Mouse.current!=null){
+                var m=Mouse.current;
+                if(m.rightButton.isPressed){var d=GuiDelta(m.delta.ReadValue());game.player.yaw+=d.x*.11f*sensitivity;game.player.pitch=Mathf.Clamp(game.player.pitch-d.y*.09f*sensitivity,-30,55);}
+                if(m.leftButton.isPressed || m.leftButton.wasReleasedThisFrame)
+                    ProcessTouch(-100,GuiPoint(m.position.ReadValue()),GuiDelta(m.delta.ReadValue()),m.leftButton.wasPressedThisFrame,m.leftButton.wasReleasedThisFrame);
+            }
         }
         void OnGUI(){
             if(DescentBlackout.Visible&&game&&!game.paused)return;
@@ -166,19 +203,14 @@ namespace BlackMarket {
                 GUI.enabled=game.HasSave();if(Button("TIẾP TỤC ĐIỂM LƯU",58,547,420))game.Continue();GUI.enabled=true;
                 if(Button("CÀI ĐẶT",58,609,202))OpenSettings();
                 if(Button("ĐIỀU KHIỂN",276,609,202))modal="help";
-                Label("01—03   /   MỘT NGƯỜI CHƠI   /   KHÔNG CẦN MẠNG",60,684,490,22,11,muted);
                 Label("CỬA HÀNG NORTH POINT\nĐIỆN TỬ / SỬA CHỮA / TỪ NĂM 1998",865,570,355,70,14,ivory);if(!TouchControls && Button("THOÁT TRÒ CHƠI",1015,644,205))Application.Quit();return;
             }
             if(game.prologue && game.prologue.Playing && modal==""){
                 var intro=game.prologue;Panel(new Rect(0,0,W,64),ink);Label("CUỘC GỌI CUỐI CÙNG / ALEX CARTER",35,20,950,32,20,accent);
                 if(Button("TẠM DỪNG",1045,8,205))game.Pause();
                 if(intro.Node!=null){
-                    Panel(new Rect(55,400,1170,305),ink);Label(intro.Node.speaker+" / ĐIỆN THOẠI",80,416,1100,30,18,accent);
-                    Label(intro.VisibleText,80,452,1100,90,22);
-                    Label(intro.Ready?"CHỌN CÂU TRẢ LỜI CỦA ALEX":"Đọc lời thoại… Các lựa chọn sáng sau khi chữ chạy hết 3 giây.",80,546,1090,26,15,muted);
-                    GUI.enabled=intro.Ready;
-                    for(int i=0;i<intro.Node.choices.Length;i++)if(Button(intro.Node.choices[i].text,80+i*370,582,355,true)){intro.Choose(i);break;}
-                    GUI.enabled=true;
+                    Panel(new Rect(55,490,1170,190),ink);Label(intro.Node.speaker+" / ĐIỆN THOẠI",80,508,1100,30,18,accent);
+                    Label(intro.VisibleText,80,548,1100,90,22);
                 }else{Panel(new Rect(0,H-120,W,120),ink);Label(intro.Caption,80,H-100,1120,65,23);}
                 if(intro.CanSkip && Button("BỎ QUA PHẦN ĐÃ XEM",865,75,360))intro.Skip();return;
             }
@@ -203,8 +235,8 @@ namespace BlackMarket {
                 if(!game.security.opened){
                     ObjectiveMarker();
                     Panel(new Rect(632,360,16,1),hit>0?accent:ivory);Panel(new Rect(640,352,1,16),hit>0?accent:ivory);
-                    if(game.player && game.player.target){Panel(new Rect(360,430,560,60),ink);Label((TouchControls?"[ DÙNG ]  ":"[ E ]  ")+game.player.target.title,378,441,524,45,16);}
-                    Label(game.state.armed?(game.player.reloadTime>0?"NẠP ĐẠN…":$"{game.player.WeaponName} {game.player.Ammo:00}/{game.player.Reserve:00}"):"CHƯA CÓ VŨ KHÍ",1020,672,245,35,20,accent);
+                    if(game.player && game.player.target && TouchVisible("interact")){Panel(new Rect(360,430,560,60),ink);Label((TouchControls?"[ DÙNG ]  ":"[ E ]  ")+game.player.target.title,378,441,524,45,16);}
+                    if(!TouchControls)Label(game.state.armed?(game.player.reloadTime>0?"NẠP ĐẠN…":$"{game.player.WeaponName} {game.player.Ammo:00}/{game.player.Reserve:00}"):"CHƯA CÓ VŨ KHÍ",1020,672,245,35,20,accent);
                     if(game.state.stage<6 && game.upload<0)Label(game.state.stage==0?"BỊ ÁP SÁT = BỊ BẮT / HÃY CHẠY":"NÚP SAU CỘT / BÀN ĐỂ TRÁNH ĐẠN",40,142,230,38,11,accent);
                     if(game.player.nightVision.Active)Label("KÍNH ĐÊM / ĐANG BẬT",40,183,200,28,13,new Color(.4f,1,.6f));
                     if(!TouchControls)Label("WASD DI CHUYỂN • E DÙNG • C KHOM • G LỰU ĐẠN • J NHẬT KÝ • Q ĐỔI SÚNG • N KÍNH ĐÊM • ESC TẠM DỪNG",28,679,970,25,12,muted);
@@ -236,6 +268,9 @@ namespace BlackMarket {
                 GUI.Label(new Rect(165,150,1000,90),modal=="death"?(game.state.stage==0?"BẠN ĐÃ BỊ BẮT":"BẠN ĐÃ BỊ HẠ"):"TẠM DỪNG",heading);Label("Trò chơi lưu ở đầu mỗi tầng và các chặng chiến đấu. Nội dung đã đọc và cảnh đã xem có thể bỏ qua khi chơi lại.",165,255,850,60,21,muted);
                 if(modal=="pause" && Button("TIẾP TỤC",165,365,450,true))game.Resume();
                 if(Button("CHƠI LẠI ĐIỂM LƯU",165,430,450,modal=="death"))game.Continue();
+                if(modal=="pause" && Button("NHẬT KÝ / NHIỆM VỤ",650,365,450))OpenJournal();
+                if(modal=="pause" && Button("HƯỚNG DẪN",650,430,450))modal="help";
+                if(modal=="pause" && Button("NGUỒN BIỂU TƯỢNG",650,495,450))Story("BIỂU TƯỢNG GIAO DIỆN","Lorc, Delapouite, Sbed và Skoll / Game-icons.net\nhttps://game-icons.net\nGiấy phép CC BY 3.0: https://creativecommons.org/licenses/by/3.0/\nĐã bỏ nền, chuyển sang PNG và chỉnh màu khi hiển thị.",()=>game.Pause(),"mobile-icon-credits");
                 if(Button("CÀI ĐẶT",165,495,450))OpenSettings();
                 if(Button("VỀ MÀN HÌNH CHÍNH",165,560,450))game.Menu();
             } else if(modal=="choice"){
@@ -252,9 +287,9 @@ namespace BlackMarket {
                 if(Button("LƯU & QUAY LẠI",165,595,420,true)){PlayerPrefs.SetInt("assist",assist?1:0);PlayerPrefs.SetFloat("volume",volume);PlayerPrefs.SetFloat("brightness",brightness);PlayerPrefs.SetFloat("sensitivity",sensitivity);PlayerPrefs.Save();modal=settingsReturn;}
             } else if(modal=="help"){
                 GUI.Label(new Rect(160,150,1000,80),"HƯỚNG DẪN SINH TỒN",heading);
-                string controls=TouchControls?"DI CHUYỂN: kéo cần bên trái. NHÌN: vuốt vùng trống bên phải.\nTƯƠNG TÁC: đến gần rồi chạm DÙNG. Giữ CHẠY để chạy; chạm KHOM để cúi.\nKhi có súng: giữ NGẮM / BẮN; chạm NẠP để nạp đạn.":"DI CHUYỂN: W A S D. NHÌN: di chuột. CHẠY: giữ Shift. KHOM: C.\nTƯƠNG TÁC: đến gần rồi nhấn E. TẠM DỪNG: Esc. NHẬT KÝ: J.\nKhi có súng: chuột phải ngắm, chuột trái bắn, R nạp đạn; Q đổi súng.";
+                string controls=TouchControls?"DI CHUYỂN: kéo cần bên trái. NHÌN: vuốt vùng trống bên phải.\nTƯƠNG TÁC: đến gần rồi chạm DÙNG. Giữ CHẠY hoặc giữ cần kéo lên vùng CHẠY; thả để hết chạy nhanh. Chạm KHOM để cúi.\nKhi có súng: chạm NGẮM để bật/tắt; giữ BẮN; chạm NẠP để nạp đạn.":"DI CHUYỂN: W A S D. NHÌN: di chuột. CHẠY: giữ Shift. KHOM: C.\nTƯƠNG TÁC: đến gần rồi nhấn E. TẠM DỪNG: Esc. NHẬT KÝ: J.\nKhi có súng: chuột phải ngắm, chuột trái bắn, R nạp đạn; Q đổi súng.";
                 Label(controls,165,255,950,120,20);
-                Label("MỞ ĐẦU: vào văn phòng cuối cửa hàng bên trái → mở các ngăn tủ sát tường → nhặt USB đỏ → mở máy tính → bấm tệp Order 71 và đọc từng trang. USB là chìa khóa; hồ sơ trong máy tính mới là manh mối.",165,386,950,90,20,accent);
+                Label("MỞ ĐẦU: vào văn phòng cuối cửa hàng bên trái → kiểm tra máy tính bị khóa → mở các ngăn tủ sát tường → nhặt USB đỏ → mở máy tính → bấm tệp Order 71 và đọc từng trang. USB là chìa khóa; hồ sơ trong máy tính mới là manh mối.",165,386,950,90,20,accent);
                 Label("KHI CÓ NGƯỜI TỚI: chạy vào kho phía sau, vòng qua các kệ tới Cửa 006. Bị nhìn thấy sẽ bị truy đuổi; để chúng áp sát là bị bắt chết. Tường và kệ kín giúp cắt tầm nhìn.",165,479,950,90,20);
                 Label("TẦNG NGẦM: lấy vũ khí, đọc máy tính, chống trả rồi rút xuống trung tâm. G ném lựu đạn; N bật kính đêm. Bắn tủ điện để cắt đèn.",165,570,950,48,16,muted);
                 if(Button("ĐÃ HIỂU",165,625,420,true))modal=game.active?"pause":"menu";
@@ -270,7 +305,7 @@ namespace BlackMarket {
             string page=terminalPages[terminalPage];int length=Mathf.Min(page.Length,Mathf.FloorToInt(typedCharacters));
             Label(page.Substring(0,length)+(length<page.Length && (int)(Time.unscaledTime*2)%2==0?"▌":""),110,241,1030,275,23,new Color(.8f,.95f,.86f));
             GUI.enabled=TerminalPageReady;
-            if(Button(terminalPage==terminalPages.Length-1?"ĐÓNG HỒ SƠ / RỜI MÁY TÍNH":"ĐỌC TRANG TIẾP →",110,562,470,true))NextTerminalPage();GUI.enabled=true;
+            if(Button(terminalPage==terminalPages.Length-1?(storyKey=="final-file-v3"?"SAO CHÉP VÀ GỬI BẰNG CHỨNG":"ĐÓNG HỒ SƠ / RỜI MÁY TÍNH"):"ĐỌC TRANG TIẾP →",110,562,470,true))NextTerminalPage();GUI.enabled=true;
             if(game.HasSeenStory(storyKey)){if(Button("BỎ QUA HỒ SƠ ĐÃ ĐỌC",655,562,490))SkipReadStory();}
             else Label(TerminalPageReady?"Bạn có thể đọc tiếp khi sẵn sàng.":typedCharacters<page.Length?"Đang hiển thị nội dung…":$"Có thể tiếp tục sau {Mathf.CeilToInt(readRemaining)} giây.",610,574,530,55,16,accent);
             Panel(new Rect(540,666,200,14),new Color(.2f,.22f,.23f));
@@ -285,17 +320,59 @@ namespace BlackMarket {
             else Label("Mục tiêu phía sau · "+Mathf.CeilToInt(distance)+" m",490,620,340,30,14,accent);
         }
         public void Ending(bool accept){game.active=false;Story(accept?"KẾT THÚC B / NGƯỜI QUẢN LÝ":"KẾT THÚC A / LỆNH 072",(accept?StoryData.AcceptEnding:StoryData.DestroyEnding)+$"\n\n{(int)(game.state.elapsed/60)} phút / {game.state.kills} đối thủ bị hạ",game.Menu);}
+        Texture2D touchDisc,touchRing;
+        readonly Dictionary<string,Texture2D> mobileIcons=new Dictionary<string,Texture2D>();
+        bool MobileIcon(string id,Rect rect,Color tint){
+            if(!mobileIcons.TryGetValue(id,out var icon)){icon=Resources.Load<Texture2D>("UI/Mobile/"+id);mobileIcons[id]=icon;}
+            if(!icon)return false;var old=GUI.color;GUI.color=tint;GUI.DrawTexture(rect,icon,ScaleMode.ScaleToFit,true);GUI.color=old;return true;
+        }
+        void EnsureTouchArt(){
+            if(touchDisc)return;
+            const int size=128;touchDisc=new Texture2D(size,size,TextureFormat.RGBA32,false);touchRing=new Texture2D(size,size,TextureFormat.RGBA32,false);
+            touchDisc.hideFlags=touchRing.hideFlags=HideFlags.HideAndDontSave;
+            for(int y=0;y<size;y++)for(int x=0;x<size;x++){
+                float radius=new Vector2(x-63.5f,y-63.5f).magnitude/62f;
+                float edge=Mathf.Clamp01((1-radius)*62);
+                touchDisc.SetPixel(x,y,new Color(1,1,1,edge));
+                touchRing.SetPixel(x,y,new Color(1,1,1,edge*Mathf.Clamp01((radius-.95f)*62)));
+            }
+            touchDisc.Apply();touchRing.Apply();
+        }
+        void Disc(Rect r,Color fill,Color rim){var old=GUI.color;GUI.color=fill;GUI.DrawTexture(r,touchDisc);GUI.color=rim;GUI.DrawTexture(r,touchRing);GUI.color=old;}
+        void CenterText(string value,Rect r,int size,Color color){var st=new GUIStyle(text){alignment=TextAnchor.MiddleCenter,fontSize=size,wordWrap=false};st.normal.textColor=color;GUI.Label(r,value,st);}
         void TouchHUD(){
-            if(!game.Running)return;
+            if(!game.Running)return;EnsureTouchArt();var p=game.player;
+            var idle=new Color(.035f,.06f,.075f,.42f);var rim=new Color(.85f,.92f,.95f,.5f);
             foreach(var id in TouchIds){
-                if(!TouchVisible(id))continue;var r=TouchRect(id);var p=game.player;
+                if(!TouchVisible(id))continue;var r=TouchRect(id);
                 bool selected=id=="crouch"?p.crouch:id=="run"?p.touchRun:id=="aim"?p.touchAim:id=="fire"?p.touchFire:id=="nightvision"?p.nightVision.Active:false;
-                Panel(r,selected?new Color(.55f,.36f,.15f,.8f):new Color(.03f,.07f,.09f,.55f));
-                if(id=="move"){var center=gestures.ContainsValue("move")?moveOrigin:r.center;Panel(new Rect(center.x-5,center.y-5,10,10),muted);var knob=center+new Vector2(p.touchMove.x,-p.touchMove.y)*70;Panel(new Rect(knob.x-22,knob.y-22,44,44),accent);Label("DI CHUYỂN",r.x+40,r.y+8,170,26,14);continue;}
-                string label=id=="grenade"?"LỰU ĐẠN":id=="fire"?"BẮN":id=="aim"?"NGẮM":id=="interact"?"DÙNG":id=="reload"?"NẠP":id=="crouch"?(p.crouch?"ĐỨNG":"KHOM"):id=="run"?"GIỮ CHẠY":id=="pause"?"Ⅱ":id=="journal"?"NHẬT KÝ":id=="switch"?"ĐỔI SÚNG":id=="nightvision"?"KÍNH ĐÊM":"BẢNG AN NINH";
-                Label(label,r.x+10,r.y+r.height/2-12,r.width-10,30,14,id=="interact"&&!p.target?muted:ivory);
+                if(id=="ak"||id=="sniper"){
+                    bool equipped=id=="ak"?p.UsingAK:p.UsingSniper;
+                    Panel(r,equipped?new Color(.21f,.25f,.26f,.9f):idle);
+                    Panel(new Rect(r.x,r.yMax-3,r.width,3),equipped?accent:rim);
+                    string name=id=="ak"?"AK":"SÚNG NGẮM";
+                    int ammo=id=="ak"?game.state.rifleAmmo:game.state.sniperAmmo;
+                    int reserve=id=="ak"?game.state.rifleReserve:game.state.sniperReserve;
+                    MobileIcon(id,new Rect(r.x+8,r.y+4,58,34),equipped?accent:ivory);CenterText(name,new Rect(r.x+64,r.y+7,r.width-64,24),12,equipped?accent:ivory);
+                    CenterText(equipped&&p.reloadTime>0?"ĐANG NẠP":$"{ammo} / {reserve}",new Rect(r.x,r.y+31,r.width,25),16,ivory);continue;
+                }
+                Disc(r,selected?new Color(.5f,.36f,.17f,.65f):idle,selected?accent:rim);
+                if(id=="move"){
+                    var center=r.center;
+                    for(int mark=0;mark<3;mark++)CenterText("⌃",new Rect(r.center.x-12,r.y-35-mark*12,24,22),22,sprintEnabled?accent:rim);
+                    var knob=center+new Vector2(p.touchMove.x,-p.touchMove.y)*55;
+                    Disc(new Rect(knob.x-33,knob.y-33,66,66),new Color(.83f,.89f,.92f,.5f),rim);continue;
+                }
+                if(id=="pause"){
+                    for(int i=0;i<3;i++)Panel(new Rect(r.x+19,r.y+20+i*10,26,2),ivory);continue;
+                }
+                float iconSize=r.width*(id=="fire"?.52f:.46f);
+                MobileIcon(id,new Rect(r.center.x-iconSize/2,r.y+10,iconSize,iconSize),selected?accent:ivory);
+                string label=id=="fire"?"BẮN":id=="aim"?"NGẮM":id=="grenade"?"LỰU ĐẠN "+game.state.grenades:id=="interact"?"DÙNG":id=="reload"?"NẠP":id=="crouch"?(p.crouch?"ĐỨNG":"KHOM"):id=="run"?"CHẠY":id=="nightvision"?"KÍNH ĐÊM":"AN NINH";
+                CenterText(label,new Rect(r.x,r.yMax-24,r.width,18),10,id=="interact"&&!p.target?muted:ivory);
             }
         }
+        void OnDestroy(){if(touchDisc)Destroy(touchDisc);if(touchRing)Destroy(touchRing);}
         void Tablet(){Panel(new Rect(928,0,352,H),ink);Label("HỆ THỐNG AN NINH / TRỰC TIẾP",950,133,320,45,22,accent);Label("KHÔNG TẠM DỪNG",38,175,350,40,16,accent);
             for(int i=0;i<3;i++)if(Button($"MÁY QUAY 0{i+1} / KHU {(char)('A'+i)}",950,201+i*58,305))game.security.View(i);
             if(Button("BÁO ĐỘNG KHU C",950,396,305))game.security.Alarm();

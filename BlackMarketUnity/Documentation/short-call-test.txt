@@ -1,0 +1,36 @@
+PASS exactly two Marcus lines and no dialogue choices
+PASS bedroom phone cinematic locks movement
+PASS first Marcus line appears
+PASS pause freezes automatic call timing
+PASS second line follows automatically without clicking
+PASS impact and disconnection follow second line
+PASS impact audio actually plays
+PASS three days later story follows disconnection
+PASS continuing news starts preserved motorcycle arrival
+PASS arrival returns control to USB search
+PASS journal retains both short call clues
+PASS completed intro can be skipped on replay
+PASS replay skip still works
+PASS document page fits: NORTH POINT / HỆ THỐNG NỘI BỘ
+PASS document page fits: HỒ SƠ BỊ GIỚI HẠN TRUY CẬP — ĐÃ KHÓA
+PASS document page fits: ORDER #071 — NỘI DUNG ĐÃ GIẢI MÃ
+PASS document page fits: QUY ƯỚC CHE GIẤU HỒ SƠ
+PASS document page fits: TRẠNG THÁI THU HỒI
+PASS document page fits: HỒ SƠ CƠ SỞ
+PASS document page fits: BÁO CÁO VI PHẠM NỘI BỘ
+PASS document page fits: PHÊ DUYỆT XỬ LÝ
+PASS document page fits: BẢN GHI CÁ NHÂN / MARCUS CARTER
+PASS document page fits: BẢN GHI CÁ NHÂN / TIẾP
+PASS document page fits: BẢN GHI CÁ NHÂN / KẾT
+PASS document page fits: GÓI BẰNG CHỨNG ĐÃ SẴN SÀNG
+PASS opening conceals culprit and murder
+PASS locked computer starts USB search
+PASS drawer USB returns player to computer
+PASS USB unlocks desktop
+PASS file precedes convoy
+PASS closing order starts convoy
+PASS convoy assigns escape objective
+PASS final evidence awaits reading and send action
+PASS send confirms evidence and shows warning
+PASS warning returns control for escape
+RESULT 0 failures

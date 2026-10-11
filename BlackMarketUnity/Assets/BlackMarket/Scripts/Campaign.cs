@@ -45,8 +45,8 @@ namespace BlackMarket {
             LoadWorld(0); active=false; ui.modal="menu"; LockCursor(false);
         }
         public void LockCursor(bool locked) {
-            Cursor.lockState=locked && !Application.isMobilePlatform ? CursorLockMode.Locked : CursorLockMode.None;
-            Cursor.visible=!locked || Application.isMobilePlatform;
+            Cursor.lockState=locked && !(ui && ui.TouchControls) ? CursorLockMode.Locked : CursorLockMode.None;
+            Cursor.visible=!locked || (ui && ui.TouchControls);
         }
         public void NewGame() {
             state=new CampaignSave(); flags.Clear(); Save();
@@ -90,7 +90,7 @@ namespace BlackMarket {
             player.Setup();view=player.camera;
             security.Setup();ui.modal="";active=true;LockCursor(true);
 
-            if(stage==0){PrologueSequence.EnsureBike(this);Objective("drawers","Tìm USB đỏ trong các ngăn tủ sát tường tại văn phòng Marcus.");PrologueSequence.AddJournal(this);}
+            if(stage==0){PrologueSequence.EnsureBike(this);Objective("computer","Kiểm tra máy tính trong phòng làm việc của Marcus.");PrologueSequence.AddJournal(this);}
             if(stage>0){underground=level.AddComponent<UndergroundCampaign>();underground.Setup(this);}
         }
 
@@ -115,12 +115,12 @@ namespace BlackMarket {
             sound.Play("beep",.2f);
             if(underground){underground.Interact(p);return;}
             switch(p.id){
-                case "frontdoor":ui.Toast(opening && opening.PursuitStarted?"Lối ra bị chúng chặn. Chạy tới Cửa 006 trong kho!":"Tới văn phòng tìm USB đỏ của Marcus rồi mở máy tính.");break;
-                case "note":ui.Story("MARCUS / GHI CHÚ","Alex, USB đỏ của chú ở trong một ngăn kéo tại văn phòng. Đừng ở lại sau 23 giờ. Và dù chuyện gì xảy ra… đừng mở Cửa 006.",null);break;
-                case "keycard":state.keycard=true;p.consumed=true;p.gameObject.SetActive(false);Objective("computer","Cắm USB đỏ vào máy tính của Marcus, rồi bấm tệp Order 71.");ui.Subtitle("ALEX","USB của chú… Đây là khóa truy cập, không chỉ là một ổ lưu trữ.");break;
-                case "computer":if(!state.keycard){ui.Toast("Máy tính bị khóa. Tìm USB đỏ trong các ngăn tủ sát tường trước.");break;}ui.OpenComputerDesktop();break;
+                case "frontdoor":ui.Toast(opening && opening.PursuitStarted?"Lối ra bị chúng chặn. Chạy tới Cửa 006 trong kho!":"Tới phòng làm việc của Marcus và kiểm tra máy tính.");break;
+                case "note":ui.Story("MARCUS / GHI CHÚ","GHI CHÚ BẢO MẬT: Máy trạm cá nhân yêu cầu USB xác thực. Cất thiết bị trong ngăn kéo khi không sử dụng.",null);break;
+                case "keycard":state.keycard=true;p.consumed=true;p.gameObject.SetActive(false);Objective("computer","Cắm USB đỏ vào máy tính của Marcus, rồi bấm tệp Order 71.");ui.Subtitle("ALEX","Có tên chú trên này. Thử xem.");break;
+                case "computer":if(!state.keycard){Objective("drawers","Tìm USB xác thực trong các ngăn kéo tại văn phòng Marcus.");ui.Story("MÁY TÍNH ĐÃ KHÓA","Vui lòng kết nối USB xác thực của Marcus Carter.",()=>ui.Subtitle("ALEX","USB xác thực… Chú thường cất đồ quan trọng trong các ngăn kéo quanh bàn."),"locked-workstation-v3");break;}ui.OpenComputerDesktop();break;
                 case "face_scan":airlock?.StartScan();break;
-                case "door06":if(!flags.Contains("computer") || !opening || !opening.PursuitStarted){ui.Toast("Đọc hết phần mở của Order 71 trên máy tính trước.");break;}airlock.UnlockOuter();if(state.promisedMarcus)ui.Subtitle("ALEX","Cháu xin lỗi, chú Marcus… cháu không còn đường nào khác.");break;
+                case "door06":if(!flags.Contains("computer") || !opening || !opening.PursuitStarted){ui.Toast("Đọc hết phần mở của Order 71 trên máy tính trước.");break;}airlock.UnlockOuter();ui.Subtitle("ALEX","Cháu xin lỗi, chú Marcus… cháu không còn đường nào khác.");break;
             }
         }
         public void Noise(Vector3 p,float radius) {foreach(var e in enemies)if(e)e.Hear(p,radius);}

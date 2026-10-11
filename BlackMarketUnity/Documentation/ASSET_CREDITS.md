@@ -126,3 +126,20 @@ Giấy phép: https://polyhaven.com/license . FBX, texture 1K, URL nguồn và S
 Giọng `hunt_shout.mp3` hiện đã tắt trong `Soundscape.Play` theo phản hồi về chất lượng. Các câu thoại đang hiển thị bằng chữ; chưa có bộ lồng tiếng diễn xuất mới.
 
 Khu phố mở rộng trong hoạt cảnh kết: 28 nhà, đường/vỉa hè/vạch đường và 14 đèn đường dựng bằng hình học trong dự án (`EndingNeighborhood.cs`). Sáu xe đỗ tái sử dụng BlackSedan đã ghi nguồn ở trên. Không thêm tài sản trả phí.
+
+
+## Mobile HUD icons
+Mobile HUD icons: Lorc, Delapouite, Sbed and Skoll / Game-icons.net. CC BY 3.0. https://creativecommons.org/licenses/by/3.0/
+Source: https://github.com/game-icons/icons
+Changes: removed black background; rasterized to 256px; tinted in game.
+
+run: https://game-icons.net/1x1/lorc/run.html
+crouch: https://game-icons.net/1x1/delapouite/kneeling.html
+fire: https://game-icons.net/1x1/lorc/bullets.html
+aim: https://game-icons.net/1x1/delapouite/crosshair.html
+reload: https://game-icons.net/1x1/delapouite/reload-gun-barrel.html
+grenade: https://game-icons.net/1x1/sbed/grenade.html
+interact: https://game-icons.net/1x1/lorc/hand.html
+nightvision: https://game-icons.net/1x1/delapouite/binoculars.html
+ak: https://game-icons.net/1x1/skoll/ak47.html
+sniper: https://game-icons.net/1x1/skoll/winchester-rifle.html

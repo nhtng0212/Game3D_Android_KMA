@@ -37,7 +37,7 @@ namespace BlackMarket {
             foreach(var child in GetComponentsInChildren<Transform>())child.gameObject.layer=2;
             muzzle=weapon.transform;weaponPose=visual.gameObject.AddComponent<WeaponPose>();weaponPose.weapon=weapon.transform;
             var cam=new GameObject("Over shoulder máy quay");camera=cam.AddComponent<Camera>();cam.AddComponent<AudioListener>();
-            camera.nearClipPlane=.08f;camera.farClipPlane=130;camera.fieldOfView=68;camera.tag="MainMáy quay";
+            camera.nearClipPlane=.08f;camera.farClipPlane=130;camera.fieldOfView=68;camera.tag="MainCamera";
             camera.backgroundColor=new Color(.022f,.032f,.046f);camera.clearFlags=CameraClearFlags.SolidColor;
             camera.gameObject.AddComponent<UnityEngine.Rendering.Universal.UniversalAdditionalCameraData>().renderPostProcessing=true;
             nightVision=camera.gameObject.AddComponent<NightVision>();nightVision.Setup(campaign);
@@ -97,8 +97,9 @@ namespace BlackMarket {
             camera.cullingMask=UsingSniper&&aiming?~(1<<2):~0;
             camera.fieldOfView=Mathf.Lerp(camera.fieldOfView,aiming?(UsingSniper?20:50):68,Time.unscaledDeltaTime*10);
         }
+        public float InteractionRange => campaign.ui.TouchControls?2f:2.6f;
         public void FindTarget() {
-            target=null;float best=2.6f;
+            target=null;float best=InteractionRange;
             foreach(var p in campaign.level.GetComponentsInChildren<Interaction>()) {
                 if(!p.Available)continue;var d=Vector3.Distance(transform.position,p.transform.position);
                 if(d>=best)continue;

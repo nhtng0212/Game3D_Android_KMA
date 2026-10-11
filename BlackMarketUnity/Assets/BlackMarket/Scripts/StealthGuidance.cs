@@ -9,7 +9,7 @@ namespace BlackMarket {
                     case "face_scan":return "Đi qua cửa ngoài, đứng trên dấu chân rồi "+use+" tại máy quét mặt của lớp cửa trong.";
                     case "basement_exit":return "Alex đang tự chạy xuống cầu thang. Chờ tới B1 để tiếp tục điều khiển.";
                     case "keycard":return "Đến sát ngăn kéo đang mở, "+use+" để nhặt USB đỏ.";
-                    case "computer":return "Đến máy tính trên bàn Marcus, "+use+". Bấm tệp Order 71 trên màn hình rồi đọc hết từng trang.";
+                    case "computer":if(!g.state.keycard)return "Đến máy tính trên bàn Marcus, "+use+" để kiểm tra khóa bảo mật.";return "Đến máy tính trên bàn Marcus, "+use+". Bấm tệp Order 71 trên màn hình rồi đọc hết từng trang.";
                     default:return "Vào văn phòng MARCUS cuối cửa hàng bên trái. Đến tủ cá nhân, "+use+" để mở lần lượt các ngăn tủ sát tường tìm USB đỏ.";
                 }
             }

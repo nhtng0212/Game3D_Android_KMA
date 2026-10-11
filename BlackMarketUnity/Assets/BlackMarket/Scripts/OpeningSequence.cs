@@ -21,7 +21,7 @@ namespace BlackMarket {
         IEnumerator Arrival(){
             Playing=true;skip=false;game.player.ResetTouch();game.LockCursor(false);
             var oldPosition=game.view.transform.position;var oldRotation=game.view.transform.rotation;float oldFov=game.view.fieldOfView;
-            Caption="ALEX: Mã ư?";float beat=0;while(beat<2){if(!game.paused)beat+=Time.deltaTime;yield return null;}
+            Caption="ALEX: Tên chú… Người nhận 47 là ai? Sao hồ sơ lại nhắc Cửa 006?";float beat=0;while(beat<5&&!skip){if(!game.paused)beat+=Time.deltaTime;yield return null;}
             for(int i=0;i<3;i++){
                 var car=Instantiate(Resources.Load<GameObject>("Opening/BlackSedan"),transform).transform;
                 car.name="Xe của nhóm truy bắt "+(i+1);car.position=new Vector3(-10+i*9,-.1f,-7);car.rotation=Quaternion.Euler(0,90,0);cars.Add(car);
@@ -47,7 +47,7 @@ namespace BlackMarket {
                     float walk=Mathf.Clamp01((elapsed-5.6f)/8.4f);
                     float doorAngle=elapsed<6?Mathf.SmoothStep(0,72,Mathf.Clamp01((elapsed-4)/.7f)):Mathf.SmoothStep(72,0,Mathf.Clamp01((elapsed-6)/.8f));
                     foreach(var car in cars)foreach(var door in car.GetComponentsInChildren<Transform>())if(door.name=="Cửa xe chuyển động")door.localRotation=Quaternion.Euler(0,doorAngle,0);
-                    Caption=elapsed<11?"KẺ CẦM ĐẦU: Đúng biển số xe của thằng cháu Marcus. Nó vẫn ở trong cửa hàng. Mau vào xử lý hắn!":"NHÓM NGƯỜI MẶC VEST: Lục soát từng phòng. Không để nó thoát!";
+                    Caption=elapsed<11?"KẺ CẦM ĐẦU: Xe của thằng cháu Marcus. Nó đang ở trong. Chặn lối ra, vào tìm nó!":"NHÓM NGƯỜI MẶC VEST: Lục soát từng phòng. Không để nó thoát!";
                     Shot(elapsed<8?new Vector3(0,2.2f,-15):new Vector3(4,2.3f,-4),new Vector3(-1,1.15f,-3+walk*4),elapsed<8?65:62);
                     for(int i=0;i<10;i++){
                         var a=actors[i];a.SetActive(elapsed>4.65f);float x=(-10+(i/4)*9)+(i%2==0?-1:1);
@@ -67,7 +67,7 @@ namespace BlackMarket {
             game.MarkStorySeen("arrival");Playing=false;PursuitStarted=true;game.LockCursor(true);
             for(int i=0;i<10;i++)SpawnPursuer(i);
             game.Objective("door06","Chạy tới kho phía sau! Lách qua các kệ và mở Cửa 006 để xuống hầm.");
-            game.ui.Subtitle("ALEX","Chúng tới tìm mình… Cửa trước bị chặn rồi. Phải xuống hầm!");
+            game.ui.Subtitle("ALEX","Chúng tìm mình sao? Không thể ra cửa chính… Phải tìm Cửa 006 ở cuối kho!");
         }
         void Shot(Vector3 position,Vector3 target,float fov){game.view.transform.SetPositionAndRotation(position,Quaternion.LookRotation(target-position));game.view.fieldOfView=fov;}
         void OpenEntrance(bool open=true){

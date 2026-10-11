@@ -5,44 +5,19 @@ Mở `Assets/BlackMarket/Scenes/NorthPoint.unity`, bấm Play rồi **BẮT Đ�
 ## Luồng hoạt cảnh
 
 1. 02:17, Alex ngồi ở bàn máy tính trong phòng ngủ. Phòng có giường, giá sách, bàn, ghế, cửa sổ và cửa phòng.
-2. Điện thoại reo, Alex đưa điện thoại lên tai. Người chơi chọn lời đáp trong cuộc gọi với Marcus.
-3. Từng lời thoại chạy chữ; sau ký tự cuối cùng **3 giây** các lựa chọn mới sáng. Tạm dừng không làm trôi thời gian đọc.
-4. Cuộc gọi bị ngắt. Tin Marcus qua đời xuất hiện vào sáng hôm sau. Ba ngày sau, Alex tới North Point.
-5. Alex đi xe máy tới, xuống xe và tự đi tới gần cửa chính. Camera cắt vào bên trong cửa hàng, bỏ qua động tác đi qua cửa; sau đó mới trả quyền điều khiển.
-6. Nhiệm vụ cũ tiếp tục: tìm USB đỏ trong ngăn kéo → máy tính → Order 71 → nhóm người mặc vest → Cửa 006 → quét mặt → xuống hầm.
+2. Điện thoại reo, Alex đưa điện thoại lên tai. Marcus chỉ nói hai câu, không có lựa chọn trả lời:
+   - “Alex, nghe chú… đừng tin bất kỳ ai biết đến cái tên North Point.”
+   - “Và dù có chuyện gì xảy ra, cũng đừng mở Cửa 006!”
+3. Mỗi câu chạy chữ với tốc độ 42 ký tự/giây. Sau ký tự cuối cùng 3 giây, hoạt cảnh tự tiếp tục. Tạm dừng sẽ dừng cả thời gian đọc.
+4. Có tiếng va đập rồi cuộc gọi mất liên lạc. Bảng chuyển cảnh giải thích: sáng hôm sau Alex nhận tin Marcus chết trong một vụ tai nạn; ba ngày sau cuộc gọi, Alex tới cửa hàng vì không tin lời giải thích ấy.
+5. Alex đi xe máy tới, xuống xe và tự đi tới gần cửa chính. Camera cắt vào bên trong cửa hàng, sau đó trả quyền điều khiển.
+6. Nhiệm vụ tiếp tục: kiểm tra máy tính bị khóa → tìm USB đỏ → máy tính → Order 71 → nhóm người mặc vest → Cửa 006 → quét mặt → xuống hầm.
 
-## Cây hội thoại dùng cho bài tập
+## Dữ liệu và chơi lại
 
-Dữ liệu: `Assets/BlackMarket/Scripts/PhoneDialogue.cs`. Mỗi node có người nói, nội dung và các lựa chọn gồm câu trả lời, node tiếp theo, tác động. Đây là cây phân nhánh có các điểm hội tụ; không phải chuỗi văn bản tuyến tính.
+Hai câu nằm trong `Assets/BlackMarket/Scripts/PhoneDialogue.cs`; luồng tự chuyển nằm trong `PrologueSequence.LastCall()`. Nhật ký ghi lời cảnh báo về North Point và Cửa 006. Phần này hiện là hội thoại tuyến tính, không còn cây hội thoại cho bài tập.
 
-```mermaid
-flowchart TD
-    start[Marcus gọi Alex] --> danger[Chú đang gặp nguy hiểm sao?]
-    start --> card[Cháu cần làm gì ở cửa hàng?]
-    start --> door[Sao phải tránh Cửa 006?]
-    danger --> police[Để cháu gọi cảnh sát]
-    danger --> hunters[Ai đang truy đuổi chú?]
-    police --> card
-    police --> door
-    hunters --> card
-    hunters --> door
-    card --> computer[USB dùng để mở máy tính / Order 71]
-    card --> door
-    computer --> door
-    door --> promise[Cháu hứa]
-    door --> secret[Chú đang giấu chuyện gì?]
-    promise --> cut[Tiếng động / cuộc gọi bị ngắt]
-    secret --> cut
-    cut --> news[Tin Marcus qua đời / ba ngày sau]
-```
-
-Các lựa chọn có tác động riêng:
-
-- Hỏi về USB: nhật ký ghi cụ thể các ngăn kéo sát tường và tệp Order 71.
-- Hỏi về kẻ truy đuổi: nhật ký ghi cảnh báo về nhóm người mặc vest đen.
-- Hứa tránh Cửa 006: khi dùng USB tại cửa, Alex nói “Cháu xin lỗi, chú Marcus… cháu không còn đường nào khác.”
-
-Dù chọn nhánh nào, nhiệm vụ chính vẫn cung cấp đủ thông tin để hoàn thành màn. Lựa chọn được lưu cùng điểm lưu sau hoạt cảnh. Bắt đầu chiến dịch mới xóa lựa chọn cũ; quyền bỏ qua phần đã xem được lưu riêng. Thoát giữa phần mở đầu rồi tiếp tục sẽ bắt đầu lại cuộc gọi, tránh bỏ qua nội dung lần đầu.
+Hoàn tất phần mở đầu sẽ mở quyền bỏ qua khi chơi lại. Bảng tin ba ngày sau vẫn dùng nút tiếp tục sau khi chữ chạy xong và chờ 3 giây. Hiện có phụ đề và hiệu ứng âm thanh, chưa có lồng tiếng Marcus.
 
 ## Chỉnh sửa trong Unity
 
@@ -56,8 +31,9 @@ Model xe: Duhgless, *Yet Another PSX Style Low Poly Bike*, CC0. Đây là model 
 
 ## Kiểm tra bản hiện tại
 
-- `intro-ui-test.txt`: 45 kiểm tra đạt, 0 lỗi; chạy trong Unity Game View, gồm bấm lựa chọn thật, nhịp đọc 3 giây, khóa điều khiển, tạm dừng, hai tay ở tay lái, hướng xe, lưu lựa chọn, bỏ qua khi chơi lại và nối sang truy đuổi.
-- `controls-test.txt`: kiểm tra hồi quy điều khiển và tư thế đi khom đều đạt; có kiểm tra bước chân luân phiên, chiều cao khi khom, tạm dừng và phục hồi tư thế đứng.
-- Ảnh kiểm tra thực tế: thư mục `Documentation/IntroPreview/`. Chưa xuất APK hoặc đo hiệu năng trên thiết bị Android thật.
+- `short-call-test.txt`: 35 kiểm tra đạt, 0 lỗi, gồm hai câu tự chuyển, khóa điều khiển, tạm dừng, âm thanh va đập, mất liên lạc, chuyển ba ngày, cảnh xe máy, nhiệm vụ USB, nhật ký và bỏ qua khi chơi lại.
+- Chạy Unity với `--short-call-check` qua `BlackMarket.Editor.PlayVerification.Run`. Tham số cũ `--intro-check` cũng chạy bộ kiểm tra này.
+- Các báo cáo `intro-ui-test.txt`, `intro-runtime-test.txt` và ảnh `IntroPreview` cũ thuộc phiên bản có cây hội thoại, không phải bằng chứng cho giao diện hiện tại.
+- Chưa kiểm tra trên thiết bị Android thật cho thay đổi này.
 
-Bản cập nhật ba màn và hướng dẫn chỉnh hai tầng ngầm: [UNDERGROUND_CAMPAIGN_VI.md](UNDERGROUND_CAMPAIGN_VI.md).
+Bản cập nhật ba màn: [UNDERGROUND_CAMPAIGN_VI.md](UNDERGROUND_CAMPAIGN_VI.md).
