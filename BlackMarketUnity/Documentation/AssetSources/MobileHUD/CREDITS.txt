@@ -12,3 +12,4 @@ interact: https://game-icons.net/1x1/lorc/hand.html
 nightvision: https://game-icons.net/1x1/delapouite/binoculars.html
 ak: https://game-icons.net/1x1/skoll/ak47.html
 sniper: https://game-icons.net/1x1/skoll/winchester-rifle.html
+Slow walking icon: Delapouite, https://game-icons.net/1x1/delapouite/walk.html — CC BY 3.0; transparent PNG conversion.

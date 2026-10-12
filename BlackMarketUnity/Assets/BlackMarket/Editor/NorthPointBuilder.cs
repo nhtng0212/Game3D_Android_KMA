@@ -184,7 +184,7 @@ namespace BlackMarket.Editor {
         [MenuItem("BLACK MARKET/3 - Build Linux preview")]
         public static void BuildLinux(){Directory.CreateDirectory("Builds/Linux");PlayerSettings.SetUseDefaultGraphicsAPIs(BuildTarget.StandaloneLinux64,false);PlayerSettings.SetGraphicsAPIs(BuildTarget.StandaloneLinux64,new[]{GraphicsDeviceType.OpenGLCore});var report=BuildPipeline.BuildPlayer(new BuildPlayerOptions{scenes=new[]{"Assets/BlackMarket/Scenes/NorthPoint.unity"},locationPathName="Builds/Linux/BlackMarket.x86_64",target=BuildTarget.StandaloneLinux64,options=BuildOptions.Development});File.WriteAllText("Documentation/build-result.txt",report.summary.result.ToString()+" / "+report.summary.totalErrors+" errors");}
         [MenuItem("BLACK MARKET/4 - Build Android preview")]
-        public static void BuildAndroid(){Directory.CreateDirectory("Builds/Android");var report=BuildPipeline.BuildPlayer(new BuildPlayerOptions{scenes=new[]{"Assets/BlackMarket/Scenes/NorthPoint.unity"},locationPathName="Builds/Android/BlackMarket.apk",target=BuildTarget.Android,options=BuildOptions.Development});Debug.Log("Android: "+report.summary.result);}
+        public static void BuildAndroid(){Directory.CreateDirectory("Builds/Android");var report=BuildPipeline.BuildPlayer(new BuildPlayerOptions{scenes=new[]{"Assets/BlackMarket/Scenes/NorthPoint.unity"},locationPathName="Builds/Android/BlackMarket.apk",target=BuildTarget.Android,options=BuildOptions.None});Debug.Log("Android: "+report.summary.result);}
     }
     [InitializeOnLoad] public static class NorthPointEditorJobs {
         static double next;

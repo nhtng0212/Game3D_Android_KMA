@@ -1,0 +1,18 @@
+PASS demo checkpoint 0
+PASS demo checkpoint 1
+PASS demo checkpoint 2
+PASS demo checkpoint 3
+PASS demo checkpoint 4
+PASS demo checkpoint 5
+PASS demo checkpoint 6
+PASS demo checkpoint 7
+PASS demo checkpoint 8
+PASS demo checkpoint 9
+PASS three concurrent fingers move look fire
+PASS aim remains on after release
+PASS released fingers do not stick
+PASS default movement is running
+PASS slow toggle remains after release
+PASS second slow tap restores running
+PASS crouch keeps its speed
+PASS main menu exits demo save mode

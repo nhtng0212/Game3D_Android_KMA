@@ -21,7 +21,7 @@ namespace BlackMarket {
         Campaign game;Font regular,bold,mono;GUIStyle text,heading,small,button;
         readonly Color ink=new Color(.025f,.036f,.043f,.96f), ivory=new Color(.87f,.87f,.81f),accent=new Color(.77f,.57f,.33f),muted=new Color(.54f,.62f,.64f);
         const float W=1280,H=720;
-        void Awake(){game=GetComponent<Campaign>();regular=Resources.Load<Font>("Fonts/Regular");bold=Resources.Load<Font>("Fonts/Bold");mono=Resources.Load<Font>("Fonts/Mono");assist=PlayerPrefs.GetInt("assist",1)==1;sensitivity=PlayerPrefs.GetFloat("sensitivity",1);volume=PlayerPrefs.GetFloat("volume",.65f);AudioListener.volume=volume;brightness=PlayerPrefs.GetFloat("brightness",.7f);ApplyBrightness();}
+        void Awake(){game=GetComponent<Campaign>();regular=Resources.Load<Font>("Fonts/Regular");bold=Resources.Load<Font>("Fonts/Bold");mono=Resources.Load<Font>("Fonts/Mono");assist=PlayerPrefs.GetInt("assist",1)==1;sensitivity=PlayerPrefs.GetFloat("sensitivity",1.8f);volume=PlayerPrefs.GetFloat("volume",.65f);AudioListener.volume=volume;brightness=PlayerPrefs.GetFloat("brightness",.7f);ApplyBrightness();}
         void ApplyBrightness(){var v=FindFirstObjectByType<UnityEngine.Rendering.Volume>();if(v && v.profile.TryGet<UnityEngine.Rendering.Universal.ColorAdjustments>(out var color))color.postExposure.Override(brightness);}
         public void Story(string caption,string content,Action next,string key=null){key=key??"document:"+caption;game.security.Close();storyKey=key;readRemaining=game.HasSeenStory(key)?0:3;typedCharacters=game.HasSeenStory(key)?content.Length:0;readEnd=false;title=caption;body=content;storyContentHeight=Mathf.Max(330,new GUIStyle{font=regular,fontSize=21,wordWrap=true}.CalcHeight(new GUIContent(content),905));readEnd=storyContentHeight<=350;storyScroll=Vector2.zero;continuation=next;modal="story";game.LockCursor(false);game.player?.ResetTouch();
             if(key=="terminal071-v3" || key=="base-file-v2" || key=="final-file-v3"){
@@ -47,7 +47,7 @@ namespace BlackMarket {
         public void SkipReadStory(){if(modal!="story" || !game.HasSeenStory(storyKey))return;FinishStory();}
         public void ScrollStory(float amount){ScrollPage(amount);}
         public void OpenSettings(){settingsReturn=modal;modal="settings";}
-        public void Back(){if(modal=="settings")modal=settingsReturn;else if(modal=="help")modal=game.active?"pause":"menu";else if(modal=="journal" || modal=="pause" || modal=="computer")game.Resume();}
+        public void Back(){if(modal=="demo")modal=game.active?"pause":"menu";else if(modal=="settings")modal=settingsReturn;else if(modal=="help")modal=game.active?"pause":"menu";else if(modal=="journal" || modal=="pause" || modal=="computer")game.Resume();}
         public void OpenJournal(){game.security.Close();game.player.ResetTouch();journalScroll=Vector2.zero;modal="journal";game.LockCursor(false);}
         public void Toast(string value){toast=value;toastUntil=Time.unscaledTime+Mathf.Max(4,value.Length*.055f);}
         public void Subtitle(string who,string value){speaker=who;subtitle=value;subtitleUntil=Time.unscaledTime+Mathf.Max(6,value.Length*.055f);}
@@ -60,12 +60,12 @@ namespace BlackMarket {
         bool Button(string s,float x,float y,float w=340,bool primary=false){s=ControlText(s);GUI.backgroundColor=primary?accent:new Color(.15f,.21f,.23f);var rect=new Rect(x,y,w,49);GUI.Box(rect,s,button);bool click=ConsumeClick(rect);GUI.backgroundColor=Color.white;if(click)game.sound.Play("beep",.12f);return click;}
         public Rect TouchRect(string id){switch(id){
             case "move":return new Rect(45,465,200,200);
-            case "fire":return new Rect(1111.6f,481.6f,128.8f,128.8f);
-            case "aim":return new Rect(1136,360,80,80);
+            case "fire":return new Rect(1072,449,148.12f,148.12f);
+            case "aim":return new Rect(1130,338,92,92);
             case "interact":return new Rect(526,523,76,76);
             case "reload":return new Rect(1128,620,68,68);
             case "crouch":return new Rect(1024,600,72,72);
-            case "run":return new Rect(109,305,72,72);
+            case "slow":return new Rect(934,600,72,72);
             case "grenade":return new Rect(934,414,72,72);
             case "nightvision":return new Rect(666,527,68,68);
             case "tablet":return new Rect(844,488,68,68);
@@ -73,11 +73,11 @@ namespace BlackMarket {
             case "sniper":return new Rect(639,617,150,66);
             case "pause":return new Rect(1180,24,64,64);
             default:return new Rect();}}
-        static readonly string[] TouchIds={"move","fire","aim","interact","reload","crouch","run","grenade","nightvision","tablet","ak","sniper","pause"};
+        static readonly string[] TouchIds={"move","fire","aim","interact","reload","crouch","slow","grenade","nightvision","tablet","ak","sniper","pause"};
         bool TouchHit(string id,Vector2 point){var r=TouchRect(id);if(id=="ak"||id=="sniper")return r.Contains(point);return (point-r.center).sqrMagnitude<=r.width*r.width*.25f;}
         readonly Dictionary<int,string> gestures=new Dictionary<int,string>();
         Vector2 moveOrigin;
-        bool sprintEnabled,aimEnabled;
+        bool aimEnabled;
         public bool EditorTouchPreview {
             get {
 #if UNITY_EDITOR
@@ -89,7 +89,15 @@ namespace BlackMarket {
         }
         public bool TouchControls => EditorTouchPreview || Application.isMobilePlatform || (Debug.isDebugBuild && Array.IndexOf(Environment.GetCommandLineArgs(),"--touch-test")>=0);
         public static Rect FitCanvas(Rect safe){float scale=Mathf.Min(safe.width/W,safe.height/H);return new Rect(safe.center-new Vector2(W,H)*scale*.5f,new Vector2(W,H)*scale);}
-        Rect CanvasRect => TouchControls?FitCanvas(new Rect(Screen.safeArea.x,Screen.height-Screen.safeArea.yMax,Screen.safeArea.width,Screen.safeArea.height)):FitCanvas(new Rect(0,0,Screen.width,Screen.height));
+        Rect CanvasRect {
+            get {
+                var full=new Rect(0,0,Mathf.Max(1,Screen.width),Mathf.Max(1,Screen.height));
+                var safe=Screen.safeArea;
+                // Some devices have not reported window insets during startup/resume.
+                if(!TouchControls || safe.width<1 || safe.height<1)return FitCanvas(full);
+                return FitCanvas(new Rect(safe.x,Screen.height-safe.yMax,safe.width,safe.height));
+            }
+        }
         Vector2 GuiPoint(Vector2 p){var r=CanvasRect;return new Vector2((p.x-r.x)*W/r.width,(Screen.height-p.y-r.y)*H/r.height);}
         Vector2 GuiDelta(Vector2 delta){var r=CanvasRect;return new Vector2(delta.x*W/r.width,delta.y*H/r.height);}
         Vector2 pointerStart,pointerPosition;bool pointerHeld,pendingClick;string pointerContext;int menuFinger=-1;
@@ -129,9 +137,9 @@ namespace BlackMarket {
         void OnApplicationFocus(bool focus){if(!focus){pointerHeld=pendingClick=false;menuFinger=-1;ResetTouchGestures();}}
         void OnEnable(){EnhancedTouchSupport.Enable();}
         void OnDisable(){EnhancedTouchSupport.Disable();ResetTouchGestures();if(game && game.player)game.player.ResetTouch();}
-        public void ResetTouchGestures(){gestures.Clear();sprintEnabled=aimEnabled=false;}
+        public void ResetTouchGestures(){gestures.Clear();aimEnabled=false;}
         public bool TouchVisible(string id){return !(id=="interact"&&(!game.player || !game.player.target || !game.player.target.Available || Vector3.Distance(game.player.transform.position,game.player.target.transform.position)>game.player.InteractionRange) || (id=="fire"||id=="aim"||id=="reload"||id=="grenade")&&!game.state.armed || id=="tablet"&&!game.state.tablet || id=="ak"&&!game.state.hasAK || id=="sniper"&&!game.state.hasSniper || id=="nightvision"&&!game.state.hasNightVision);}
-        public void BeginTouchFrame(){var p=game.player;if(!p)return;p.touchMove=Vector2.zero;p.touchFire=false;p.touchAim=aimEnabled&&game.state.armed;p.touchRun=false;sprintEnabled=false;}
+        public void BeginTouchFrame(){var p=game.player;if(!p)return;p.touchMove=Vector2.zero;p.touchFire=false;p.touchAim=aimEnabled&&game.state.armed;p.touchRun=false;}
         // A finger owns its initial control until release; returning from an overlay requires a fresh press.
         public void ProcessTouch(int finger,Vector2 pos,Vector2 delta,bool began,bool ended){
             var p=game.player;if(!p || !game.Running || game.security.opened){if(p)p.ResetTouch();return;}
@@ -145,9 +153,9 @@ namespace BlackMarket {
                 switch(role){
                     case "interact":p.Interact();break;
                     case "reload":p.Reload();break;
-                    case "grenade":p.ThrowGrenade();break;case "crouch":sprintEnabled=false;p.ToggleCrouch();break;
-                    case "run":p.crouch=false;aimEnabled=p.touchAim=false;break;
-                    case "aim":aimEnabled=!aimEnabled;if(aimEnabled)sprintEnabled=p.touchRun=false;p.touchAim=aimEnabled&&game.state.armed;break;
+                    case "grenade":p.ThrowGrenade();break;case "crouch":p.ToggleCrouch();break;
+                    case "slow":p.slowWalk=!p.slowWalk;break;
+                    case "aim":aimEnabled=!aimEnabled;p.touchAim=aimEnabled&&game.state.armed;break;
                     case "tablet":game.security.Toggle();break;
                     case "ak":p.SwitchWeapon(1);break;case "sniper":p.SwitchWeapon(2);break;
                     case "nightvision":p.nightVision.Toggle();break;
@@ -159,11 +167,9 @@ namespace BlackMarket {
             if(!gestures.TryGetValue(finger,out var control))return;
             switch(control){
                 case "move":var v=new Vector2(pos.x-moveOrigin.x,moveOrigin.y-pos.y)/70;float length=v.magnitude;p.touchMove=length<.12f?Vector2.zero:v.normalized*Mathf.Clamp01((length-.12f)/.88f);
-                    if(pos.y<TouchRect("run").yMax && v.y>1.5f && Mathf.Abs(v.x)<.9f){sprintEnabled=p.touchRun=true;aimEnabled=p.touchAim=false;p.crouch=false;}
                     break;
-                case "fire":p.touchFire=game.state.armed;p.yaw+=delta.x*.11f*sensitivity;p.pitch=Mathf.Clamp(p.pitch-delta.y*.09f*sensitivity,-30,55);break;
+                case "fire":p.touchFire=game.state.armed;if(!gestures.ContainsValue("look")){p.yaw+=delta.x*.11f*sensitivity;p.pitch=Mathf.Clamp(p.pitch-delta.y*.09f*sensitivity,-30,55);}break;
                 case "aim":p.touchAim=aimEnabled&&game.state.armed;break;
-                case "run":if(TouchHit("run",pos)){sprintEnabled=p.touchRun=true;p.crouch=false;aimEnabled=p.touchAim=false;}break;
                 case "look":p.yaw+=delta.x*.11f*sensitivity;p.pitch=Mathf.Clamp(p.pitch-delta.y*.09f*sensitivity,-30,55);break;
             }
         }
@@ -203,6 +209,7 @@ namespace BlackMarket {
                 GUI.enabled=game.HasSave();if(Button("TIẾP TỤC ĐIỂM LƯU",58,547,420))game.Continue();GUI.enabled=true;
                 if(Button("CÀI ĐẶT",58,609,202))OpenSettings();
                 if(Button("ĐIỀU KHIỂN",276,609,202))modal="help";
+                if(Button("DEMO / CHỌN PHÂN ĐOẠN",58,665,420))modal="demo";
                 Label("CỬA HÀNG NORTH POINT\nĐIỆN TỬ / SỬA CHỮA / TỪ NĂM 1998",865,570,355,70,14,ivory);if(!TouchControls && Button("THOÁT TRÒ CHƠI",1015,644,205))Application.Quit();return;
             }
             if(game.prologue && game.prologue.Playing && modal==""){
@@ -251,7 +258,12 @@ namespace BlackMarket {
             }
             if(modal=="")return;
             Panel(new Rect(0,0,W,H),new Color(.02f,.028f,.035f,.96f));Panel(new Rect(165,90,50,3),accent);
-            if(modal=="journal"){
+            if(modal=="demo"){
+                Label("DEMO / CHỌN PHÂN ĐOẠN",165,110,950,50,30,accent);
+                Label("Điểm lưu demo tách riêng, không ghi đè chiến dịch chính.",165,164,950,35,17,muted);
+                for(int i=0;i<DemoCheckpoints.Labels.Length;i++)if(Button(DemoCheckpoints.Labels[i],165+(i%2)*490,220+(i/2)*68,465))DemoCheckpoints.Jump(game,i);
+                if(Button("QUAY LẠI",165,590,420))Back();
+            }else if(modal=="journal"){
                 Label("NHẬT KÝ / "+StoryData.Locations[game.state.stage],165,110,950,50,30,accent);
                 string entries="MỤC TIÊU HIỆN TẠI\n"+game.objective+"\n"+game.ObjectivePurpose+"\n\nCÁCH TIẾP CẬN\n"+game.ApproachHint+"\n\nĐÃ BIẾT\n";
                 for(int i=0;i<=game.state.stage;i++)entries+=StoryData.Locations[i]+"\n"+StoryData.Briefings[i]+"\n\n";
@@ -270,6 +282,7 @@ namespace BlackMarket {
                 if(Button("CHƠI LẠI ĐIỂM LƯU",165,430,450,modal=="death"))game.Continue();
                 if(modal=="pause" && Button("NHẬT KÝ / NHIỆM VỤ",650,365,450))OpenJournal();
                 if(modal=="pause" && Button("HƯỚNG DẪN",650,430,450))modal="help";
+                if(modal=="pause" && Button("DEMO / CHỌN PHÂN ĐOẠN",650,560,450))modal="demo";
                 if(modal=="pause" && Button("NGUỒN BIỂU TƯỢNG",650,495,450))Story("BIỂU TƯỢNG GIAO DIỆN","Lorc, Delapouite, Sbed và Skoll / Game-icons.net\nhttps://game-icons.net\nGiấy phép CC BY 3.0: https://creativecommons.org/licenses/by/3.0/\nĐã bỏ nền, chuyển sang PNG và chỉnh màu khi hiển thị.",()=>game.Pause(),"mobile-icon-credits");
                 if(Button("CÀI ĐẶT",165,495,450))OpenSettings();
                 if(Button("VỀ MÀN HÌNH CHÍNH",165,560,450))game.Menu();
@@ -281,13 +294,13 @@ namespace BlackMarket {
                 Label("Phơi bày Chợ Đen. Từ bỏ quyền lực.",165,514,450,90,19,muted);Label("Trở thành người quản lý. Giữ cơ sở hoạt động.",650,514,450,90,19,muted);
             } else if(modal=="settings"){
                 GUI.Label(new Rect(160,150,1000,80),"CÀI ĐẶT",heading);Label("Âm lượng",165,270);volume=Slider(new Rect(480,282,540,30),volume,0,1);AudioListener.volume=volume;
-                Label("Độ nhạy góc nhìn",165,350);sensitivity=Slider(new Rect(480,362,540,30),sensitivity,.4f,2);
+                Label($"Tốc độ xoay: {sensitivity:0.0}×",165,350);sensitivity=Slider(new Rect(480,362,540,30),sensitivity,.4f,5);
                 Label("Độ sáng",165,430);brightness=Slider(new Rect(480,442,540,30),brightness,0,1.8f);ApplyBrightness();
                 var assistRect=new Rect(165,510,850,50);GUI.Label(assistRect,(assist?"☑":"□")+"  Hỗ trợ ngắm (không giảm sát thương)",text);if(ConsumeClick(assistRect))assist=!assist;
                 if(Button("LƯU & QUAY LẠI",165,595,420,true)){PlayerPrefs.SetInt("assist",assist?1:0);PlayerPrefs.SetFloat("volume",volume);PlayerPrefs.SetFloat("brightness",brightness);PlayerPrefs.SetFloat("sensitivity",sensitivity);PlayerPrefs.Save();modal=settingsReturn;}
             } else if(modal=="help"){
                 GUI.Label(new Rect(160,150,1000,80),"HƯỚNG DẪN SINH TỒN",heading);
-                string controls=TouchControls?"DI CHUYỂN: kéo cần bên trái. NHÌN: vuốt vùng trống bên phải.\nTƯƠNG TÁC: đến gần rồi chạm DÙNG. Giữ CHẠY hoặc giữ cần kéo lên vùng CHẠY; thả để hết chạy nhanh. Chạm KHOM để cúi.\nKhi có súng: chạm NGẮM để bật/tắt; giữ BẮN; chạm NẠP để nạp đạn.":"DI CHUYỂN: W A S D. NHÌN: di chuột. CHẠY: giữ Shift. KHOM: C.\nTƯƠNG TÁC: đến gần rồi nhấn E. TẠM DỪNG: Esc. NHẬT KÝ: J.\nKhi có súng: chuột phải ngắm, chuột trái bắn, R nạp đạn; Q đổi súng.";
+                string controls=TouchControls?"DI CHUYỂN: kéo cần bên trái. NHÌN: vuốt vùng trống bên phải.\nTƯƠNG TÁC: đến gần rồi chạm DÙNG. Mặc định chạy; chạm ĐI CHẬM để bật/tắt đi chậm. Chạm KHOM để cúi.\nKhi có súng: chạm NGẮM để bật/tắt; giữ BẮN; chạm NẠP để nạp đạn.":"DI CHUYỂN: W A S D. NHÌN: di chuột. MẶC ĐỊNH CHẠY. KHOM: C.\nTƯƠNG TÁC: đến gần rồi nhấn E. TẠM DỪNG: Esc. NHẬT KÝ: J.\nKhi có súng: chuột phải ngắm, chuột trái bắn, R nạp đạn; Q đổi súng.";
                 Label(controls,165,255,950,120,20);
                 Label("MỞ ĐẦU: vào văn phòng cuối cửa hàng bên trái → kiểm tra máy tính bị khóa → mở các ngăn tủ sát tường → nhặt USB đỏ → mở máy tính → bấm tệp Order 71 và đọc từng trang. USB là chìa khóa; hồ sơ trong máy tính mới là manh mối.",165,386,950,90,20,accent);
                 Label("KHI CÓ NGƯỜI TỚI: chạy vào kho phía sau, vòng qua các kệ tới Cửa 006. Bị nhìn thấy sẽ bị truy đuổi; để chúng áp sát là bị bắt chết. Tường và kệ kín giúp cắt tầm nhìn.",165,479,950,90,20);
@@ -345,7 +358,7 @@ namespace BlackMarket {
             var idle=new Color(.035f,.06f,.075f,.42f);var rim=new Color(.85f,.92f,.95f,.5f);
             foreach(var id in TouchIds){
                 if(!TouchVisible(id))continue;var r=TouchRect(id);
-                bool selected=id=="crouch"?p.crouch:id=="run"?p.touchRun:id=="aim"?p.touchAim:id=="fire"?p.touchFire:id=="nightvision"?p.nightVision.Active:false;
+                bool selected=id=="crouch"?p.crouch:id=="slow"?p.slowWalk:id=="aim"?p.touchAim:id=="fire"?p.touchFire:id=="nightvision"?p.nightVision.Active:false;
                 if(id=="ak"||id=="sniper"){
                     bool equipped=id=="ak"?p.UsingAK:p.UsingSniper;
                     Panel(r,equipped?new Color(.21f,.25f,.26f,.9f):idle);
@@ -359,7 +372,6 @@ namespace BlackMarket {
                 Disc(r,selected?new Color(.5f,.36f,.17f,.65f):idle,selected?accent:rim);
                 if(id=="move"){
                     var center=r.center;
-                    for(int mark=0;mark<3;mark++)CenterText("⌃",new Rect(r.center.x-12,r.y-35-mark*12,24,22),22,sprintEnabled?accent:rim);
                     var knob=center+new Vector2(p.touchMove.x,-p.touchMove.y)*55;
                     Disc(new Rect(knob.x-33,knob.y-33,66,66),new Color(.83f,.89f,.92f,.5f),rim);continue;
                 }
@@ -368,7 +380,7 @@ namespace BlackMarket {
                 }
                 float iconSize=r.width*(id=="fire"?.52f:.46f);
                 MobileIcon(id,new Rect(r.center.x-iconSize/2,r.y+10,iconSize,iconSize),selected?accent:ivory);
-                string label=id=="fire"?"BẮN":id=="aim"?"NGẮM":id=="grenade"?"LỰU ĐẠN "+game.state.grenades:id=="interact"?"DÙNG":id=="reload"?"NẠP":id=="crouch"?(p.crouch?"ĐỨNG":"KHOM"):id=="run"?"CHẠY":id=="nightvision"?"KÍNH ĐÊM":"AN NINH";
+                string label=id=="fire"?"BẮN":id=="aim"?"NGẮM":id=="grenade"?"LỰU ĐẠN "+game.state.grenades:id=="interact"?"DÙNG":id=="reload"?"NẠP":id=="crouch"?(p.crouch?"ĐỨNG":"KHOM"):id=="slow"?"ĐI CHẬM":id=="nightvision"?"KÍNH ĐÊM":"AN NINH";
                 CenterText(label,new Rect(r.x,r.yMax-24,r.width,18),10,id=="interact"&&!p.target?muted:ivory);
             }
         }

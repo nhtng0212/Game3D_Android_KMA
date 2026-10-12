@@ -1,0 +1,13 @@
+10-12 00:32:23.521 30772 32107 E Unity   : Render Graph Execution error
+10-12 00:32:23.521 30772 32107 E Unity   : UnityEngine.DebugLogHandler:Internal_Log(LogType, LogOption, String, Object)
+10-12 00:32:23.521 30772 32107 E Unity   : UnityEngine.Rendering.RenderGraphModule.RenderGraph:ResetGraphAndLogException(Exception)
+10-12 00:32:23.521 30772 32107 E Unity   : UnityEngine.Rendering.Universal.UniversalRenderPipeline:RecordAndExecuteRenderGraph(RenderGraph, ScriptableRenderContext, ScriptableRenderer, CommandBuffer, Camera, RenderTextureUVOriginStrategy)
+10-12 00:32:23.521 30772 32107 E Unity   : UnityEngine.Rendering.Universal.UniversalRenderPipeline:RenderSingleCamera(ScriptableRenderContext, UniversalCameraData)
+10-12 00:32:23.521 30772 32107 E Unity   : UnityEngine.Rendering.Universal.UniversalRenderPipeline:RenderCameraStack(ScriptableRenderContext, Camera, Boolean)
+10-12 00:32:23.521 30772 32107 E Unity   : UnityEngine.Rendering.Universal.UniversalRenderPipeline:Render(ScriptableRenderContext, List`1)
+10-12 00:32:23.521 30772 32107 E Unity   : UnityEngine.Rendering.RenderPipelineManager:DoRenderLoop_Internal(RenderPipelineAsset, IntPtr, Object)
+10-12 00:32:23.521 30772 32107 E Unity   : 
+10-12 00:32:23.523 30772 32107 E Unity   : NullReferenceException: Object reference not set to an instance of an object.
+10-12 00:32:23.523 30772 32107 E Unity   :   at UnityEngine.Rendering.Universal.PostProcessPassRenderGraph.RenderPostProcessingRenderGraph (UnityEngine.Rendering.RenderGraphModule.RenderGraph renderGraph, UnityEngine.Rendering.ContextContainer frameData, UnityEngine.Rendering.RenderGraphModule.TextureHandle& activeCameraColorTexture, UnityEngine.Rendering.RenderGraphModule.TextureHandle& lutTexture, UnityEngine.Rendering.RenderGraphModule.TextureHandle& overlayUITexture, UnityEngine.Rendering.RenderGraphModule.TextureHandle& postProcessingTarget, System.Boolean hasFinalPass, System.Boolean resolveToDebugScreen, System.Boolean enableColorEndingIfNeeded) [0x00000] in <00000000000000000000000000000000>:0 
+10-12 00:32:23.523 30772 32107 E Unity   :   at UnityEngine.Rendering.Universal.UniversalRenderer.OnAfterRendering (UnityEngine.Rendering.RenderGraphModule.RenderGraph renderGraph, System.Boolean applyPostProcessing) [0x00000] in <00000000000000000000000000000000>:0 
+10-12 00:32:23.523 30772 32107 E Unity   :   at UnityEngine.Rendering.Universal.UniversalRende

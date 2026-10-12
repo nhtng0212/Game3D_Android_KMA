@@ -1,0 +1,6 @@
+<linker>
+  <!-- URP discovers Volume types through reflection; cameras/volumes are created at runtime. -->
+  <assembly fullname="Unity.RenderPipelines.Universal.Runtime">
+    <type fullname="UnityEngine.Rendering.Universal.*" preserve="all" />
+  </assembly>
+</linker>

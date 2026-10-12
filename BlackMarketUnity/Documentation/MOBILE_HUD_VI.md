@@ -38,3 +38,11 @@ Simulator: giữ chuột trái và kéo vùng trống bên phải để xoay gó
 Cập nhật mới thay cơ chế bật/tắt chạy: nút CHẠY được nâng thêm 50 đơn vị, chỉ chạy nhanh trong lúc giữ nút hoặc giữ joystick kéo lên vùng CHẠY. Thả hoặc kéo ngón ra khỏi vùng chạy sẽ hết chạy nhanh. NGẮM vẫn chạm bật/tắt.
 
 DÙNG và dòng gợi ý cùng kiểm tra mục tiêu hợp lệ, khoảng cách tương tác trên giao diện cảm ứng tối đa 2 m và đường nhìn không bị che. Làm mới mục tiêu trước khi xử lý input để không dùng tham chiếu của khung hình trước. C# đã biên dịch; chưa xác nhận trực tiếp trong phiên Unity/Android.
+
+## Di chuyển mặc định chạy (thay các chế độ chạy phía trên)
+
+Bỏ nút CHẠY và vùng kéo joystick để kích hoạt chạy. Khi đứng bình thường, tốc độ tối đa là 6,5 m/s; nút ĐI CHẬM cạnh KHOM bật/tắt mức 3,2 m/s. Joystick vẫn điều chỉnh theo độ kéo. Khom giữ 2 m/s, ngắm giữ 2,5 m/s. Nút đi chậm có icon walk của Delapouite (CC BY 3.0), sáng khi bật.
+
+Nút BẮN tăng thêm 15% đường kính từ 128,8 lên 148,12 và dịch tâm sang trái khoảng 30 đơn vị. NGẮM tăng từ 80 lên 92. Vùng bấm giữ hình tròn và không chồng nút khác.
+
+18 kiểm tra Unity đạt, gồm chạy mặc định, đi chậm bật/tắt sau khi thả, khom giữ tốc độ và hồi quy các mốc demo/đa chạm.

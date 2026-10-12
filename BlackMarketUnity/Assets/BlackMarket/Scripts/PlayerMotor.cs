@@ -8,11 +8,13 @@ namespace BlackMarket {
         public CharacterController body;
         public Transform visual, muzzle;
         public Interaction target;
+        public bool slowWalk;
         public bool crouch, aiming, touchFire, touchAim, touchRun;
         public Vector2 touchMove;
         public float yaw,pitch=12,reloadTime;
         float vertical,shotTime,stepTime;
         public float MoveSpeed {get;private set;}
+        public float MovementSpeed=>crouch?2:aiming?2.5f:slowWalk?3.2f:6.5f;
         public float RaiseWeaponUntil {get;private set;}
         public bool WeaponRaised => aiming || Time.time<RaiseWeaponUntil;
         Vector3 safePosition;
@@ -36,7 +38,7 @@ namespace BlackMarket {
             weapon.transform.localPosition=new Vector3(.28f,1.15f,.4f);
             foreach(var child in GetComponentsInChildren<Transform>())child.gameObject.layer=2;
             muzzle=weapon.transform;weaponPose=visual.gameObject.AddComponent<WeaponPose>();weaponPose.weapon=weapon.transform;
-            var cam=new GameObject("Over shoulder máy quay");camera=cam.AddComponent<Camera>();cam.AddComponent<AudioListener>();
+            var cam=new GameObject("Over shoulder máy quay");camera=cam.AddComponent<Camera>();cam.AddComponent<AudioListener>();cam.AddComponent<MasterAudioGain>();
             camera.nearClipPlane=.08f;camera.farClipPlane=130;camera.fieldOfView=68;camera.tag="MainCamera";
             camera.backgroundColor=new Color(.022f,.032f,.046f);camera.clearFlags=CameraClearFlags.SolidColor;
             camera.gameObject.AddComponent<UnityEngine.Rendering.Universal.UniversalAdditionalCameraData>().renderPostProcessing=true;
@@ -67,7 +69,7 @@ namespace BlackMarket {
             }
             pitch=Mathf.Clamp(pitch,-30,55);
             aiming=!Throwing && campaign.state.armed && (touchAim || (mouse!=null && Cursor.lockState==CursorLockMode.Locked && mouse.rightButton.isPressed));
-            float speed=crouch?2:aiming?2.5f:touchRun || (keys!=null && keys.leftShiftKey.isPressed)?6.5f:4;
+            float speed=MovementSpeed;
             move=Vector2.ClampMagnitude(move,1);
             var direction=Quaternion.Euler(0,yaw,0)*new Vector3(move.x,0,move.y);
             if(body.isGrounded && vertical<0)vertical=-2;vertical-=22*Time.deltaTime;
@@ -98,10 +100,14 @@ namespace BlackMarket {
             camera.fieldOfView=Mathf.Lerp(camera.fieldOfView,aiming?(UsingSniper?20:50):68,Time.unscaledDeltaTime*10);
         }
         public float InteractionRange => campaign.ui.TouchControls?2f:2.6f;
+        readonly System.Collections.Generic.List<Interaction> interactionCache=new System.Collections.Generic.List<Interaction>();
+        float nextInteractionScan;int targetFrame=-1;
         public void FindTarget() {
+            if(targetFrame==Time.frameCount)return;targetFrame=Time.frameCount;
+            if(Time.unscaledTime>=nextInteractionScan||interactionCache.Count==0){campaign.level.GetComponentsInChildren<Interaction>(false,interactionCache);nextInteractionScan=Time.unscaledTime+.5f;}
             target=null;float best=InteractionRange;
-            foreach(var p in campaign.level.GetComponentsInChildren<Interaction>()) {
-                if(!p.Available)continue;var d=Vector3.Distance(transform.position,p.transform.position);
+            foreach(var p in interactionCache) {
+                if(!p || !p.Available)continue;var d=Vector3.Distance(transform.position,p.transform.position);
                 if(d>=best)continue;
                 var from=transform.position+Vector3.up*1.4f;var to=p.transform.position+Vector3.up*.2f;
                 if(Physics.Linecast(from,to,out var hit,~(1<<2),QueryTriggerInteraction.Ignore) && Vector3.Distance(hit.point,to)>.5f)continue;

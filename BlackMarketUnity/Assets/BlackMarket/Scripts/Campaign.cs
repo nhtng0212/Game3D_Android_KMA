@@ -31,13 +31,14 @@ namespace BlackMarket {
         public bool paused => ui != null && ui.modal != "";
         public bool Running => active && !paused && !(underground && underground.Playing) && !(prologue && prologue.Playing) && !(opening && opening.Playing) && !(airlock && airlock.Scanning) && state.hp > 0;
         public bool IsSelfTest => Debug.isDebugBuild && Array.Exists(Environment.GetCommandLineArgs(),a=>a.EndsWith("-check") || a=="--self-test");
-        public string SavePath => Path.Combine(IsSelfTest?Application.temporaryCachePath:Application.persistentDataPath,IsSelfTest?"north-point-v2-test.json":"north-point-unity-v1.json");
+        public bool demoMode;
+        public string SavePath => Path.Combine(IsSelfTest?Application.temporaryCachePath:Application.persistentDataPath,IsSelfTest?"north-point-v2-test.json":demoMode?"north-point-demo.json":"north-point-unity-v1.json");
         public Transform Marker(string id) {
             foreach(var p in level.GetComponentsInChildren<WorldMarker>()) if(p.id==id) return p.transform;
             return level.transform;
         }
         void Awake() {
-            Instance=this; Application.targetFrameRate=60;
+            Instance=this; Application.targetFrameRate=60;Input.multiTouchEnabled=true;UnityEngine.Rendering.DebugManager.instance.enableRuntimeUI=false;
             sound=gameObject.AddComponent<Soundscape>();
             gameObject.AddComponent<TensionScore>();
             ui=gameObject.AddComponent<GameInterface>();
@@ -49,6 +50,7 @@ namespace BlackMarket {
             Cursor.visible=!locked || (ui && ui.TouchControls);
         }
         public void NewGame() {
+            demoMode=false;
             state=new CampaignSave(); flags.Clear(); Save();
             LoadWorld(0);prologue=gameObject.AddComponent<PrologueSequence>();prologue.Begin(this);
         }
@@ -132,7 +134,7 @@ namespace BlackMarket {
         }
         public void Pause(){if(!active || paused)return;security.Close();ui.modal="pause";player.ResetTouch();LockCursor(false);}
         public void Resume(){player?.ResetTouch();ui.modal="";Time.timeScale=1;LockCursor(!(underground && underground.Playing) && !(prologue && prologue.Playing) && !(opening && opening.Playing) && !(airlock && airlock.Scanning));}
-        public void Menu(){player?.ResetTouch();security.Close();active=false;ui.modal="menu";LockCursor(false);}
+        public void Menu(){demoMode=false;player?.ResetTouch();security.Close();active=false;ui.modal="menu";LockCursor(false);}
         void Update() {
             if(Keyboard.current!=null && Keyboard.current.escapeKey.wasPressedThisFrame) {if(security.opened)security.Close();else if(paused)ui.Back();else if(active)Pause();}
             Time.timeScale=paused?0:1;
